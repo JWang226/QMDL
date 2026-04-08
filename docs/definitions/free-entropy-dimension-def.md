@@ -58,4 +58,4 @@ In the QMDL formula, this translates to the coefficient of $\log n$: the leading
 ## External References
 
 - [Free entropy (Wikipedia)](https://en.wikipedia.org/wiki/Free_entropy)
-- [Voiculescu, "The analogues of entropy and of Fisher's information measure in free probability theory, III" (1996)](https://doi.org/10.1007/BF02214660)
+- [Voiculescu, "The analogues of entropy and of Fisher's information measure in free probability theory, III" (1996)](https://doi.org/10.1007/BF02246772)

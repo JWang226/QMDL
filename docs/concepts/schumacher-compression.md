@@ -84,5 +84,5 @@ The two routes differ not just quantitatively but structurally:
 
 - [Quantum data compression (Wikipedia)](https://en.wikipedia.org/wiki/Schumacher%27s_noiseless_quantum_coding_theorem)
 - [Von Neumann entropy (Wikipedia)](https://en.wikipedia.org/wiki/Von_Neumann_entropy)
-- [Schumacher, "Quantum coding" (1995)](https://arxiv.org/abs/quant-ph/9507015)
+- [Schumacher, "Quantum coding" (1995)](https://doi.org/10.1103/PhysRevA.51.2738)
 - M. A. Nielsen and I. L. Chuang, *Quantum Computation and Quantum Information*, Cambridge University Press (2000)

@@ -85,4 +85,3 @@ This lemma is the bridge between estimation theory and programming theory for [[
 ## External References
 
 - [Quantum metrology (Wikipedia)](https://en.wikipedia.org/wiki/Quantum_metrology)
-- [Giovannetti, Lloyd, and Maccone, "Quantum-enhanced measurements: beating the standard quantum limit" (2004)](https://arxiv.org/abs/quant-ph/0412078)

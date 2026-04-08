@@ -59,4 +59,4 @@ The factor of $1/2$ reflects geometric quantization: Voiculescu's free entropy c
 ## External References
 
 - [Covering number (Wikipedia)](https://en.wikipedia.org/wiki/Covering_number)
-- [Kolmogorov and Tikhomirov, "epsilon-entropy and epsilon-capacity of sets in functional spaces" (1959)](https://doi.org/10.1007/978-94-017-2973-4_7)
+- [Kolmogorov and Tikhomirov, "epsilon-entropy and epsilon-capacity of sets in functional spaces" (1959; English transl. 1961)](https://www.ams.org/books/trans2/017/)

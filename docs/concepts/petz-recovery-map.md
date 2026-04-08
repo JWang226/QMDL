@@ -38,4 +38,3 @@ This is a beautiful structural result: the forward and reverse cloners are Petz 
 - [Petz recovery map (Wikipedia)](https://en.wikipedia.org/wiki/Petz_recovery_map)
 - D. Petz, "Sufficient subalgebras and the relative entropy of states of a von Neumann algebra," *Comm. Math. Phys.* 105, 123--131 (1986)
 - D. Petz, "Sufficiency of channels over von Neumann algebras," *Quart. J. Math. Oxford* 39, 97--108 (1988)
-- [Wilde, "Recoverability in quantum information theory" (2015)](https://arxiv.org/abs/1505.04661)

@@ -31,6 +31,6 @@ Program only the ability to estimate $\mathrm{Tr}[H\rho]$ for any input $\rho$. 
 
 ## External References
 
-- [Yang, Renner, and Chiribella, "Optimal universal programming of unitary gates" (2020)](https://arxiv.org/abs/2001.05299)
+- [Yang, Renner, and Chiribella, "Optimal universal programming of unitary gates" (2020)](https://doi.org/10.1103/PhysRevLett.125.210501)
 - [POVM / Quantum measurement (Wikipedia)](https://en.wikipedia.org/wiki/POVM)
 - M. A. Nielsen and I. L. Chuang, *Quantum Computation and Quantum Information*, Cambridge University Press (2000)

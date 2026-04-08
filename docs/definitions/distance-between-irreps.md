@@ -47,4 +47,4 @@ Here $\nu - \mu = (1, 1, 1)$, which is dominant, so $\omega = (1, 1, 1)$ and $|\
 
 ## External References
 
-- [Fulton and Harris, *Representation Theory: A First Course* (Springer, 1991)](https://doi.org/10.1007/978-1-4612-0979-9)
+- [W. Fulton and J. Harris, *Representation Theory: A First Course* (Springer, 1991)](https://doi.org/10.1007/978-1-4612-0979-9)

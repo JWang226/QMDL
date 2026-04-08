@@ -116,5 +116,5 @@ The condition $\|V\| \ll \Delta$ is satisfied since $\|V\| = O(|\delta|\sqrt{n\|
 
 ## External References
 
-- [Davis and Kahan, "The rotation of eigenvectors by a perturbation. III" (1970)](https://doi.org/10.1007/BF02757689)
+- [Davis and Kahan, "The rotation of eigenvectors by a perturbation. III" (1970)](https://doi.org/10.1137/0707001)
 - [Stewart and Sun, *Matrix Perturbation Theory* (Academic Press, 1990)](https://doi.org/10.1016/C2009-0-22288-3)

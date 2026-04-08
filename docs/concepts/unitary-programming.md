@@ -60,5 +60,5 @@ The $O(1)$ subleading term (analogous to [[definitions/regularized-free-entropy|
 ## External References
 
 - M. A. Nielsen and I. L. Chuang, "Programmable quantum gate arrays," *Phys. Rev. Lett.* 79, 321--324 (1997)
-- [Yang, Renner, and Chiribella, "Optimal universal programming of unitary gates" (2020)](https://arxiv.org/abs/2001.05299)
+- [Yang, Renner, and Chiribella, "Optimal universal programming of unitary gates" (2020)](https://doi.org/10.1103/PhysRevLett.125.210501)
 - [Quantum programming (Wikipedia)](https://en.wikipedia.org/wiki/Quantum_programming)

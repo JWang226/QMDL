@@ -34,5 +34,5 @@ An alternative approach: a **direct combinatorial argument on GT patterns** that
 
 ## External References
 
-- [Werner, "Optimal cloning of pure states" (1998)](https://arxiv.org/abs/quant-ph/9804001)
-- [Davis and Kahan, "The rotation of eigenvectors by a perturbation. III" (1970)](https://doi.org/10.1007/BF02757689)
+- [Werner, "Optimal cloning of pure states" (1998)](https://doi.org/10.1103/PhysRevA.58.1827)
+- [Davis and Kahan, "The rotation of eigenvectors by a perturbation. III" (1970)](https://doi.org/10.1137/0707001)

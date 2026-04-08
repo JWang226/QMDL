@@ -68,5 +68,5 @@ As $p \to 1/2$, the gap closes and $\chi_{\mathrm{reg}} \to -\infty$. As $p \to 
 
 ## External References
 
-- [Hiai and Petz, *The Semicircle Law, Free Random Variables and Entropy* (AMS, 2000)](https://bookstore.ams.org/surv-77)
-- [Voiculescu, "Free entropy" (survey, 2002)](https://arxiv.org/abs/math/0103168)
+- [Hiai and Petz, *The Semicircle Law, Free Random Variables and Entropy* (AMS, 2000)](https://bookstore.ams.org/view?ProductCode=SURV/77)
+- [Voiculescu, "Free entropy" (survey, 2002)](https://doi.org/10.1112/S0024609301008992)

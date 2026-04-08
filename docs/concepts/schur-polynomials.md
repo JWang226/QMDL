@@ -33,6 +33,6 @@ The log Schur polynomial $\log s_\lambda(p)$ governs the probability of each Sch
 ## External References
 
 - [Schur polynomial (Wikipedia)](https://en.wikipedia.org/wiki/Schur_polynomial)
-- I. G. Macdonald, *Symmetric Functions and Hall Polynomials*, 2nd edition, Oxford University Press (1995)
+- [I. G. Macdonald, *Symmetric Functions and Hall Polynomials*, 2nd edition, Oxford University Press (1995)](https://doi.org/10.1017/S0013091500023592)
 - R. P. Stanley, *Enumerative Combinatorics, Volume 2*, Cambridge University Press (1999)
 - W. Fulton, *Young Tableaux*, Cambridge University Press (1997)

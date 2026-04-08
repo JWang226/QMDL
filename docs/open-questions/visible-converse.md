@@ -30,5 +30,5 @@ In the **visible** (programming) setting, the encoder *knows* $\rho$ classically
 
 ## External References
 
-- [Koashi and Imoto, "Compressibility of quantum mixed-state signals" (2001)](https://arxiv.org/abs/quant-ph/0101144)
+- [Koashi and Imoto, "Compressibility of quantum mixed-state signals" (2001)](https://doi.org/10.1103/PhysRevLett.87.017902)
 - [Schur-Weyl duality (Wikipedia)](https://en.wikipedia.org/wiki/Schur%E2%80%93Weyl_duality)

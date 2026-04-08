@@ -84,4 +84,4 @@ using the elementary inequality $(1-y)/(1+y) \geq 1 - 2y$.
 ## External References
 
 - [Schur polynomial (Wikipedia)](https://en.wikipedia.org/wiki/Schur_polynomial)
-- [Macdonald, *Symmetric Functions and Hall Polynomials* (Oxford University Press, 2nd ed., 1995)](https://global.oup.com/academic/product/symmetric-functions-and-hall-polynomials-9780198534891)
+- [Macdonald, *Symmetric Functions and Hall Polynomials* (Oxford University Press, 2nd ed., 1995)](https://doi.org/10.1017/S0013091500023592)

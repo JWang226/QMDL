@@ -63,6 +63,6 @@ This project gives free probability an **operational meaning in physics**:
 ## External References
 
 - [Free probability (Wikipedia)](https://en.wikipedia.org/wiki/Free_probability)
-- [Voiculescu, "Lectures on free probability theory" (1998)](https://arxiv.org/abs/math/9809193)
+- [Voiculescu, "Free entropy" (survey, 2002)](https://doi.org/10.1112/S0024609301008992)
 - A. Nica and R. Speicher, *Lectures on the Combinatorics of Free Probability*, London Mathematical Society Lecture Note Series, Cambridge University Press (2006)
 - D. Voiculescu, K. Dykema, and A. Nica, *Free Random Variables*, CRM Monograph Series, AMS (1992)

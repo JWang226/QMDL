@@ -41,4 +41,4 @@ In all three cases, the leading-order coefficient is $\frac{1}{2}$ times the [[c
 
 ## External References
 
-- [Voiculescu, "Free entropy" (survey, 2002)](https://arxiv.org/abs/math/0103168)
+- [Voiculescu, "Free entropy" (survey, 2002)](https://doi.org/10.1112/S0024609301008992)

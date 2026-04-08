@@ -65,5 +65,5 @@ The generalized cloning map is the key technical ingredient enabling the compres
 
 ## External References
 
-- [Werner, "Optimal cloning of pure states" (1998)](https://arxiv.org/abs/quant-ph/9804001)
+- [Werner, "Optimal cloning of pure states" (1998)](https://doi.org/10.1103/PhysRevA.58.1827)
 - [Quantum cloning (Wikipedia)](https://en.wikipedia.org/wiki/Quantum_cloning)

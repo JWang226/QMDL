@@ -57,4 +57,4 @@ The eigenvalue-dependent part is $2\log(2p-1)$. For $p = 0.7$: this is $2\log(0.
 ## External References
 
 - [Free entropy (Wikipedia)](https://en.wikipedia.org/wiki/Free_entropy)
-- [Voiculescu, "Free entropy" (survey, 2002)](https://arxiv.org/abs/math/0103168)
+- [Voiculescu, "Free entropy" (survey, 2002)](https://doi.org/10.1112/S0024609301008992)

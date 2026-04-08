@@ -100,6 +100,6 @@ The cloning fidelity theorem guarantees this works with error $O(n^{-1/4+\vareps
 
 ## External References
 
-- [Werner, "Optimal cloning of pure states, testing single clones" (1998)](https://arxiv.org/abs/quant-ph/9804001)
-- [Keyl and Werner, "Optimal cloning of pure states, judging single clones" (1999)](https://arxiv.org/abs/quant-ph/9910053)
+- [Werner, "Optimal cloning of pure states, testing single clones" (1998)](https://doi.org/10.1103/PhysRevA.58.1827)
+- [Keyl and Werner, "Optimal cloning of pure states, judging single clones" (1999)](https://doi.org/10.1063/1.532887)
 - [Quantum cloning (Wikipedia)](https://en.wikipedia.org/wiki/Quantum_cloning)

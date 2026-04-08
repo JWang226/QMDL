@@ -103,6 +103,5 @@ In physics, freeness pertains to the independence between observables separated 
 
 - [Free probability (Wikipedia)](https://en.wikipedia.org/wiki/Free_probability)
 - [Free entropy (Wikipedia)](https://en.wikipedia.org/wiki/Free_entropy)
-- [Voiculescu, "Lectures on free probability theory" (1998)](https://arxiv.org/abs/math/9809193)
-- [Voiculescu, "Free entropy" (2001)](https://arxiv.org/abs/math/0103168)
-- F. Hiai and D. Petz, *The Semicircle Law, Free Random Variables and Entropy*, AMS Mathematical Surveys and Monographs, vol. 77 (2000)
+- [Voiculescu, "Free entropy" (survey, 2002)](https://doi.org/10.1112/S0024609301008992)
+- [F. Hiai and D. Petz, *The Semicircle Law, Free Random Variables and Entropy*, AMS Mathematical Surveys and Monographs, vol. 77 (2000)](https://bookstore.ams.org/view?ProductCode=SURV/77)

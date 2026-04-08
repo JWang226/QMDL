@@ -61,4 +61,4 @@ The compression code is the central object of both the [[results/achievability|A
 ## External References
 
 - [Shannon's source coding theorem (Wikipedia)](https://en.wikipedia.org/wiki/Shannon%27s_source_coding_theorem)
-- [Schumacher, "Quantum coding" (1995)](https://arxiv.org/abs/quant-ph/9507015)
+- [Schumacher, "Quantum coding" (1995)](https://doi.org/10.1103/PhysRevA.51.2738)

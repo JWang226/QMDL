@@ -42,5 +42,5 @@ The converse for the visible setting is **open** -- see [[open-questions/visible
 ## External References
 
 - [Quantum state tomography (Wikipedia)](https://en.wikipedia.org/wiki/Quantum_tomography)
-- [Yang, Chiribella, and Hayashi, "Optimal compression for identically prepared qubit states" (2016)](https://arxiv.org/abs/1507.08171)
-- M. Hayashi, *Quantum Information Theory: Mathematical Foundation*, Graduate Texts in Physics, Springer (2017)
+- [Yang, Chiribella, and Hayashi, "Optimal compression for identically prepared qubit states" (2016)](https://doi.org/10.1103/PhysRevLett.117.090502)
+- [M. Hayashi, *Quantum Information Theory: Mathematical Foundation*, Graduate Texts in Physics, Springer (2017)](https://doi.org/10.1007/978-3-319-45241-8)

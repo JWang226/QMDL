@@ -72,5 +72,5 @@ The converse gives $(f/2)\log(1/\varepsilon) - O(1)$, matching the achievability
 
 ## External References
 
-- [Yang, Chiribella, and Hayashi, "Optimal universal programming of unitary gates" (2020)](https://arxiv.org/abs/2001.05299)
+- [Yang, Renner, and Chiribella, "Optimal universal programming of unitary gates" (2020)](https://doi.org/10.1103/PhysRevLett.125.210501)
 - [Holevo's theorem (Wikipedia)](https://en.wikipedia.org/wiki/Holevo%27s_theorem)

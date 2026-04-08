@@ -119,5 +119,5 @@ Since $\lambda^{(n)} \in \mathcal{T}_{p,n}$, we have $\lambda_i^{(n)} = nx_i + O
 
 - [Minimum description length (Wikipedia)](https://en.wikipedia.org/wiki/Minimum_description_length)
 - [Rissanen, "Modeling by shortest data description" (1978)](https://doi.org/10.1016/0005-1098(78)90005-5)
-- [Schumacher, "Quantum coding" (1995)](https://arxiv.org/abs/quant-ph/9507015)
+- [Schumacher, "Quantum coding" (1995)](https://doi.org/10.1103/PhysRevA.51.2738)
 - M. A. Nielsen and I. L. Chuang, *Quantum Computation and Quantum Information*, Cambridge University Press (2000)

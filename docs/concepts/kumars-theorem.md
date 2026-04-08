@@ -50,6 +50,6 @@ For $d \geq 3$, Littlewood-Richardson coefficients can exceed 1 for generic irre
 
 ## External References
 
-- [Kumar, "Proof of the Parthasarathy-Ranga Rao-Varadarajan conjecture," *Inventiones Mathematicae* 93, 117--130 (1988)](https://doi.org/10.1007/BF01388456)
-- K. R. Parthasarathy, R. Ranga Rao, and V. S. Varadarajan, "Representations of complex semi-simple Lie groups and Lie algebras," *Annals of Mathematics* 85(3), 383--429 (1967)
+- [Kumar, "Proof of the Parthasarathy-Ranga Rao-Varadarajan conjecture," *Inventiones Mathematicae* 93, 117--130 (1988)](https://doi.org/10.1007/BF01393689)
+- [K. R. Parthasarathy, R. Ranga Rao, and V. S. Varadarajan, "Representations of complex semi-simple Lie groups and Lie algebras," *Annals of Mathematics* 85(3), 383--429 (1967)](https://doi.org/10.2307/1970351)
 - [PRV conjecture (Wikipedia)](https://en.wikipedia.org/wiki/PRV_conjecture)

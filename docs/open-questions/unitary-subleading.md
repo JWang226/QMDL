@@ -39,4 +39,4 @@ Establishing this rigorously would complete the parallel between state compressi
 
 ## External References
 
-- [Kirillov, *Lectures on the Orbit Method* (AMS, 2004)](https://bookstore.ams.org/gsm-64)
+- [Kirillov, *Lectures on the Orbit Method* (AMS, 2004)](https://bookstore.ams.org/gsm-64/)

@@ -63,6 +63,5 @@ The qudit generalization required:
 
 ## External References
 
-- [Yang, Chiribella, and Hayashi, "Optimal compression for identically prepared qubit states" (2016)](https://arxiv.org/abs/1507.08171)
-- [Chiribella, "Optimal estimation of group transformations using entanglement" (2011)](https://arxiv.org/abs/1010.4656)
+- [Yang, Chiribella, and Hayashi, "Optimal compression for identically prepared qubit states" (2016)](https://doi.org/10.1103/PhysRevLett.117.090502)
 - [Quantum state tomography (Wikipedia)](https://en.wikipedia.org/wiki/Quantum_tomography)

@@ -160,5 +160,5 @@ Finally, the [[concepts/koashi-imoto|Koashi-Imoto Structure Theorem]] for blind 
 
 ## External References
 
-- [Davis and Kahan, "The rotation of eigenvectors by a perturbation. III" (1970)](https://doi.org/10.1007/BF02757689)
-- [Koashi and Imoto, "Compressibility of quantum mixed-state signals" (2001)](https://arxiv.org/abs/quant-ph/0101144)
+- [Davis and Kahan, "The rotation of eigenvectors by a perturbation. III" (1970)](https://doi.org/10.1137/0707001)
+- [Koashi and Imoto, "Compressibility of quantum mixed-state signals" (2001)](https://doi.org/10.1103/PhysRevLett.87.017902)

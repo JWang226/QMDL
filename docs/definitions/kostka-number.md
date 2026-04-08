@@ -82,4 +82,4 @@ This is the "combinatorial definition" of Schur polynomials. The normalization o
 
 - [Kostka number (Wikipedia)](https://en.wikipedia.org/wiki/Kostka_number)
 - [Stanley, *Enumerative Combinatorics*, Vol. 2 (Cambridge University Press, 1999)](https://doi.org/10.1017/CBO9780511609589)
-- [Macdonald, *Symmetric Functions and Hall Polynomials* (Oxford University Press, 2nd ed., 1995)](https://global.oup.com/academic/product/symmetric-functions-and-hall-polynomials-9780198534891)
+- [Macdonald, *Symmetric Functions and Hall Polynomials* (Oxford University Press, 2nd ed., 1995)](https://doi.org/10.1017/S0013091500023592)

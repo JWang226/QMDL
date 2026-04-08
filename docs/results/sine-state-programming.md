@@ -77,4 +77,4 @@ This matches the physical [[concepts/free-entropy|Free Entropy]] of the unitary 
 ## External References
 
 - [Quantum phase estimation algorithm (Wikipedia)](https://en.wikipedia.org/wiki/Quantum_phase_estimation_algorithm)
-- [Buzek, Derka, and Massar, "Optimal quantum clocks" (1999)](https://arxiv.org/abs/quant-ph/9808042)
+- [Buzek, Derka, and Massar, "Optimal quantum clocks" (1999)](https://doi.org/10.1103/PhysRevLett.82.2207)

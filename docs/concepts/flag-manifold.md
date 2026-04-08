@@ -74,5 +74,5 @@ where $\delta(\rho) = 1 - \sum_a g_a^2/d^2$ is the free entropy dimension from V
 
 - [Flag manifold (Wikipedia)](https://en.wikipedia.org/wiki/Flag_manifold)
 - [Generalized flag variety (Wikipedia)](https://en.wikipedia.org/wiki/Generalized_flag_variety)
-- W. Fulton and J. Harris, *Representation Theory: A First Course*, Graduate Texts in Mathematics, Springer (1991)
+- [W. Fulton and J. Harris, *Representation Theory: A First Course*, Graduate Texts in Mathematics, Springer (1991)](https://doi.org/10.1007/978-1-4612-0979-9)
 - [Grassmannian (Wikipedia)](https://en.wikipedia.org/wiki/Grassmannian)

@@ -51,6 +51,6 @@ The Koashi-Imoto theorem converts an algebraic fact (the orbit generates the ful
 
 ## External References
 
-- [Koashi and Imoto, "Operations that do not disturb partially known quantum states" (2002)](https://arxiv.org/abs/quant-ph/0101144)
-- M. Hayashi, *Quantum Information Theory: Mathematical Foundation*, Graduate Texts in Physics, Springer (2017)
+- [Koashi and Imoto, "Operations that do not disturb partially known quantum states" (2002)](https://doi.org/10.1103/PhysRevA.66.022318)
+- [M. Hayashi, *Quantum Information Theory: Mathematical Foundation*, Graduate Texts in Physics, Springer (2017)](https://doi.org/10.1007/978-3-319-45241-8)
 - [No-cloning theorem (Wikipedia)](https://en.wikipedia.org/wiki/No-cloning_theorem)

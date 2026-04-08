@@ -82,5 +82,5 @@ Taking logarithms, the multiplicative error $(1 + O(\Delta_n/\sqrt{n}))$ becomes
 ## External References
 
 - [Weyl character formula (Wikipedia)](https://en.wikipedia.org/wiki/Weyl_character_formula)
-- W. Fulton and J. Harris, *Representation Theory: A First Course*, Graduate Texts in Mathematics, Springer (1991)
+- [W. Fulton and J. Harris, *Representation Theory: A First Course*, Graduate Texts in Mathematics, Springer (1991)](https://doi.org/10.1007/978-1-4612-0979-9)
 - J. E. Humphreys, *Introduction to Lie Algebras and Representation Theory*, Graduate Texts in Mathematics, Springer (1972)
