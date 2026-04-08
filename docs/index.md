@@ -172,6 +172,8 @@
 
 ## Open Questions
 
+- [[open-questions/cloning-optimality|Open: Optimality of the Generalized Cloning Map]] — is the PRV channel the fidelity maximizer among all covariant channels?
+- [[open-questions/degenerate-spectrum|Open: QMDL for Degenerate Spectrum]] — extend the main result to density matrices with repeated eigenvalues
 - [[open-questions/error-scaling|Open: Error Scaling]] — optimal error exponent for qudit compression
 - [[open-questions/unitary-subleading|Open: Subleading Term for Unitary Programming]] — $O(1)$ term via Kirillov formula?
 - [[open-questions/observable-expectation-converse|Open: Observable Expectation Converse]] — no-programming theorem?

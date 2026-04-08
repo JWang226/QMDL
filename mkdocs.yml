@@ -131,6 +131,8 @@ nav:
       - Spectral Meas. Converse: results/spectral-measurement-converse.md
       - Observable Expectation: results/observable-expectation-achievability.md
   - Open Questions:
+      - Cloning Optimality: open-questions/cloning-optimality.md
+      - Degenerate Spectrum: open-questions/degenerate-spectrum.md
       - Error Scaling: open-questions/error-scaling.md
       - Free Entropy Conjecture: open-questions/free-entropy-conjecture.md
       - Observable Expectation Converse: open-questions/observable-expectation-converse.md
