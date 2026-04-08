@@ -33,3 +33,8 @@ The key interplay: the distance $\|\omega\| \sim \sqrt{n}\log n$ must be $\ll g_
 
 - [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]]
 - [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]]
+
+## External References
+
+- [Big O notation (Wikipedia)](https://en.wikipedia.org/wiki/Big_O_notation)
+- [Asymptotic analysis (Wikipedia)](https://en.wikipedia.org/wiki/Asymptotic_analysis)

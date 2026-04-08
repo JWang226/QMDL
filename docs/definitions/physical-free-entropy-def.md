@@ -55,3 +55,8 @@ The factor of $1/2$ reflects geometric quantization: Voiculescu's free entropy c
 
 - [[concepts/physical-free-entropy|Physical Free Entropy]] (concept page)
 - [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]]
+
+## External References
+
+- [Covering number (Wikipedia)](https://en.wikipedia.org/wiki/Covering_number)
+- [Kolmogorov and Tikhomirov, "epsilon-entropy and epsilon-capacity of sets in functional spaces" (1959)](https://doi.org/10.1007/978-94-017-2973-4_7)

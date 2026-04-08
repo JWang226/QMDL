@@ -36,3 +36,9 @@ The Schur transform is **Step 1** of both the encoding and decoding protocols in
 - [[concepts/schur-weyl-duality|Schur-Weyl Duality]]
 - [[results/achievability|Achievability (State Compression)]]
 - [[concepts/young-diagrams|Young Diagrams and Partitions]]
+
+## External References
+
+- [Schur-Weyl duality (Wikipedia)](https://en.wikipedia.org/wiki/Schur%E2%80%93Weyl_duality)
+- [Bacon, Chuang, and Harrow, "Efficient quantum circuits for Schur and Clebsch-Gordan transforms" (2006)](https://arxiv.org/abs/quant-ph/0601001)
+- A. W. Harrow, "Applications of coherent classical communication and the Schur transform to quantum information theory," PhD thesis, MIT (2005)

@@ -113,3 +113,9 @@ Summing over weight offsets $\delta$ up to a cutoff $T = O(n^\varepsilon)$ and u
 - [[concepts/generalized-cloning-map|Generalized Cloning Map]] -- the channel whose fidelity is being bounded
 - [[concepts/gelfand-tsetlin-basis|Gelfand-Tsetlin Basis]] -- provides the weight space structure
 - [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]] -- the formal statement
+
+## External References
+
+- [Casimir element (Wikipedia)](https://en.wikipedia.org/wiki/Casimir_element)
+- J. E. Humphreys, *Introduction to Lie Algebras and Representation Theory*, Graduate Texts in Mathematics, Springer (1972)
+- B. C. Hall, *Lie Groups, Lie Algebras, and Representations*, Graduate Texts in Mathematics, Springer (2015)

@@ -97,3 +97,8 @@ Since the compressed state lives entirely in $\mathcal{H}_{\Lambda^*}$, the quan
 ## Used By
 
 - [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]] -- this is the encoding half of the main result
+
+## External References
+
+- [Yang, Chiribella, and Hayashi, "Optimal compression for identically prepared qubit states" (2016)](https://arxiv.org/abs/1507.08171)
+- [Schumacher, "Quantum coding" (1995)](https://arxiv.org/abs/quant-ph/9507015)

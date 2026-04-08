@@ -29,3 +29,10 @@ The log Schur polynomial $\log s_\lambda(p)$ governs the probability of each Sch
 - [[concepts/schur-weyl-duality|Schur-Weyl Duality]] -- where Schur polynomials appear
 - [[results/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]] -- weight multiplicities
 - [[results/probability-ratio|Probability Ratio (Lemma 9)]] -- ratio of Schur polynomials
+
+## External References
+
+- [Schur polynomial (Wikipedia)](https://en.wikipedia.org/wiki/Schur_polynomial)
+- I. G. Macdonald, *Symmetric Functions and Hall Polynomials*, 2nd edition, Oxford University Press (1995)
+- R. P. Stanley, *Enumerative Combinatorics, Volume 2*, Cambridge University Press (1999)
+- W. Fulton, *Young Tableaux*, Cambridge University Press (1997)

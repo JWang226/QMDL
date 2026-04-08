@@ -31,3 +31,8 @@ An alternative approach: a **direct combinatorial argument on GT patterns** that
 
 - [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]]
 - [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]]
+
+## External References
+
+- [Werner, "Optimal cloning of pure states" (1998)](https://arxiv.org/abs/quant-ph/9804001)
+- [Davis and Kahan, "The rotation of eigenvectors by a perturbation. III" (1970)](https://doi.org/10.1007/BF02757689)

@@ -90,3 +90,9 @@ This is well-defined despite the Vandermonde in the denominator, because the num
 - [[concepts/schur-polynomials|Schur Polynomials]] -- ratio of generalized to ordinary Vandermonde
 - [[concepts/weyl-dimension-formula|Weyl Dimension Formula]] -- numerator is a generalized Vandermonde
 - [[concepts/free-entropy-dimension|Free Entropy Dimension]] -- the degenerate-spectrum Vandermonde splitting determines $\delta$
+
+## External References
+
+- [Vandermonde matrix (Wikipedia)](https://en.wikipedia.org/wiki/Vandermonde_matrix)
+- [Vandermonde's identity / determinant (Wikipedia)](https://en.wikipedia.org/wiki/Vandermonde%27s_identity)
+- M. L. Mehta, *Random Matrices*, 3rd edition, Academic Press (2004)

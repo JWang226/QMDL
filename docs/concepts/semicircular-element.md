@@ -41,3 +41,10 @@ This replaces classical independence (factorization of joint moments) with a sub
 - [[concepts/free-entropy|Free Entropy]]
 - [[concepts/free-entropy-dimension|Free Entropy Dimension]]
 - [[concepts/free-probability-theory|Free Probability Theory]]
+
+## External References
+
+- [Wigner semicircle distribution (Wikipedia)](https://en.wikipedia.org/wiki/Wigner_semicircle_distribution)
+- [Free independence (Wikipedia)](https://en.wikipedia.org/wiki/Free_independence)
+- D. Voiculescu, K. Dykema, and A. Nica, *Free Random Variables*, CRM Monograph Series, AMS (1992)
+- A. Nica and R. Speicher, *Lectures on the Combinatorics of Free Probability*, Cambridge University Press (2006)

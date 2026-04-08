@@ -36,3 +36,7 @@ Establishing this rigorously would complete the parallel between state compressi
 - [[concepts/unitary-programming|Unitary Programming]]
 - [[definitions/regularized-free-entropy|Regularized Free Entropy]]
 - [[concepts/free-entropy|Free Entropy]]
+
+## External References
+
+- [Kirillov, *Lectures on the Orbit Method* (AMS, 2004)](https://bookstore.ams.org/gsm-64)

@@ -157,3 +157,8 @@ $$|M_n| \geq \log \dim \mathcal{H}_\lambda + o(1)$$
 Finally, the [[concepts/koashi-imoto|Koashi-Imoto Structure Theorem]] for blind compression of mixed-state ensembles says the asymptotically necessary quantum memory equals $\log \dim$ of the nonredundant quantum factor determined by the $C^*$-algebra of the ensemble. Since that algebra is the full $\mathcal{B}(\mathcal{H}_\lambda)$, the entire irrep space is nonredundant, giving $|M_n| \geq \log \dim \mathcal{H}_\lambda + o(1)$.
 
 **Role:** The key ingredient in [[results/converse|Converse (State Compression)]] -- once we identify a typical sector with vanishing error, this proposition gives the per-sector memory lower bound.
+
+## External References
+
+- [Davis and Kahan, "The rotation of eigenvectors by a perturbation. III" (1970)](https://doi.org/10.1007/BF02757689)
+- [Koashi and Imoto, "Compressibility of quantum mixed-state signals" (2001)](https://arxiv.org/abs/quant-ph/0101144)

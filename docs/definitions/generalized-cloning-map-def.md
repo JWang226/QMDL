@@ -62,3 +62,8 @@ The generalized cloning map is the key technical ingredient enabling the compres
 - [[concepts/generalized-cloning-map|Generalized Cloning Map]] (concept page)
 - [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]]
 - [[results/achievability|Achievability (State Compression)]]
+
+## External References
+
+- [Werner, "Optimal cloning of pure states" (1998)](https://arxiv.org/abs/quant-ph/9804001)
+- [Quantum cloning (Wikipedia)](https://en.wikipedia.org/wiki/Quantum_cloning)

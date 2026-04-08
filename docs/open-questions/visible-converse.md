@@ -27,3 +27,8 @@ In the **visible** (programming) setting, the encoder *knows* $\rho$ classically
 
 - [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]]
 - [[results/converse|Converse (State Compression)]]
+
+## External References
+
+- [Koashi and Imoto, "Compressibility of quantum mixed-state signals" (2001)](https://arxiv.org/abs/quant-ph/0101144)
+- [Schur-Weyl duality (Wikipedia)](https://en.wikipedia.org/wiki/Schur%E2%80%93Weyl_duality)

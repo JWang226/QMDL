@@ -47,3 +47,10 @@ The authors conjecture (see [[open-questions/unitary-subleading|Open: Subleading
 - [[concepts/physical-free-entropy|Physical Free Entropy]]
 - [[concepts/flag-manifold|Flag Manifold]]
 - [[open-questions/unitary-subleading|Open: Subleading Term for Unitary Programming]]
+
+## External References
+
+- [Kirillov orbit method (Wikipedia)](https://en.wikipedia.org/wiki/Orbit_method)
+- [Coadjoint representation / Coadjoint orbit (Wikipedia)](https://en.wikipedia.org/wiki/Coadjoint_representation)
+- A. A. Kirillov, *Lectures on the Orbit Method*, Graduate Studies in Mathematics, AMS (2004)
+- [Geometric quantization (Wikipedia)](https://en.wikipedia.org/wiki/Geometric_quantization)

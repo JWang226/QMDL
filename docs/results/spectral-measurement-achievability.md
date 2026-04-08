@@ -58,3 +58,7 @@ This matches $\chi_{\mathrm{phy}}(H; \varepsilon)$ at leading order, where the l
 - [[concepts/observable-programming|Observable Programming]] -- spectral measurement programming is one formulation
 - [[results/observable-expectation-achievability|Observable Expectation Programming (Achievability)]] -- as an upper bound (the harder task subsumes the easier one)
 - [[results/spectral-measurement-converse|Spectral Measurement Programming (Converse)]] -- matched at leading order
+
+## External References
+
+- [Flag manifold (Wikipedia)](https://en.wikipedia.org/wiki/Generalized_flag_variety)

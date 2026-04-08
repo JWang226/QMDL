@@ -59,3 +59,10 @@ This project gives free probability an **operational meaning in physics**:
 - [[concepts/free-entropy|Free Entropy]]
 - [[concepts/semicircular-element|Semicircular Element and Free Independence]]
 - [[concepts/vandermonde-determinant|Vandermonde Determinant]] -- the eigenvalue repulsion factor
+
+## External References
+
+- [Free probability (Wikipedia)](https://en.wikipedia.org/wiki/Free_probability)
+- [Voiculescu, "Lectures on free probability theory" (1998)](https://arxiv.org/abs/math/9809193)
+- A. Nica and R. Speicher, *Lectures on the Combinatorics of Free Probability*, London Mathematical Society Lecture Note Series, Cambridge University Press (2006)
+- D. Voiculescu, K. Dykema, and A. Nica, *Free Random Variables*, CRM Monograph Series, AMS (1992)

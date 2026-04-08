@@ -43,3 +43,7 @@ $$g_\lambda = \lambda_1 - \lambda_2$$
 - [[results/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]]
 - [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]]
 - [[results/probability-ratio|Probability Ratio (Lemma 9)]]
+
+## External References
+
+- [Weyl character formula (Wikipedia)](https://en.wikipedia.org/wiki/Weyl_character_formula)

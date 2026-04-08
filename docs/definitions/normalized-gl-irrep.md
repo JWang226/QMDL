@@ -45,3 +45,8 @@ The normalized irrep state $\rho_\lambda$ is the object that the compression sch
 - [[concepts/generalized-cloning-map|Generalized Cloning Map]]
 - [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]]
 - [[results/achievability|Achievability (State Compression)]]
+
+## External References
+
+- [Goodman and Wallach, *Symmetry, Representations, and Invariants* (Springer, 2009)](https://doi.org/10.1007/978-0-387-79852-3)
+- [Irreducible representation (Wikipedia)](https://en.wikipedia.org/wiki/Irreducible_representation)

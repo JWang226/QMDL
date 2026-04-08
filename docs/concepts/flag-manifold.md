@@ -69,3 +69,10 @@ where $\delta(\rho) = 1 - \sum_a g_a^2/d^2$ is the free entropy dimension from V
 - [[concepts/observable-programming|Observable Programming]] -- programming rate governed by flag manifold dimension
 - [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]] -- compression rate governed by $\frac{1}{2}\dim \mathrm{Fl} \cdot \log n$
 - [[concepts/weyl-dimension-formula|Weyl Dimension Formula]] -- the leading $\log n$ coefficient is $\frac{1}{2}\dim \mathrm{Fl}$
+
+## External References
+
+- [Flag manifold (Wikipedia)](https://en.wikipedia.org/wiki/Flag_manifold)
+- [Generalized flag variety (Wikipedia)](https://en.wikipedia.org/wiki/Generalized_flag_variety)
+- W. Fulton and J. Harris, *Representation Theory: A First Course*, Graduate Texts in Mathematics, Springer (1991)
+- [Grassmannian (Wikipedia)](https://en.wikipedia.org/wiki/Grassmannian)

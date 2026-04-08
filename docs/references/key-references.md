@@ -11,7 +11,7 @@ Summary of the most important cited works and their relevance to the project.
 - **voiculescu1996analogues** (III): Applied to prove absence of Cartan subalgebras in free group factors. Major application to operator algebras.
 - **voiculescu1998analogues** (V): Non-commutative Hilbert transforms and free entropy.
 - **voiculescu1999analogues** (VI): Liberation and mutual free information.
-- **voiculescu2002free**: Survey article on free entropy.
+- **voiculescu2002free**: Survey article on free entropy. [arXiv:math/0103168](https://arxiv.org/abs/math/0103168)
 
 **Relevance:** The mathematical foundation. This project gives Voiculescu's free entropy its first operational/physical interpretation.
 
@@ -29,7 +29,7 @@ Summary of the most important cited works and their relevance to the project.
 
 ## Yang-Chiribella-Hayashi (YCH) Series (2016-2018)
 
-- **yang2016optimal**: Optimal compression for identically prepared qubit states (the qubit precursor to this project)
+- **yang2016optimal**: Optimal compression for identically prepared qubit states (the qubit precursor to this project) [arXiv:1507.08171](https://arxiv.org/abs/1507.08171)
 - **yang2016efficient**: Efficient compression for mixed state ensembles
 - **yang2018compression**: Compression for quantum population coding (qudits, leading order)
 - **yang2018compressionfor**: Compression for qubit clocks
@@ -40,7 +40,7 @@ Summary of the most important cited works and their relevance to the project.
 
 ## Werner and Keyl-Werner (1998-2001)
 
-- **werner1998optimal**: Optimal cloning of pure states (Werner's cloning map)
+- **werner1998optimal**: Optimal cloning of pure states (Werner's cloning map) [arXiv:quant-ph/9804001](https://arxiv.org/abs/quant-ph/9804001)
 - **keyl1999optimal**: Optimal cloning, testing single clones
 - **keyl2001rate**: Rate of optimal purification procedures
 - **keyl2001estimating**: Estimating spectrum of density operator
@@ -51,7 +51,7 @@ Summary of the most important cited works and their relevance to the project.
 
 ## Koashi-Imoto (2001-2002)
 
-- **koashi2001compressibility**: Compressibility of quantum mixed-state signals
+- **koashi2001compressibility**: Compressibility of quantum mixed-state signals [arXiv:quant-ph/0101144](https://arxiv.org/abs/quant-ph/0101144)
 - **koashi2001possible**: Operations that do not disturb partially known quantum states
 
 **Relevance:** The [[concepts/koashi-imoto|Koashi-Imoto Structure Theorem]] is the key tool in the [[results/converse|Converse (State Compression)]].
@@ -61,7 +61,7 @@ Summary of the most important cited works and their relevance to the project.
 ## Representation Theory
 
 - **parthasarathy1967**: PRV theorem (representations of complex semi-simple Lie groups)
-- **kumar1988proof**: Proof of the PRV conjecture (multiplicity one)
+- **kumar1988proof**: Proof of the PRV conjecture (multiplicity one) [doi:10.1007/BF01388487](https://doi.org/10.1007/BF01388487)
 - **gelfand1950finite**: Gelfand-Tsetlin basis
 - **fulton1991representation**: Standard reference for representation theory
 - **macdonald1995symmetric**: Symmetric functions and Hall polynomials (Schur polynomials, Kostka numbers)
@@ -72,7 +72,7 @@ Summary of the most important cited works and their relevance to the project.
 
 ## Davis-Kahan (1970)
 
-- **davis1970rotation**: The rotation of eigenvectors by a perturbation
+- **davis1970rotation**: The rotation of eigenvectors by a perturbation [doi:10.1007/BF02757689](https://doi.org/10.1007/BF02757689)
 
 **Relevance:** The [[results/remaining-lemmas|Davis-Kahan Theorem (Lemma 6)]] is the workhorse of the [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]].
 
@@ -80,7 +80,7 @@ Summary of the most important cited works and their relevance to the project.
 
 ## Quantum Information Foundations
 
-- **schumacher1995quantum**: Quantum coding (Schumacher compression -- the von Neumann entropy analogue)
+- **schumacher1995quantum**: Quantum coding (Schumacher compression -- the von Neumann entropy analogue) [arXiv:quant-ph/9507015](https://arxiv.org/abs/quant-ph/9507015)
 - **jozsa1998universal**: Universal quantum information compression
 - **hayashi2002simple**, **hayashi2002quantum**, **hayashi2010universal**: Quantum variable-length source coding
 
@@ -90,7 +90,7 @@ Summary of the most important cited works and their relevance to the project.
 
 ## Quantum Kolmogorov Complexity
 
-- **rissanen1978modeling**: Classical MDL principle
+- **rissanen1978modeling**: Classical MDL principle [doi:10.1016/0005-1098(78)90005-5](https://doi.org/10.1016/0005-1098(78)90005-5)
 - **Berthiaume_2001**: Quantum Kolmogorov complexity
 - **G_cs_2001**: Quantum algorithmic entropy
 - **mueller2007**: Quantum Kolmogorov complexity and quantum Turing machines

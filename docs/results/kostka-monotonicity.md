@@ -73,3 +73,8 @@ This lemma is essential for the [[results/perturbation-lemma|Perturbation Lemma 
 - [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]] -- equality of weight space dimensions
 - [[results/probability-ratio|Probability Ratio (Lemma 9)]] -- upper bound $Z(x) \leq 1$
 - [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]] -- via the above two lemmas
+
+## External References
+
+- [Kostka number (Wikipedia)](https://en.wikipedia.org/wiki/Kostka_number)
+- [Macdonald, *Symmetric Functions and Hall Polynomials* (Oxford University Press, 2nd ed., 1995)](https://global.oup.com/academic/product/symmetric-functions-and-hall-polynomials-9780198534891)

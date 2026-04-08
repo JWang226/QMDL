@@ -89,3 +89,9 @@ This decomposition is the starting point for everything:
 - [[concepts/young-diagrams|Young Diagrams]] -- the labels $\lambda$
 - [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]] -- the compression task
 - [[concepts/generalized-cloning-map|Generalized Cloning Map]] -- maps between different sectors
+
+## External References
+
+- [Schur-Weyl duality (Wikipedia)](https://en.wikipedia.org/wiki/Schur%E2%80%93Weyl_duality)
+- R. Goodman and N. R. Wallach, *Symmetry, Representations, and Invariants*, Graduate Texts in Mathematics, Springer (2009)
+- W. Fulton and J. Harris, *Representation Theory: A First Course*, Graduate Texts in Mathematics, Springer (1991)

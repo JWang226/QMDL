@@ -28,3 +28,8 @@ For expectation values, this reduction **breaks down** for the following reason:
 - [[concepts/observable-programming|Observable Programming]]
 - [[concepts/unitary-programming|Unitary Programming]]
 - [[concepts/free-entropy-dimension|Free Entropy Dimension]]
+
+## External References
+
+- [Yang, Chiribella, and Hayashi, "Optimal universal programming of unitary gates" (2020)](https://arxiv.org/abs/2001.05299)
+- [Holevo's theorem (Wikipedia)](https://en.wikipedia.org/wiki/Holevo%27s_theorem)

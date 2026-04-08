@@ -44,3 +44,7 @@ Here $\nu - \mu = (1, 1, 1)$, which is dominant, so $\omega = (1, 1, 1)$ and $|\
 
 - [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]] -- error bound is $O(d(\mu,\nu)/n^{1-\varepsilon})$
 - [[results/remaining-lemmas|Dimension Ratio (Lemma 10)]]
+
+## External References
+
+- [Fulton and Harris, *Representation Theory: A First Course* (Springer, 1991)](https://doi.org/10.1007/978-1-4612-0979-9)

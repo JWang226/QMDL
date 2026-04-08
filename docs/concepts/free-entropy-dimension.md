@@ -96,3 +96,9 @@ This equals the real dimension of the flag manifold $\mathrm{U}(d) / (\mathrm{U}
 - [[concepts/free-entropy|Free Entropy]] -- parent concept
 - [[definitions/regularized-free-entropy|Regularized Free Entropy]] -- the subleading $O(1)$ term
 - [[concepts/vandermonde-determinant|Vandermonde Determinant]] -- the Jacobian whose structure determines $\delta$
+
+## External References
+
+- [Free entropy (Wikipedia)](https://en.wikipedia.org/wiki/Free_entropy)
+- [Voiculescu, "The analogues of entropy and of Fisher's information measure in free probability theory, II" (1994)](https://doi.org/10.1007/BF01291831)
+- F. Hiai and D. Petz, *The Semicircle Law, Free Random Variables and Entropy*, AMS Mathematical Surveys and Monographs, vol. 77 (2000)

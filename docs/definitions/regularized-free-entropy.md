@@ -65,3 +65,8 @@ As $p \to 1/2$, the gap closes and $\chi_{\mathrm{reg}} \to -\infty$. As $p \to 
 - [[concepts/free-entropy-dimension|Free Entropy Dimension]]
 - [[results/achievability|Achievability (State Compression)]]
 - [[results/converse|Converse (State Compression)]]
+
+## External References
+
+- [Hiai and Petz, *The Semicircle Law, Free Random Variables and Entropy* (AMS, 2000)](https://bookstore.ams.org/surv-77)
+- [Voiculescu, "Free entropy" (survey, 2002)](https://arxiv.org/abs/math/0103168)

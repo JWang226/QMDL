@@ -48,3 +48,9 @@ The Koashi-Imoto theorem converts an algebraic fact (the orbit generates the ful
 - [[concepts/holevo-information|Holevo Information]] -- provides a complementary converse argument via accessible information
 - [[concepts/schur-weyl-duality|Schur-Weyl Duality]] -- provides the sector decomposition in which Koashi-Imoto is applied
 - [[Bicommutant Theorem]] -- the algebraic tool that closes the argument
+
+## External References
+
+- [Koashi and Imoto, "Operations that do not disturb partially known quantum states" (2002)](https://arxiv.org/abs/quant-ph/0101144)
+- M. Hayashi, *Quantum Information Theory: Mathematical Foundation*, Graduate Texts in Physics, Springer (2017)
+- [No-cloning theorem (Wikipedia)](https://en.wikipedia.org/wiki/No-cloning_theorem)

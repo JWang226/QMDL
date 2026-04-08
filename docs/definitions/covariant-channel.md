@@ -44,3 +44,8 @@ Covariance is the design principle behind the [[definitions/generalized-cloning-
 
 - [[concepts/generalized-cloning-map|Generalized Cloning Map]]
 - [[results/remaining-lemmas|Commutativity (Prop 3)]]
+
+## External References
+
+- [Covariant quantum channel (Wikipedia)](https://en.wikipedia.org/wiki/Covariant_quantum_channel)
+- [Holevo, *Probabilistic and Statistical Aspects of Quantum Theory* (Springer, 2011)](https://doi.org/10.1007/978-88-7642-378-9)

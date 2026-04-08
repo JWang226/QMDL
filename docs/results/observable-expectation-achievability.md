@@ -76,3 +76,7 @@ The converse for observable expectation programming is **open**. It is unclear w
 ## Used By
 
 - [[concepts/observable-programming|Observable Programming]] -- this is one of two formulations of observable programming
+
+## External References
+
+- [Swap test (Wikipedia)](https://en.wikipedia.org/wiki/Swap_test)

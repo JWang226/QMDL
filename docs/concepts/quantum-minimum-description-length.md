@@ -114,3 +114,10 @@ Since $\lambda^{(n)} \in \mathcal{T}_{p,n}$, we have $\lambda_i^{(n)} = nx_i + O
 - [[concepts/flag-manifold|Flag Manifold]] -- the geometric space whose dimension appears
 - [[concepts/koashi-imoto|Koashi-Imoto Structure]] -- used in the converse proof
 - [[concepts/schumacher-compression|Schumacher Compression]] -- the contrasting task that preserves purifications
+
+## External References
+
+- [Minimum description length (Wikipedia)](https://en.wikipedia.org/wiki/Minimum_description_length)
+- [Rissanen, "Modeling by shortest data description" (1978)](https://doi.org/10.1016/0005-1098(78)90005-5)
+- [Schumacher, "Quantum coding" (1995)](https://arxiv.org/abs/quant-ph/9507015)
+- M. A. Nielsen and I. L. Chuang, *Quantum Computation and Quantum Information*, Cambridge University Press (2000)

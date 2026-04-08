@@ -53,3 +53,8 @@ The eigenvalue-dependent part is $2\log(2p-1)$. For $p = 0.7$: this is $2\log(0.
 - [[concepts/free-entropy|Free Entropy]] (concept page)
 - [[concepts/physical-free-entropy|Physical Free Entropy]]
 - [[definitions/regularized-free-entropy|Regularized Free Entropy]]
+
+## External References
+
+- [Free entropy (Wikipedia)](https://en.wikipedia.org/wiki/Free_entropy)
+- [Voiculescu, "Free entropy" (survey, 2002)](https://arxiv.org/abs/math/0103168)

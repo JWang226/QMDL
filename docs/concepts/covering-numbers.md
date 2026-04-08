@@ -39,3 +39,9 @@ The physical free entropy extends this framework to the **non-commutative settin
 
 - [[concepts/physical-free-entropy|Physical Free Entropy]]
 - [[definitions/physical-free-entropy-def|Physical Free Entropy (Formal Definition)]]
+
+## External References
+
+- [Covering number (Wikipedia)](https://en.wikipedia.org/wiki/Covering_number)
+- A. N. Kolmogorov and V. M. Tikhomirov, "$\varepsilon$-entropy and $\varepsilon$-capacity of sets in functional spaces," *Uspekhi Mat. Nauk* 14(2), 3--86 (1959); English transl. in *AMS Translations* Ser. 2, 17, 277--364 (1961)
+- [Metric entropy (Wikipedia)](https://en.wikipedia.org/wiki/Metric_entropy)

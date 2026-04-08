@@ -77,3 +77,9 @@ This is the "combinatorial definition" of Schur polynomials. The normalization o
 - [[results/tail-mass|Tail Mass (Lemma 8)]]
 - [[results/probability-ratio|Probability Ratio (Lemma 9)]]
 - [[definitions/normalized-gl-irrep|Normalized GL Irrep State]]
+
+## External References
+
+- [Kostka number (Wikipedia)](https://en.wikipedia.org/wiki/Kostka_number)
+- [Stanley, *Enumerative Combinatorics*, Vol. 2 (Cambridge University Press, 1999)](https://doi.org/10.1017/CBO9780511609589)
+- [Macdonald, *Symmetric Functions and Hall Polynomials* (Oxford University Press, 2nd ed., 1995)](https://global.oup.com/academic/product/symmetric-functions-and-hall-polynomials-9780198534891)

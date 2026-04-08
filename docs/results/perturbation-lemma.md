@@ -113,3 +113,8 @@ The condition $\|V\| \ll \Delta$ is satisfied since $\|V\| = O(|\delta|\sqrt{n\|
 ## Used By
 
 - [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]] -- Step 4 of the proof (quantum part of the fidelity)
+
+## External References
+
+- [Davis and Kahan, "The rotation of eigenvectors by a perturbation. III" (1970)](https://doi.org/10.1007/BF02757689)
+- [Stewart and Sun, *Matrix Perturbation Theory* (Academic Press, 1990)](https://doi.org/10.1016/C2009-0-22288-3)

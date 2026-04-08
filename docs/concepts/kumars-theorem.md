@@ -47,3 +47,9 @@ For $d \geq 3$, Littlewood-Richardson coefficients can exceed 1 for generic irre
 - [[concepts/generalized-cloning-map|Generalized Cloning Map]] -- uses multiplicity one to define the unique covariant channel
 - [[concepts/schur-weyl-duality|Schur-Weyl Duality]] -- provides the representation-theoretic framework
 - [[concepts/weyl-dimension-formula|Weyl Dimension Formula]] -- computes $\dim V_\omega$ for the PRV component
+
+## External References
+
+- [Kumar, "Proof of the Parthasarathy-Ranga Rao-Varadarajan conjecture," *Inventiones Mathematicae* 93, 117--130 (1988)](https://doi.org/10.1007/BF01388456)
+- K. R. Parthasarathy, R. Ranga Rao, and V. S. Varadarajan, "Representations of complex semi-simple Lie groups and Lie algebras," *Annals of Mathematics* 85(3), 383--429 (1967)
+- [PRV conjecture (Wikipedia)](https://en.wikipedia.org/wiki/PRV_conjecture)

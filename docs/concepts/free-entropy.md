@@ -98,3 +98,11 @@ In physics, freeness pertains to the independence between observables separated 
 - [[concepts/vandermonde-determinant|Vandermonde Determinant]] -- appears as $|\Delta(p)|^2$ in the volume integral
 - [[concepts/free-probability-theory|Free Probability Theory]] -- the broader mathematical framework
 - [[concepts/schumacher-compression|Schumacher Compression]] -- the von Neumann entropy analogue
+
+## External References
+
+- [Free probability (Wikipedia)](https://en.wikipedia.org/wiki/Free_probability)
+- [Free entropy (Wikipedia)](https://en.wikipedia.org/wiki/Free_entropy)
+- [Voiculescu, "Lectures on free probability theory" (1998)](https://arxiv.org/abs/math/9809193)
+- [Voiculescu, "Free entropy" (2001)](https://arxiv.org/abs/math/0103168)
+- F. Hiai and D. Petz, *The Semicircle Law, Free Random Variables and Entropy*, AMS Mathematical Surveys and Monographs, vol. 77 (2000)

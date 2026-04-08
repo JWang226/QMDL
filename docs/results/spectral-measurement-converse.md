@@ -66,3 +66,7 @@ $$\log D \geq \frac{f}{2}\log(1/\varepsilon) - O(1) = \frac{d^2 \cdot \delta(H)}
 
 - [[concepts/observable-programming|Observable Programming]] -- combined with the achievability, this pins down the spectral measurement programming cost at leading order
 - [[results/spectral-measurement-achievability|Spectral Measurement Programming (Achievability)]] -- matched at leading order, confirming optimality
+
+## External References
+
+- [Yang, Chiribella, and Hayashi, "Optimal universal programming of unitary gates" (2020)](https://arxiv.org/abs/2001.05299)

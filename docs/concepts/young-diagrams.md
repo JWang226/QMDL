@@ -76,3 +76,10 @@ The [[definitions/typical-set|Typical Set]] $T_{p,n}$ captures this concentratio
 - [[concepts/weyl-dimension-formula|Weyl Dimension Formula]]
 - [[definitions/edge-gap|Edge Gap]]
 - [[concepts/gelfand-tsetlin-basis|Gelfand-Tsetlin Basis]]
+
+## External References
+
+- [Young diagram (Wikipedia)](https://en.wikipedia.org/wiki/Young_diagram)
+- [Young tableau (Wikipedia)](https://en.wikipedia.org/wiki/Young_tableau)
+- W. Fulton, *Young Tableaux: With Applications to Representation Theory and Geometry*, London Mathematical Society Student Texts, Cambridge University Press (1997)
+- R. P. Stanley, *Enumerative Combinatorics, Volume 2*, Cambridge Studies in Advanced Mathematics, Cambridge University Press (1999)

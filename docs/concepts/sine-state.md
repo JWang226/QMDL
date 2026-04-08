@@ -44,3 +44,10 @@ The resulting programming error is $\varepsilon \sim f\pi^2/(2D^2) \cdot \|d^2U_
 
 - [[concepts/unitary-programming|Unitary Programming]]
 - [[results/estimation-programming-lemma|Estimation-Programming Lemma]]
+
+## External References
+
+- [Quantum phase estimation (Wikipedia)](https://en.wikipedia.org/wiki/Quantum_phase_estimation_algorithm)
+- V. Buzek, R. Derka, and S. Massar, "Optimal quantum clocks," *Phys. Rev. Lett.* 82, 2207--2210 (1999)
+- [Heisenberg limit (Wikipedia)](https://en.wikipedia.org/wiki/Heisenberg_limit)
+- [Quantum metrology (Wikipedia)](https://en.wikipedia.org/wiki/Quantum_metrology)

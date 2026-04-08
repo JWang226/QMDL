@@ -81,3 +81,8 @@ This lemma is the bridge between estimation theory and programming theory for [[
 - [[results/sine-state-programming|Sine-State Programming Proposition]] -- plugging in the sine state MSE
 - [[concepts/unitary-programming|Unitary Programming]] -- the achievability half
 - [[results/spectral-measurement-achievability|Spectral Measurement Programming (Achievability)]] -- via the sine-state chain
+
+## External References
+
+- [Quantum metrology (Wikipedia)](https://en.wikipedia.org/wiki/Quantum_metrology)
+- [Giovannetti, Lloyd, and Maccone, "Quantum-enhanced measurements: beating the standard quantum limit" (2004)](https://arxiv.org/abs/quant-ph/0412078)

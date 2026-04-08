@@ -54,3 +54,9 @@ The Kostant partition function provides the **upper bound** on weight multiplici
 - [[results/tail-mass|Tail Mass (Lemma 8)]]
 - [[definitions/kostka-number|Kostka Number]]
 - [[results/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]]
+
+## External References
+
+- [Kostant partition function (Wikipedia)](https://en.wikipedia.org/wiki/Kostant_partition_function)
+- J. E. Humphreys, *Introduction to Lie Algebras and Representation Theory*, Graduate Texts in Mathematics, Springer (1972)
+- B. Kostant, "A formula for the multiplicity of a weight," *Trans. Amer. Math. Soc.* 93, 53--73 (1959)

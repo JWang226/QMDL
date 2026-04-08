@@ -61,3 +61,8 @@ The typical set plays a dual role:
 
 - [[results/achievability|Achievability (State Compression)]]
 - [[results/converse|Converse (State Compression)]]
+
+## External References
+
+- [Typical set (Wikipedia)](https://en.wikipedia.org/wiki/Typical_set)
+- [Cover and Thomas, *Elements of Information Theory* (Wiley, 2nd ed., 2006)](https://doi.org/10.1002/047174882X)

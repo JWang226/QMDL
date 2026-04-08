@@ -64,3 +64,10 @@ For $d = 2$, $\mu = (n, 0)$, $\nu = (m, 0)$ with $m > n$:
 - [[concepts/kumars-theorem|Kumar's Theorem]] -- proves multiplicity one for all PRV components
 - [[concepts/kostant-partition-function|Kostant Partition Function]] -- related to weight multiplicities in the decomposition
 - [[concepts/young-diagrams|Young Diagrams]] -- the combinatorial objects labeling irreps
+
+## External References
+
+- K. R. Parthasarathy, R. Ranga Rao, and V. S. Varadarajan, "Representations of complex semi-simple Lie groups and Lie algebras," *Annals of Mathematics* 85(3), 383--429 (1967)
+- [Kumar, "Proof of the Parthasarathy-Ranga Rao-Varadarajan conjecture" (1988)](https://doi.org/10.1007/BF01388456)
+- [Tensor product decomposition (Wikipedia)](https://en.wikipedia.org/wiki/Tensor_product_of_representations)
+- [Littlewood-Richardson rule (Wikipedia)](https://en.wikipedia.org/wiki/Littlewood%E2%80%93Richardson_rule)

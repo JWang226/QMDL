@@ -60,3 +60,9 @@ The qudit generalization required:
 - [[concepts/werners-cloning-map|Werner's Cloning Map]]
 - [[concepts/generalized-cloning-map|Generalized Cloning Map]]
 - [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]]
+
+## External References
+
+- [Yang, Chiribella, and Hayashi, "Optimal compression for identically prepared qubit states" (2016)](https://arxiv.org/abs/1507.08171)
+- [Chiribella, "Optimal estimation of group transformations using entanglement" (2011)](https://arxiv.org/abs/1010.4656)
+- [Quantum state tomography (Wikipedia)](https://en.wikipedia.org/wiki/Quantum_tomography)

@@ -56,3 +56,9 @@ The $O(1)$ subleading term (analogous to [[definitions/regularized-free-entropy|
 - [[concepts/sine-state|Sine State]] -- the key ingredient in the achievability proof
 - [[results/estimation-programming-lemma|Estimation-Programming Lemma]] -- converts estimation error to programming error
 - [[open-questions/unitary-subleading|Open: Subleading Term for Unitary Programming]] -- the $O(1)$ term is open
+
+## External References
+
+- M. A. Nielsen and I. L. Chuang, "Programmable quantum gate arrays," *Phys. Rev. Lett.* 79, 321--324 (1997)
+- [Yang, Renner, and Chiribella, "Optimal universal programming of unitary gates" (2020)](https://arxiv.org/abs/2001.05299)
+- [Quantum programming (Wikipedia)](https://en.wikipedia.org/wiki/Quantum_programming)

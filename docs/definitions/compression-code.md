@@ -57,3 +57,8 @@ The compression code is the central object of both the [[results/achievability|A
 - [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]]
 - [[results/achievability|Achievability (State Compression)]]
 - [[results/converse|Converse (State Compression)]]
+
+## External References
+
+- [Shannon's source coding theorem (Wikipedia)](https://en.wikipedia.org/wiki/Shannon%27s_source_coding_theorem)
+- [Schumacher, "Quantum coding" (1995)](https://arxiv.org/abs/quant-ph/9507015)

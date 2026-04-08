@@ -28,3 +28,9 @@ Program only the ability to estimate $\mathrm{Tr}[H\rho]$ for any input $\rho$. 
 - [[concepts/unitary-programming|Unitary Programming]] -- the unitary analogue
 - [[concepts/free-entropy-dimension|Free Entropy Dimension]] -- governs the leading rate
 - [[open-questions/observable-expectation-converse|Open: Observable Expectation Converse]]
+
+## External References
+
+- [Yang, Renner, and Chiribella, "Optimal universal programming of unitary gates" (2020)](https://arxiv.org/abs/2001.05299)
+- [POVM / Quantum measurement (Wikipedia)](https://en.wikipedia.org/wiki/POVM)
+- M. A. Nielsen and I. L. Chuang, *Quantum Computation and Quantum Information*, Cambridge University Press (2000)

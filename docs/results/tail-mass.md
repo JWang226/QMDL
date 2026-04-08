@@ -88,3 +88,7 @@ $$\varepsilon_\mu(T) = O(T^\kappa \mathfrak{p}^T)$$
 ## Used By
 
 - [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]] -- Step 6 (tail truncation at depth $T = O(n^\varepsilon)$)
+
+## External References
+
+- [Kostant partition function (Wikipedia)](https://en.wikipedia.org/wiki/Kostant_partition_function)

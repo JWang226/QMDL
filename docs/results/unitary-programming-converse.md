@@ -69,3 +69,8 @@ The converse gives $(f/2)\log(1/\varepsilon) - O(1)$, matching the achievability
 
 - [[concepts/unitary-programming|Unitary Programming]] -- this is the converse half
 - [[results/spectral-measurement-converse|Spectral Measurement Programming (Converse)]] -- reduces to this via the flag manifold
+
+## External References
+
+- [Yang, Chiribella, and Hayashi, "Optimal universal programming of unitary gates" (2020)](https://arxiv.org/abs/2001.05299)
+- [Holevo's theorem (Wikipedia)](https://en.wikipedia.org/wiki/Holevo%27s_theorem)

@@ -52,3 +52,10 @@ The GT basis is crucial for the [[results/cloning-fidelity|Cloning Fidelity (The
 - [[results/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]] -- uses GT pattern injection
 - [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]] -- perturbs GT basis
 - [[concepts/schur-weyl-duality|Schur-Weyl Duality]] -- the decomposition where these bases live
+
+## External References
+
+- [Gelfand-Tsetlin basis (Wikipedia)](https://en.wikipedia.org/wiki/Gelfand%E2%80%93Tsetlin_basis)
+- I. M. Gelfand and M. L. Tsetlin, "Finite-dimensional representations of the group of unimodular matrices," *Doklady Akad. Nauk SSSR* 71, 825--828 (1950)
+- [Molev, "Gelfand-Tsetlin bases for classical Lie algebras" (2006)](https://arxiv.org/abs/math/0211289)
+- A. I. Molev, *Yangians and Classical Lie Algebras*, AMS Mathematical Surveys and Monographs (2007)

@@ -39,3 +39,10 @@ The Yang-Chiribella-Hayashi (YCH) qubit compression scheme uses Werner's cloning
 
 - [[concepts/generalized-cloning-map|Generalized Cloning Map]] -- the qudit generalization
 - [[concepts/ych-scheme|YCH Scheme]] -- uses Werner's cloner for qubit compression
+
+## External References
+
+- [Quantum cloning (Wikipedia)](https://en.wikipedia.org/wiki/Quantum_cloning)
+- [Werner, "Optimal cloning of pure states, testing single clones" (1998)](https://arxiv.org/abs/quant-ph/9804001)
+- [Scarani, Iblisdir, Gisin, and Acin, "Quantum cloning" (2005)](https://arxiv.org/abs/quant-ph/0511088)
+- [Keyl and Werner, "Optimal cloning of pure states, judging single clones" (1999)](https://arxiv.org/abs/quant-ph/9910053)

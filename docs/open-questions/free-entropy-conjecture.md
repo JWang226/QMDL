@@ -38,3 +38,7 @@ In all three cases, the leading-order coefficient is $\frac{1}{2}$ times the [[c
 - [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]]
 - [[concepts/unitary-programming|Unitary Programming]]
 - [[concepts/observable-programming|Observable Programming]]
+
+## External References
+
+- [Voiculescu, "Free entropy" (survey, 2002)](https://arxiv.org/abs/math/0103168)

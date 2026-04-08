@@ -52,3 +52,10 @@ The symbol $\chi$ is used for both the Holevo information $\chi_H$ and Voiculesc
 - [[results/converse|Converse (State Compression)]] -- the full converse proof
 - [[concepts/unitary-programming|Unitary Programming]] -- where the Holevo bound governs program dimension
 - [[concepts/free-entropy|Free Entropy]] -- a different $\chi$ that should not be confused with Holevo $\chi_H$
+
+## External References
+
+- [Holevo's theorem (Wikipedia)](https://en.wikipedia.org/wiki/Holevo%27s_theorem)
+- A. S. Holevo, "Bounds for the quantity of information transmitted by a quantum communication channel," *Problems of Information Transmission* 9(3), 177--183 (1973)
+- M. A. Nielsen and I. L. Chuang, *Quantum Computation and Quantum Information*, Cambridge University Press (2000)
+- [Accessible information (Wikipedia)](https://en.wikipedia.org/wiki/Accessible_information)

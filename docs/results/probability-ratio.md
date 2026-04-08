@@ -80,3 +80,8 @@ using the elementary inequality $(1-y)/(1+y) \geq 1 - 2y$.
 ## Used By
 
 - [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]] -- Step 5 (classical overlap bound)
+
+## External References
+
+- [Schur polynomial (Wikipedia)](https://en.wikipedia.org/wiki/Schur_polynomial)
+- [Macdonald, *Symmetric Functions and Hall Polynomials* (Oxford University Press, 2nd ed., 1995)](https://global.oup.com/academic/product/symmetric-functions-and-hall-polynomials-9780198534891)

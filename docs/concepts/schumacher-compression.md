@@ -79,3 +79,10 @@ The two routes differ not just quantitatively but structurally:
 - [[concepts/free-entropy|Free Entropy]] -- the entropy governing QMDL
 - [[concepts/physical-free-entropy|Physical Free Entropy]] -- the finite-dimensional version
 - [[Von Neumann Entropy]] -- the entropy governing Schumacher compression
+
+## External References
+
+- [Quantum data compression (Wikipedia)](https://en.wikipedia.org/wiki/Schumacher%27s_noiseless_quantum_coding_theorem)
+- [Von Neumann entropy (Wikipedia)](https://en.wikipedia.org/wiki/Von_Neumann_entropy)
+- [Schumacher, "Quantum coding" (1995)](https://arxiv.org/abs/quant-ph/9507015)
+- M. A. Nielsen and I. L. Chuang, *Quantum Computation and Quantum Information*, Cambridge University Press (2000)

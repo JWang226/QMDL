@@ -158,3 +158,8 @@ $$F_{\mathrm{block}}(\delta) = \sqrt{\frac{d_\mu}{d_\nu}} \sum_{i=1}^{m(\delta)}
 The final combined bound before simplification:
 
 $$F \geq \left(1 - O\left(\frac{d(\mu,\nu)}{n^{1-\varepsilon}}\right)\right) \sum_{|\delta| \leq T} p_\mu(\delta) \, m(\delta) \, \sqrt{Z(x)} \geq 1 - O\left(\frac{d(\mu,\nu)}{n^{1-\varepsilon}}\right)$$
+
+## External References
+
+- [Werner, "Optimal cloning of pure states" (1998)](https://arxiv.org/abs/quant-ph/9804001)
+- [Davis and Kahan, "The rotation of eigenvectors by a perturbation. III" (1970)](https://doi.org/10.1007/BF02757689)

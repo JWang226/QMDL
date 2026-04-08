@@ -78,3 +78,9 @@ Taking logarithms, the multiplicative error $(1 + O(\Delta_n/\sqrt{n}))$ becomes
 - [[concepts/flag-manifold|Flag Manifold]] -- its dimension gives the leading $\log n$ coefficient
 - [[concepts/schur-weyl-duality|Schur-Weyl Duality]] -- context where $\dim H_\lambda$ determines memory cost
 - [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]] -- the compression rate equals $\log \dim H_{\Lambda^*}$
+
+## External References
+
+- [Weyl character formula (Wikipedia)](https://en.wikipedia.org/wiki/Weyl_character_formula)
+- W. Fulton and J. Harris, *Representation Theory: A First Course*, Graduate Texts in Mathematics, Springer (1991)
+- J. E. Humphreys, *Introduction to Lie Algebras and Representation Theory*, Graduate Texts in Mathematics, Springer (1972)

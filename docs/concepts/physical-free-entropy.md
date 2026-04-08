@@ -112,3 +112,9 @@ The factor of $1/2$ reflects the passage from continuous geometry (Lebesgue meas
 - [[definitions/regularized-free-entropy|Regularized Free Entropy]] -- the $O(1)$ correction $\chi_{\mathrm{reg}}(\rho)$
 - [[concepts/vandermonde-determinant|Vandermonde Determinant]] -- appears as the Jacobian in Step 1
 - [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]] -- the operational interpretation
+
+## External References
+
+- [Covering number (Wikipedia)](https://en.wikipedia.org/wiki/Covering_number)
+- [Kolmogorov complexity (Wikipedia)](https://en.wikipedia.org/wiki/Kolmogorov_complexity)
+- [Hayden, Maloney, Wang, Yang, "Free entropy and quantum minimum description length" (Letter)](https://arxiv.org/abs/2505.13418)

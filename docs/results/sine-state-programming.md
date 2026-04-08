@@ -73,3 +73,8 @@ This matches the physical [[concepts/free-entropy|Free Entropy]] of the unitary 
 
 - [[concepts/unitary-programming|Unitary Programming]] -- this is the achievability half
 - [[results/spectral-measurement-achievability|Spectral Measurement Programming (Achievability)]] -- reduces to this via the flag manifold
+
+## External References
+
+- [Quantum phase estimation algorithm (Wikipedia)](https://en.wikipedia.org/wiki/Quantum_phase_estimation_algorithm)
+- [Buzek, Derka, and Massar, "Optimal quantum clocks" (1999)](https://arxiv.org/abs/quant-ph/9808042)

@@ -50,3 +50,8 @@ For qubits ($d = 2$), all weight spaces are 1-dimensional, so the quantum contri
 - [[definitions/kostka-number|Kostka Number]]
 - [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]]
 - [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]]
+
+## External References
+
+- [Weight (representation theory) (Wikipedia)](https://en.wikipedia.org/wiki/Weight_(representation_theory))
+- [Humphreys, *Introduction to Lie Algebras and Representation Theory* (Springer, 1972)](https://doi.org/10.1007/978-1-4612-6398-2)

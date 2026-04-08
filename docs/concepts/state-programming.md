@@ -38,3 +38,9 @@ The converse for the visible setting is **open** -- see [[open-questions/visible
 - [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]]
 - [[concepts/unitary-programming|Unitary Programming]]
 - [[open-questions/visible-converse|Open: Visible Setting Converse]]
+
+## External References
+
+- [Quantum state tomography (Wikipedia)](https://en.wikipedia.org/wiki/Quantum_tomography)
+- [Yang, Chiribella, and Hayashi, "Optimal compression for identically prepared qubit states" (2016)](https://arxiv.org/abs/1507.08171)
+- M. Hayashi, *Quantum Information Theory: Mathematical Foundation*, Graduate Texts in Physics, Springer (2017)

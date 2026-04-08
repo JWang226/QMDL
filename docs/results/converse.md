@@ -92,3 +92,7 @@ Since $\log n / \sqrt{n} = o(1)$, this gives the final converse bound matching t
 ## Used By
 
 - [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]] -- this is the converse half of the main result
+
+## External References
+
+- [Koashi and Imoto, "Compressibility of quantum mixed-state signals" (2001)](https://arxiv.org/abs/quant-ph/0101144)
