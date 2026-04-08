@@ -1,0 +1,140 @@
+site_name: "Free Entropy & QMDL Wiki"
+site_description: "Technical wiki for 'Free Entropy and Quantum Minimum Description Length' by Hayden, Maloney, Wang, Yang"
+site_url: ""
+
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - toc.follow
+    - content.tooltips
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+plugins:
+  - search
+  - roamlinks
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.details
+  - pymdownx.mark
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css: []
+
+extra:
+  social: []
+
+nav:
+  - Home: index.md
+  - Introduction: intro.md
+  - Notation: notation.md
+  - Source Papers:
+      - Letter: Letter.md
+      - Article: Article.md
+      - Notes: Notes.md
+  - Concepts:
+      - Free Entropy: concepts/free-entropy.md
+      - Physical Free Entropy: concepts/physical-free-entropy.md
+      - Free Entropy Dimension: concepts/free-entropy-dimension.md
+      - Free Probability Theory: concepts/free-probability-theory.md
+      - Semicircular Element: concepts/semicircular-element.md
+      - Quantum MDL: concepts/quantum-minimum-description-length.md
+      - Schumacher Compression: concepts/schumacher-compression.md
+      - Covering Numbers: concepts/covering-numbers.md
+      - Schur-Weyl Duality: concepts/schur-weyl-duality.md
+      - Schur Transform: concepts/schur-transform.md
+      - Young Diagrams: concepts/young-diagrams.md
+      - Schur Polynomials: concepts/schur-polynomials.md
+      - Gelfand-Tsetlin Basis: concepts/gelfand-tsetlin-basis.md
+      - Weyl Dimension Formula: concepts/weyl-dimension-formula.md
+      - Vandermonde Determinant: concepts/vandermonde-determinant.md
+      - PRV Component: concepts/prv-component.md
+      - "Kumar's Theorem": concepts/kumars-theorem.md
+      - Casimir Operator: concepts/casimir-operator.md
+      - Kostant Partition Function: concepts/kostant-partition-function.md
+      - Flag Manifold: concepts/flag-manifold.md
+      - Generalized Cloning Map: concepts/generalized-cloning-map.md
+      - "Werner's Cloning Map": concepts/werners-cloning-map.md
+      - YCH Scheme: concepts/ych-scheme.md
+      - Koashi-Imoto: concepts/koashi-imoto.md
+      - Petz Recovery Map: concepts/petz-recovery-map.md
+      - Holevo Information: concepts/holevo-information.md
+      - KKS Theorem: concepts/kks-theorem.md
+      - Unitary Programming: concepts/unitary-programming.md
+      - Observable Programming: concepts/observable-programming.md
+      - State Programming: concepts/state-programming.md
+      - Sine State: concepts/sine-state.md
+  - Definitions:
+      - Compression Code: definitions/compression-code.md
+      - Generalized Cloning Map: definitions/generalized-cloning-map-def.md
+      - Free Entropy (Voiculescu): definitions/free-entropy-voiculescu.md
+      - Physical Free Entropy: definitions/physical-free-entropy-def.md
+      - Regularized Free Entropy: definitions/regularized-free-entropy.md
+      - Free Entropy Dimension: definitions/free-entropy-dimension-def.md
+      - Covariant Channel: definitions/covariant-channel.md
+      - Scaling Regime: definitions/scaling-regime.md
+      - Typical Set: definitions/typical-set.md
+      - Edge Gap: definitions/edge-gap.md
+      - Normalized GL Irrep: definitions/normalized-gl-irrep.md
+      - Kostka Number: definitions/kostka-number.md
+      - Weight Space: definitions/weight-space.md
+      - Distance Between Irreps: definitions/distance-between-irreps.md
+  - Results:
+      - Cloning Fidelity (Thm 1): results/cloning-fidelity.md
+      - Achievability (Thm 2): results/achievability.md
+      - Converse (Thm 3): results/converse.md
+      - Choi Matrix Lemma: results/choi-matrix-lemma.md
+      - Kostka Monotonicity: results/kostka-monotonicity.md
+      - Perturbation Lemma: results/perturbation-lemma.md
+      - Probability Ratio: results/probability-ratio.md
+      - Tail Mass: results/tail-mass.md
+      - Supporting Lemmas: results/remaining-lemmas.md
+      - Estimation-Programming: results/estimation-programming-lemma.md
+      - Sine-State Programming: results/sine-state-programming.md
+      - Unitary Programming Converse: results/unitary-programming-converse.md
+      - Spectral Meas. Achievability: results/spectral-measurement-achievability.md
+      - Spectral Meas. Converse: results/spectral-measurement-converse.md
+      - Observable Expectation: results/observable-expectation-achievability.md
+  - Open Questions:
+      - Error Scaling: open-questions/error-scaling.md
+      - Free Entropy Conjecture: open-questions/free-entropy-conjecture.md
+      - Observable Expectation Converse: open-questions/observable-expectation-converse.md
+      - Unitary Subleading: open-questions/unitary-subleading.md
+      - Visible Converse: open-questions/visible-converse.md
+  - References: references/key-references.md
+
