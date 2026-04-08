@@ -16,20 +16,31 @@ All raw `.tex` and `.bib` files live in `sources/`. These are the ground truth. 
 - `sources/free.bib` — Shared bibliography
 - `sources/compression.pdf` — Compression figure
 
+## Working Directory
+
+The canonical working copy is `~/Documents/free-entropy-wiki/`. This is a git repo that auto-deploys to GitHub Pages via `.github/workflows/deploy.yml`. **After making wiki edits, commit and push to update the live site.**
+
+The Obsidian vault root is `docs/` inside this directory.
+
 ## Directory Structure
 
 ```
 free-entropy-wiki/
   CLAUDE.md          — This file (schema + LLM instructions)
-  index.md           — Master table of contents with links to everything
-  log.md             — Changelog (append-only)
-  notation.md        — Central notation glossary
+  mkdocs.yml         — MkDocs Material config (for the online version)
+  requirements.txt   — Python deps for MkDocs
+  .github/workflows/ — GitHub Actions deploy to Pages
   sources/           — Raw .tex/.bib (immutable)
-  concepts/          — One page per key concept (free entropy, Schur-Weyl, PRV, ...)
-  definitions/       — One page per formal definition
-  results/           — One page per theorem/lemma/proposition/corollary
-  open-questions/    — Unresolved questions and conjectures
-  references/        — One page per key cited paper with relevance summary
+  docs/              — All wiki markdown (Obsidian vault + MkDocs source)
+    index.md         — Master table of contents with links to everything
+    intro.md         — Introduction and overview
+    log.md           — Changelog (append-only)
+    notation.md      — Central notation glossary
+    concepts/        — One page per key concept
+    definitions/     — One page per formal definition
+    results/         — One page per theorem/lemma/proposition/corollary
+    open-questions/  — Unresolved questions and conjectures
+    references/      — One page per key cited paper with relevance summary
 ```
 
 ## Page Templates
@@ -96,6 +107,9 @@ What the authors have tried or conjectured.
 ```
 
 ## Maintenance Workflow
+
+### After Any Wiki Edits
+When the user asks to commit, commit all changes and push to `origin main`. The GitHub Actions workflow will automatically rebuild and deploy the live site at https://jwang226.github.io/QMDL/.
 
 ### On Ingest (new/updated source)
 1. Diff against previous version in `sources/`
