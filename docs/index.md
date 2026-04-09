@@ -121,7 +121,6 @@
 
 ## Dependency Graph (Proof Architecture)
 
-### State Compression
 ```
                     QMDL = Free Entropy
                    /                    \
