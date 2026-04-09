@@ -7,11 +7,11 @@
 
 All main theorems in the Article assume that $\rho$ has **strictly non-degenerate** positive eigenvalues $x_1 > x_2 > \cdots > x_r > 0$. This non-degeneracy is used in several critical places:
 
-1. **Edge gap $g_\lambda = \Theta(n)$**: The [[definitions/edge-gap|edge gap]] of typical Young diagrams $\lambda \approx nx$ satisfies $g_\lambda \approx n \min_i(x_i - x_{i+1}) = \Theta(n)$ only when consecutive eigenvalues are distinct. This gap drives the spectral gap $\Delta = \Theta(n)$ in the [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]].
+1. **Edge gap $g_\lambda = \Theta(n)$**: The [[definitions/edge-gap|edge gap]] of typical Young diagrams $\lambda \approx nx$ satisfies $g_\lambda \approx n \min_i(x_i - x_{i+1}) = \Theta(n)$ only when consecutive eigenvalues are distinct. This gap drives the spectral gap $\Delta = \Theta(n)$ in the [[results/lemmas/perturbation-lemma|Perturbation Lemma (Lemma 7)]].
 
-2. **Kostka monotonicity equality**: The equality $K_{\mu, \mu-\delta} = K_{\nu, \nu-\delta}$ in [[results/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]] holds when $|\delta| \leq g_\mu$. A vanishing edge gap breaks this.
+2. **Kostka monotonicity equality**: The equality $K_{\mu, \mu-\delta} = K_{\nu, \nu-\delta}$ in [[results/lemmas/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]] holds when $|\delta| \leq g_\mu$. A vanishing edge gap breaks this.
 
-3. **Probability ratio**: The exponential bound $Z(x) \geq 1 - O(e^{-(g_\mu+1)\xi})$ in [[results/probability-ratio|Probability Ratio (Lemma 9)]] depends on the logarithmic spectral gap $\xi = \min_i(\ln x_i - \ln x_{i+1}) > 0$.
+3. **Probability ratio**: The exponential bound $Z(x) \geq 1 - O(e^{-(g_\mu+1)\xi})$ in [[results/lemmas/probability-ratio|Probability Ratio (Lemma 9)]] depends on the logarithmic spectral gap $\xi = \min_i(\ln x_i - \ln x_{i+1}) > 0$.
 
 4. **Converse (Lagrange interpolation)**: The proof that the orbit ensemble generates $\mathcal{B}(\mathcal{H}_\lambda)$ uses Lagrange interpolation to extract the highest-weight projector, which requires distinct eigenvalues of $\rho_\lambda$.
 

@@ -16,9 +16,9 @@ The denominator is the **Vandermonde determinant** $\Delta(x) = \prod_{i<j}(x_i 
 
 ## Key Properties Used in the Papers
 
-1. **Weight decomposition**: $s_\lambda(x) = \sum_w K_{\lambda, w} \cdot x^w$ where $K_{\lambda,w}$ are [[results/kostka-monotonicity|Kostka numbers]]
+1. **Weight decomposition**: $s_\lambda(x) = \sum_w K_{\lambda, w} \cdot x^w$ where $K_{\lambda,w}$ are [[results/lemmas/kostka-monotonicity|Kostka numbers]]
 2. **Trace formula**: $s_\lambda(x) = \mathrm{Tr}[\pi_\lambda(\mathrm{diag}(x))]$
-3. **Ratio analysis**: The probability ratio $Z(x) = x^\omega s_\mu(x)/s_{\mu+\omega}(x)$ is central to [[results/probability-ratio|Probability Ratio (Lemma 9)]]
+3. **Ratio analysis**: The probability ratio $Z(x) = x^\omega s_\mu(x)/s_{\mu+\omega}(x)$ is central to [[results/lemmas/probability-ratio|Probability Ratio (Lemma 9)]]
 
 ## Role in QMDL
 
@@ -27,8 +27,8 @@ The log Schur polynomial $\log s_\lambda(p)$ governs the probability of each Sch
 ## Related
 
 - [[concepts/schur-weyl-duality|Schur-Weyl Duality]] -- where Schur polynomials appear
-- [[results/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]] -- weight multiplicities
-- [[results/probability-ratio|Probability Ratio (Lemma 9)]] -- ratio of Schur polynomials
+- [[results/lemmas/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]] -- weight multiplicities
+- [[results/lemmas/probability-ratio|Probability Ratio (Lemma 9)]] -- ratio of Schur polynomials
 
 ## External References
 

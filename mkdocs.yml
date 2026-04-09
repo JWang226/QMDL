@@ -68,6 +68,8 @@ nav:
       - Article: Article.md
       - Notes: Notes.md
   - Concepts:
+      - Introduction to Free Probability: concepts/free-probability-basics.md
+      - Introduction to Free Entropy: concepts/free-entropy-intro.md
       - Free Entropy: concepts/free-entropy.md
       - Physical Free Entropy: concepts/physical-free-entropy.md
       - Free Entropy Dimension: concepts/free-entropy-dimension.md
@@ -95,10 +97,6 @@ nav:
       - Petz Recovery Map: concepts/petz-recovery-map.md
       - Holevo Information: concepts/holevo-information.md
       - KKS Theorem: concepts/kks-theorem.md
-      - Unitary Programming: concepts/unitary-programming.md
-      - Observable Programming: concepts/observable-programming.md
-      - State Programming: concepts/state-programming.md
-      - Sine State: concepts/sine-state.md
   - Definitions:
       - Compression Code: definitions/compression-code.md
       - Generalized Cloning Map: definitions/generalized-cloning-map-def.md
@@ -115,28 +113,31 @@ nav:
       - Weight Space: definitions/weight-space.md
       - Distance Between Irreps: definitions/distance-between-irreps.md
   - Results:
-      - Cloning Fidelity (Thm 1): results/cloning-fidelity.md
-      - Achievability (Thm 2): results/achievability.md
-      - Converse (Thm 3): results/converse.md
-      - Choi Matrix Lemma: results/choi-matrix-lemma.md
-      - Kostka Monotonicity: results/kostka-monotonicity.md
-      - Perturbation Lemma: results/perturbation-lemma.md
-      - Probability Ratio: results/probability-ratio.md
-      - Tail Mass: results/tail-mass.md
-      - Supporting Lemmas: results/remaining-lemmas.md
-      - Estimation-Programming: results/estimation-programming-lemma.md
-      - Sine-State Programming: results/sine-state-programming.md
-      - Unitary Programming Converse: results/unitary-programming-converse.md
-      - Spectral Meas. Achievability: results/spectral-measurement-achievability.md
-      - Spectral Meas. Converse: results/spectral-measurement-converse.md
-      - Observable Expectation: results/observable-expectation-achievability.md
+      - Theorems:
+          - Cloning Fidelity (Thm 1): results/cloning-fidelity.md
+          - Achievability (Thm 2): results/achievability.md
+          - Converse (Thm 3): results/converse.md
+      - Propositions:
+          - Choi Matrix Lemma (Prop 1): results/propositions/choi-matrix-lemma.md
+          - Reverse Cloner (Prop 2): results/propositions/reverse-cloner.md
+          - Commutativity (Prop 3): results/propositions/commutativity.md
+          - Orbit Sector Compression (Prop 4): results/propositions/orbit-sector-compression.md
+      - Lemmas:
+          - Kostka Monotonicity (Lem 3): results/lemmas/kostka-monotonicity.md
+          - Principal Angles (Lem 4): results/lemmas/principal-angles.md
+          - Monotonicity (Lem 5): results/lemmas/monotonicity-lemma.md
+          - Davis-Kahan (Lem 6): results/lemmas/davis-kahan.md
+          - Perturbation Lemma (Lem 7): results/lemmas/perturbation-lemma.md
+          - Tail Mass (Lem 8): results/lemmas/tail-mass.md
+          - Probability Ratio (Lem 9): results/lemmas/probability-ratio.md
+          - Dimension Ratio (Lem 10): results/lemmas/dimension-ratio.md
+          - Asymptotic Weyl Dim (Lem 11): results/lemmas/weyl-dimension-asymptotic.md
+          - "Sanov's Theorem (Lem 12)": results/lemmas/sanov-theorem.md
   - Open Questions:
       - Cloning Optimality: open-questions/cloning-optimality.md
       - Degenerate Spectrum: open-questions/degenerate-spectrum.md
       - Error Scaling: open-questions/error-scaling.md
       - Free Entropy Conjecture: open-questions/free-entropy-conjecture.md
-      - Observable Expectation Converse: open-questions/observable-expectation-converse.md
-      - Unitary Subleading: open-questions/unitary-subleading.md
-      - Visible Converse: open-questions/visible-converse.md
+      - Programming Extensions: open-questions/programming-extensions.md
   - References: references/key-references.md
 

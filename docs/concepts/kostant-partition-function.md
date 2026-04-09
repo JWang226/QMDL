@@ -47,13 +47,13 @@ This gives the crude bound $A_r(t) \leq C_r (t+1)^{r(r-1)/2 - 1}$, which is the 
 
 ## Role in the Project
 
-The Kostant partition function provides the **upper bound** on weight multiplicities used in the [[results/tail-mass|Tail Mass (Lemma 8)]] proof. Since the irrep $H_\mu$ is a quotient of the Verma module $M(\mu)$, each weight multiplicity satisfies $K_{\mu, \mu - \delta} \leq \mathfrak{K}(\delta)$. The generating function analysis of $\mathfrak{K}(\delta)$ gives the polynomial prefactor $T^\kappa$ (with $\kappa = r(r-1)/2 - 1$) controlling the tail mass bound.
+The Kostant partition function provides the **upper bound** on weight multiplicities used in the [[results/lemmas/tail-mass|Tail Mass (Lemma 8)]] proof. Since the irrep $H_\mu$ is a quotient of the Verma module $M(\mu)$, each weight multiplicity satisfies $K_{\mu, \mu - \delta} \leq \mathfrak{K}(\delta)$. The generating function analysis of $\mathfrak{K}(\delta)$ gives the polynomial prefactor $T^\kappa$ (with $\kappa = r(r-1)/2 - 1$) controlling the tail mass bound.
 
 ## Related
 
-- [[results/tail-mass|Tail Mass (Lemma 8)]]
+- [[results/lemmas/tail-mass|Tail Mass (Lemma 8)]]
 - [[definitions/kostka-number|Kostka Number]]
-- [[results/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]]
+- [[results/lemmas/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]]
 
 ## External References
 

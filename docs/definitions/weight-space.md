@@ -49,7 +49,7 @@ For qubits ($d = 2$), all weight spaces are 1-dimensional, so the quantum contri
 - [[concepts/gelfand-tsetlin-basis|Gelfand-Tsetlin Basis]]
 - [[definitions/kostka-number|Kostka Number]]
 - [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]]
-- [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]]
+- [[results/lemmas/perturbation-lemma|Perturbation Lemma (Lemma 7)]]
 
 ## External References
 

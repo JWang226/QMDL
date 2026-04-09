@@ -93,24 +93,29 @@
 
 ---
 
-## Supporting Results (State Compression)
+## Supporting Propositions
 
 | Result | Type | Source |
 |--------|------|--------|
-| [[results/choi-matrix-lemma|Choi Matrix Lemma]] | Lemma/Prop | Article (Prop 1) |
-| [[results/reverse-cloner|Reverse Cloner (Prop 2)]] | Proposition | Article |
-| [[results/commutativity|Commutativity (Prop 3)]] | Proposition | Article |
-| [[results/orbit-sector-compression|Orbit Sector Compression (Prop 4)]] | Proposition | Article |
-| [[results/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]] | Lemma | Article |
-| [[results/principal-angles|Principal Angles (Lemma 4)]] | Lemma | Article |
-| [[results/monotonicity-lemma|Monotonicity (Lemma 5)]] | Lemma | Article |
-| [[results/davis-kahan|Davis-Kahan Theorem (Lemma 6)]] | Lemma | Article |
-| [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]] | Lemma | Article |
-| [[results/tail-mass|Tail Mass (Lemma 8)]] | Lemma | Article |
-| [[results/probability-ratio|Probability Ratio (Lemma 9)]] | Lemma | Article |
-| [[results/dimension-ratio|Dimension Ratio (Lemma 10)]] | Lemma | Article |
-| [[results/weyl-dimension-asymptotic|Asymptotic Weyl Dimension (Lemma 11)]] | Lemma | Article |
-| [[results/sanov-theorem|Sanov's Theorem (Lemma 12)]] | Lemma | Article |
+| [[results/propositions/choi-matrix-lemma|Choi Matrix Lemma (Prop 1)]] | Proposition | Article |
+| [[results/propositions/reverse-cloner|Reverse Cloner (Prop 2)]] | Proposition | Article |
+| [[results/propositions/commutativity|Commutativity (Prop 3)]] | Proposition | Article |
+| [[results/propositions/orbit-sector-compression|Orbit Sector Compression (Prop 4)]] | Proposition | Article |
+
+## Supporting Lemmas
+
+| Result | Type | Source |
+|--------|------|--------|
+| [[results/lemmas/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]] | Lemma | Article |
+| [[results/lemmas/principal-angles|Principal Angles (Lemma 4)]] | Lemma | Article |
+| [[results/lemmas/monotonicity-lemma|Monotonicity (Lemma 5)]] | Lemma | Article |
+| [[results/lemmas/davis-kahan|Davis-Kahan Theorem (Lemma 6)]] | Lemma | Article |
+| [[results/lemmas/perturbation-lemma|Perturbation Lemma (Lemma 7)]] | Lemma | Article |
+| [[results/lemmas/tail-mass|Tail Mass (Lemma 8)]] | Lemma | Article |
+| [[results/lemmas/probability-ratio|Probability Ratio (Lemma 9)]] | Lemma | Article |
+| [[results/lemmas/dimension-ratio|Dimension Ratio (Lemma 10)]] | Lemma | Article |
+| [[results/lemmas/weyl-dimension-asymptotic|Asymptotic Weyl Dimension (Lemma 11)]] | Lemma | Article |
+| [[results/lemmas/sanov-theorem|Sanov's Theorem (Lemma 12)]] | Lemma | Article |
 
 ---
 

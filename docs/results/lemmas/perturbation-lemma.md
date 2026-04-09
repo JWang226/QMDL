@@ -98,7 +98,7 @@ Note: $\|VP_0\| = O(\sqrt{n|\delta|\|\omega\|})$ is much smaller than $\|V\| = O
 
 ### Step 5: Apply Davis-Kahan
 
-By the [[results/davis-kahan|Davis-Kahan Theorem (Lemma 6)]]:
+By the [[results/lemmas/davis-kahan|Davis-Kahan Theorem (Lemma 6)]]:
 
 $$\|\widetilde{\Pi}_{\nu-\delta} - \Pi_{\mu-\delta}^{(\omega)}\| = \|P - P_0\| \leq \frac{\|VP_0\|}{\Delta - \|V\|} = \frac{O(\sqrt{n \, |\delta| \, \|\omega\|})}{\Omega(n)} = O\left(\sqrt{\frac{|\delta| \, \|\omega\|}{n}}\right)$$
 
@@ -106,8 +106,8 @@ The condition $\|V\| \ll \Delta$ is satisfied since $\|V\| = O(|\delta|\sqrt{n\|
 
 ## Dependencies
 
-- [[results/davis-kahan|Davis-Kahan Theorem (Lemma 6)]] -- the spectral perturbation theorem
-- [[results/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]] -- ensures $\mathrm{rank}(P_0) = \mathrm{rank}(P)$, i.e., $K_{\mu,\mu-\delta} = K_{\nu,\nu-\delta}$
+- [[results/lemmas/davis-kahan|Davis-Kahan Theorem (Lemma 6)]] -- the spectral perturbation theorem
+- [[results/lemmas/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]] -- ensures $\mathrm{rank}(P_0) = \mathrm{rank}(P)$, i.e., $K_{\mu,\mu-\delta} = K_{\nu,\nu-\delta}$
 - Casimir operator eigenvalue structure and $\alpha$-string norm bounds
 
 ## Used By

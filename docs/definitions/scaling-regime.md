@@ -23,7 +23,7 @@ In the compression application, we need to clone from a measured Young diagram $
 
 1. **$|\mu| = \Theta(n)$:** Typical Young diagrams $\lambda$ are partitions of $n$ (the number of copies), so $|\lambda| = n$ automatically.
 
-2. **$g_\mu = \Theta(n)$:** For a typical $\lambda$ with $\lambda_i \approx n p_i$, the edge gap is $g_\lambda \approx n \cdot \min_i(p_i - p_{i+1})$. When the eigenvalues are non-degenerate, $\min_i(p_i - p_{i+1}) > 0$ is a fixed positive constant, so $g_\lambda = \Theta(n)$. This large internal separation is what makes the [[definitions/kostka-number|Kostka Number]] monotonicity and the [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]] work: the "steps" in the Young diagram are tall enough that small perturbations cannot change the combinatorial structure of the weight multiplicities.
+2. **$g_\mu = \Theta(n)$:** For a typical $\lambda$ with $\lambda_i \approx n p_i$, the edge gap is $g_\lambda \approx n \cdot \min_i(p_i - p_{i+1})$. When the eigenvalues are non-degenerate, $\min_i(p_i - p_{i+1}) > 0$ is a fixed positive constant, so $g_\lambda = \Theta(n)$. This large internal separation is what makes the [[definitions/kostka-number|Kostka Number]] monotonicity and the [[results/lemmas/perturbation-lemma|Perturbation Lemma (Lemma 7)]] work: the "steps" in the Young diagram are tall enough that small perturbations cannot change the combinatorial structure of the weight multiplicities.
 
 3. **$\|\omega\| = O(n^s)$ with $s < 1$:** The target $\Lambda^*$ is constructed by padding: $\Lambda^*_i = \lceil n x_i + (r-i)\xi_n \rceil$ with $\xi_n = O(\sqrt{n}\log n)$. For a typical $\lambda \in \mathcal{T}_{p,n}$, each $|\Lambda^*_i - \lambda_i| = O(\sqrt{n} \log n)$, so the total $L^1$ distance is $d(\Lambda^*, \lambda) = O(\sqrt{n}\log n)$, which is sublinear in $n$. This means the perturbation $\omega = \Lambda^* - \lambda$ is "small" relative to the irrep size, ensuring the cloning fidelity approaches 1.
 
@@ -32,7 +32,7 @@ The key interplay: the distance $\|\omega\| \sim \sqrt{n}\log n$ must be $\ll g_
 ## Used By
 
 - [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]]
-- [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]]
+- [[results/lemmas/perturbation-lemma|Perturbation Lemma (Lemma 7)]]
 
 ## External References
 

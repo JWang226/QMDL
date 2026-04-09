@@ -12,7 +12,7 @@ where $d(\lambda/n, p) = \sum_i |\lambda_i/n - p_i|$ is the $L^1$ distance.
 
 ## Intuition
 
-The typical set contains Young diagrams whose normalized shape $\lambda/n$ is close to the eigenvalue distribution $p$. By [[results/sanov-theorem|Sanov's Theorem (Lemma 12)]], the probability of being outside $T_{p,n}$ is exponentially small: $\Pr[\lambda \notin T_{p,n}] \leq (n+1)^{r(r+1)/2} e^{-2n\xi_n^2/n}$.
+The typical set contains Young diagrams whose normalized shape $\lambda/n$ is close to the eigenvalue distribution $p$. By [[results/lemmas/sanov-theorem|Sanov's Theorem (Lemma 12)]], the probability of being outside $T_{p,n}$ is exponentially small: $\Pr[\lambda \notin T_{p,n}] \leq (n+1)^{r(r+1)/2} e^{-2n\xi_n^2/n}$.
 
 The padding $\xi_n = O(\sqrt{n}\log n)$ is chosen to be large enough that atypical sectors are negligible, but small enough that $\xi_n/\sqrt{n} \to 0$.
 

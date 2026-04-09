@@ -31,7 +31,7 @@ The exponential suppression comes from a determinantal identity: both Schur poly
 
 Expand the Schur polynomial into semistandard Young tableaux: $s_\mu(x) = \sum_{u \prec \mu} K_{\mu,u} \, x^u$. Multiplying by $x^\omega$ shifts weights: $x^\omega s_\mu(x) = \sum_u K_{\mu,u} \, x^{u+\omega}$.
 
-By [[results/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]], $K_{\mu, u} \leq K_{\mu+\omega, u+\omega}$ for every weight $u$. Since the weights of $\mu + \omega$ contain all shifted weights $u + \omega$ as a subset, every term in $x^\omega s_\mu(x)$ appears in $s_{\mu+\omega}(x)$ with a coefficient at least as large. Therefore $s_{\mu+\omega}(x) \geq x^\omega s_\mu(x)$, giving $Z(x) \leq 1$.
+By [[results/lemmas/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]], $K_{\mu, u} \leq K_{\mu+\omega, u+\omega}$ for every weight $u$. Since the weights of $\mu + \omega$ contain all shifted weights $u + \omega$ as a subset, every term in $x^\omega s_\mu(x)$ appears in $s_{\mu+\omega}(x)$ with a coefficient at least as large. Therefore $s_{\mu+\omega}(x) \geq x^\omega s_\mu(x)$, giving $Z(x) \leq 1$.
 
 ### Lower Bound: $Z(x) \geq 1 - O(e^{-(g_\mu+1)\xi})$ via Determinantal Formula
 
@@ -73,7 +73,7 @@ using the elementary inequality $(1-y)/(1+y) \geq 1 - 2y$.
 
 ## Dependencies
 
-- [[results/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]] -- for the upper bound $Z(x) \leq 1$
+- [[results/lemmas/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]] -- for the upper bound $Z(x) \leq 1$
 - [[concepts/schur-polynomials|Schur Polynomials]] -- determinantal formula $s_\lambda(x) = \det(x_i^{\lambda_j+r-j})/\det(x_i^{r-j})$
 - Rearrangement inequality (identity permutation dominates)
 

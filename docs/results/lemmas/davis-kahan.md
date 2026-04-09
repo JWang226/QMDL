@@ -25,7 +25,7 @@ The projector $P$ is defined constructively via the resolvent: $P = -\frac{1}{2\
 
 ## Used By
 
-- [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]] -- applied with spectral gap $\Delta = \Theta(n)$ from the [[concepts/casimir-operator|Casimir]] eigenvalue structure and restricted perturbation $\|VP_0\| = O(\sqrt{n|\delta|\|\omega\|})$
+- [[results/lemmas/perturbation-lemma|Perturbation Lemma (Lemma 7)]] -- applied with spectral gap $\Delta = \Theta(n)$ from the [[concepts/casimir-operator|Casimir]] eigenvalue structure and restricted perturbation $\|VP_0\| = O(\sqrt{n|\delta|\|\omega\|})$
 
 ## External References
 

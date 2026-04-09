@@ -14,7 +14,7 @@ The edge gap measures the smallest "step" in the Young diagram. A large edge gap
 
 ## Role in the Project
 
-The edge gap controls when the [[results/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]] gives **equality**: $K_{\mu, \mu-\delta} = K_{\mu+\omega, \mu+\omega-\delta}$ whenever $|\delta| \leq g_\mu$. This equality is essential for the [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]].
+The edge gap controls when the [[results/lemmas/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]] gives **equality**: $K_{\mu, \mu-\delta} = K_{\mu+\omega, \mu+\omega-\delta}$ whenever $|\delta| \leq g_\mu$. This equality is essential for the [[results/lemmas/perturbation-lemma|Perturbation Lemma (Lemma 7)]].
 
 ### What happens when $g_\lambda = 0$
 
@@ -22,7 +22,7 @@ When $g_\lambda = 0$, the partition has a "flat spot": two adjacent rows have th
 
 1. **Weight multiplicity instability:** The Kostka number monotonicity $K_{\mu, \mu-\delta} = K_{\mu+\omega, \mu+\omega-\delta}$ breaks down when $|\delta|$ exceeds the edge gap. With $g_\lambda = 0$, even an infinitesimal perturbation $\omega$ can change the weight multiplicities, because adding boxes to equal-length rows creates ambiguity in the combinatorial structure.
 
-2. **The perturbation lemma fails:** The [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]] relies on the weight spaces of $H_\mu$ and $H_{\mu+\omega}$ being "aligned" for low weights ($|\delta| \leq g_\mu$). When $g_\mu = 0$, there is no safe range of weights where alignment is guaranteed.
+2. **The perturbation lemma fails:** The [[results/lemmas/perturbation-lemma|Perturbation Lemma (Lemma 7)]] relies on the weight spaces of $H_\mu$ and $H_{\mu+\omega}$ being "aligned" for low weights ($|\delta| \leq g_\mu$). When $g_\mu = 0$, there is no safe range of weights where alignment is guaranteed.
 
 3. **Degenerate eigenvalues in $\rho$:** A flat spot $\lambda_i = \lambda_{i+1}$ in a typical Young diagram $\lambda \approx np$ implies $p_i \approx p_{i+1}$, meaning eigenvalues of $\rho$ are nearly degenerate. The unitary orbit of $\rho$ shrinks near degeneracies, and the free entropy dimension drops. This is the representation-theoretic manifestation of eigenvalue collision.
 
@@ -40,9 +40,9 @@ $$g_\lambda = \lambda_1 - \lambda_2$$
 ## Used By
 
 - [[definitions/scaling-regime|Scaling Regime]]
-- [[results/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]]
-- [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]]
-- [[results/probability-ratio|Probability Ratio (Lemma 9)]]
+- [[results/lemmas/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]]
+- [[results/lemmas/perturbation-lemma|Perturbation Lemma (Lemma 7)]]
+- [[results/lemmas/probability-ratio|Probability Ratio (Lemma 9)]]
 
 ## External References
 

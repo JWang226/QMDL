@@ -44,13 +44,13 @@ The GT basis is crucial for the [[results/cloning-fidelity|Cloning Fidelity (The
 
 1. **Weight space decomposition**: The irrep $H_\mu$ decomposes into weight spaces, each spanned by GT patterns with the same weight
 2. **Kostka numbers**: $K_{\mu, w}$ = number of GT patterns with weight $w$ = dimension of weight space
-3. **Perturbation analysis**: The [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]] compares GT bases of $H_\mu$ and $H_\nu$ when $\nu \approx \mu$
-4. **Injection map**: An injection $\phi_\omega$ from GT patterns of $H_\mu$ to GT patterns of $H_{\mu + \omega}$ is used to prove [[results/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]]
+3. **Perturbation analysis**: The [[results/lemmas/perturbation-lemma|Perturbation Lemma (Lemma 7)]] compares GT bases of $H_\mu$ and $H_\nu$ when $\nu \approx \mu$
+4. **Injection map**: An injection $\phi_\omega$ from GT patterns of $H_\mu$ to GT patterns of $H_{\mu + \omega}$ is used to prove [[results/lemmas/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]]
 
 ## Related
 
-- [[results/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]] -- uses GT pattern injection
-- [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]] -- perturbs GT basis
+- [[results/lemmas/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]] -- uses GT pattern injection
+- [[results/lemmas/perturbation-lemma|Perturbation Lemma (Lemma 7)]] -- perturbs GT basis
 - [[concepts/schur-weyl-duality|Schur-Weyl Duality]] -- the decomposition where these bases live
 
 ## External References

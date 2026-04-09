@@ -112,7 +112,7 @@ Summing over weight offsets $\delta$ up to a cutoff $T = O(n^\varepsilon)$ and u
 - [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]] -- the theorem this analysis supports
 - [[concepts/generalized-cloning-map|Generalized Cloning Map]] -- the channel whose fidelity is being bounded
 - [[concepts/gelfand-tsetlin-basis|Gelfand-Tsetlin Basis]] -- provides the weight space structure
-- [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]] -- the formal statement
+- [[results/lemmas/perturbation-lemma|Perturbation Lemma (Lemma 7)]] -- the formal statement
 
 ## External References
 

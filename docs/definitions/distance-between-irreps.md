@@ -43,7 +43,7 @@ Here $\nu - \mu = (1, 1, 1)$, which is dominant, so $\omega = (1, 1, 1)$ and $|\
 ## Used By
 
 - [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]] -- error bound is $O(d(\mu,\nu)/n^{1-\varepsilon})$
-- [[results/dimension-ratio|Dimension Ratio (Lemma 10)]]
+- [[results/lemmas/dimension-ratio|Dimension Ratio (Lemma 10)]]
 
 ## External References
 

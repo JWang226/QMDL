@@ -45,7 +45,7 @@ Choose an orthonormal basis $\{|a\rangle\}$ of $\mathcal{H}_\omega$ containing t
 
 $$\widetilde{\mathcal{C}}_{\mu \to \nu}(X) = \sum_a \mathcal{K}_a(X), \qquad \mathcal{K}_a(X) = \frac{d_\mu}{d_\nu} P_\nu (X \otimes |a\rangle\langle a|) P_\nu$$
 
-The highest-weight branch $\mathcal{K}_\omega$ corresponds to $|a\rangle = |\omega\rangle$. By the [[results/monotonicity-lemma|Monotonicity (Lemma 5)]], which says that discarding Kraus branches can only decrease fidelity (since $\rho' = K\eta K^\dagger \leq \mathcal{N}(\eta)$ and the Lowner-Heinz theorem gives $F(\rho', \sigma) \leq F(\rho, \sigma)$), we get:
+The highest-weight branch $\mathcal{K}_\omega$ corresponds to $|a\rangle = |\omega\rangle$. By the [[results/lemmas/monotonicity-lemma|Monotonicity (Lemma 5)]], which says that discarding Kraus branches can only decrease fidelity (since $\rho' = K\eta K^\dagger \leq \mathcal{N}(\eta)$ and the Lowner-Heinz theorem gives $F(\rho', \sigma) \leq F(\rho, \sigma)$), we get:
 
 $$F(\widetilde{\mathcal{C}}_{\mu \to \nu}(\rho_\mu), \widetilde{\rho}_\nu) \geq F(\mathcal{K}_\omega(\rho_\mu), \widetilde{\rho}_\nu)$$
 
@@ -67,23 +67,23 @@ The block fidelity $F_{\mathrm{block}}(\delta)$ compares two projectors inside t
 - $\widetilde{\Pi}_{\nu - \delta} = Q_{\nu-\delta} P_\nu$: the exact coupled projector (weight $\nu - \delta$ subspace of $\mathcal{H}_\nu$)
 - $\Pi_{\mu-\delta}^{(\omega)} = \Pi_{\mu-\delta} \otimes |\omega\rangle\langle\omega|$: the uncoupled product projector
 
-The [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]] bounds their distance. The idea: view the total quadratic Casimir $C_2(\mu \otimes \omega)$ restricted to $W_{\nu-\delta}$ as $H = H_0 + V$, where $H_0$ is the diagonal Cartan part (eigenvalue $\lambda_0 = C_2(\mu) + C_2(\omega) + 2(\mu - \delta, \omega)$ on the uncoupled subspace) and $V$ contains the root-exchange terms $E_{-\alpha}^{(\mu)} \otimes E_\alpha^{(\omega)} + E_\alpha^{(\mu)} \otimes E_{-\alpha}^{(\omega)}$.
+The [[results/lemmas/perturbation-lemma|Perturbation Lemma (Lemma 7)]] bounds their distance. The idea: view the total quadratic Casimir $C_2(\mu \otimes \omega)$ restricted to $W_{\nu-\delta}$ as $H = H_0 + V$, where $H_0$ is the diagonal Cartan part (eigenvalue $\lambda_0 = C_2(\mu) + C_2(\omega) + 2(\mu - \delta, \omega)$ on the uncoupled subspace) and $V$ contains the root-exchange terms $E_{-\alpha}^{(\mu)} \otimes E_\alpha^{(\omega)} + E_\alpha^{(\mu)} \otimes E_{-\alpha}^{(\omega)}$.
 
 **Key trick:** On $P_0 = \Pi_{\mu-\delta}^{(\omega)}$, the raising operators $E_\alpha^{(\omega)}|\omega\rangle = 0$ kill the highest-weight vector, so only half the perturbation survives: $VP_0 = 2 Q_{\nu-\delta} \sum_{\alpha > 0} E_\alpha^{(\mu)} \otimes E_{-\alpha}^{(\omega)} P_0$.
 
-This gives the tighter bound $\|VP_0\| = O(\sqrt{n \, |\delta| \, \|\omega\|})$ instead of the full norm $\|V\| = O(|\delta| \sqrt{n \|\omega\|})$. The spectral gap is $\Delta = 2 g_\mu |\eta| - O(|\delta||\eta|) - O(\|\omega\||\eta|) = \Theta(n)$ (using $g_\mu = \min_i(\mu_i - \mu_{i+1}) = \Theta(n)$). Applying the [[results/davis-kahan|Davis-Kahan Theorem (Lemma 6)]]:
+This gives the tighter bound $\|VP_0\| = O(\sqrt{n \, |\delta| \, \|\omega\|})$ instead of the full norm $\|V\| = O(|\delta| \sqrt{n \|\omega\|})$. The spectral gap is $\Delta = 2 g_\mu |\eta| - O(|\delta||\eta|) - O(\|\omega\||\eta|) = \Theta(n)$ (using $g_\mu = \min_i(\mu_i - \mu_{i+1}) = \Theta(n)$). Applying the [[results/lemmas/davis-kahan|Davis-Kahan Theorem (Lemma 6)]]:
 
 $$\|\widetilde{\Pi}_{\nu-\delta} - \Pi_{\mu-\delta}^{(\omega)}\| \leq \frac{\|VP_0\|}{\Delta - \|V\|} = \frac{O(\sqrt{n \, |\delta| \, \|\omega\|})}{\Omega(n)} = O\left(\sqrt{\frac{|\delta| \, \|\omega\|}{n}}\right)$$
 
-By [[results/principal-angles|Principal Angles (Lemma 4)]], $F_{\mathrm{block}}(\delta) = \sqrt{d_\mu / d_\nu} \sum_{i=1}^{m(\delta)} \cos\theta_i$ where $\theta_i$ are the principal angles. Using $\cos\theta \geq 1 - \sin^2\theta$ and $\sin\theta_{\max} = O(\sqrt{|\delta|\|\omega\|/n})$:
+By [[results/lemmas/principal-angles|Principal Angles (Lemma 4)]], $F_{\mathrm{block}}(\delta) = \sqrt{d_\mu / d_\nu} \sum_{i=1}^{m(\delta)} \cos\theta_i$ where $\theta_i$ are the principal angles. Using $\cos\theta \geq 1 - \sin^2\theta$ and $\sin\theta_{\max} = O(\sqrt{|\delta|\|\omega\|/n})$:
 
 $$F_{\mathrm{block}}(\delta) \geq \sqrt{\frac{d_\mu}{d_\nu}} \, m(\delta) \left(1 - O\left(\frac{|\delta| \, \|\omega\|}{n}\right)\right)$$
 
-where $m(\delta) = K_{\mu, \mu-\delta} = K_{\nu, \nu-\delta}$ by the [[results/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]] (equality holds because $|\delta| \leq g_\mu$ in the regime of interest).
+where $m(\delta) = K_{\mu, \mu-\delta} = K_{\nu, \nu-\delta}$ by the [[results/lemmas/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]] (equality holds because $|\delta| \leq g_\mu$ in the regime of interest).
 
 ### Step 5: Classical Part -- Determinantal Probability Ratio
 
-The probability ratio $p_\nu(\delta)/p_\mu(\delta) = x^\omega s_\mu(x) / s_{\mu+\omega}(x)$ is independent of $\delta$ -- a crucial simplification. The [[results/probability-ratio|Probability Ratio (Lemma 9)]] shows this ratio $Z(x)$ satisfies:
+The probability ratio $p_\nu(\delta)/p_\mu(\delta) = x^\omega s_\mu(x) / s_{\mu+\omega}(x)$ is independent of $\delta$ -- a crucial simplification. The [[results/lemmas/probability-ratio|Probability Ratio (Lemma 9)]] shows this ratio $Z(x)$ satisfies:
 
 $$1 \geq Z(x) \geq 1 - O(e^{-(g_\mu + 1)\xi})$$
 
@@ -91,7 +91,7 @@ where $\xi = \min_i(\ln x_i - \ln x_{i+1})$ is the logarithmic spectral gap. Sin
 
 ### Step 6: Tail Truncation
 
-The perturbation bound from Step 4 requires $|\delta|^2 \|\omega\| \ll n$, so we truncate the sum at a cutoff $T = O(n^\varepsilon)$ for arbitrarily small $\varepsilon > 0$. The [[results/tail-mass|Tail Mass (Lemma 8)]] bounds the omitted contribution:
+The perturbation bound from Step 4 requires $|\delta|^2 \|\omega\| \ll n$, so we truncate the sum at a cutoff $T = O(n^\varepsilon)$ for arbitrarily small $\varepsilon > 0$. The [[results/lemmas/tail-mass|Tail Mass (Lemma 8)]] bounds the omitted contribution:
 
 $$\varepsilon_\mu(T) = \sum_{|\delta| > T} p_\mu(\delta) \, m_\mu(\delta) = O(T^\kappa \, \mathfrak{p}^T)$$
 
@@ -99,7 +99,7 @@ where $\kappa = r(r-1)/2 - 1$ and $\mathfrak{p} = \max_i(x_{i+1}/x_i) < 1$. When
 
 ### Step 7: Dimension Stability
 
-The [[results/dimension-ratio|Dimension Ratio (Lemma 10)]] gives the prefactor: using the Weyl dimension formula and the scaling $g_\mu = \Theta(n)$, $\mu_r = \Theta(n)$, $|\omega| = o(n)$:
+The [[results/lemmas/dimension-ratio|Dimension Ratio (Lemma 10)]] gives the prefactor: using the Weyl dimension formula and the scaling $g_\mu = \Theta(n)$, $\mu_r = \Theta(n)$, $|\omega| = o(n)$:
 
 $$\frac{d_\mu}{d_\nu} = \prod_{i < j} \frac{\mu_i - \mu_j + j - i}{\mu_i + \omega_i - \mu_j - \omega_j + j - i} = 1 - O\left(\frac{|\omega|}{n}\right)$$
 
@@ -117,7 +117,7 @@ $$F(\mathcal{C}_{\mu \to \nu}(\rho_\mu), \rho_\nu) \geq 1 - O\left(\frac{d(\mu,\
 
 ### Step 9: Reverse Direction via Partial Trace Monotonicity
 
-For the reverse channel $\mathcal{C}_{\nu \to \mu}$, the argument is structurally different. The reverse cloner (by [[results/reverse-cloner|Reverse Cloner (Prop 2)]]) satisfies $\mathcal{C}_{\nu \to \mu}(X) = \mathrm{Tr}_\omega(V X V^\dagger)$, i.e., it is the partial trace of the Stinespring embedding.
+For the reverse channel $\mathcal{C}_{\nu \to \mu}$, the argument is structurally different. The reverse cloner (by [[results/propositions/reverse-cloner|Reverse Cloner (Prop 2)]]) satisfies $\mathcal{C}_{\nu \to \mu}(X) = \mathrm{Tr}_\omega(V X V^\dagger)$, i.e., it is the partial trace of the Stinespring embedding.
 
 Define $\rho_\mu^{(\omega)} = \rho_\mu \otimes |\omega\rangle\langle\omega|$. Then $\mathrm{Tr}_\omega(\widetilde{\rho}_\nu) = \mathcal{C}_{\nu \to \mu}(\rho_\nu)$ and $\mathrm{Tr}_\omega(\rho_\mu^{(\omega)}) = \rho_\mu$. By monotonicity of fidelity under partial trace:
 
@@ -134,16 +134,16 @@ $$F(\mathcal{C}_{\nu \to \mu}(\rho_\nu), \rho_\mu) \geq 1 - O\left(\frac{d(\mu,\
 ## Dependencies
 
 - [[concepts/generalized-cloning-map|Generalized Cloning Map]] -- the channel being analyzed
-- [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]] -- bounds principal angles via Casimir perturbation (Step 4)
-- [[results/davis-kahan|Davis-Kahan Theorem (Lemma 6)]] -- perturbation of eigenspaces
-- [[results/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]] -- ensures weight space dimensions match ($K_{\mu,\mu-\delta} = K_{\nu,\nu-\delta}$ for $|\delta| \leq g_\mu$)
-- [[results/principal-angles|Principal Angles (Lemma 4)]] -- connects fidelity to geometric angles between subspaces
-- [[results/tail-mass|Tail Mass (Lemma 8)]] -- controls deep weight contributions (Step 6)
-- [[results/probability-ratio|Probability Ratio (Lemma 9)]] -- bounds classical distribution mismatch (Step 5)
-- [[results/dimension-ratio|Dimension Ratio (Lemma 10)]] -- dimension stability (Step 7)
-- [[results/monotonicity-lemma|Monotonicity (Lemma 5)]] -- channel monotonicity of fidelity (Step 2)
-- [[results/commutativity|Commutativity (Prop 3)]] -- output commutes with target
-- [[results/reverse-cloner|Reverse Cloner (Prop 2)]] -- identifies reverse channel as partial trace (Step 9)
+- [[results/lemmas/perturbation-lemma|Perturbation Lemma (Lemma 7)]] -- bounds principal angles via Casimir perturbation (Step 4)
+- [[results/lemmas/davis-kahan|Davis-Kahan Theorem (Lemma 6)]] -- perturbation of eigenspaces
+- [[results/lemmas/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]] -- ensures weight space dimensions match ($K_{\mu,\mu-\delta} = K_{\nu,\nu-\delta}$ for $|\delta| \leq g_\mu$)
+- [[results/lemmas/principal-angles|Principal Angles (Lemma 4)]] -- connects fidelity to geometric angles between subspaces
+- [[results/lemmas/tail-mass|Tail Mass (Lemma 8)]] -- controls deep weight contributions (Step 6)
+- [[results/lemmas/probability-ratio|Probability Ratio (Lemma 9)]] -- bounds classical distribution mismatch (Step 5)
+- [[results/lemmas/dimension-ratio|Dimension Ratio (Lemma 10)]] -- dimension stability (Step 7)
+- [[results/lemmas/monotonicity-lemma|Monotonicity (Lemma 5)]] -- channel monotonicity of fidelity (Step 2)
+- [[results/propositions/commutativity|Commutativity (Prop 3)]] -- output commutes with target
+- [[results/propositions/reverse-cloner|Reverse Cloner (Prop 2)]] -- identifies reverse channel as partial trace (Step 9)
 
 ## Used By
 

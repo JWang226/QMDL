@@ -61,7 +61,7 @@ Combining: $K_{\mu, \mu-\delta} = \mathcal{P}(\delta) = K_{\mu+\omega, \mu+\omeg
 
 ## Role in the Project
 
-This lemma is essential for the [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]]: it guarantees that the weight spaces being compared (in $\mathcal{H}_\mu$ vs. $\mathcal{H}_\nu$) have the **same dimension** when $|\delta|$ is small enough. Without this, the principal angle bound would be meaningless -- you cannot compare subspaces of different dimension. It also enters the [[results/probability-ratio|Probability Ratio (Lemma 9)]] to establish that $Z(x) \leq 1$ (the Kostka monotonicity implies $s_{\mu+\omega}(x) \geq x^\omega s_\mu(x)$).
+This lemma is essential for the [[results/lemmas/perturbation-lemma|Perturbation Lemma (Lemma 7)]]: it guarantees that the weight spaces being compared (in $\mathcal{H}_\mu$ vs. $\mathcal{H}_\nu$) have the **same dimension** when $|\delta|$ is small enough. Without this, the principal angle bound would be meaningless -- you cannot compare subspaces of different dimension. It also enters the [[results/lemmas/probability-ratio|Probability Ratio (Lemma 9)]] to establish that $Z(x) \leq 1$ (the Kostka monotonicity implies $s_{\mu+\omega}(x) \geq x^\omega s_\mu(x)$).
 
 ## Dependencies
 
@@ -70,8 +70,8 @@ This lemma is essential for the [[results/perturbation-lemma|Perturbation Lemma 
 
 ## Used By
 
-- [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]] -- equality of weight space dimensions
-- [[results/probability-ratio|Probability Ratio (Lemma 9)]] -- upper bound $Z(x) \leq 1$
+- [[results/lemmas/perturbation-lemma|Perturbation Lemma (Lemma 7)]] -- equality of weight space dimensions
+- [[results/lemmas/probability-ratio|Probability Ratio (Lemma 9)]] -- upper bound $Z(x) \leq 1$
 - [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]] -- via the above two lemmas
 
 ## External References

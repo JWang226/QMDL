@@ -72,10 +72,10 @@ This is the "combinatorial definition" of Schur polynomials. The normalization o
 
 ## Used By
 
-- [[results/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]]
-- [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]]
-- [[results/tail-mass|Tail Mass (Lemma 8)]]
-- [[results/probability-ratio|Probability Ratio (Lemma 9)]]
+- [[results/lemmas/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]]
+- [[results/lemmas/perturbation-lemma|Perturbation Lemma (Lemma 7)]]
+- [[results/lemmas/tail-mass|Tail Mass (Lemma 8)]]
+- [[results/lemmas/probability-ratio|Probability Ratio (Lemma 9)]]
 - [[definitions/normalized-gl-irrep|Normalized GL Irrep State]]
 
 ## External References
