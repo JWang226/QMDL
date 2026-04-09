@@ -74,7 +74,7 @@ Summary of the most important cited works and their relevance to the project.
 
 - **davis1970rotation**: The rotation of eigenvectors by a perturbation [doi:10.1137/0707001](https://doi.org/10.1137/0707001)
 
-**Relevance:** The [[results/remaining-lemmas|Davis-Kahan Theorem (Lemma 6)]] is the workhorse of the [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]].
+**Relevance:** The [[results/davis-kahan|Davis-Kahan Theorem (Lemma 6)]] is the workhorse of the [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]].
 
 ---
 

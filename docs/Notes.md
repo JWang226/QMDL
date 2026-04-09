@@ -8,9 +8,7 @@
 ## Summary
 
 The most comprehensive version. Contains full proofs of the state compression results (duplicating Article) plus three additional topics:
-- [[concepts/state-programming|State Programming (Visible Setting)]] (Sec. 7)
-- [[concepts/unitary-programming|Unitary Programming]] (Sec. 8)
-- [[concepts/observable-programming|Observable Programming]] (Sec. 9)
+- [[open-questions/programming-extensions|Programming Extensions]] (Secs. 7-9: state programming, unitary programming, observable programming)
 
 Also contains author working comments (JW/YY) that identify [[open-questions/error-scaling|Open: Error Scaling]] and other unresolved questions.
 
@@ -28,9 +26,4 @@ Also contains author working comments (JW/YY) that identify [[open-questions/err
 
 ## Unique Results (not in Article)
 
-- [[results/estimation-programming-lemma|Estimation-Programming Lemma]]
-- [[results/sine-state-programming|Sine-State Programming Proposition]]
-- [[results/unitary-programming-converse|Unitary Programming Converse]]
-- [[results/spectral-measurement-achievability|Spectral Measurement Programming (Achievability)]]
-- [[results/spectral-measurement-converse|Spectral Measurement Programming (Converse)]]
-- [[results/observable-expectation-achievability|Observable Expectation Programming (Achievability)]]
+- See [[open-questions/programming-extensions|Programming Extensions]] for all results from Secs. 7-9 (estimation-programming lemma, sine-state programming, unitary programming converse, spectral measurement programming, observable expectation programming)

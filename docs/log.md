@@ -1,5 +1,22 @@
 # Changelog
 
+## 2026-04-08 — Focus wiki on Article/Letter; split lemmas; add intro pages
+
+### Notes-only content moved to open questions
+- Created `open-questions/programming-extensions.md` consolidating all Notes Sec. 7--9 content (unitary programming, observable programming, state programming) and their open problems (visible converse, subleading term, expectation converse)
+- Deleted 13 Notes-only pages: `concepts/unitary-programming`, `concepts/observable-programming`, `concepts/state-programming`, `concepts/sine-state`, `results/estimation-programming-lemma`, `results/sine-state-programming`, `results/unitary-programming-converse`, `results/spectral-measurement-achievability`, `results/spectral-measurement-converse`, `results/observable-expectation-achievability`, `open-questions/unitary-subleading`, `open-questions/observable-expectation-converse`, `open-questions/visible-converse`
+- Removed "Programming" section and dependency graphs from index; added single open-questions link
+- Updated all cross-references in ~15 files
+
+### Supporting lemmas split into individual pages
+- Deleted `results/remaining-lemmas.md` (collection page)
+- Created 9 individual result pages: `davis-kahan`, `principal-angles`, `monotonicity-lemma`, `dimension-ratio`, `weyl-dimension-asymptotic`, `sanov-theorem`, `commutativity`, `reverse-cloner`, `orbit-sector-compression`
+- Updated all cross-references throughout the wiki
+
+### New introductory pages
+- Created `concepts/free-probability-basics.md` — self-contained introduction to free probability: noncommutative probability spaces, free independence, free cumulants/noncrossing partitions, R-transform, free CLT, random matrix connection
+- Created `concepts/free-entropy-intro.md` — self-contained introduction to free entropy: microstate definition, closed-form formula, free entropy dimension, non-microstate χ*, Coulomb gas picture, operator algebra applications
+
 ## 2026-04-07 — Pedagogical rewrite (article.tex/letter.tex primary)
 
 ### Source priority change

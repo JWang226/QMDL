@@ -57,13 +57,13 @@ Choose the typical set with $\Delta_n = \log n$:
 
 $$\mathcal{T}_{p,n} := \{\lambda : \lambda_i = 0 \text{ for } i > r, \; \max_{1 \leq i \leq r} |\lambda_i - nx_i| \leq \sqrt{n} \log n\}$$
 
-By [[results/remaining-lemmas|Sanov's Theorem (Lemma 12)]], $\sum_{\lambda \notin \mathcal{T}_{p,n}} q_{\lambda,n} \leq (n+1)^{r(r+1)/2} e^{-(\log n)^2/2} = o(1)$, so the typical set also captures most mass. Since the good set has mass $\geq 1 - \sqrt{\delta_n}$ and the typical set has mass $\geq 1 - o(1)$, for sufficiently large $n$ their total exceeds 1, so $\mathcal{G}_n \cap \mathcal{T}_{p,n} \neq \emptyset$.
+By [[results/sanov-theorem|Sanov's Theorem (Lemma 12)]], $\sum_{\lambda \notin \mathcal{T}_{p,n}} q_{\lambda,n} \leq (n+1)^{r(r+1)/2} e^{-(\log n)^2/2} = o(1)$, so the typical set also captures most mass. Since the good set has mass $\geq 1 - \sqrt{\delta_n}$ and the typical set has mass $\geq 1 - o(1)$, for sufficiently large $n$ their total exceeds 1, so $\mathcal{G}_n \cap \mathcal{T}_{p,n} \neq \emptyset$.
 
 Pick any sequence $\lambda^{(n)} \in \mathcal{G}_n \cap \mathcal{T}_{p,n}$. This sequence has both vanishing Haar-average sector error ($\bar{\delta}_{\lambda^{(n)},n} \leq \sqrt{\delta_n} \to 0$) and typical shape ($\lambda^{(n)}_i = nx_i + O(\sqrt{n} \log n)$).
 
 ### Step 5: Apply Koashi-Imoto (Prop 4)
 
-For the specific sequence $\lambda^{(n)}$, the sector code has vanishing Haar-average error. [[results/remaining-lemmas|Irreducible Orbit Sector Compression (Prop 4)]] then implies:
+For the specific sequence $\lambda^{(n)}$, the sector code has vanishing Haar-average error. [[results/orbit-sector-compression|Irreducible Orbit Sector Compression (Prop 4)]] then implies:
 
 $$|M_n| \geq \log \dim \mathcal{H}_{\lambda^{(n)}} + o(1)$$
 
@@ -76,7 +76,7 @@ By the [[concepts/koashi-imoto|Koashi-Imoto Structure Theorem]], since the gener
 
 ### Step 6: Evaluate with Weyl Dimension Formula
 
-Since $\lambda^{(n)} \in \mathcal{T}_{p,n}$, we have $\lambda^{(n)}_i = nx_i + O(\sqrt{n} \log n)$ for $1 \leq i \leq r$ and $\lambda^{(n)}_i = 0$ for $i > r$. Applying [[results/remaining-lemmas|Asymptotic Weyl Dimension (Lemma 11)]] with $\Delta_n = \log n$:
+Since $\lambda^{(n)} \in \mathcal{T}_{p,n}$, we have $\lambda^{(n)}_i = nx_i + O(\sqrt{n} \log n)$ for $1 \leq i \leq r$ and $\lambda^{(n)}_i = 0$ for $i > r$. Applying [[results/weyl-dimension-asymptotic|Asymptotic Weyl Dimension (Lemma 11)]] with $\Delta_n = \log n$:
 
 $$\log \dim \mathcal{H}_{\lambda^{(n)}} = \frac{r(2d-r-1)}{2}\log n + \sum_{i<j \leq r} \log(x_i - x_j) + (d-r)\sum_{i=1}^r \log x_i - \sum_{k=d-r}^{d-1} \log k! + O\left(\frac{\log n}{\sqrt{n}}\right)$$
 
@@ -84,10 +84,10 @@ Since $\log n / \sqrt{n} = o(1)$, this gives the final converse bound matching t
 
 ## Dependencies
 
-- [[results/remaining-lemmas|Irreducible Orbit Sector Compression (Prop 4)]] -- Koashi-Imoto based lower bound per sector
+- [[results/orbit-sector-compression|Irreducible Orbit Sector Compression (Prop 4)]] -- Koashi-Imoto based lower bound per sector
 - [[concepts/koashi-imoto|Koashi-Imoto Structure Theorem]] -- the key structural result for blind compression
-- [[results/remaining-lemmas|Asymptotic Weyl Dimension (Lemma 11)]] -- evaluates irrep dimensions asymptotically
-- [[results/remaining-lemmas|Sanov's Theorem (Lemma 12)]] -- concentration of $\lambda$ around $nx$
+- [[results/weyl-dimension-asymptotic|Asymptotic Weyl Dimension (Lemma 11)]] -- evaluates irrep dimensions asymptotically
+- [[results/sanov-theorem|Sanov's Theorem (Lemma 12)]] -- concentration of $\lambda$ around $nx$
 
 ## Used By
 

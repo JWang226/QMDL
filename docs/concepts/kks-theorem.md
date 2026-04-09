@@ -40,13 +40,13 @@ $$\dim_{\mathbb{R}}(\text{classical phase space}) = 2 \times \dim_{\mathbb{C}}(\
 
 ## Connection to Kirillov Character Formula
 
-The authors conjecture (see [[open-questions/unitary-subleading|Open: Subleading Term for Unitary Programming]]) that the $O(1)$ subleading term for unitary programming involves the **Kirillov character formula**, which gives the character of $H_\lambda$ as an integral over $\mathcal{O}_\lambda$.
+The authors conjecture (see [[open-questions/programming-extensions|Open: Programming Extensions]]) that the $O(1)$ subleading term for unitary programming involves the **Kirillov character formula**, which gives the character of $H_\lambda$ as an integral over $\mathcal{O}_\lambda$.
 
 ## Related
 
 - [[concepts/physical-free-entropy|Physical Free Entropy]]
 - [[concepts/flag-manifold|Flag Manifold]]
-- [[open-questions/unitary-subleading|Open: Subleading Term for Unitary Programming]]
+- [[open-questions/programming-extensions|Open: Programming Extensions]]
 
 ## External References
 

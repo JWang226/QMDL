@@ -50,7 +50,7 @@ The symbol $\chi$ is used for both the Holevo information $\chi_H$ and Voiculesc
 
 - [[concepts/koashi-imoto|Koashi-Imoto Structure Theorem]] -- the algebraic approach to the same converse
 - [[results/converse|Converse (State Compression)]] -- the full converse proof
-- [[concepts/unitary-programming|Unitary Programming]] -- where the Holevo bound governs program dimension
+- [[open-questions/programming-extensions|Programming Extensions (Notes)]] -- where the Holevo bound governs program dimension
 - [[concepts/free-entropy|Free Entropy]] -- a different $\chi$ that should not be confused with Holevo $\chi_H$
 
 ## External References

@@ -26,8 +26,8 @@ In all three cases, the leading-order coefficient is $\frac{1}{2}$ times the [[c
 
 ## What Remains
 
-- **$O(1)$ corrections for unitaries and observables**: The subleading term should be $\frac{1}{2}\chi_{\mathrm{reg}}$, the regularized free entropy. See [[open-questions/unitary-subleading|Open: Subleading Term for Unitary Programming]].
-- **Expectation converse**: The converse for observable expectation programming is open. See [[open-questions/observable-expectation-converse|Open: Observable Expectation Converse]].
+- **$O(1)$ corrections for unitaries and observables**: The subleading term should be $\frac{1}{2}\chi_{\mathrm{reg}}$, the regularized free entropy. See [[open-questions/programming-extensions|Open: Programming Extensions]].
+- **Expectation converse**: The converse for observable expectation programming is open. See [[open-questions/programming-extensions|Open: Programming Extensions]].
 - **Extension to quantum channels**: Free entropy can be defined for CPTP maps; the corresponding programming task is channel programming.
 - **Infinite-dimensional connection**: Relating $\chi_{\mathrm{phy}}$ (defined for finite $d$) to Voiculescu's free entropy $\chi$ (defined in the von Neumann algebra setting as $d \to \infty$).
 - **Multivariate free entropy**: The conjecture extends to *multiple* operators: the multivariate free entropy $\chi(a_1, \ldots, a_k)$ should be the QMDL for jointly programming multiple operators, given knowledge of all their relations. Free entropy is subadditive, with equality for freely independent operators (where knowing one operator does not help describe the other).
@@ -36,8 +36,7 @@ In all three cases, the leading-order coefficient is $\frac{1}{2}$ times the [[c
 
 - [[concepts/free-entropy|Free Entropy]]
 - [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]]
-- [[concepts/unitary-programming|Unitary Programming]]
-- [[concepts/observable-programming|Observable Programming]]
+- [[open-questions/programming-extensions|Programming Extensions (Notes)]]
 
 ## External References
 

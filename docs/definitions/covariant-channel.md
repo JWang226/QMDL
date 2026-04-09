@@ -38,12 +38,12 @@ The covariance property $\mathcal{C}_{n \to m}(U^{\otimes n} \sigma U^{\dagger \
 
 ## Connection to Proof Architecture
 
-Covariance is the design principle behind the [[definitions/generalized-cloning-map-def|Generalized Cloning Map]]. The [[results/remaining-lemmas|Commutativity (Prop 3)]] shows that any $U(d)$-covariant channel automatically satisfies $[\mathcal{N}(\rho_\mu), \rho_\nu] = 0$, meaning the cloned state commutes with the target state. This implies the cloning error is purely in the eigenvalues, not in the eigenbasis -- a key simplification for the [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]] proof.
+Covariance is the design principle behind the [[definitions/generalized-cloning-map-def|Generalized Cloning Map]]. The [[results/commutativity|Commutativity (Prop 3)]] shows that any $U(d)$-covariant channel automatically satisfies $[\mathcal{N}(\rho_\mu), \rho_\nu] = 0$, meaning the cloned state commutes with the target state. This implies the cloning error is purely in the eigenvalues, not in the eigenbasis -- a key simplification for the [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]] proof.
 
 ## Used By
 
 - [[concepts/generalized-cloning-map|Generalized Cloning Map]]
-- [[results/remaining-lemmas|Commutativity (Prop 3)]]
+- [[results/commutativity|Commutativity (Prop 3)]]
 
 ## External References
 

@@ -50,8 +50,8 @@ The converse uses the [[concepts/koashi-imoto|Koashi-Imoto structure theorem]] t
 
 The Notes extend the framework to **programming** -- storing a quantum program that implements an unknown unitary or observable:
 
-- **[[concepts/unitary-programming|Unitary programming]]**: Cost $(f/2)\log(1/\varepsilon) + O(1)$, where $f$ is the number of free parameters.
-- **[[concepts/observable-programming|Observable programming]]**: Cost $(d^2 \delta(H)/2)\log(1/\varepsilon) + O(1)$, where $\delta(H)$ is the [[concepts/free-entropy-dimension|free entropy dimension]].
+- **[[open-questions/programming-extensions|Unitary programming (Notes)]]**: Cost $(f/2)\log(1/\varepsilon) + O(1)$, where $f$ is the number of free parameters.
+- **[[open-questions/programming-extensions|Observable programming (Notes)]]**: Cost $(d^2 \delta(H)/2)\log(1/\varepsilon) + O(1)$, where $\delta(H)$ is the [[concepts/free-entropy-dimension|free entropy dimension]].
 
 The common thread: **free entropy governs the cost of storing classical descriptions of quantum objects**.
 

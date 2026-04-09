@@ -31,7 +31,7 @@ This is a beautiful structural result: the forward and reverse cloners are Petz 
 ## Related
 
 - [[concepts/generalized-cloning-map|Generalized Cloning Map]]
-- [[results/remaining-lemmas|Reverse Cloner (Prop 2)]]
+- [[results/reverse-cloner|Reverse Cloner (Prop 2)]]
 
 ## External References
 

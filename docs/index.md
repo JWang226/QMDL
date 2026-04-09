@@ -2,7 +2,7 @@
 
 > **Project:** "Free entropy and quantum minimum description length"
 > **Authors:** Patrick Hayden, Alexander Maloney, Jinzhao Wang, Yuxiang Yang
-> **Last updated:** 2026-04-07
+> **Last updated:** 2026-04-08
 
 **[[intro|Start here]]** -- overview of the project, main result, and how to navigate.
 
@@ -21,6 +21,7 @@
 ## Core Concepts
 
 ### Free Entropy & Information Theory
+- [[concepts/free-entropy-intro|Introduction to Free Entropy]] — self-contained pedagogical introduction
 - [[concepts/free-entropy|Free Entropy]] — Voiculescu's non-commutative Shannon entropy
 - [[concepts/physical-free-entropy|Physical Free Entropy]] — finite-dimensional, resolution-dependent version
 - [[concepts/free-entropy-dimension|Free Entropy Dimension]] — leading-order scaling coefficient
@@ -30,6 +31,7 @@
 - [[concepts/covering-numbers|Covering Numbers]] — Kolmogorov $\varepsilon$-entropy underlying physical free entropy
 
 ### Free Probability
+- [[concepts/free-probability-basics|Introduction to Free Probability]] — self-contained pedagogical introduction
 - [[concepts/free-probability-theory|Free Probability Theory]] — the broader mathematical framework
 - [[concepts/semicircular-element|Semicircular Element and Free Independence]] — non-commutative Gaussian and freeness
 - [[concepts/vandermonde-determinant|Vandermonde Determinant]] — eigenvalue repulsion factor
@@ -53,12 +55,6 @@
 - [[concepts/ych-scheme|YCH Scheme]] — Yang-Chiribella-Hayashi precursor
 - [[concepts/koashi-imoto|Koashi-Imoto Structure Theorem]] — for the converse proof
 - [[concepts/petz-recovery-map|Petz Recovery Map]] — reverse cloner interpretation
-
-### Programming
-- [[concepts/unitary-programming|Unitary Programming]] — programming unitaries with quantum memory
-- [[concepts/observable-programming|Observable Programming]] — programming measurements with quantum memory
-- [[concepts/state-programming|State Programming (Visible Setting)]] — programming quantum states
-- [[concepts/sine-state|Sine State]] — optimal phase estimation state
 - [[concepts/holevo-information|Holevo Information]] — used in converse proofs
 
 ### Geometric Quantization
@@ -101,23 +97,20 @@
 
 | Result | Type | Source |
 |--------|------|--------|
-| [[results/choi-matrix-lemma|Choi Matrix Lemma]] | Lemma/Prop | Article (Prop 1), Notes |
-| [[results/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]] | Lemma | Article, Notes |
-| [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]] | Lemma | Article, Notes |
-| [[results/probability-ratio|Probability Ratio (Lemma 9)]] | Lemma | Article, Notes |
-| [[results/tail-mass|Tail Mass (Lemma 8)]] | Lemma | Article, Notes |
-| [[results/remaining-lemmas|Supporting Lemmas]] | Collection | Davis-Kahan, Principal Angles, Monotonicity, Dim Ratio, Weyl Dim, Sanov, Commutativity, Reverse Cloner, Sector Compression |
-
-## Programming Results (Notes only)
-
-| Result | Type | Source |
-|--------|------|--------|
-| [[results/estimation-programming-lemma|Estimation-Programming Lemma]] | Lemma | Notes |
-| [[results/sine-state-programming|Sine-State Programming Proposition]] | Proposition | Notes |
-| [[results/unitary-programming-converse|Unitary Programming Converse]] | Theorem | Notes |
-| [[results/spectral-measurement-achievability|Spectral Measurement Achievability]] | Theorem | Notes |
-| [[results/spectral-measurement-converse|Spectral Measurement Converse]] | Theorem | Notes |
-| [[results/observable-expectation-achievability|Observable Expectation Achievability]] | Theorem | Notes |
+| [[results/choi-matrix-lemma|Choi Matrix Lemma]] | Lemma/Prop | Article (Prop 1) |
+| [[results/reverse-cloner|Reverse Cloner (Prop 2)]] | Proposition | Article |
+| [[results/commutativity|Commutativity (Prop 3)]] | Proposition | Article |
+| [[results/orbit-sector-compression|Orbit Sector Compression (Prop 4)]] | Proposition | Article |
+| [[results/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]] | Lemma | Article |
+| [[results/principal-angles|Principal Angles (Lemma 4)]] | Lemma | Article |
+| [[results/monotonicity-lemma|Monotonicity (Lemma 5)]] | Lemma | Article |
+| [[results/davis-kahan|Davis-Kahan Theorem (Lemma 6)]] | Lemma | Article |
+| [[results/perturbation-lemma|Perturbation Lemma (Lemma 7)]] | Lemma | Article |
+| [[results/tail-mass|Tail Mass (Lemma 8)]] | Lemma | Article |
+| [[results/probability-ratio|Probability Ratio (Lemma 9)]] | Lemma | Article |
+| [[results/dimension-ratio|Dimension Ratio (Lemma 10)]] | Lemma | Article |
+| [[results/weyl-dimension-asymptotic|Asymptotic Weyl Dimension (Lemma 11)]] | Lemma | Article |
+| [[results/sanov-theorem|Sanov's Theorem (Lemma 12)]] | Lemma | Article |
 
 ---
 
@@ -129,7 +122,7 @@
                    /                    \
         Achievability (Thm 2)      Converse (Thm 3)
               |                         |
-    Cloning Fidelity (Thm 1)    Koashi-Imoto (Prop 4)
+    Cloning Fidelity (Thm 1)    Orbit Sector (Prop 4)
      /     |      |      \              |
   Lem 7  Lem 9  Lem 8  Lem 10   Weyl Dimension (Lem 11)
     |      |                          |
@@ -137,29 +130,6 @@
  (D-K)  (Kostka)
     |      |
   Casimir  GT Basis
-```
-
-### Unitary Programming
-```
-  Unitary Programming Rate = (f/2) log(1/ε)
-           /                    \
-   Achievability              Converse
-       |                        |
-  Sine-State Prop          Holevo Bound
-       |
-  Est-Prog Lemma
-       |
-  Sine State (Buzek et al.)
-```
-
-### Observable Programming
-```
-  Observable Programming Rate = (d²δ(H)/2) log(1/ε)
-           /                     \
-  Spectral Meas. Achiev.    Spectral Meas. Converse
-       |                         |
-  Reduction to Unitary Prog  Reduction to Unitary Est.
-  on Flag Manifold           on Flag Manifold
 ```
 
 ---
@@ -175,10 +145,8 @@
 - [[open-questions/cloning-optimality|Open: Optimality of the Generalized Cloning Map]] — is the PRV channel the fidelity maximizer among all covariant channels?
 - [[open-questions/degenerate-spectrum|Open: QMDL for Degenerate Spectrum]] — extend the main result to density matrices with repeated eigenvalues
 - [[open-questions/error-scaling|Open: Error Scaling]] — optimal error exponent for qudit compression
-- [[open-questions/unitary-subleading|Open: Subleading Term for Unitary Programming]] — $O(1)$ term via Kirillov formula?
-- [[open-questions/observable-expectation-converse|Open: Observable Expectation Converse]] — no-programming theorem?
-- [[open-questions/visible-converse|Open: Visible Setting Converse]] — state programming converse
 - [[open-questions/free-entropy-conjecture|Conjecture: Free Entropy as Universal QMDL]] — extends to all operators?
+- [[open-questions/programming-extensions|Open: Programming Extensions (Notes)]] — unitary programming, observable programming, state programming, and associated open problems
 
 ---
 

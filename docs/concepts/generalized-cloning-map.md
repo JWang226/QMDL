@@ -63,17 +63,17 @@ The Petz recovery map of $C_{\mu \to \nu}$ with respect to the maximally mixed s
 
 $$C_{\nu \to \mu}(X) = \frac{d_\nu}{d_\mu} C_{\mu \to \nu}^\dagger(X) = \mathrm{Tr}_\omega(V X V^\dagger)$$
 
-See [[results/remaining-lemmas|Reverse Cloner (Prop 2)]].
+See [[results/reverse-cloner|Reverse Cloner (Prop 2)]].
 
 ### 4. Output Commutes with Target
-For any $U(d)$-covariant channel, $[C_{\mu \to \nu}(\rho_\mu), \rho_\nu] = 0$. The output always commutes with the target state, so the cloner only distorts eigenvalues, not eigenbases. See [[results/remaining-lemmas|Commutativity (Prop 3)]].
+For any $U(d)$-covariant channel, $[C_{\mu \to \nu}(\rho_\mu), \rho_\nu] = 0$. The output always commutes with the target state, so the cloner only distorts eigenvalues, not eigenbases. See [[results/commutativity|Commutativity (Prop 3)]].
 
 ### 5. High Fidelity When Irreps Are Close
 The central technical result: when $|\mu|, |\nu| = \Theta(n)$ and $d(\mu, \nu) = \sum_i |\mu_i - \nu_i|$, for any arbitrarily small $\varepsilon > 0$:
 
 $$F(C_{\mu \to \nu}(\rho_\mu), \rho_\nu) \geq 1 - O\left(\frac{d(\mu, \nu)}{n^{1-\varepsilon}}\right)$$
 
-The proof decomposes the fidelity into a classical part (ratio of Schur polynomials, controlled by [[results/remaining-lemmas|Probability Ratio (Lemma 10)]]) and a quantum part (alignment of weight spaces, controlled by the [[concepts/casimir-operator|Casimir Operator]] perturbation analysis). See [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]].
+The proof decomposes the fidelity into a classical part (ratio of Schur polynomials, controlled by [[results/probability-ratio|Probability Ratio (Lemma 9)]]) and a quantum part (alignment of weight spaces, controlled by the [[concepts/casimir-operator|Casimir Operator]] perturbation analysis). See [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]].
 
 ## Role in the Project
 
@@ -91,8 +91,8 @@ The cloning fidelity theorem guarantees this works with error $O(n^{-1/4+\vareps
 
 - [[concepts/prv-component|PRV Component]] -- the ancilla irrep $\omega = (\nu - \mu)^+$
 - [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]] -- the main fidelity bound
-- [[results/remaining-lemmas|Reverse Cloner (Prop 2)]] -- Petz recovery interpretation
-- [[results/remaining-lemmas|Commutativity (Prop 3)]] -- structural property
+- [[results/reverse-cloner|Reverse Cloner (Prop 2)]] -- Petz recovery interpretation
+- [[results/commutativity|Commutativity (Prop 3)]] -- structural property
 - [[concepts/werners-cloning-map|Werner's Cloning Map]] -- the qubit special case
 - [[concepts/casimir-operator|Casimir Operator]] -- key tool in the fidelity proof
 - [[concepts/kumars-theorem|Kumar's Theorem]] -- multiplicity-one guarantee

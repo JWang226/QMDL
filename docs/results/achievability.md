@@ -70,7 +70,7 @@ Then:
 
 $$\delta_n \leq \underbrace{\max_{\lambda \in \mathcal{T}_{p,n}} \frac{1}{2}\|\mathcal{C}_{\Lambda^* \to \lambda} \circ \mathcal{C}_{\lambda \to \Lambda^*}(\rho_\lambda) - \rho_\lambda\|_1}_{\text{typical error}} + \underbrace{\sum_{\lambda \notin \mathcal{T}_{p,n}} q_{\lambda,n}}_{\text{atypical tail}}$$
 
-**Atypical tail (Sanov).** By [[results/remaining-lemmas|Sanov's Theorem (Lemma 12)]], the tail probability is bounded:
+**Atypical tail (Sanov).** By [[results/sanov-theorem|Sanov's Theorem (Lemma 12)]], the tail probability is bounded:
 
 $$\delta_{\mathrm{tail}} \leq (n+1)^{r(r+1)/2} e^{-\Delta_n}$$
 
@@ -91,8 +91,8 @@ Since the compressed state lives entirely in $\mathcal{H}_{\Lambda^*}$, the quan
 - [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]] -- guarantees high-fidelity cloning between typical sectors and $\Lambda^*$
 - [[concepts/schur-weyl-duality|Schur-Weyl Duality]] -- the decomposition into sectors
 - [[concepts/generalized-cloning-map|Generalized Cloning Map]] -- the encoding/decoding channel
-- [[results/remaining-lemmas|Asymptotic Weyl Dimension (Lemma 11)]] -- evaluates $\log \dim \mathcal{H}_{\Lambda^*}$ to get the memory size formula
-- [[results/remaining-lemmas|Sanov's Theorem (Lemma 12)]] -- concentration bound for atypical sectors
+- [[results/weyl-dimension-asymptotic|Asymptotic Weyl Dimension (Lemma 11)]] -- evaluates $\log \dim \mathcal{H}_{\Lambda^*}$ to get the memory size formula
+- [[results/sanov-theorem|Sanov's Theorem (Lemma 12)]] -- concentration bound for atypical sectors
 
 ## Used By
 

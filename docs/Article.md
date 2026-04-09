@@ -24,4 +24,4 @@ The companion paper with full proofs. Introduces the [[concepts/generalized-clon
 - Theorem 1: [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]]
 - Theorem 2: [[results/achievability|Achievability (State Compression)]]
 - Theorem 3: [[results/converse|Converse (State Compression)]]
-- Props 1-4, Lemmas 3-12: See [[results/remaining-lemmas|Supporting Lemmas]]
+- Props 1-4, Lemmas 3-12: See individual result pages in the [[index|Wiki Index]]

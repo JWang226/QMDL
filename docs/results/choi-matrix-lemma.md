@@ -77,5 +77,5 @@ $$\mathsf{C} = \frac{d_\mu}{d_\nu} \cdot \frac{d_\nu}{d_\omega} \Pi_\omega = \fr
 ## Used By
 
 - [[concepts/generalized-cloning-map|Generalized Cloning Map]] -- the Choi matrix identifies the cloning channel with a PRV projector
-- [[results/remaining-lemmas|Reverse Cloner (Prop 2)]]
+- [[results/reverse-cloner|Reverse Cloner (Prop 2)]]
 - [[results/cloning-fidelity|Cloning Fidelity]] -- the fidelity bounds rely on the explicit Choi form
