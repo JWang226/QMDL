@@ -1,0 +1,3819 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Technical wiki for 'Free Entropy and Quantum Minimum Description Length' by Hayden, Maloney, Wang, Yang">
+      
+      
+      
+      
+        <link rel="prev" href="../../Notes/">
+      
+      
+        <link rel="next" href="../free-entropy/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Free Probability & Entropy (Intro) - Free Entropy & QMDL Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-to-free-probability-free-entropy-and-free-entropy-dimension" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Free Entropy &amp; QMDL Wiki" class="md-header__button md-logo" aria-label="Free Entropy & QMDL Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Free Entropy & QMDL Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Free Probability & Entropy (Intro)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../intro/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Introduction
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../notation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Notation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Letter/" class="md-tabs__link">
+          
+  
+  
+  Source Papers
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Concepts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../definitions/compression-code/" class="md-tabs__link">
+          
+  
+  
+  Definitions
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../results/cloning-fidelity/" class="md-tabs__link">
+          
+  
+  
+  Results
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../open-questions/cloning-optimality/" class="md-tabs__link">
+          
+  
+  
+  Open Questions
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../references/key-references/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  References
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Free Entropy &amp; QMDL Wiki" class="md-nav__button md-logo" aria-label="Free Entropy & QMDL Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Free Entropy & QMDL Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Source Papers
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Source Papers
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Letter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Letter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Article/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Article
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Free Probability & Entropy (Intro)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Free Probability & Entropy (Intro)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#part-i-free-probability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part I: Free Probability
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part I: Free Probability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#motivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motivation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#noncommutative-probability-spaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Noncommutative Probability Spaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#free-independence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Free Independence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#free-cumulants-and-noncrossing-partitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Free Cumulants and Noncrossing Partitions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-distributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Distributions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#r-transform-and-free-convolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        R-Transform and Free Convolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-random-matrix-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Random Matrix Connection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classical-vs-free" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classical vs. Free
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-ii-free-entropy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part II: Free Entropy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part II: Free Entropy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#microstate-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Microstate Definition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#closed-form-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Closed-Form Formula
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-microstate-free-entropy-chi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Non-Microstate Free Entropy \(\chi^*\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-coulomb-gas-picture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Coulomb Gas Picture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications-in-operator-algebras" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Applications in Operator Algebras
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-iii-free-entropy-dimension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part III: Free Entropy Dimension
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part III: Free Entropy Dimension">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explicit-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explicit Formula
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#derivation-letter-appendix-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Derivation (Letter, Appendix A)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-in-qmdl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Role in QMDL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        External References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../free-entropy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Free Entropy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physical-free-entropy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physical Free Entropy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../free-entropy-dimension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Free Entropy Dimension
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../free-probability-theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Free Probability Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semicircular-element/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semicircular Element
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum-minimum-description-length/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quantum MDL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kolmogorov-complexity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kolmogorov Complexity & QKC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schumacher-compression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schumacher Compression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../covering-numbers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Covering Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schur-weyl-duality/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schur-Weyl Duality & Schur Transform
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../young-diagrams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Young Diagrams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schur-polynomials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schur Polynomials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gelfand-tsetlin-basis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gelfand-Tsetlin Basis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../weyl-dimension-formula/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weyl Dimension Formula
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vandermonde-determinant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vandermonde Determinant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prv-component/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PRV Component
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kumars-theorem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kumar's Theorem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../casimir-operator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Casimir Operator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kostant-partition-function/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kostant Partition Function
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flag-manifold/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flag Manifold
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generalized-cloning-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generalized Cloning Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../werners-cloning-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Werner's Cloning Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ych-scheme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    YCH Scheme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../koashi-imoto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Koashi-Imoto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../petz-recovery-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Petz Recovery Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../holevo-information/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Holevo Information
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kks-theorem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    KKS Theorem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Definitions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Definitions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../definitions/compression-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compression Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../definitions/generalized-cloning-map-def/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generalized Cloning Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../definitions/free-entropy-voiculescu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Free Entropy (Voiculescu)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../definitions/physical-free-entropy-def/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physical Free Entropy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../definitions/regularized-free-entropy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Regularized Free Entropy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../definitions/free-entropy-dimension-def/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Free Entropy Dimension
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../definitions/covariant-channel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Covariant Channel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../definitions/scaling-regime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scaling Regime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../definitions/typical-set/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Typical Set
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../definitions/edge-gap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Edge Gap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../definitions/normalized-gl-irrep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Normalized GL Irrep
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../definitions/kostka-number/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kostka Number
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../definitions/weight-space/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weight Space
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../definitions/distance-between-irreps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Distance Between Irreps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Results
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Results
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theorems
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Theorems
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../results/cloning-fidelity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloning Fidelity (Thm 1)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../results/achievability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Achievability (Thm 2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../results/converse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Converse (Thm 3)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Propositions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Propositions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../results/propositions/choi-matrix-lemma/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Choi Matrix Lemma (Prop 1)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../results/propositions/reverse-cloner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reverse Cloner (Prop 2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../results/propositions/commutativity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commutativity (Prop 3)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../results/propositions/orbit-sector-compression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Orbit Sector Compression (Prop 4)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lemmas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lemmas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../results/lemmas/kostka-monotonicity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kostka Monotonicity (Lem 3)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../results/lemmas/principal-angles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Principal Angles (Lem 4)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../results/lemmas/monotonicity-lemma/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monotonicity (Lem 5)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../results/lemmas/davis-kahan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Davis-Kahan (Lem 6)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../results/lemmas/perturbation-lemma/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Perturbation Lemma (Lem 7)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../results/lemmas/tail-mass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tail Mass (Lem 8)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../results/lemmas/probability-ratio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Probability Ratio (Lem 9)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../results/lemmas/dimension-ratio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dimension Ratio (Lem 10)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../results/lemmas/weyl-dimension-asymptotic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Asymptotic Weyl Dim (Lem 11)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../results/lemmas/sanov-theorem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sanov's Theorem (Lem 12)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Open Questions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Open Questions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../open-questions/cloning-optimality/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloning Optimality
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../open-questions/degenerate-spectrum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Degenerate Spectrum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../open-questions/error-scaling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Error Scaling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../open-questions/free-entropy-conjecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Free Entropy Conjecture & Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/key-references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#part-i-free-probability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part I: Free Probability
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part I: Free Probability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#motivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motivation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#noncommutative-probability-spaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Noncommutative Probability Spaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#free-independence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Free Independence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#free-cumulants-and-noncrossing-partitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Free Cumulants and Noncrossing Partitions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-distributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Distributions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#r-transform-and-free-convolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        R-Transform and Free Convolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-random-matrix-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Random Matrix Connection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classical-vs-free" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classical vs. Free
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-ii-free-entropy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part II: Free Entropy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part II: Free Entropy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#microstate-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Microstate Definition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#closed-form-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Closed-Form Formula
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-microstate-free-entropy-chi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Non-Microstate Free Entropy \(\chi^*\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-coulomb-gas-picture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Coulomb Gas Picture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications-in-operator-algebras" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Applications in Operator Algebras
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-iii-free-entropy-dimension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part III: Free Entropy Dimension
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part III: Free Entropy Dimension">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explicit-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explicit Formula
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#derivation-letter-appendix-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Derivation (Letter, Appendix A)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-in-qmdl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Role in QMDL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        External References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="introduction-to-free-probability-free-entropy-and-free-entropy-dimension">Introduction to Free Probability, Free Entropy, and Free Entropy Dimension<a class="headerlink" href="#introduction-to-free-probability-free-entropy-and-free-entropy-dimension" title="Permanent link">&para;</a></h1>
+<p>This page provides a self-contained introduction to the mathematical background from free probability theory used in this project.</p>
+<hr />
+<h2 id="part-i-free-probability">Part I: Free Probability<a class="headerlink" href="#part-i-free-probability" title="Permanent link">&para;</a></h2>
+<h3 id="motivation">Motivation<a class="headerlink" href="#motivation" title="Permanent link">&para;</a></h3>
+<p>Free probability theory, developed by Dan Voiculescu beginning in the 1980s, is a noncommutative analogue of classical probability. Its original motivation was the <strong>free group factors problem</strong>: are the type <span class="arithmatex">\(\mathrm{II}_1\)</span> factors <span class="arithmatex">\(L(\mathbb{F}_n)\)</span> and <span class="arithmatex">\(L(\mathbb{F}_m)\)</span> isomorphic for <span class="arithmatex">\(n \neq m\)</span>? (This remains open.) The theory gained broader significance when Voiculescu discovered (1991) that independent random matrices become <strong>freely independent</strong> in the large-<span class="arithmatex">\(N\)</span> limit.</p>
+<h3 id="noncommutative-probability-spaces">Noncommutative Probability Spaces<a class="headerlink" href="#noncommutative-probability-spaces" title="Permanent link">&para;</a></h3>
+<p>A <strong>noncommutative probability space</strong> is a pair <span class="arithmatex">\((\mathcal{A}, \varphi)\)</span> where <span class="arithmatex">\(\mathcal{A}\)</span> is a unital algebra over <span class="arithmatex">\(\mathbb{C}\)</span> and <span class="arithmatex">\(\varphi: \mathcal{A} \to \mathbb{C}\)</span> is a linear functional with <span class="arithmatex">\(\varphi(1) = 1\)</span>.</p>
+<p>The most important setting is the <strong>tracial <span class="arithmatex">\(W^*\)</span>-probability space</strong> <span class="arithmatex">\((M, \tau)\)</span>, where <span class="arithmatex">\(M\)</span> is a von Neumann algebra and <span class="arithmatex">\(\tau\)</span> is a faithful normal tracial state.</p>
+<p><strong>Canonical example:</strong> <span class="arithmatex">\((M_N(\mathbb{C}),\, \mathrm{tr}_N)\)</span> where <span class="arithmatex">\(\mathrm{tr}_N = \frac{1}{N}\mathrm{Tr}\)</span> -- the space of random matrices.</p>
+<h3 id="free-independence">Free Independence<a class="headerlink" href="#free-independence" title="Permanent link">&para;</a></h3>
+<p>Unital subalgebras <span class="arithmatex">\(\mathcal{A}_1, \ldots, \mathcal{A}_m \subseteq \mathcal{A}\)</span> are <strong>freely independent</strong> if</p>
+<div class="arithmatex">\[\varphi(a_1 a_2 \cdots a_n) = 0\]</div>
+<p>whenever each <span class="arithmatex">\(a_j \in \mathcal{A}_{i(j)}\)</span> with alternating indices <span class="arithmatex">\(i(1) \neq i(2) \neq \cdots \neq i(n)\)</span> and each <span class="arithmatex">\(a_j\)</span> is centered: <span class="arithmatex">\(\varphi(a_j) = 0\)</span>.</p>
+<p><strong>Key model:</strong> If <span class="arithmatex">\(A\)</span> is a subalgebra and <span class="arithmatex">\(U\)</span> is a Haar-random unitary, then <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(UAU^*\)</span> are asymptotically free. This is why freeness governs the eigenbasis structure of random matrices.</p>
+<h3 id="free-cumulants-and-noncrossing-partitions">Free Cumulants and Noncrossing Partitions<a class="headerlink" href="#free-cumulants-and-noncrossing-partitions" title="Permanent link">&para;</a></h3>
+<p>Roland Speicher reformulated free probability using <strong>free cumulants</strong> and <strong>noncrossing partitions</strong> <span class="arithmatex">\(\mathrm{NC}(n)\)</span> (partitions with no crossing blocks, counted by Catalan numbers <span class="arithmatex">\(C_n\)</span>). The moment-cumulant formula:</p>
+<div class="arithmatex">\[\varphi(a^n) = \sum_{\pi \in \mathrm{NC}(n)} \prod_{V \in \pi} \kappa_{|V|}(a, \ldots, a)\]</div>
+<p><strong>Freeness criterion:</strong> <span class="arithmatex">\(X_1, \ldots, X_m\)</span> are free iff all mixed free cumulants vanish.</p>
+<h3 id="key-distributions">Key Distributions<a class="headerlink" href="#key-distributions" title="Permanent link">&para;</a></h3>
+<p><strong>Semicircular (Wigner):</strong> density <span class="arithmatex">\(f(x) = \frac{1}{2\pi}\sqrt{4 - x^2}\)</span> on <span class="arithmatex">\([-2, 2]\)</span>. Moments are Catalan numbers. Only <span class="arithmatex">\(\kappa_2 \neq 0\)</span>. This is the <strong>free Gaussian</strong> -- the limit of sums of freely independent variables (free CLT). See <a href="../semicircular-element/">Semicircular Element and Free Independence</a>.</p>
+<p><strong>Marchenko-Pastur (Free Poisson):</strong> all free cumulants equal <span class="arithmatex">\(\lambda\)</span>. Arises from Wishart matrices <span class="arithmatex">\(\frac{1}{N}X^*X\)</span>.</p>
+<h3 id="r-transform-and-free-convolution">R-Transform and Free Convolution<a class="headerlink" href="#r-transform-and-free-convolution" title="Permanent link">&para;</a></h3>
+<p>The <strong>R-transform</strong> <span class="arithmatex">\(R_\mu(z) = \sum_{n=1}^\infty \kappa_n z^{n-1}\)</span> linearizes additive free convolution:</p>
+<div class="arithmatex">\[R_{\mu \boxplus \nu}(z) = R_\mu(z) + R_\nu(z)\]</div>
+<p>This is the free analogue of the additivity of classical cumulant generating functions.</p>
+<h3 id="the-random-matrix-connection">The Random Matrix Connection<a class="headerlink" href="#the-random-matrix-connection" title="Permanent link">&para;</a></h3>
+<p><strong>Wigner's Semicircle Law:</strong> Eigenvalues of <span class="arithmatex">\(N \times N\)</span> Wigner matrices converge to the semicircular distribution.</p>
+<p><strong>Asymptotic Freeness (Voiculescu, 1991):</strong> Independent GUE matrices are asymptotically free as <span class="arithmatex">\(N \to \infty\)</span>.</p>
+<p><strong>Significance for this project:</strong> When <span class="arithmatex">\(\rho^{\otimes n}\)</span> is decomposed via the <a href="../schur-weyl-duality/">Schur-Weyl Duality</a>, eigenvalues and eigenvectors become freely independent in the large-<span class="arithmatex">\(n\)</span> limit. This is why <a href="../free-entropy/">Free Entropy</a> -- not von Neumann entropy -- governs the <a href="../quantum-minimum-description-length/">QMDL</a>.</p>
+<h3 id="classical-vs-free">Classical vs. Free<a class="headerlink" href="#classical-vs-free" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Classical</th>
+<th>Free</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Independence: moments factorize</td>
+<td>Freeness: alternating centered moments vanish</td>
+</tr>
+<tr>
+<td>Gaussian</td>
+<td>Semicircular</td>
+</tr>
+<tr>
+<td>Shannon entropy</td>
+<td>Free entropy</td>
+</tr>
+<tr>
+<td>Fourier/MGF</td>
+<td>R-transform</td>
+</tr>
+<tr>
+<td>All partitions</td>
+<td>Noncrossing partitions</td>
+</tr>
+<tr>
+<td>Tensor products</td>
+<td>Free products</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-ii-free-entropy">Part II: Free Entropy<a class="headerlink" href="#part-ii-free-entropy" title="Permanent link">&para;</a></h2>
+<h3 id="microstate-definition">Microstate Definition<a class="headerlink" href="#microstate-definition" title="Permanent link">&para;</a></h3>
+<p>For self-adjoint <span class="arithmatex">\(X_1, \ldots, X_n\)</span> in a tracial <span class="arithmatex">\(W^*\)</span>-probability space <span class="arithmatex">\((M, \tau)\)</span>, the <strong>microstate space</strong> is:</p>
+<div class="arithmatex">\[\Gamma_R(X_1, \ldots, X_n;\, m, k, \varepsilon) = \left\{ (A_1, \ldots, A_n) \in (M_k^{sa})^n : \begin{array}{l} \|A_j\| &lt; R, \\ \left|\tau(X_{i_1} \cdots X_{i_p}) - k^{-1}\mathrm{Tr}(A_{i_1} \cdots A_{i_p})\right| &lt; \varepsilon \end{array} \right\}\]</div>
+<p>for all <span class="arithmatex">\(1 \le p \le m\)</span> and all index tuples. The <strong>free entropy</strong> is:</p>
+<div class="arithmatex">\[\chi(X_1, \ldots, X_n) = \sup_R\, \inf_m\, \inf_\varepsilon\, \limsup_{k \to \infty}\left(k^{-2}\log\mathrm{vol}\,\Gamma_R + \frac{n}{2}\log k\right)\]</div>
+<p><strong>Analogy:</strong> Shannon entropy counts typical <em>sequences</em>; free entropy counts typical <em>matrices</em>.</p>
+<h3 id="closed-form-formula">Closed-Form Formula<a class="headerlink" href="#closed-form-formula" title="Permanent link">&para;</a></h3>
+<p>For a single self-adjoint <span class="arithmatex">\(X\)</span> with spectral measure <span class="arithmatex">\(\mu\)</span>:</p>
+<div class="arithmatex">\[\chi(X) = \iint \log|s - t|\, d\mu(s)\, d\mu(t) + \frac{3}{4} + \frac{1}{2}\log 2\pi\]</div>
+<p>The double integral <span class="arithmatex">\(\Sigma(\mu) = \iint \log|s-t|\, d\mu(s)\, d\mu(t)\)</span> is the <strong>logarithmic energy</strong>, arising from the <a href="../vandermonde-determinant/">Vandermonde determinant</a> in random matrix eigenvalue densities.</p>
+<p>For a <span class="arithmatex">\(d\)</span>-dimensional density matrix <span class="arithmatex">\(\rho\)</span> with eigenvalues <span class="arithmatex">\(p_1, \ldots, p_d\)</span>:</p>
+<div class="arithmatex">\[\chi(\rho) = \frac{2}{d^2}\sum_{i &lt; j}\log|p_i - p_j| + \text{(divergent)}\]</div>
+<p>The divergence motivates the <a href="../physical-free-entropy/">Physical Free Entropy</a>.</p>
+<h3 id="key-properties">Key Properties<a class="headerlink" href="#key-properties" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Statement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Subadditivity</strong></td>
+<td><span class="arithmatex">\(\chi(X_1, \ldots, X_{m+n}) \le \chi(X_1, \ldots, X_m) + \chi(X_{m+1}, \ldots, X_{m+n})\)</span></td>
+</tr>
+<tr>
+<td><strong>Additivity under freeness</strong></td>
+<td>If freely independent with finite <span class="arithmatex">\(\chi\)</span>, then <span class="arithmatex">\(\chi(X_1, \ldots, X_n) = \sum_j \chi(X_j)\)</span></td>
+</tr>
+<tr>
+<td><strong>Maximum entropy</strong></td>
+<td>Freely independent semicircular variables maximize <span class="arithmatex">\(\chi\)</span> among all with given second moments</td>
+</tr>
+</tbody>
+</table>
+<h3 id="non-microstate-free-entropy-chi">Non-Microstate Free Entropy <span class="arithmatex">\(\chi^*\)</span><a class="headerlink" href="#non-microstate-free-entropy-chi" title="Permanent link">&para;</a></h3>
+<p>Voiculescu also defined <span class="arithmatex">\(\chi^*\)</span> using <strong>free Fisher information</strong> <span class="arithmatex">\(\Phi^*\)</span>:</p>
+<div class="arithmatex">\[\chi^*(X_1, \ldots, X_n) = \frac{1}{2}\int_0^\infty \left(\frac{n}{1+t} - \Phi^*(X_1 + \sqrt{t}\,S_1, \ldots)\right)dt + \frac{n}{2}\log 2\pi e\]</div>
+<p>The fundamental inequality <span class="arithmatex">\(\chi \le \chi^*\)</span> holds; equality for <span class="arithmatex">\(n = 1\)</span> is known; the general case is open.</p>
+<h3 id="the-coulomb-gas-picture">The Coulomb Gas Picture<a class="headerlink" href="#the-coulomb-gas-picture" title="Permanent link">&para;</a></h3>
+<p>The GUE joint eigenvalue density is <span class="arithmatex">\(p(\lambda_1, \ldots, \lambda_N) \propto e^{-\frac{N}{2}\sum \lambda_i^2} \prod_{j&lt;k}|\lambda_j - \lambda_k|^2\)</span> -- a 2D Coulomb gas with logarithmic repulsion. By Ben Arous-Guionnet large deviations, free entropy is the rate function for random matrix ensembles at speed <span class="arithmatex">\(N^2\)</span>.</p>
+<h3 id="applications-in-operator-algebras">Applications in Operator Algebras<a class="headerlink" href="#applications-in-operator-algebras" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Primeness of free group factors (Ge, 1997):</strong> <span class="arithmatex">\(L(\mathbb{F}_n)\)</span> cannot decompose as a tensor product.</li>
+<li><strong>Absence of Cartan subalgebras (Voiculescu, 1996):</strong> <span class="arithmatex">\(L(\mathbb{F}_n)\)</span> has no Cartan subalgebra.</li>
+</ul>
+<hr />
+<h2 id="part-iii-free-entropy-dimension">Part III: Free Entropy Dimension<a class="headerlink" href="#part-iii-free-entropy-dimension" title="Permanent link">&para;</a></h2>
+<h3 id="definition">Definition<a class="headerlink" href="#definition" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[\delta(a) = 1 + \limsup_{\varepsilon \to 0} \frac{\chi(a + \varepsilon s)}{-\log \varepsilon}\]</div>
+<p>where <span class="arithmatex">\(s\)</span> is a freely independent semicircular element. The perturbation regularizes <span class="arithmatex">\(\chi\)</span>, and the rate of divergence encodes a dimension. Always <span class="arithmatex">\(0 \leq \delta(a) \leq 1\)</span>.</p>
+<h3 id="explicit-formula">Explicit Formula<a class="headerlink" href="#explicit-formula" title="Permanent link">&para;</a></h3>
+<p>For a <span class="arithmatex">\(d\)</span>-dimensional operator with spectral multiplicities <span class="arithmatex">\(g_1, \ldots, g_m\)</span> (where <span class="arithmatex">\(\sum g_i = d\)</span>):</p>
+<div class="arithmatex">\[\delta(\rho) = 1 - \frac{\sum_i g_i^2}{d^2}\]</div>
+<p>The unnormalized version <span class="arithmatex">\(d^2 \cdot \delta(\rho) = d^2 - \sum_i g_i^2\)</span> counts real degrees of freedom: a <span class="arithmatex">\(d \times d\)</span> Hermitian matrix has <span class="arithmatex">\(d^2\)</span> parameters, and the stabilizer <span class="arithmatex">\(\prod_i \mathrm{U}(g_i)\)</span> has dimension <span class="arithmatex">\(\sum_i g_i^2\)</span>.</p>
+<h3 id="derivation-letter-appendix-a">Derivation (Letter, Appendix A)<a class="headerlink" href="#derivation-letter-appendix-a" title="Permanent link">&para;</a></h3>
+<p>Adding <span class="arithmatex">\(\varepsilon s\)</span> smooths the point-mass spectrum via free additive convolution:</p>
+<div class="arithmatex">\[\chi(\rho + \varepsilon s) = \frac{\sum_i g_i^2}{d^2}\log \varepsilon + \chi_{\mathrm{reg}}(\rho) + \mathrm{const} + O(\varepsilon)\]</div>
+<p>Substituting: <span class="arithmatex">\(\delta(\rho) = 1 - \sum_i g_i^2/d^2\)</span>. The <span class="arithmatex">\(\chi_{\mathrm{reg}}\)</span> and constant vanish in the limit.</p>
+<p>This connects to <a href="../physical-free-entropy/">Physical Free Entropy</a>: <span class="arithmatex">\(\chi_{\mathrm{phy}}(\rho;\varepsilon) = d^2\delta(\rho)\log(1/\varepsilon) + \chi_{\mathrm{reg}}(\rho) + \mathrm{const}\)</span>.</p>
+<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th><span class="arithmatex">\(\delta(\rho)\)</span></th>
+<th><span class="arithmatex">\(d^2\delta\)</span></th>
+<th>Geometric interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Non-degenerate (<span class="arithmatex">\(g_i = 1\)</span>)</td>
+<td><span class="arithmatex">\((d-1)/d\)</span></td>
+<td><span class="arithmatex">\(d(d-1)\)</span></td>
+<td>Flag manifold <span class="arithmatex">\(\mathrm{U}(d)/\mathrm{U}(1)^d\)</span></td>
+</tr>
+<tr>
+<td>Maximally mixed (<span class="arithmatex">\(g_1 = d\)</span>)</td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td>Invariant under all unitaries</td>
+</tr>
+<tr>
+<td>Pure state (<span class="arithmatex">\(g = 1, d-1\)</span>)</td>
+<td><span class="arithmatex">\(2(d-1)/d^2\)</span></td>
+<td><span class="arithmatex">\(2(d-1)\)</span></td>
+<td><span class="arithmatex">\(\mathbb{CP}^{d-1}\)</span></td>
+</tr>
+<tr>
+<td>Rank-<span class="arithmatex">\(k\)</span> projector (<span class="arithmatex">\(g = k, d-k\)</span>)</td>
+<td><span class="arithmatex">\(2k(d-k)/d^2\)</span></td>
+<td><span class="arithmatex">\(2k(d-k)\)</span></td>
+<td>Grassmannian <span class="arithmatex">\(\mathrm{Gr}(k,d)\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="role-in-qmdl">Role in QMDL<a class="headerlink" href="#role-in-qmdl" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[\log|M_n| = \frac{d^2 \cdot \delta(\rho)}{2} \log n + O(1)\]</div>
+<p>The division by 2 is the geometric quantization factor from the <a href="../kks-theorem/">KKS Theorem</a>.</p>
+<hr />
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<p><strong>Free probability:</strong>
+- voiculescu1993analogues through voiculescu2002free: Voiculescu's foundational series
+- speicher1996universal: Speicher on universal products
+- hiai2000semicircle: Hiai-Petz textbook</p>
+<p><strong>Free entropy:</strong>
+- ge1997applications, ge1998applications: Ge's applications
+- arous1997large: Ben Arous-Guionnet large deviations
+- Jung_2003, Jung_2006: Free entropy dimension</p>
+<p><strong>Textbooks:</strong>
+- A. Nica and R. Speicher, <em>Lectures on the Combinatorics of Free Probability</em>, Cambridge (2006)
+- J. Mingo and R. Speicher, <em>Free Probability and Random Matrices</em>, Springer (2017)
+- D. Voiculescu, K. Dykema, and A. Nica, <em>Free Random Variables</em>, AMS (1992)</p>
+<h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../free-probability-theory/">Free Probability Theory</a> -- role in this project</li>
+<li><a href="../free-entropy/">Free Entropy</a> -- central object of the project</li>
+<li><a href="../physical-free-entropy/">Physical Free Entropy</a> -- finite-dimensional regularized version</li>
+<li><a href="../../definitions/regularized-free-entropy/">Regularized Free Entropy</a> -- the <span class="arithmatex">\(O(1)\)</span> correction</li>
+<li><a href="../semicircular-element/">Semicircular Element and Free Independence</a></li>
+<li><a href="../vandermonde-determinant/">Vandermonde Determinant</a></li>
+</ul>
+<h2 id="external-references">External References<a class="headerlink" href="#external-references" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Free_probability">Free probability (Wikipedia)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Free_entropy">Free entropy (Wikipedia)</a></li>
+<li><a href="https://doi.org/10.1112/S0024609301008992">Voiculescu, "Free entropy" (survey, 2002)</a></li>
+<li><a href="https://bookstore.ams.org/view?ProductCode=SURV/77">F. Hiai and D. Petz, <em>The Semicircle Law, Free Random Variables and Entropy</em>, AMS (2000)</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "toc.follow", "content.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
