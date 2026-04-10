@@ -66,7 +66,7 @@ where $\delta(\rho) = 1 - \sum_a g_a^2/d^2$ is the free entropy dimension from V
 
 - [[concepts/free-entropy-dimension|Free Entropy Dimension]] -- $\delta(\rho) = \dim \mathrm{Fl} / d^2$
 - [[concepts/kks-theorem|KKS Theorem]] -- geometric quantization of flag manifolds
-- [[open-questions/programming-extensions|Programming Extensions (Notes)]] -- programming rate governed by flag manifold dimension
+- [[open-questions/free-entropy-conjecture|Programming Extensions (Notes)]] -- programming rate governed by flag manifold dimension
 - [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]] -- compression rate governed by $\frac{1}{2}\dim \mathrm{Fl} \cdot \log n$
 - [[concepts/weyl-dimension-formula|Weyl Dimension Formula]] -- the leading $\log n$ coefficient is $\frac{1}{2}\dim \mathrm{Fl}$
 

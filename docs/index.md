@@ -20,25 +20,24 @@
 
 ## Core Concepts
 
-### Free Entropy & Information Theory
-- [[concepts/free-entropy-intro|Introduction to Free Entropy]] — self-contained pedagogical introduction
+### Free Probability & Free Entropy
+- [[concepts/free-probability-and-entropy|Introduction to Free Probability, Free Entropy, and Free Entropy Dimension]] — self-contained pedagogical introduction
+- [[concepts/free-probability-theory|Free Probability Theory]] — the broader mathematical framework
+- [[concepts/semicircular-element|Semicircular Element and Free Independence]] — non-commutative Gaussian and freeness
 - [[concepts/free-entropy|Free Entropy]] — Voiculescu's non-commutative Shannon entropy
 - [[concepts/physical-free-entropy|Physical Free Entropy]] — finite-dimensional, resolution-dependent version
 - [[concepts/free-entropy-dimension|Free Entropy Dimension]] — leading-order scaling coefficient
 - [[definitions/regularized-free-entropy|Regularized Free Entropy]] — the $O(1)$ eigenvalue-dependent correction
+- [[concepts/vandermonde-determinant|Vandermonde Determinant]] — eigenvalue repulsion factor
+
+### Information Theory & Compression
 - [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]] — the compression task and main result
+- [[concepts/kolmogorov-complexity|Kolmogorov Complexity & QKC]] — classical and quantum descriptive complexity
 - [[concepts/schumacher-compression|Schumacher Compression]] — contrasting: von Neumann entropy governs this
 - [[concepts/covering-numbers|Covering Numbers]] — Kolmogorov $\varepsilon$-entropy underlying physical free entropy
 
-### Free Probability
-- [[concepts/free-probability-basics|Introduction to Free Probability]] — self-contained pedagogical introduction
-- [[concepts/free-probability-theory|Free Probability Theory]] — the broader mathematical framework
-- [[concepts/semicircular-element|Semicircular Element and Free Independence]] — non-commutative Gaussian and freeness
-- [[concepts/vandermonde-determinant|Vandermonde Determinant]] — eigenvalue repulsion factor
-
 ### Representation Theory
-- [[concepts/schur-weyl-duality|Schur-Weyl Duality]] — the fundamental decomposition
-- [[concepts/schur-transform|Schur Transform]] — the unitary implementing it
+- [[concepts/schur-weyl-duality|Schur-Weyl Duality & Schur Transform]] — the fundamental decomposition and its unitary implementation
 - [[concepts/young-diagrams|Young Diagrams and Partitions]] — labels for irreps
 - [[concepts/schur-polynomials|Schur Polynomials]] — characters of GL(d) representations
 - [[concepts/gelfand-tsetlin-basis|Gelfand-Tsetlin Basis]] — canonical basis for GL(d) irreps
@@ -149,8 +148,7 @@
 - [[open-questions/cloning-optimality|Open: Optimality of the Generalized Cloning Map]] — is the PRV channel the fidelity maximizer among all covariant channels?
 - [[open-questions/degenerate-spectrum|Open: QMDL for Degenerate Spectrum]] — extend the main result to density matrices with repeated eigenvalues
 - [[open-questions/error-scaling|Open: Error Scaling]] — optimal error exponent for qudit compression
-- [[open-questions/free-entropy-conjecture|Conjecture: Free Entropy as Universal QMDL]] — extends to all operators?
-- [[open-questions/programming-extensions|Open: Programming Extensions (Notes)]] — unitary programming, observable programming, state programming, and associated open problems
+- [[open-questions/free-entropy-conjecture|Conjecture: Free Entropy as Universal QMDL & Programming Extensions]] — extends to all operators? Includes unitary/observable/state programming open problems
 
 ---
 

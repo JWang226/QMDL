@@ -79,7 +79,7 @@ The proof decomposes the fidelity into a classical part (ratio of Schur polynomi
 
 The generalized cloning map is the **key technical innovation** that makes the compression scheme work. In the compression protocol:
 
-1. Apply the [[concepts/schur-transform|Schur Transform]] to get sectors labeled by [[concepts/young-diagrams|Young Diagrams]] $\lambda$
+1. Apply the [[concepts/schur-weyl-duality|Schur Transform]] to get sectors labeled by [[concepts/young-diagrams|Young Diagrams]] $\lambda$
 2. Measure $\lambda$, then discard the multiplicity register $M_\lambda$ (it carries no eigenbasis information)
 3. For each typical $\lambda$, use $C_{\lambda \to \Lambda^*}$ to map to a single target irrep $\Lambda^*$
 4. Store the result in $H_{\Lambda^*}$ (the compressed memory)

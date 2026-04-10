@@ -10,11 +10,9 @@ For the generalized cloning map, the relevant PRV component is $\omega = (\nu - 
 
 ## Formal Statement (PRV Theorem)
 
-Let $\mu, \nu$ be dominant weights of $\mathrm{GL}(d)$. For any element $w$ of the Weyl group $W$, the irrep $H_{(\mu + w\nu)^+}$ (the dominant rearrangement) appears in $H_\mu \otimes H_\nu$ with multiplicity at least one.
+Let $\mu, \nu$ be dominant weights of $\mathrm{GL}(d)$. For the **longest element** $w_0$ of the Weyl group $W$, the irrep $H_{(\mu + w_0\nu)^+}$ appears in $H_\mu \otimes H_\nu$ with multiplicity **exactly one**. This is the PRV component proper.
 
-The **Cartan component** (taking $w = \mathrm{id}$) is $H_{(\mu + \nu)^+}$, which appears with multiplicity **exactly one**.
-
-**Kumar's Theorem** (1988): The multiplicity-one property holds for all PRV components, not just the Cartan component. See [[concepts/kumars-theorem|Kumar's Theorem]].
+More generally, [[concepts/kumars-theorem|Kumar's Theorem]] (1988) shows that $H_{(\mu + w\nu)^+}$ appears with multiplicity $\geq 1$ for every $w \in W$. However, for a general $w$ the multiplicity can exceed 1. The $w_0$ case is special because $w_0\nu$ is the lowest weight of $V_\nu$, so $\mu + w_0\nu$ sits at an extremal vertex of the weight polytope, forcing multiplicity exactly 1.
 
 ## Role in the Cloning Map
 

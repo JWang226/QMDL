@@ -68,18 +68,17 @@ nav:
       - Article: Article.md
       - Notes: Notes.md
   - Concepts:
-      - Introduction to Free Probability: concepts/free-probability-basics.md
-      - Introduction to Free Entropy: concepts/free-entropy-intro.md
+      - Free Probability & Entropy (Intro): concepts/free-probability-and-entropy.md
       - Free Entropy: concepts/free-entropy.md
       - Physical Free Entropy: concepts/physical-free-entropy.md
       - Free Entropy Dimension: concepts/free-entropy-dimension.md
       - Free Probability Theory: concepts/free-probability-theory.md
       - Semicircular Element: concepts/semicircular-element.md
       - Quantum MDL: concepts/quantum-minimum-description-length.md
+      - Kolmogorov Complexity & QKC: concepts/kolmogorov-complexity.md
       - Schumacher Compression: concepts/schumacher-compression.md
       - Covering Numbers: concepts/covering-numbers.md
-      - Schur-Weyl Duality: concepts/schur-weyl-duality.md
-      - Schur Transform: concepts/schur-transform.md
+      - Schur-Weyl Duality & Schur Transform: concepts/schur-weyl-duality.md
       - Young Diagrams: concepts/young-diagrams.md
       - Schur Polynomials: concepts/schur-polynomials.md
       - Gelfand-Tsetlin Basis: concepts/gelfand-tsetlin-basis.md
@@ -137,7 +136,6 @@ nav:
       - Cloning Optimality: open-questions/cloning-optimality.md
       - Degenerate Spectrum: open-questions/degenerate-spectrum.md
       - Error Scaling: open-questions/error-scaling.md
-      - Free Entropy Conjecture: open-questions/free-entropy-conjecture.md
-      - Programming Extensions: open-questions/programming-extensions.md
+      - Free Entropy Conjecture & Programming: open-questions/free-entropy-conjecture.md
   - References: references/key-references.md
 

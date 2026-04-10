@@ -11,7 +11,7 @@ where $d(\lambda/n, p) = \frac{1}{2}\sum_i |\lambda_i/n - x_i|$ is the total var
 
 ## Intuition
 
-When you measure $\rho^{\otimes n}$ through the [[concepts/schur-transform|Schur Transform]], the resulting Young diagram $\lambda$ concentrates sharply near $np$. The probability of deviation $> x$ in total variation decays exponentially in $n$.
+When you measure $\rho^{\otimes n}$ through the [[concepts/schur-weyl-duality|Schur Transform]], the resulting Young diagram $\lambda$ concentrates sharply near $np$. The probability of deviation $> x$ in total variation decays exponentially in $n$.
 
 ## Proof Sketch
 

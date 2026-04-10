@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-04-09 — Content revisions: merges, new pages, corrections
+
+### New pages
+- `concepts/kolmogorov-complexity.md` — classical Kolmogorov complexity, QKC (Berthiaume/Gacs/Mueller), connection to QMDL as quantum MDL
+- `concepts/free-probability-and-entropy.md` — combined intro to free probability, free entropy, and free entropy dimension (replaces separate intro pages)
+
+### Merges
+- Merged `free-probability-basics.md` + `free-entropy-intro.md` + free entropy dimension content → `free-probability-and-entropy.md`
+- Merged `schur-weyl-duality.md` + `schur-transform.md` → `schur-weyl-duality.md`
+- Merged `programming-extensions.md` + `free-entropy-conjecture.md` → `free-entropy-conjecture.md`
+
+### Corrections
+- `kumars-theorem.md` — corrected: Kumar shows multiplicity ≥ 1 for general Weyl group elements, not always = 1. The PRV component (multiplicity exactly 1) corresponds to the longest Weyl group element $w_0$.
+- `prv-component.md` — updated to be consistent with Kumar revision
+- `error-scaling.md` — revised expected optimal scaling from $1/n$ to $1/\sqrt{n}$, matching YCH qubit case
+
 ## 2026-04-08 — Focus wiki on Article/Letter; split lemmas; add intro pages
 
 ### Notes-only content moved to open questions

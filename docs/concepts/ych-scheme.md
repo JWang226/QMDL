@@ -12,7 +12,7 @@ For a qubit ($d = 2$) with eigenvalues $p > 1-p > 0$:
 
 ### Encoding
 
-1. **Schur transform:** Apply the [[concepts/schur-transform|Schur Transform]] to decompose $(\mathbb{C}^2)^{\otimes n} = \bigoplus_{J} \mathcal{H}_J \otimes \mathcal{M}_J$, where $\mathcal{H}_J$ is the spin-$J$ irrep of $\mathrm{U}(2)$ (dimension $2J+1$, isomorphic to $\mathrm{Sym}^{2J}(\mathbb{C}^2)$) and $\mathcal{M}_J$ is the multiplicity space (an irrep of $S_n$).
+1. **Schur transform:** Apply the [[concepts/schur-weyl-duality|Schur Transform]] to decompose $(\mathbb{C}^2)^{\otimes n} = \bigoplus_{J} \mathcal{H}_J \otimes \mathcal{M}_J$, where $\mathcal{H}_J$ is the spin-$J$ irrep of $\mathrm{U}(2)$ (dimension $2J+1$, isomorphic to $\mathrm{Sym}^{2J}(\mathbb{C}^2)$) and $\mathcal{M}_J$ is the multiplicity space (an irrep of $S_n$).
 
 2. **Measure the spin $J$:** Perform a non-demolition measurement of the quantum number $J$, which is equivalent to measuring the [[concepts/young-diagrams|Young diagram]] $\lambda = (n/2 + J, n/2 - J)$. This preserves the quantum information within $\mathcal{H}_J$. The probability distribution $q_J$ concentrates sharply around the **typical value** $J^\star = (p - 1/2)(n+1)$, which is the spin corresponding to the typical Young diagram with rows proportional to the spectrum.
 

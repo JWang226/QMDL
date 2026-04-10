@@ -8,7 +8,7 @@
 ## Summary
 
 The most comprehensive version. Contains full proofs of the state compression results (duplicating Article) plus three additional topics:
-- [[open-questions/programming-extensions|Programming Extensions]] (Secs. 7-9: state programming, unitary programming, observable programming)
+- [[open-questions/free-entropy-conjecture|Programming Extensions]] (Secs. 7-9: state programming, unitary programming, observable programming)
 
 Also contains author working comments (JW/YY) that identify [[open-questions/error-scaling|Open: Error Scaling]] and other unresolved questions.
 
@@ -26,4 +26,4 @@ Also contains author working comments (JW/YY) that identify [[open-questions/err
 
 ## Unique Results (not in Article)
 
-- See [[open-questions/programming-extensions|Programming Extensions]] for all results from Secs. 7-9 (estimation-programming lemma, sine-state programming, unitary programming converse, spectral measurement programming, observable expectation programming)
+- See [[open-questions/free-entropy-conjecture|Programming Extensions]] for all results from Secs. 7-9 (estimation-programming lemma, sine-state programming, unitary programming converse, spectral measurement programming, observable expectation programming)
