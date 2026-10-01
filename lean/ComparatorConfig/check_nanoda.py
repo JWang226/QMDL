@@ -39,6 +39,67 @@ def run(args, **kwargs):
     subprocess.run(args, cwd=ROOT, check=True, **kwargs)
 
 
+def theorem_names(config):
+    """Require an explicit, nonempty set of ordinary dotted theorem names."""
+    names = config.get("theorem_names")
+    if (not isinstance(names, list) or not names
+            or any(not isinstance(name, str) or not name or name != name.strip()
+                   or any(not part for part in name.split(".")) for name in names)
+            or len(set(names)) != len(names)):
+        raise ValueError("theorem_names must be nonempty, unique dotted names")
+    return names
+
+
+def kernel_options(names, axioms):
+    return {
+        "use_stdin": True,
+        "permitted_axioms": axioms,
+        "unpermitted_axiom_hard_error": True,
+        "nat_extension": True,
+        "string_extension": True,
+        "print_success_message": True,
+        # The pinned parser checks these names even without a pretty-printer
+        # destination. No proof terms are rendered. Exporter exit status alone
+        # is insufficient: its missing-constant panic can still exit zero.
+        "pp_declars": names,
+        "unknown_pp_declar_hard_error": True,
+        "pp_to_stdout": False,
+        "print_axioms": False,
+    }
+
+
+def require_exported_theorems(path, names):
+    """Check root presence and declaration kind in the export, not just names
+    echoed into a report. Nanoda independently checks presence and all terms.
+    Only the name table is retained; expression bodies are streamed.
+    """
+    wanted = {tuple(name.split(".")): name for name in names}
+    name_table = {0: ()}
+    found = set()
+    with path.open() as handle:
+        for line in handle:
+            record = json.loads(line)
+            if "in" in record:
+                if "str" in record:
+                    part = record["str"]
+                    suffix = part["str"]
+                else:
+                    part = record["num"]
+                    # Numeric Lean name components are not string components.
+                    suffix = part["i"]
+                name_table[record["in"]] = name_table[part["pre"]] + (suffix,)
+            if "thm" in record:
+                name = name_table[record["thm"]["name"]]
+                if name in wanted:
+                    if name in found:
+                        raise ValueError(f"Duplicate exported theorem: {wanted[name]}")
+                    found.add(name)
+    missing = [label for name, label in wanted.items() if name not in found]
+    if missing:
+        raise ValueError("Required targets are missing or not theorem declarations: "
+                         + ", ".join(missing))
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--nanoda-bin", default="nanoda_bin",
@@ -62,36 +123,32 @@ def main():
     for config_name in configs:
         config_path = (ROOT / config_name).resolve()
         config = json.loads(config_path.read_text())
+        names = theorem_names(config)
         relative_config = config_path.relative_to(ROOT).as_posix()
         axioms = config["permitted_axioms"]
         if set(axioms) != {"propext", "Quot.sound", "Classical.choice"}:
             parser.error("These checks require exactly the three recorded standard axioms")
         run(["lake", "build", config["solution_module"]])
-        targets = BUILTINS + config["theorem_names"] + axioms + PRIMITIVES
+        targets = BUILTINS + names + axioms + PRIMITIVES
         if "Quot.sound" in axioms:
             targets += QUOTIENTS
         with tempfile.TemporaryDirectory(prefix="free-entropy-nanoda-") as temp:
             temp_path = Path(temp)
             export_path = temp_path / "solution.export"
             kernel_config = temp_path / "nanoda.json"
-            kernel_config.write_text(json.dumps({
-                "use_stdin": True,
-                "permitted_axioms": axioms,
-                "unpermitted_axiom_hard_error": True,
-                "nat_extension": True,
-                "string_extension": True,
-                "print_success_message": True,
-            }, indent=2) + "\n")
+            kernel_config.write_text(json.dumps(kernel_options(names, axioms), indent=2) + "\n")
             print(f"Exporting Nanoda roots: {config['solution_module']}", flush=True)
             with export_path.open("wb") as handle:
                 run(["lake", "env", str(exporter), config["solution_module"],
                      "--", *targets], stdout=handle)
+            require_exported_theorems(export_path, names)
             print(f"Checking {relative_config} with real Nanoda.", flush=True)
             with export_path.open("rb") as handle:
                 run([str(binary), str(kernel_config)], stdin=handle)
             results[relative_config] = {
                 "status": "passed",
-                "theorem_names": config["theorem_names"],
+                "theorem_names": names,
+                "exported_theorems_present": True,
                 "config_sha256": digest(config_path),
                 "solution_export_sha256": digest(export_path),
                 "export_bytes": export_path.stat().st_size,
@@ -109,6 +166,7 @@ def main():
             "nanoda_binary_sha256": digest(binary),
             "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"],
             "unpermitted_axiom_hard_error": True,
+            "unknown_pp_declar_hard_error": True,
             "proof_sources_sha256": hashlib.sha256(b"".join(
                 path.name.encode() + b"\0" + path.read_bytes()
                 for path in sorted((ROOT / "FreeEntropy").glob("*.lean"))

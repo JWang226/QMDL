@@ -60,8 +60,8 @@
       ]
     }
   },
-  "execution_context": "Fresh isolated source build with public dependencies at the locked revisions; no pre-existing project compilation artifacts were copied from the working tree. The diagnostic used that freshly compiled tree.",
-  "completed_at_utc": "2026-10-01T06:11:32.316454+00:00",
+  "execution_context": "Fresh clone of published commit dc226a55023a47d1f4868a042d87d39238b7e2dd; all 270 project modules rebuilt without pre-existing project proof artifacts. Dependency caches were reused after verifying clean source checkouts at all twelve locked revisions. All three statement comparisons, axiom checks and Lean kernel replays passed in that rebuilt tree.",
+  "completed_at_utc": "2026-10-01T07:56:11.603365+00:00",
   "checks": [
     "Pinned Comparator.compareAt",
     "Pinned Comparator.checkAxioms",

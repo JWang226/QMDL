@@ -73,6 +73,9 @@ then run `lean/ComparatorConfig/check_nanoda.py` with the resulting binary.
 Both commands work on macOS and Linux and are explicitly unsandboxed.
 Nanoda checks each exported solution's dependency closure with unpermitted
 axioms treated as errors; it does not perform statement comparison itself.
+The wrapper requires every requested root to be an exported theorem, and Nanoda
+independently rejects missing roots. Exporter success alone is insufficient:
+the pinned exporter can return zero after a missing-target panic.
 
 The [Nanoda toolchain record](../lean/ComparatorConfig/nanoda-toolchain.json)
 pins the checker source, Rust version and Cargo lockfile. Its
@@ -82,6 +85,17 @@ check your checkout; a bundled report is historical evidence. Use
 `--report /tmp/qmdl-nanoda-result.json` to retain a new portable report.
 The optional report is written only after every requested case succeeds.
 Use a fresh report path: a failed rerun does not overwrite an older report.
+
+To test the checking pipeline itself with the same real exporter and kernel:
+
+```sh
+python3 scripts/test_nanoda_check.py --lake-project lean \
+  --nanoda-bin /path/to/nanoda_bin
+```
+
+This accepts a valid theorem and requires rejection of missing targets,
+non-theorem roots, forbidden axioms, proof holes, and an ill-typed proof.
+Fixtures live only in a temporary directory, outside the proved library.
 
 ## Source-only export
 
@@ -212,3 +226,31 @@ the actual platform, dependency pins, commands, source fingerprint, and
 outcome without machine-specific paths. Its fingerprint must match the
 sources before the exporter will include it. This completed local result
 does not assert that hosted CI or the Linux-sandboxed Comparator has run.
+
+## Additional independent check — 2026-10-01
+
+A fresh clone of published commit `dc226a55023a47d1f4868a042d87d39238b7e2dd`
+was rebuilt without existing project proof artifacts. Dependency caches were
+reused after checking all twelve source revisions against the lockfile. All
+270 project modules compiled, and the 2,499-declaration axiom audit and all
+three Comparator/Lean replay cases passed.
+
+Nanoda was rebuilt from its pinned source with Rust 1.90.0. The hardened helper
+then checked **59,959**, **62,881**, and **58,851** declarations in the achievability,
+converse, and Choi-cloning exports, respectively, with no errors. These counts
+include shared dependencies and should not be added as distinct declarations.
+All seven acceptance/rejection regression groups passed, including missing
+targets, forbidden axioms, proof holes and an ill-typed proof term.
+
+The review uncovered and fixed an exporter-related false-pass path: a missing
+target could produce an incomplete export with exit code zero. The helper now
+requires actual theorem roots, and Nanoda independently requires their presence.
+CI runs the regression controls before checking the solution exports.
+The theorem sources and manuscript were unchanged.
+
+The updated [Nanoda record](../lean/ComparatorConfig/nanoda-status.json) and
+the latest entry in [reproducibility.json](../lean/verification/reproducibility.json)
+bind this run to its source, checker, binary and export hashes. An agent-performed
+review found no concrete mismatch between the final statements and the manuscript;
+this does not establish independent human review. The checks were local and
+unsandboxed; the Linux-sandboxed Comparator status remains separate.

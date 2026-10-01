@@ -99,6 +99,15 @@ jobs:
           CARGO_TARGET_DIR="$RUNNER_TEMP/nanoda/target" \
             cargo +1.90.0 build --release --locked --manifest-path "$RUNNER_TEMP/nanoda/Cargo.toml"
 
+      - name: Test Nanoda acceptance and rejection controls
+        working-directory: ${{ runner.temp }}/free-entropy-source
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/test_nanoda_check.py --lake-project lean \
+            --nanoda-bin "$RUNNER_TEMP/nanoda/target/release/nanoda_bin" \
+            2>&1 | tee lean/verification/nanoda-regression.log
+
       - name: Replay all solution exports in Nanoda (unsandboxed independent kernel)
         working-directory: ${{ runner.temp }}/free-entropy-source/lean
         shell: bash

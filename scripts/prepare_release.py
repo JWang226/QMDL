@@ -42,6 +42,7 @@ OPTIONAL_FILES = (
     "lean/ComparatorConfig/ReplayExports.lean",
     "lean/ComparatorConfig/check_nanoda.py", "lean/ComparatorConfig/nanoda-toolchain.json",
     "lean/ComparatorConfig/nanoda-status.json",
+    "scripts/test_nanoda_check.py",
 )
 SOURCE_PATTERNS = (
     "lean/FreeEntropy/*.lean",

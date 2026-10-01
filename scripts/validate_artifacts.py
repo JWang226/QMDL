@@ -416,6 +416,8 @@ class Validator:
         self.require(isinstance(axioms, list) and len(axioms) == 3 and set(axioms) == ALLOWED_AXIOMS
                      and report.get("unpermitted_axiom_hard_error") is True,
                      "Nanoda must reject all axioms except the three recorded standard axioms")
+        self.require(report.get("unknown_pp_declar_hard_error") is True,
+                     "Nanoda must reject missing requested declarations")
         completed = datetime.datetime.fromisoformat(report["completed_at_utc"])
         self.require(completed.tzinfo is not None and completed.utcoffset() == datetime.timedelta(0),
                      "Nanoda completion time is not timezone-qualified UTC")
@@ -448,6 +450,8 @@ class Validator:
             config = self.configs["lean/" + config_path]
             self.require(case.get("status") == "passed" and case.get("theorem_names") == config["theorem_names"],
                          f"Nanoda case has wrong status or theorem set: {config_path}")
+            self.require(case.get("exported_theorems_present") is True,
+                         f"Nanoda evidence does not confirm exported theorem roots: {config_path}")
             for field in ("config_sha256", "solution_export_sha256"):
                 self.require(isinstance(case.get(field), str) and re.fullmatch(r"[0-9a-f]{64}", case[field]),
                              f"Malformed Nanoda case hash: {config_path}/{field}")

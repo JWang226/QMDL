@@ -3,7 +3,7 @@
   "status": "passed",
   "mode": "unsandboxed_independent_kernel",
   "sandboxed_comparator": "not_run",
-  "completed_at_utc": "2026-10-01T06:59:38.801903+00:00",
+  "completed_at_utc": "2026-10-01T07:55:20.090666+00:00",
   "lean_toolchain": "leanprover/lean4:v4.29.0-rc6",
   "nanoda": {
     "repository": "https://github.com/ammkrn/nanoda_lib.git",
@@ -15,16 +15,17 @@
     "build_command": "cargo +1.90.0 build --release --locked",
     "binary": "target/release/nanoda_bin"
   },
-  "nanoda_binary_sha256": "f1ca3331f18ac69b41a081f243ecfd7d673ed63e01611297e670ed0568845587",
+  "nanoda_binary_sha256": "1ec977b7ed44125c209252c239c8db5516602699a9a7e576d473c3dc8d9cee35",
   "permitted_axioms": [
     "propext",
     "Quot.sound",
     "Classical.choice"
   ],
   "unpermitted_axiom_hard_error": true,
+  "unknown_pp_declar_hard_error": true,
   "proof_sources_sha256": "f4efe7d88eb576d8ad579c57a2dd1b4ddc3a6b628d5cb023d9f42a326c0dbfee",
   "artifact_sha256": {
-    "ComparatorConfig/check_nanoda.py": "3e0e8cfa1ab76843c9a4a46cd826516532ce99fa12fa851b4b0aa4c4dd564aa6",
+    "ComparatorConfig/check_nanoda.py": "d24aca97dbd903e47718fbdf97dc8ea7269fbcabe822c0e5debe5e3e6ec33d44",
     "ComparatorConfig/nanoda-toolchain.json": "21e1be645fa2742ae0ad12aec8052f063a30727d6352b8598360f60eebd427e3",
     "lake-manifest.json": "4707e55825935027ab3c626f6042d11d9279aa19bc7e423a06113266025074eb",
     "lean-toolchain": "dc6d65016fad3123d44bf17b5bf0598286284ab16ba75d5c17eb22ed11f47361"
@@ -35,6 +36,7 @@
       "theorem_names": [
         "FreeEntropy.theorem1_achievability"
       ],
+      "exported_theorems_present": true,
       "config_sha256": "e376b12236c7530e7a1eb440bbc4afc066cd8622f8a25a87cced2476757f8718",
       "solution_export_sha256": "f7af5e5a65827516d612d18be6ac641aa36e37d67f7a81a33398d2f39e5cc113",
       "export_bytes": 444431055
@@ -45,6 +47,7 @@
         "FreeEntropy.theorem1_converse",
         "FreeEntropy.theorem1_converse_of_uniform"
       ],
+      "exported_theorems_present": true,
       "config_sha256": "c2aa62b86f623b957c6043722556aac1c0ecf6be310dba3667796d7857dcc4d1",
       "solution_export_sha256": "6cd319a3ab04af0c1e467b85da63ff19efd00bcfdd2a7d468eba6c5f2ad4688c",
       "export_bytes": 469469721
@@ -54,6 +57,7 @@
       "theorem_names": [
         "FreeEntropy.ExteriorRepresentation.theorem2_cloning_accuracy_choi"
       ],
+      "exported_theorems_present": true,
       "config_sha256": "a32afec6d35b4dff942b11987b9f680635589bfc3b8cfdee37ecb6bfcfb4b04e",
       "solution_export_sha256": "b0ded2e0bbfdc473834d2147669364525ffc10343b42d1914bc48a644df13c2f",
       "export_bytes": 431335036

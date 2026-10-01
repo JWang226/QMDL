@@ -115,6 +115,63 @@
       "command": "bash check.sh",
       "scope": "Final script executed in the same isolated source checkout, using its previously built proof artifacts; build All and regenerated actual kernel audit both passed.",
       "status": "passed"
+    },
+    {
+      "checked_at_utc": "2026-10-01T07:56:11.603365+00:00",
+      "checker_change": "Hardened Nanoda helper applied to the fresh checkout before replay; its exact bytes are bound by nanoda-status.json",
+      "commands": [
+        "bash lean/check.sh",
+        "python3 lean/ComparatorConfig/check_local.py",
+        "cargo +1.90.0 build --release --locked (clean pinned Nanoda checkout)",
+        "python3 scripts/test_nanoda_check.py --lake-project <pinned-lean-project> --nanoda-bin <rebuilt-nanoda>",
+        "python3 lean/ComparatorConfig/check_nanoda.py --nanoda-bin <rebuilt-nanoda> --report <fresh-report>"
+      ],
+      "dependency_caches_reused": true,
+      "dependency_sources_verified_against_lockfile": true,
+      "executed_scripts_sha256": {
+        "lean/ComparatorConfig/ReplayExports.lean": "26abec40254d4ce174eaa6b1201611a9e624ad62296e774a6930fc9e1ca4f892",
+        "lean/ComparatorConfig/check_local.py": "ebf49cdc6967e9d7e31f1d373f6657f3692dcf390fad4bc94747f5668754aa45",
+        "lean/ComparatorConfig/check_nanoda.py": "d24aca97dbd903e47718fbdf97dc8ea7269fbcabe822c0e5debe5e3e6ec33d44",
+        "lean/audit.py": "d3fd79cb607c9b6e2c2f83d9569c7a52e3e934be1ea3faa5e208978f3421b240",
+        "lean/check.sh": "92bd75452b8535f45f90edeee260d2559ef2c887c32eae520cd300ed2c7f8534",
+        "scripts/test_nanoda_check.py": "b32c6683ecacd8c09afaa4c6f55695e9f19f5be0b01cce790861290d52473189"
+      },
+      "nanoda_binary_sha256": "1ec977b7ed44125c209252c239c8db5516602699a9a7e576d473c3dc8d9cee35",
+      "nanoda_declarations_checked_by_case": {
+        "ComparatorChallenges/Theorem1Achievability.json": 59959,
+        "ComparatorChallenges/Theorem1Converse.json": 62881,
+        "ComparatorChallenges/Theorem2Choi.json": 58851
+      },
+      "nanoda_rebuilt_from_clean_checkout": true,
+      "project_proof_artifacts_reused": false,
+      "proof_sources_sha256": "f4efe7d88eb576d8ad579c57a2dd1b4ddc3a6b628d5cb023d9f42a326c0dbfee",
+      "raw_log_sha256": {
+        "comparator": "aaabde4696032d4074f5a85d72e41236d702846db0c8b87180d96188e62a7274",
+        "lean": "87a420ab718aa4fde397e7d1b6153e49c4555bf3dc4d0c636387284486964586",
+        "nanoda": "1e8ead921a58f25aa61b688ad44aa0cdad0ea130a9ba94659acd4aac6cd8c0d2"
+      },
+      "regression_controls": {
+        "checks": [
+          "valid theorem accepted",
+          "missing target rejected by wrapper and kernel",
+          "non-theorem root rejected",
+          "badAxiom rejected by real kernel axiom policy",
+          "proofHole rejected by real kernel axiom policy",
+          "ill-typed proof rejected by real kernel",
+          "empty, duplicate, and malformed target selections rejected"
+        ],
+        "status": "passed"
+      },
+      "regression_report_sha256": "5a4a9626d75fe15211d9d9be9e07d55e947c7e1d0d6de7374a085e8b56eedb1b",
+      "sandboxed_comparator": "not_run",
+      "scope": "Fresh project build, actual axiom audit, all Comparator cases, rebuilt independent Nanoda, and negative controls",
+      "semantic_review": {
+        "finding": "No concrete mismatch, vacuous premise or hidden final-endpoint hypothesis found",
+        "kind": "agent-performed source and statement review",
+        "limits": "Theorem 2 challenges import disclosed representation definitions; independent human mathematical review remains pending"
+      },
+      "source_commit": "dc226a55023a47d1f4868a042d87d39238b7e2dd",
+      "status": "passed"
     }
   ],
   "total_public_declarations_audited": 2499

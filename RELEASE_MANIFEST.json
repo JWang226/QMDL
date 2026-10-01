@@ -51,8 +51,8 @@
   },
   "files": {
     ".github/workflows/lean.yml": {
-      "bytes": 9513,
-      "sha256": "a9fe923e2663987527565bf8bf0ccf6c233a5d591f78e8b9fdfbdc3ab8b350a3"
+      "bytes": 9910,
+      "sha256": "c0cffe67bcac9b0b6dac8033623ac0db8dd8b6d4d8afb883481bfdf596edb818"
     },
     ".gitignore": {
       "bytes": 845,
@@ -71,8 +71,8 @@
       "sha256": "6c1cba42baa0a044f41cffc3fb7fc04f74f0fcc1687cd7b34db43ff4e585fa10"
     },
     "README.md": {
-      "bytes": 8830,
-      "sha256": "a14bcfeee3d8406e51f9550ceb26b29fe4e554ed926327842fe370b29dfc94cc"
+      "bytes": 5867,
+      "sha256": "1cf5471abd25b38d4853d6314d21a527dace8f6e37dea5da0dc2bfda5d847e32"
     },
     "article.tex": {
       "bytes": 98692,
@@ -91,8 +91,8 @@
       "sha256": "58e51f56265c000291a61727243a6209ec4c1b7530b88b15fbfc5a8c6dad2284"
     },
     "docs/REPRODUCIBILITY.md": {
-      "bytes": 10689,
-      "sha256": "9a9e2873d22fa5c2cbb327a1397bf3752b5e24a83206634e433663435fcd8480"
+      "bytes": 13015,
+      "sha256": "9bf390ff07e9cfd47298564bb043239ba36adc77e60a901069db85a52ba29d71"
     },
     "formalization.yaml": {
       "bytes": 8270,
@@ -131,8 +131,8 @@
       "sha256": "201fbf33f3961cb677fe3786768ef70ebc8fd55ca1c37ef4ed83f17f68dd906a"
     },
     "lean/ComparatorChallenges/README.md": {
-      "bytes": 7809,
-      "sha256": "b33edb2dba8c0272501b2c086c4894c9eeb93b2a1be9c03bb19fa999f34f3a05"
+      "bytes": 7967,
+      "sha256": "a11fbb9eae7e180be116c3c5a014052826fe75b1d282934dcfa54dc94bd6b7eb"
     },
     "lean/ComparatorChallenges/Theorem1Achievability.json": {
       "bytes": 302,
@@ -163,8 +163,8 @@
       "sha256": "7d67c8ac14e90d1f73c9f590723e17b6204abef3e7b557a084b047ea4d4fce25"
     },
     "lean/ComparatorChallenges/verification-status.json": {
-      "bytes": 4474,
-      "sha256": "b257ace51ea505a5410817b40bf4715547bf9756ac0d31e76559b2c7682ea18d"
+      "bytes": 4619,
+      "sha256": "b8679538a979ce7ff9eb17b33a6de16e1c70466ccacc2a2c7c3eef189e1d2e80"
     },
     "lean/ComparatorConfig/ReplayExports.lean": {
       "bytes": 2324,
@@ -175,12 +175,12 @@
       "sha256": "ebf49cdc6967e9d7e31f1d373f6657f3692dcf390fad4bc94747f5668754aa45"
     },
     "lean/ComparatorConfig/check_nanoda.py": {
-      "bytes": 5851,
-      "sha256": "3e0e8cfa1ab76843c9a4a46cd826516532ce99fa12fa851b4b0aa4c4dd564aa6"
+      "bytes": 8308,
+      "sha256": "d24aca97dbd903e47718fbdf97dc8ea7269fbcabe822c0e5debe5e3e6ec33d44"
     },
     "lean/ComparatorConfig/nanoda-status.json": {
-      "bytes": 2707,
-      "sha256": "4d8c26e02e9f71d7c912c0ecbc4f26b9356b32948601445e650834c8ff08c6d8"
+      "bytes": 2870,
+      "sha256": "1befd02b2fc89305bb2f8f4b6ce8fb006f54c4aa9bc61efcf46f6457a4c48ad8"
     },
     "lean/ComparatorConfig/nanoda-toolchain.json": {
       "bytes": 434,
@@ -1307,8 +1307,8 @@
       "sha256": "dc6d65016fad3123d44bf17b5bf0598286284ab16ba75d5c17eb22ed11f47361"
     },
     "lean/verification/reproducibility.json": {
-      "bytes": 5263,
-      "sha256": "d22a42bdb7b76e82a8fbc80e817107ea69b6863f63b648d887d8bf68b25703e0"
+      "bytes": 8698,
+      "sha256": "545e81c66f4fa6d6fc1d64f24db21830b38ea74f879eca91685408414bba36cd"
     },
     "lean/verification/summary.json": {
       "bytes": 993,
@@ -1327,16 +1327,20 @@
       "sha256": "12074f60b9a196e67c3e27fae46b0d8fb05630794a90977269c954f31c680307"
     },
     "scripts/prepare_release.py": {
-      "bytes": 12249,
-      "sha256": "a6e3b83981c8fe491cd7ec23b3d47065292d9c7f505ac4be2e3dda990e07d117"
+      "bytes": 12285,
+      "sha256": "225e3ca126fe99f6b24ffc281c278a56f84e89bf6626d979bf193753606815ed"
     },
     "scripts/requirements-release.txt": {
       "bytes": 351,
       "sha256": "c1e3b4565987b760f417ed485bed8feed4c7fa7ea80c0c989536e2bd386e64d2"
     },
+    "scripts/test_nanoda_check.py": {
+      "bytes": 7449,
+      "sha256": "b32c6683ecacd8c09afaa4c6f55695e9f19f5be0b01cce790861290d52473189"
+    },
     "scripts/validate_artifacts.py": {
-      "bytes": 33276,
-      "sha256": "8a5119f6dd1e65657298e075ec77711462377dfda1f1f9790612b72c28b44990"
+      "bytes": 33595,
+      "sha256": "4b8cb139ee29d78e38bb22a5bea7229696dbd20e09b3c0b662c0ecbb55a9d841"
     },
     "utphys.bst": {
       "bytes": 26044,

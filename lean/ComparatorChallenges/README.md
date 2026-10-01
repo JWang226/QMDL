@@ -118,13 +118,15 @@ python3 lean/ComparatorConfig/check_nanoda.py \
 This checks all three configurations using actual solution exports, including the
 Nat, String and quotient roots requested by the pinned Comparator's Nanoda mode.
 Only the three standard axioms are allowed; an unpermitted axiom causes a hard
-error. The checker is **unsandboxed** and performs independent kernel replay only;
+error. The wrapper verifies that every requested target occurs as a theorem in
+the export, and Nanoda separately requires those declarations to exist. This
+guards against the pinned exporter's missing-target panic returning exit code
+zero with an incomplete export. The checker is **unsandboxed** and performs independent kernel replay only;
 run the local Comparator diagnostic as well for expected-statement comparison.
 It makes no tracked changes unless `--report PATH` is supplied. To expose the same
 binary to the Linux `--nanoda` mode, add its `target/release` directory to `PATH`.
-This Nanoda release can report `Unable to print axioms` after successful checking
-when no pretty-print destination is selected. It is a display warning; the
-typechecker result and process exit code determine whether the check passed.
+The wrapper disables optional pretty printing; target-presence validation is
+performed by Nanoda's parser independently of printing.
 
 ## Recorded status
 
