@@ -1,120 +1,211 @@
 # Physical Free Entropy
 
-**Appears in:** [[Letter]] (Eq. 8-11, Appendix A), [[Article]]
+**Appears in:** the current [[Letter|Letter]], with the compression theorem supplied by the [[Article|Article]].
+**Source labels:** [eq:free_phys_def](https://github.com/JWang226/QMDL/blob/main/letter.tex#L146), [eq:free_phys1_app](https://github.com/JWang226/QMDL/blob/main/letter.tex#L298), [eq:degenerate_free_ent](https://github.com/JWang226/QMDL/blob/main/letter.tex#L380).
 
 ## Intuition
 
-Voiculescu's original free entropy is defined via a limit involving $N \times N$ random matrices as $N \to \infty$, making it divergent for finite-dimensional operators (where the spectral measure is a sum of delta functions). The **physical free entropy** is a finite-dimensional, resolution-dependent version that is always non-negative and directly relates to covering numbers.
+Physical free entropy counts resolution cells around the unitary orbit of a fixed finite-dimensional self-adjoint operator. The Letter defines this effective count by an **exact volume ratio**, which fixes its additive constant. A covering-number logarithm has the same small-resolution growth up to $O(1)$ at fixed dimension, but is not the definition.
 
-Think of it as: "how many Hilbert-Schmidt balls of radius $\varepsilon$ do you need to cover all $d \times d$ Hermitian matrices with spectrum close to $\rho$'s spectrum?" The logarithm of this covering number is the physical free entropy.
+Unlike ordinary [[concepts/free-entropy|microstate free entropy]], this quantity is finite and nonnegative for finite-dimensional operators. For the spectra covered by the compression theorem, half of it at resolution $n^{-1}$ gives the optimal memory cost up to an explicit dimension-and-rank constant.
 
-The relationship between free entropy and physical free entropy exactly mirrors the relationship between Shannon's differential entropy $h(p)$ and the discrete Shannon entropy $H(p_\varepsilon)$ of a discretized distribution: $H(p_\varepsilon) \simeq d\log(1/\varepsilon) + h(p)$. Similarly, $\chi_{\mathrm{phy}}(\rho;\varepsilon) = d^2\delta(\rho)\log(1/\varepsilon) + \chi_{\mathrm{reg}}(\rho) + \mathrm{const}$.
+All logarithms below are base two.
 
-## Formal Definition
+## Formal Description
 
-$$\chi_{\mathrm{phy}}(\rho; \varepsilon) = \log \mathcal{N}(\Omega_\varepsilon, \varepsilon)$$
+Order the eigenvalues of $\rho$ as $p_1\ge\cdots\ge p_d$, and order the eigenvalues $\lambda(X)$ of each Hermitian $X$ the same way. For every $\varepsilon>0$, set
 
-where:
-- $\mathcal{N}(\Omega_\varepsilon, \varepsilon)$ = minimum number of Hilbert-Schmidt $\varepsilon$-balls needed to cover $\Omega_\varepsilon$
-- $\Omega_\varepsilon = \{X_d \in M_d^{\mathrm{s.a.}} : \|\lambda(X_d) - p\|_2 \leq \varepsilon\}$ is the spectral neighborhood -- all Hermitian matrices whose ordered eigenvalues are within $L^2$-distance $\varepsilon$ of the spectrum $p$ of $\rho$
-- Requires $\varepsilon < g/2$ where $g = \min_i |p_{i+1} - p_i|$ is the minimal spectral gap
+$$
+\Omega_\varepsilon=
+\left\{X\in M_d^{\mathrm{s.a.}}:
+\|\lambda(X)-p\|_2\le\varepsilon\right\},
+\qquad
+\chi_{\mathrm{phy}}(\rho;\varepsilon)=
+\log_2\frac{\operatorname{Vol}(\Omega_\varepsilon)}
+{\operatorname{Vol}(B_\varepsilon^{d^2})}.
+$$
 
-## Full Derivation (Letter, Appendix A)
+The volume is Lebesgue volume induced by the Hilbert–Schmidt inner product on the full real vector space of Hermitian matrices. Thus
 
-The derivation proceeds in four clean steps.
+$$
+\operatorname{Vol}(B_\varepsilon^{d^2})
+=\frac{\pi^{d^2/2}\varepsilon^{d^2}}{\Gamma(d^2/2+1)}.
+$$
 
-### Step 1: Eigenvalue-eigenvector coordinates and the Jacobian
+Hoffman–Wielandt and eigenbasis alignment give
 
-Every $d \times d$ Hermitian matrix $X$ can be decomposed as $X = U \Lambda U^\dagger$ where $\Lambda = \mathrm{diag}(\lambda_1, \ldots, \lambda_d)$ with ordered eigenvalues $\lambda_1 \leq \cdots \leq \lambda_d$, and $U$ is unitary (defined up to phase ambiguities). The Lebesgue measure on $M_d^{\mathrm{s.a.}}$ in these coordinates has a Jacobian that produces the squared [[concepts/vandermonde-determinant|Vandermonde Determinant]]:
+$$
+\min_{U\in\mathrm U(d)}\|X-U\rho U^\dagger\|_2
+=\|\lambda(X)-p\|_2.
+$$
 
-$$dX = c_d \prod_{1 \leq i < j \leq d}(\lambda_i - \lambda_j)^2 \, d\lambda_1 \cdots d\lambda_d \, d\nu(U)$$
+Consequently $\Omega_\varepsilon$ is precisely the Hilbert–Schmidt tube around the orbit. It is not restricted to positive or trace-one matrices. It contains the radius-$\varepsilon$ ball centered at $\rho$, so $\chi_{\mathrm{phy}}\ge0$. For a scalar operator the orbit is a point and the ratio is exactly one, giving $\chi_{\mathrm{phy}}=0$; the Letter states that equality occurs only in this case.
 
-where $c_d = \pi^{d(d-1)/2} / \prod_{k=1}^{d-1} k!$ is a normalization constant and $d\nu(U)$ is the Haar measure on the relevant quotient of $\mathrm{U}(d)$.
+The small-gap condition $\varepsilon<g/2$ is needed for the expansions below, **not** for the definition. Here $g$ is the smallest gap between distinct spectral levels, with $g=\infty$ for a scalar operator.
 
-This is the fundamental fact: the eigenvalue repulsion factor $|\Delta(\lambda)|^2$ appears as a geometric Jacobian. Matrices with nearly-degenerate eigenvalues occupy less volume, which is why free entropy decreases for degenerate spectra.
+## Distinct Eigenvalues: the Full Constant
 
-### Step 2: Volume of the spectral neighborhood factorizes
+For $p_1>\cdots>p_d$, [eq:free_phys1_app](https://github.com/JWang226/QMDL/blob/main/letter.tex#L298) gives
 
-The spectral neighborhood $\Omega_\varepsilon$ consists of all Hermitian matrices whose eigenvalues lie within an $L^2$-ball of radius $\varepsilon$ around $p$. Because the eigenvalue constraint defines a $d$-dimensional ball $D_\varepsilon = B_\varepsilon^d(p)$ and the unitary part integrates out to a constant (the orbital volume), we get:
+$$
+\begin{aligned}
+\chi_{\mathrm{phy}}(\rho;\varepsilon)
+={}&(d^2-d)\log_2\varepsilon^{-1}
++2\sum_{i<j}\log_2|p_i-p_j|\\
+&-\sum_{k=1}^{d-1}\log_2(k!)
++\log_2\frac{\Gamma(d^2/2+1)}{\Gamma(d/2+1)}
++\frac{d(d-1)}2\log_2 2\\
+&+O_d(\varepsilon^2/g^2).
+\end{aligned}
+$$
 
-$$\mathrm{Vol}(\Omega_\varepsilon) \simeq c_d \cdot \mathrm{Vol}(D_\varepsilon) \cdot \Delta(p)^2$$
+The factor $\log_2 2=1$ is retained to make the volume normalization visible.
 
-For small $\varepsilon$, the Vandermonde factor is approximately constant over $D_\varepsilon$ and can be evaluated at $p$. The eigenvalue ball has volume $\mathrm{Vol}(D_\varepsilon) = \pi^{d/2}\varepsilon^d / \Gamma(d/2 + 1)$. Combining:
+### Derivation
 
-$$\mathrm{Vol}(\Omega_\varepsilon) \simeq \frac{\pi^{d(d-1)/2}}{\prod_{k=1}^{d-1} k!} \cdot \frac{\pi^{d/2}\varepsilon^d}{\Gamma(d/2+1)} \cdot \prod_{i < j}(p_i - p_j)^2$$
+With decreasingly ordered eigenvalues and normalized invariant measure on $\mathrm U(d)/\mathrm U(1)^d$, the exact [Hilbert–Schmidt volume element](https://github.com/JWang226/QMDL/blob/main/letter.tex#L285) is
 
-### Step 3: Covering number ratio -- $\pi$ factors cancel perfectly
+$$
+dX=\frac{(2\pi)^{d(d-1)/2}}{\prod_{k=1}^{d-1}k!}
+\Delta(\lambda)^2\,d\lambda_1\cdots d\lambda_d\,d\nu(U).
+$$
 
-The covering number is approximated by the volume ratio:
+For $\varepsilon<g/2$, the eigenvalue ball remains in the ordered chamber. Taylor expansion of $\Delta(\lambda)^2$ around $p$ has no linear contribution after integration over the centered ball. Hence
 
-$$\mathcal{N}(\Omega_\varepsilon, \varepsilon) \simeq \frac{\mathrm{Vol}(\Omega_\varepsilon)}{\mathrm{Vol}(B_\varepsilon^{d^2})}$$
+$$
+\operatorname{Vol}(\Omega_\varepsilon)=
+\frac{(2\pi)^{d(d-1)/2}}{\prod_{k=1}^{d-1}k!}
+\frac{\pi^{d/2}\varepsilon^d}{\Gamma(d/2+1)}
+\Delta(p)^2\,[1+O_d(\varepsilon^2/g^2)].
+$$
 
-The reference ball $B_\varepsilon^{d^2}$ has volume $\mathrm{Vol}(B_\varepsilon^{d^2}) = \pi^{d^2/2}\varepsilon^{d^2} / \Gamma(d^2/2 + 1)$.
+Divide by the ambient reference-ball volume and take logarithms. The powers of $\pi$ cancel, but the factor $2^{d(d-1)/2}$ remains. Omitting that factor would change the claimed order-one memory offset.
 
-A beautiful cancellation occurs: the total power of $\pi$ in $\mathrm{Vol}(\Omega_\varepsilon)$ is $\pi^{d(d-1)/2 + d/2} = \pi^{d^2/2}$, which exactly matches the $\pi^{d^2/2}$ in $\mathrm{Vol}(B_\varepsilon^{d^2})$. The ratio becomes:
+## General Spectral Multiplicities
 
-$$\mathcal{N}(\Omega_\varepsilon, \varepsilon) \simeq \frac{\Gamma(d^2/2+1)}{\Gamma(d/2+1)\prod_{k=1}^{d-1} k!} \cdot \varepsilon^{-(d^2-d)} \cdot \prod_{i<j}(p_i - p_j)^2$$
+Let the distinct levels be $p_1>\cdots>p_m$ with multiplicities $g_1,\ldots,g_m$. Write
 
-### Step 4: Take the logarithm to get the physical free entropy
+$$
+\kappa=\sum_{a=1}^m g_a^2,\qquad
+N_\rho=d^2-\kappa.
+$$
 
-$$\chi_{\mathrm{phy}}(\rho; \varepsilon) = (d^2 - d)\log(1/\varepsilon) + 2\sum_{i < j}\log|p_i - p_j| - \sum_{k=1}^{d-1}\log k! + \log\frac{\Gamma(d^2/2+1)}{\Gamma(d/2+1)} + O(\varepsilon)$$
+The End Matter proves
 
-This decomposes as:
+$$
+\begin{aligned}
+\chi_{\mathrm{phy}}(\rho;\varepsilon)
+={}&N_\rho\log_2\varepsilon^{-1}
++2\sum_{a<b}g_ag_b\log_2|p_a-p_b|\\
+&+\frac{N_\rho}{2}\log_2 2
++\log_2\frac{\Gamma(d^2/2+1)}{\Gamma(\kappa/2+1)}\\
+&+\sum_a\sum_{k=1}^{g_a-1}\log_2(k!)
+-\sum_{k=1}^{d-1}\log_2(k!)
++O_d(\varepsilon^2/g^2).
+\end{aligned}
+$$
 
-$$\chi_{\mathrm{phy}}(\rho; \varepsilon) = \underbrace{d^2 \cdot \delta(\rho)}_{\text{dimension}}\log(1/\varepsilon) + \underbrace{\chi_{\mathrm{reg}}(\rho)}_{\text{eigenvalue-dependent}} + \underbrace{\text{const}}_{\text{$d$-dependent only}} + O(\varepsilon)$$
+The spectral term is
 
-## Degenerate Spectrum Case (Letter, Appendix B)
+$$
+\chi_{\mathrm{reg}}(\rho)
+=2\sum_{\substack{i<j\\p_i\ne p_j}}\log_2|p_i-p_j|,
+$$
 
-When $\rho$ has distinct eigenvalues $p_1 < \cdots < p_m$ with multiplicities $g_1, \ldots, g_m$ ($\sum_a g_a = d$), the Vandermonde determinant splits into inter-block and intra-block contributions.
+where this last sum uses the full eigenvalue list with multiplicities. The real orbit dimension is $N_\rho$, and $N_\rho/d^2$ is the atomic single-variable [[concepts/free-entropy-dimension|free entropy dimension]].
 
-### Inter-block terms
+In the derivation, intra-block Vandermonde factors and the eigenvalue measure together contribute $\varepsilon^\kappa$. Inter-block gaps give the displayed spectral product. A blockwise sign-reversal symmetry cancels the linear error term; Gaussian integration followed by radial integration evaluates the remaining constant. This is the Letter's tube-volume derivation, not a semicircular-noise regularization argument.
 
-For eigenvalues in different blocks $a$ and $b$, we have $\lambda_{b,s} - \lambda_{a,r} = (p_b - p_a) + (x_{b,s} - x_{a,r})$ where $|x_{a,r}| \leq \varepsilon$. For small $\varepsilon$, the inter-block contribution is:
+These are fixed-dimension, fixed-spectrum expansions. They are not uniform through eigenvalue collisions. One must use the appropriate multiplicity formula at a collision rather than substitute a zero gap into the distinct-eigenvalue expansion.
 
-$$\prod_{a < b}\prod_{r,s}(p_b - p_a + O(\varepsilon))^2 \simeq \prod_{a < b}(p_b - p_a)^{2g_a g_b}$$
+## QMDL and the Rank-Deficient Case
 
-### Intra-block terms
+For rank $r$ with distinct positive eigenvalues and a zero block of multiplicity $d-r$,
 
-Within block $a$, eigenvalues are separated by $O(\varepsilon)$. Rescaling $\lambda_{a,r} = p_a + \varepsilon \cdot y_{a,r}$, the intra-block Vandermonde contributes:
+$$
+N_\rho=r(2d-r-1),\qquad \kappa=(d-r)^2+r,
+$$
 
-$$\prod_a \varepsilon^{g_a(g_a - 1)} \cdot W(y)$$
+and
 
-where $W(y) = \prod_a \prod_{r < s}(y_{a,s} - y_{a,r})^2$ absorbs into a geometric constant upon integration.
+$$
+\chi_{\mathrm{reg}}(\rho)
+=2\sum_{i<j\le r}\log_2|p_i-p_j|
++2(d-r)\sum_{i=1}^r\log_2p_i.
+$$
 
-### Result
+Combining the geometric expansion with the Article's optimal memory formula gives, for an attaining sequence,
 
-The total volume picks up an extra $\varepsilon^{\sum_a g_a^2}$ factor (compared to $\varepsilon^d$ from the non-degenerate case), and the physical free entropy becomes:
+$$
+\log_2\dim M_n
+=\frac12\chi_{\mathrm{phy}}(\rho;n^{-1})+C_{d,r}+o(1),
+$$
 
-$$\chi_{\mathrm{phy}}(\rho; \varepsilon) = \left(d^2 - \sum_a g_a^2\right)\log(1/\varepsilon) + 2\sum_{a < b}g_a g_b \log|p_a - p_b| + \mathrm{const} + O(\varepsilon)$$
+where
 
-This reduces to the non-degenerate formula when all $g_a = 1$. The coefficient $d^2 - \sum_a g_a^2$ counts the true number of real degrees of freedom for a Hermitian matrix with the given spectral degeneracy pattern.
+$$
+C_{d,r}
+=-\frac12\sum_{k=d-r}^{d-1}\log_2(k!)
+-\frac{N_\rho}{4}\log_2 2
+-\frac12\log_2\frac{\Gamma(d^2/2+1)}{\Gamma(\kappa/2+1)}.
+$$
 
-### Rank-deficient case
+For a fixed qubit spectrum $(p,1-p)$, $p>1/2$,
 
-For rank-$r$ states ($r < d$) with non-degenerate nonzero eigenvalues, the degeneracies are $g_0 = d - r$ (for eigenvalue 0) and $g_{i \geq 1} = 1$:
+$$
+\frac12\chi_{\mathrm{phy}}(\rho;n^{-1})
+=\log_2n+\log_2(2p-1)+1+O(n^{-2}),
+$$
 
-$$\chi_{\mathrm{phy}}(\rho; \varepsilon) = r(2d - r - 1)\log(1/\varepsilon) + 2\sum_{1 \leq i < j}\log|p_i - p_j| + 2(d-r)\sum_{i \geq 1}\log p_i + \mathrm{const}$$
+and $C_{2,2}=-1$. This recovers the optimal memory $\log_2n+\log_2(2p-1)+o(1)$.
 
-For a pure state ($r = 1$): $\chi_{\mathrm{phy}}(|\psi\rangle\langle\psi|; \varepsilon) = (2d-2)\log(1/\varepsilon) + \mathrm{const}$, giving QMDL of $(d-1)\log n$ -- matching the dimension of the symmetric subspace.
+For pure states, $N_\rho=2d-2$ and every nonzero spectral gap is one. The memory formula becomes
 
-## Connection to QMDL
+$$
+\log_2\dim M_n
+=(d-1)\log_2n-\log_2((d-1)!)+o(1),
+$$
 
-The central result of the project:
+consistent with the symmetric-subspace dimension $\binom{n+d-1}{d-1}$.
 
-$$\log|M_n| = \frac{1}{2}\chi_{\mathrm{phy}}(\rho; n^{-1/2}) + \text{universal constant} + o(1)$$
+The factor $1/2$ reflects the squared spectral-gap product in Hilbert–Schmidt volume and the first-power product in the Weyl dimension formula. The chosen volume resolution $n^{-1}$ is not an estimation precision for each eigenbasis parameter; the local statistical scale is $n^{-1/2}$.
 
-The factor of $1/2$ reflects the passage from continuous geometry (Lebesgue measure on Hermitian matrices, with squared Vandermonde $\Delta(p)^2$) to discrete quantum (Weyl dimension formula, with first-power Vandermonde $\Delta(p)$). This is precisely the signature of geometric quantization via the Kirillov-Kostant-Souriau theorem: the symplectic form pairs the $d(d-1)$ real orbital dimensions into $d(d-1)/2$ canonically conjugate variables.
+## Relation to Voiculescu's Entropy
+
+The Letter's [rem:bridge](https://github.com/JWang226/QMDL/blob/main/letter.tex#L314) considers self-adjoint matrices $X_d$ whose eigenvalues are quantiles of a compactly supported measure $\mu_x$ with finite logarithmic energy. It assumes nonzero quantile gaps, convergence of the discrete logarithmic energies, and
+
+$$
+\varepsilon_d\to0,\qquad
+\varepsilon_d=o(g_d),\qquad
+\log_2\varepsilon_d^{-1}=o(d).
+$$
+
+Under these conditions,
+
+$$
+\begin{aligned}
+\chi(x)
+={}&\lim_{d\to\infty}\left[
+d^{-2}\chi_{\mathrm{phy}}(X_d;\varepsilon_d)
+-\log_2\varepsilon_d^{-1}-\frac12\log_2d\right]\\
+&+\frac12\log_2e+\frac12\log_2(2\pi).
+\end{aligned}
+$$
+
+The factor $d^{-2}$ belongs to this large-dimension bridge; physical free entropy itself is unnormalized. The assumptions control both near-collisions and the logarithmic-energy limit. This is not an unconditional exchange of the dimension and resolution limits.
+
+## Role in the Project and Formalization Scope
+
+The Letter derives these geometric formulas, including arbitrary spectral multiplicities. The Article and its Lean endpoints establish the optimal-memory side for distinct positive spectra, including rank-deficient states. The tube-volume formulas, their exact constants, and the double-scaling bridge are not included in the checked Lean theorem scope.
+
+For arbitrary repeated positive eigenvalues, the Letter conjectures an analogous QMDL relation with a multiplicity-dependent constant; the geometric expansion alone does not prove that operational extension.
 
 ## Related
 
-- [[concepts/free-entropy|Free Entropy]] -- Voiculescu's original infinite-dimensional definition
-- [[concepts/free-entropy-dimension|Free Entropy Dimension]] -- the leading $\log(1/\varepsilon)$ coefficient $\delta(\rho)$
-- [[definitions/regularized-free-entropy|Regularized Free Entropy]] -- the $O(1)$ correction $\chi_{\mathrm{reg}}(\rho)$
-- [[concepts/vandermonde-determinant|Vandermonde Determinant]] -- appears as the Jacobian in Step 1
-- [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]] -- the operational interpretation
-
-## External References
-
-- [Covering number (Wikipedia)](https://en.wikipedia.org/wiki/Covering_number)
-- [Kolmogorov complexity (Wikipedia)](https://en.wikipedia.org/wiki/Kolmogorov_complexity)
-- [Hayden, Maloney, Wang, Yang, "Free entropy and quantum minimum description length" (Letter)](https://arxiv.org/abs/2505.13418)
+- [[Letter|Current Letter and source map]]
+- [[concepts/free-entropy|Voiculescu's microstate free entropy]]
+- [[definitions/physical-free-entropy-def|Physical entropy definition]]
+- [[definitions/regularized-free-entropy|Regularized spectral term]]
+- [[concepts/vandermonde-determinant|The volume Jacobian]]
+- [[concepts/quantum-minimum-description-length|Quantum minimum description length]]
+- [[open-questions/degenerate-spectrum|Repeated-eigenvalue operational extension]]

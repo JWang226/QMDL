@@ -1,83 +1,46 @@
 # Kolmogorov Complexity and Quantum Kolmogorov Complexity
 
-**Appears in:** [[Letter]] (Discussion), [[Article]] (Sec. 1)
+**Appears in:** [[Letter]] (Discussion).
 
-## Classical Kolmogorov Complexity
+## Algorithmic Description Length
 
-The **Kolmogorov complexity** $K(x)$ of a string $x$ is the length of the shortest program $p$ such that a universal Turing machine $U$ outputs $x$ on input $p$:
+Kolmogorov complexity measures the length of a shortest program that produces an object on a chosen universal machine. Different universal machines change the complexity by an additive constant. This is a statement about individual objects and a computational description language.
 
-$$K(x) = \min\{|p| : U(p) = x\}$$
+For a fixed nonempty pattern $s$, the repeated string $s^n$ has description length $K(n)+O(1)=O(\log n)$: specify the pattern and the repeat count. One should not replace $K(n)$ by $\log n+O(1)$ for every $n$, since some integers have much shorter descriptions.
 
-**Key properties:**
-- **Invariance:** The choice of universal Turing machine changes $K(x)$ by at most an additive constant.
-- **Upper bound:** $K(x) \leq |x| + c$ -- no string is much harder to describe than to write down literally.
-- **Incompressibility:** Most strings of length $n$ satisfy $K(x) \geq n$ (algorithmically random).
-- **Incomputability:** $K(x)$ is not computable. It can be approximated from above but not from below.
+Minimum description length uses descriptions associated with a chosen statistical model class. It motivates the terminology of the project's compression task, but a name or analogy does not identify its operational cost with algorithmic complexity.
 
-**Relevance:** A classical repetitive string $s^n$ has $K(s^n) = \log n + O(1)$ -- you need $O(1)$ bits for the repeating unit and $\log n$ bits for the length. The QMDL result is structurally analogous.
+## Quantum Definitions
 
-## Rissanen's Minimum Description Length
+The Letter cites definitions of quantum Kolmogorov complexity by Berthiaume–van Dam–Laplante, Gács, and Müller. They use different computational or algorithmic-entropy frameworks. The Letter does not select one of these definitions or prove an equality with it.
 
-Rissanen (1978) introduced the **Minimum Description Length (MDL) principle** as a practical, computable restriction of the Kolmogorov complexity idea. Instead of searching over all programs (incomputable), MDL restricts to descriptions corresponding to specified probability models, making the optimization computable.
+In particular, a statement about the worst-case memory needed for an entire unknown-state family should not be read as a statement that every individual pure state has the same algorithmic complexity.
 
-The total description length is: description of the model + description of the data given the model.
+## The QMDL Analogy
 
-The relationship:
-- **Kolmogorov complexity** is the theoretically ideal but incomputable measure of descriptive complexity.
-- **MDL** is its computable operational counterpart, restricted to a model class.
+The current Letter explicitly presents an analogy with quantum Kolmogorov complexity of the known-spectrum orbit family. Its [[concepts/quantum-minimum-description-length|QMDL]] is the optimal logarithm of memory dimension for CPTP codes that recover every member of that family with vanishing global error. The code may depend on the spectrum and $n$, but not on the unknown eigenbasis.
 
-## Quantum Kolmogorov Complexity (QKC)
+For distinct positive eigenvalues and rank $r$, the proved memory formula begins
 
-Several definitions of QKC have been proposed:
+$$|M_n|=\frac{r(2d-r-1)}2\log n+O(1).$$
 
-**Berthiaume, van Dam, Laplante (2001):** QKC of a quantum state $|\psi\rangle$ is the length of the shortest quantum input to a universal quantum Turing machine that outputs $|\psi\rangle$ with high fidelity. Their Theorem 7 shows that $n$ copies of a pure qubit state have QKC $\sim \log n$.
+The logarithmic scaling resembles describing a repeated classical pattern. Here, however, the unknown eigenbasis cannot be recorded exactly, and a classical estimate followed by preparation does not achieve the required vanishing global error. The retained description is quantum.
 
-**Gacs (2001):** Defines complexity via a universal semicomputable density matrix; the complexity is an *operator* (the negative logarithm of this universal density matrix). Theorem 15 gives a result about the complexity of copies of pure states.
+The exact compression formula is formalized in Lean. Equality with a machine-dependent notion of individual quantum description length, or a general computability theorem for QMDL, is not claimed. See [[proof-structure]].
 
-**Mueller (2007):** Provides rigorous proofs of basic QKC properties: invariance, incompressibility, agreement with classical KC for classical strings, and connection to von Neumann entropy for ergodic sources.
+## A Different Kolmogorov Quantity
 
-All definitions of QKC inherit the **incomputability** of classical Kolmogorov complexity.
-
-## QMDL as Quantum MDL
-
-The [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]] is the quantum analogue of Rissanen's MDL -- a computable, operationally defined quantity:
-
-| | Classical | Quantum |
-|---|---|---|
-| **Incomputable ideal** | Kolmogorov complexity $K(x)$ | Quantum Kolmogorov complexity $\mathrm{QK}(|\psi\rangle)$ |
-| **Computable operational** | Rissanen's MDL | QMDL |
-| **Governs i.i.d. compression** | Shannon entropy $H$ | Free entropy $\chi$ |
-
-The Letter interprets the QMDL of $\rho^{\otimes n}$ as the quantum Kolmogorov complexity of the family $\{(U\rho_0 U^\dagger)^{\otimes n}\}_{U \in \mathrm{U}(d)}$ -- the exact definition of QKC does not matter for this interpretation (Mueller 2007).
-
-The structural parallel:
-- Classical: $K(s^n) = \log n + O(1)$ for a repetitive string
-- Quantum: $|M_n| = \frac{1}{2}r(2d-r-1)\log n + O(1)$ for $\rho^{\otimes n}$
-
-Both scale as $O(\log n)$, but the quantum case has $\frac{1}{2}\log n$ per degree of freedom due to the geometric quantization factor ([[concepts/kks-theorem|KKS Theorem]]).
-
-## Two Distinct "Kolmogorov" Concepts
-
-This project uses "Kolmogorov" in two distinct senses:
-1. **Kolmogorov (algorithmic) complexity** -- the length of the shortest program producing an object (this page)
-2. **Kolmogorov $\varepsilon$-entropy (metric entropy)** -- the covering number of a set at resolution $\varepsilon$, used to define [[concepts/physical-free-entropy|Physical Free Entropy]]. See [[concepts/covering-numbers|Covering Numbers]].
+Kolmogorov $\varepsilon$-entropy is the logarithm of a [[concepts/covering-numbers|covering number]] in a metric space. It is distinct from algorithmic complexity. The Letter's physical free entropy uses a volume ratio that agrees with a covering entropy up to a bounded term at fixed dimension; its precise additive constant comes from the volume convention.
 
 ## Related
 
 - [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]]
 - [[concepts/physical-free-entropy|Physical Free Entropy]]
-- [[concepts/covering-numbers|Covering Numbers]] -- Kolmogorov $\varepsilon$-entropy (a different "Kolmogorov")
-- [[concepts/kks-theorem|KKS Theorem]] -- the factor-of-1/2 quantization
+- [[concepts/covering-numbers|Covering Numbers]]
 
 ## References
 
-- rissanen1978modeling: Rissanen, "Modeling by shortest data description" (1978)
-- Berthiaume_2001: Berthiaume, van Dam, Laplante, "Quantum Kolmogorov complexity" (2001)
-- G_cs_2001: Gacs, "Quantum algorithmic entropy" (2001)
-- mueller2007: Mueller, "Quantum Kolmogorov complexity and the quantum Turing machine" (2007)
-
-## External References
-
-- [Kolmogorov complexity (Wikipedia)](https://en.wikipedia.org/wiki/Kolmogorov_complexity)
-- [Minimum description length (Wikipedia)](https://en.wikipedia.org/wiki/Minimum_description_length)
-- M. Li and P. Vitanyi, *An Introduction to Kolmogorov Complexity and Its Applications*, Springer (2008)
+- `rissanen1978modeling`: Rissanen, "Modeling by shortest data description" (1978).
+- `Berthiaume_2001`: Berthiaume, van Dam, and Laplante, "Quantum Kolmogorov complexity" (2001).
+- `G_cs_2001`: Gács, "Quantum algorithmic entropy" (2001).
+- `mueller2007`: Müller, "Quantum Kolmogorov complexity and the quantum Turing machine" (2007).

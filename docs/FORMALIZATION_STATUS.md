@@ -27,6 +27,17 @@ The final theorem endpoints do not take representation existence, decomposition,
 
 ## Fidelity and boundaries
 
+The current companion [Letter](../letter.tex) is bundled with
+[its figure](../compression.pdf) and the shared bibliography. The
+[companion source map](../metadata/letter-source-map.json) records exact
+source hashes and relates its labeled equations to the Article declarations.
+The Letter's known-spectrum QMDL formulas (`eq:result_qmdl`,
+`eq:rank_def_qmdl`) specialize Theorem 1. Its physical tube-volume definition
+and expansions, the explicit half-entropy offset at resolution `n^-1`, and
+the conditional large-dimension bridge (`rem:bridge`) have no separate Lean
+certificates. Arbitrary repeated positive eigenvalues remain outside the
+memory endpoints even though the Letter derives their geometric entropy.
+
 The formalization uses a diagonal reference state and all unitary conjugations to represent the known-spectrum family. Matrix carriers and row indices are explicit and zero-based. The converse uses an extended-real `liminf`. These choices encode the manuscript's conclusions.
 
 The proof is not a line-by-line transcription. For example, the physical concentration proof uses its own polynomial prefactor; the final canonical converse uses the positive uniform gap `(1-q)^(choose(d,2)+1)` rather than requiring the manuscript's sharper intermediate constant. The padded target's precise dimension asymptotic is proved. Explicit replacement channels handle atypical sectors. These choices suffice for the stated theorem conclusions.

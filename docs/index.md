@@ -18,9 +18,14 @@ for Lean, Comparator and Nanoda.
 
 | File | Title | Role |
 |------|-------|------|
-| [[Letter]] (`sources/letter.tex`) | Free entropy and quantum minimum description length | PRL letter (announcement) |
+| [[Letter]] (repository-root `letter.tex`) | Free entropy and quantum minimum description length | Current Letter: physical entropy, orbit geometry and operational relation |
 | [[Article]] (repository-root `article.tex`) | Quantum minimum description of density matrices | Full journal paper (proofs) |
-| [[Notes]] (`sources/Free.tex`) | Free entropy and quantum minimum description length | Extended notes (+ unitary & observable programming) |
+| [[Notes]] (`sources/Free.tex`, historical local snapshot) | Free entropy and quantum minimum description length | Earlier extended notes (+ unitary & observable programming) |
+
+The repository-root Article and Letter match the author-supplied sources.
+They share `free.bib`; the Letter also includes `compression.pdf`.
+The [companion source map](https://github.com/JWang226/QMDL/blob/main/metadata/letter-source-map.json)
+records file hashes, Letter equation labels and the boundary of Lean coverage.
 
 ---
 
@@ -40,7 +45,7 @@ for Lean, Comparator and Nanoda.
 - [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]] — the compression task and main result
 - [[concepts/kolmogorov-complexity|Kolmogorov Complexity & QKC]] — classical and quantum descriptive complexity
 - [[concepts/schumacher-compression|Schumacher Compression]] — contrasting: von Neumann entropy governs this
-- [[concepts/covering-numbers|Covering Numbers]] — Kolmogorov $\varepsilon$-entropy underlying physical free entropy
+- [[concepts/covering-numbers|Covering Numbers]] — comparison with physical entropy up to an additive $O(1)$
 
 ### Representation Theory
 - [[concepts/schur-weyl-duality|Schur-Weyl Duality & Schur Transform]] — the fundamental decomposition and its unitary implementation
@@ -74,7 +79,7 @@ for Lean, Comparator and Nanoda.
 | [[definitions/compression-code|Compression Code]] | $(|M|, \delta)$-code |
 | [[definitions/generalized-cloning-map-def|Generalized Cloning Map (Formal)]] | Stinespring & Choi forms |
 | [[definitions/free-entropy-voiculescu|Free Entropy (Voiculescu)]] | Microstate definition |
-| [[definitions/physical-free-entropy-def|Physical Free Entropy (Formal)]] | Covering number definition |
+| [[definitions/physical-free-entropy-def|Physical Free Entropy (Definition)]] | Ambient Hilbert–Schmidt tube-volume ratio |
 | [[definitions/regularized-free-entropy|Regularized Free Entropy]] | $\chi_{\mathrm{reg}}(\rho)$ |
 | [[definitions/free-entropy-dimension-def|Free Entropy Dimension (Formal)]] | $\delta(a)$ |
 | [[definitions/covariant-channel|U(d)-Covariant Channel]] | Symmetry requirement |
@@ -90,8 +95,10 @@ for Lean, Comparator and Nanoda.
 
 ## Current Article results
 
-Theorem numbers below refer to the bundled Article. The [[Letter]] and
-[[Notes]] retain their own numbering; source labels identify the statements.
+Theorem numbers below refer to the bundled Article. The current [[Letter]]
+states its compression results as labeled equations and its double-scaling
+bridge as a remark; [[Notes]] retains historical numbering. Always qualify
+shared equation labels by their source document.
 
 | Result | Article label | Formal role |
 | --- | --- | --- |
@@ -145,9 +152,9 @@ trace-distance route is described in [[proof-structure]].
 ## Open Questions
 
 - [[open-questions/cloning-optimality|Open: Optimality of the Generalized Cloning Map]] — is the PRV channel the fidelity maximizer among all covariant channels?
-- [[open-questions/degenerate-spectrum|Open: QMDL for Degenerate Spectrum]] — extend the main result to density matrices with repeated eigenvalues
+- [[open-questions/degenerate-spectrum|Open: QMDL for Degenerate Spectrum]] — extend the main result to repeated positive eigenvalues; repeated zeros are already covered
 - [[open-questions/error-scaling|Open: Error Scaling]] — optimal tradeoffs beyond the proved $O(\log n/\sqrt n)$ rate
-- [[open-questions/free-entropy-conjecture|Conjecture: Free Entropy as Universal QMDL & Programming Extensions]] — extends to all operators? Includes unitary/observable/state programming open problems
+- [[open-questions/free-entropy-conjecture|Conjecture: Free Entropy as Universal QMDL & Programming Extensions]] — broader operators in settings where free entropy is defined, including unitary/observable/state programming questions
 
 ---
 

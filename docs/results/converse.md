@@ -4,6 +4,8 @@
 **Source:** [main statement](https://github.com/JWang226/QMDL/blob/main/article.tex#L85), [converse proof](https://github.com/JWang226/QMDL/blob/main/article.tex#L923).
 **Lean endpoints:** [FreeEntropy.theorem1_converse](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/Theorem1Complete.lean#L43) and [FreeEntropy.theorem1_converse_of_uniform](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/Theorem1Complete.lean#L60).
 
+The current [[Letter]] states the full-rank liminf converse immediately after `eq:result_qmdl` and refers to the companion Article for its proof. The Article supplies the rank-$r$ and Haar-average formulations stated here. The Letter's entropy equality describes an attaining sequence; arbitrary reliable codes satisfy a lower bound, not the same equality.
+
 ## Statement
 
 Fix $1\le r\le d$ and $x_1>\cdots>x_r>0$ with $\sum_i x_i=1$, padded by zeros. Let $\rho_U=U\operatorname{diag}(x)U^\dagger$. Consider **any** sequence of CPTP encoders and decoders through memory $M_n$, independent of the unknown $U$.

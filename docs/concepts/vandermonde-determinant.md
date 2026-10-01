@@ -1,98 +1,133 @@
 # Vandermonde Determinant
 
-**Appears in:** [[Letter]] (Appendix A), [[Article]]
+**Appears in:** the current [[Letter|Letter]], main text and End Matter, and the [[Article|Article]].
+**Source labels:** [eq:hs_volume_element](https://github.com/JWang226/QMDL/blob/main/letter.tex#L285), [eq:weyl_geometry](https://github.com/JWang226/QMDL/blob/main/letter.tex#L228).
 
-## Definition
+## Definition and Sign Convention
 
-For scalars $x_1, \ldots, x_d$:
+Use the Letter's convention
 
-$$\Delta(x) = \prod_{1 \leq i < j \leq d} (x_i - x_j) = \det \begin{pmatrix} 1 & 1 & \cdots & 1 \\ x_1 & x_2 & \cdots & x_d \\ \vdots & & & \vdots \\ x_1^{d-1} & x_2^{d-1} & \cdots & x_d^{d-1} \end{pmatrix}$$
+$$
+\Delta(x)=\prod_{1\le i<j\le d}(x_i-x_j).
+$$
 
-The Vandermonde determinant vanishes if and only if two of the $x_i$ coincide, and its magnitude measures how "spread out" the values are.
+With descending powers in the rows,
 
-## Role in Free Entropy
+$$
+\Delta(x)=\det[x_j^{\,d-i}]_{i,j=1}^d.
+$$
 
-The Vandermonde determinant is the bridge between random matrix theory and free entropy. It appears in three interconnected roles:
+The matrix with ascending powers $1,x_j,\ldots,x_j^{d-1}$ instead has determinant $\prod_{i<j}(x_j-x_i)=(-1)^{\binom d2}\Delta(x)$. The sign disappears in $\Delta^2$, but matters when writing character ratios. For decreasing distinct eigenvalues, the Letter's $\Delta$ is positive.
 
-### 1. The Jacobian of eigenvalue-eigenvector decomposition
+## Hilbert–Schmidt Volume: Squared Gaps
 
-Every $d \times d$ Hermitian matrix $X = U\Lambda U^\dagger$ can be parameterized by its ordered eigenvalues $\lambda_1 \leq \cdots \leq \lambda_d$ and a unitary $U$ (modulo phases). The Lebesgue measure on the $d^2$-dimensional space of Hermitian matrices transforms as:
+Write a Hermitian matrix with distinct, decreasing eigenvalues as $X=U\operatorname{diag}(\lambda)U^\dagger$. With normalized invariant measure $d\nu(U)$ on $\mathrm U(d)/\mathrm U(1)^d$, the Letter's exact Jacobian is
 
-$$dX = c_d \prod_{i < j}(\lambda_i - \lambda_j)^2\, d\lambda_1 \cdots d\lambda_d \, d\nu(U) = c_d \, |\Delta(\lambda)|^2 \, d\lambda \, d\nu(U)$$
+$$
+dX=\frac{(2\pi)^{d(d-1)/2}}{\prod_{k=1}^{d-1}k!}
+\Delta(\lambda)^2\,d\lambda_1\cdots d\lambda_d\,d\nu(U).
+$$
 
-where $c_d = \pi^{d(d-1)/2}/\prod_{k=1}^{d-1} k!$ and $d\nu(U)$ is the Haar measure on the relevant quotient. The squared Vandermonde $|\Delta(\lambda)|^2$ is the Jacobian of the change of coordinates. This is the fundamental fact underlying everything: the flat Euclidean measure on Hermitian matrices, when written in spectral coordinates, acquires a density proportional to $|\Delta(\lambda)|^2$.
+The factor is $(2\pi)^{d(d-1)/2}$, not $\pi^{d(d-1)/2}$, for the stated Hilbert–Schmidt metric. Each complex off-diagonal direction has two real coordinates; the eigenvalue gap scales both, yielding a squared factor.
 
-### 2. Eigenvalue repulsion
+This is a change-of-coordinates formula. It does not require an assertion that eigenvalues and eigenvectors are freely independent. For unitarily invariant ensembles with a density relative to this volume, the Jacobian gives the familiar squared-gap eigenvalue repulsion.
 
-The factor $|\Delta(\lambda)|^2$ in the measure explains why eigenvalues of random Hermitian matrices *repel*: configurations with nearly-degenerate eigenvalues contribute exponentially less volume. If $\lambda_i \approx \lambda_j$, the factor $(\lambda_i - \lambda_j)^2$ suppresses the measure near that configuration.
+For a matrix with $N$ eigenvalues, its normalized logarithm,
 
-For the GUE (Gaussian Unitary Ensemble), the joint eigenvalue density is:
+$$
+N^{-2}\log_2\Delta(\lambda)^2
+=N^{-2}\sum_{i\ne j}\log_2|\lambda_i-\lambda_j|,
+$$
 
-$$p(\lambda_1, \ldots, \lambda_d) \propto |\Delta(\lambda)|^2 \cdot e^{-\frac{d}{2}\sum_i \lambda_i^2}$$
+is the discrete logarithmic energy appearing in [[concepts/free-entropy|microstate free entropy]]. A Gaussian reference density would additionally contribute a quadratic potential.
 
-The repulsion is entirely captured by $|\Delta(\lambda)|^2$; the Gaussian factor comes from the particular choice of matrix distribution, but the Vandermonde appears universally for *any* unitarily-invariant ensemble.
+## Physical Free Entropy: an Exact Volume Ratio
 
-This repulsion is the geometric reason that [[concepts/free-entropy|Free Entropy]] decreases for degenerate spectra: matrices with degenerate eigenvalues occupy a lower-dimensional submanifold that has zero volume in the ambient Lebesgue measure.
+The Letter defines
 
-### 3. The free entropy formula
+$$
+\chi_{\mathrm{phy}}(\rho;\varepsilon)
+=\log_2\frac{\operatorname{Vol}(\Omega_\varepsilon)}
+{\operatorname{Vol}(B_\varepsilon^{d^2})},
+$$
 
-The regularized free entropy is the logarithm of the squared Vandermonde evaluated at the spectrum:
+where $\Omega_\varepsilon$ is the full Hermitian-space tube around the unitary orbit. This is an exact definition; covering-number logarithms agree only up to $O(1)$ at fixed dimension.
 
-$$\chi_{\mathrm{reg}}(\rho) = 2\sum_{i<j}\log|p_i - p_j| = \log|\Delta(p)|^2$$
+For distinct eigenvalues and $\varepsilon<g/2$, integration over the centered eigenvalue ball cancels the linear Taylor term. The result is
 
-This arises directly from the covering number computation in the [[concepts/physical-free-entropy|Physical Free Entropy]] derivation: the volume of the spectral neighborhood $\Omega_\varepsilon$ is dominated by $|\Delta(p)|^2$, and after dividing by the reference ball volume and taking the log, this becomes the state-dependent part of $\chi_{\mathrm{phy}}$.
+$$
+\begin{aligned}
+\chi_{\mathrm{phy}}(\rho;\varepsilon)
+={}&(d^2-d)\log_2\varepsilon^{-1}
++\log_2\Delta(p)^2
+-\sum_{k=1}^{d-1}\log_2(k!)\\
+&+\log_2\frac{\Gamma(d^2/2+1)}{\Gamma(d/2+1)}
++\frac{d(d-1)}2\log_2 2
++O_d(\varepsilon^2/g^2).
+\end{aligned}
+$$
 
-## The Covering Number Computation (Letter, Appendix A)
+The $\pi$ powers cancel after division by the reference-ball volume; the power of $2$ remains. The [[concepts/physical-free-entropy|physical entropy page]] derives the full expression.
 
-The Vandermonde determinant plays a starring role in the derivation of the physical free entropy formula. Here is how:
+When spectral levels have multiplicities $g_a$, evaluating $\Delta(p)$ directly gives zero and is not the correct tube asymptotic. Split the nearby Vandermonde into inter-block and intra-block factors. The former give
 
-1. **Volume of $\Omega_\varepsilon$**: The spectral neighborhood is parameterized by eigenvalues in a ball $D_\varepsilon$ around $p$ and unitaries. The volume integral factorizes:
+$$
+\prod_{a<b}(p_a-p_b)^{2g_ag_b},
+$$
 
-$$\mathrm{Vol}(\Omega_\varepsilon) \simeq c_d \cdot |\Delta(p)|^2 \cdot \mathrm{Vol}(D_\varepsilon)$$
+while the latter supply extra powers of $\varepsilon$. The orbit coefficient becomes $d^2-\sum_a g_a^2$, and the regularized spectral term omits coincident-eigenvalue pairs.
 
-The Vandermonde is approximately constant over the small eigenvalue ball and can be pulled outside the integral.
+## Weyl Dimension: First-Power Shifted Gaps
 
-2. **Division by reference ball**: The covering number $\mathcal{N} \simeq \mathrm{Vol}(\Omega_\varepsilon)/\mathrm{Vol}(B_\varepsilon^{d^2})$. The $\varepsilon$-dependent powers give $\varepsilon^d / \varepsilon^{d^2} = \varepsilon^{-(d^2-d)}$, and the $\pi$-dependent factors cancel exactly ($\pi^{d^2/2}$ in numerator and denominator).
+For a dominant row $\lambda$, set $a_i=\lambda_i+d-i$ and $b_i=d-i$. The exact [[concepts/weyl-dimension-formula|Weyl dimension formula]] is
 
-3. **Taking the logarithm**: $\log \mathcal{N} = (d^2-d)\log(1/\varepsilon) + \log|\Delta(p)|^2 + \mathrm{const}$, giving the physical free entropy with the Vandermonde as the state-dependent term.
+$$
+\dim\mathcal H_\lambda
+=\frac{\Delta(a)}{\Delta(b)}
+=\prod_{i<j}\frac{\lambda_i-\lambda_j+j-i}{j-i},
+\qquad
+\Delta(b)=\prod_{k=1}^{d-1}k!.
+$$
 
-For **degenerate spectra**, the Vandermonde splits into inter-block and intra-block parts. The inter-block part $\prod_{a<b}(p_b - p_a)^{2g_a g_b}$ contributes to $\chi_{\mathrm{reg}}$, while the intra-block part $\prod_a \prod_{r<s}(\lambda_{a,s} - \lambda_{a,r})^2$ produces additional powers of $\varepsilon$ that reduce the effective dimension from $d^2 - d$ to $d^2 - \sum_a g_a^2$.
+If $\Lambda_i/n\to p_i$ with distinct decreasing limits, then
 
-## Connection to the Weyl Dimension Formula
+$$
+\dim\mathcal H_\Lambda
+=[1+o(1)]\,
+\frac{n^{d(d-1)/2}\Delta(p)}
+{\prod_{k=1}^{d-1}k!}.
+$$
 
-The Weyl dimension formula for the irrep $V_\lambda$ of $\mathrm{GL}(d)$ is:
+The squared gap product in Hilbert–Schmidt volume and the first-power product in this dimension asymptotic explain the matching spectrum-dependent terms after taking half of the physical entropy. The Letter also describes how the KKS symplectic form pairs the two real tangent directions, giving one gap per pair.
 
-$$\dim V_\lambda = \frac{\prod_{1 \leq i < j \leq d}(\lambda_i - \lambda_j + j - i)}{\prod_{1 \leq i < j \leq d}(j - i)} = \frac{\Delta(\lambda + \rho_W)}{\Delta(\rho_W)}$$
+This comparison is **not** a literal identity saying that symplectic volume or representation dimension is the square root of Hilbert–Schmidt volume. The volume forms have different normalization constants; Weyl dimensions have integer-weight shifts, and physical entropy also includes a tube radius and a reference-cell volume. The precise relation is
 
-where $\rho_W = (d-1, d-2, \ldots, 1, 0)$ is the Weyl vector. The numerator is a *generalized Vandermonde* -- the Vandermonde determinant evaluated at the shifted weights $\lambda_i + d - i$ -- and the denominator is the ordinary Vandermonde at the Weyl vector, which equals $\prod_{k=1}^{d-1} k!$.
+$$
+\log_2\dim M_n
+=\frac12\chi_{\mathrm{phy}}(\rho;n^{-1})+C_{d,r}+o(1)
+$$
 
-This is not a coincidence: the Weyl dimension formula computes the symplectic volume of the coadjoint orbit associated to $\lambda$ (by the Kirillov-Kostant-Souriau theorem), and this symplectic volume is the square root of the Riemannian volume that involves $|\Delta|^2$. The factor-of-2 relationship between the physical free entropy (which involves $|\Delta(p)|^2$, the Riemannian/Euclidean volume) and the QMDL (which involves $\Delta(\lambda + \rho_W)$, the symplectic/quantum dimension) is the geometric quantization origin of the $1/2$ in $|M| = \frac{1}{2}\chi_{\mathrm{phy}} + \mathrm{const}$.
+for the attaining code and the spectra covered by the Letter.
 
-More explicitly, for typical Schur sectors $\lambda_i \approx np_i$:
+## Schur Characters
 
-$$\log \dim V_\lambda \approx \frac{d(d-1)}{2}\log n + \sum_{i<j}\log(p_i - p_j) - \sum_{k=1}^{d-1}\log k! + o(1)$$
+For a dominant nonnegative integral row $\lambda$, with the same descending-power convention,
 
-The coefficient of $\log n$ is $d(d-1)/2 = (d^2-d)/2$, which is exactly half of the coefficient $(d^2-d)$ in the physical free entropy. The Vandermonde appears with *first* power in the Weyl formula but *squared* in the Euclidean volume -- this is the quantization halving.
+$$
+s_\lambda(x)=\frac{\det[x_j^{\,\lambda_i+d-i}]_{i,j=1}^d}{\Delta(x)}.
+$$
 
-## Schur Polynomials
+For distinct $x_i$ this is a quotient of alternants. When two variables coincide, two **columns** of the numerator coincide; algebraically the Vandermonde divides the alternating numerator, yielding a polynomial that extends to all $x$. Its value at $(1,\ldots,1)$ is the representation dimension. See [[concepts/schur-polynomials|Schur polynomials]].
 
-The Schur polynomial is defined as a ratio of a generalized Vandermonde to the ordinary Vandermonde:
+## Formalization Scope
 
-$$s_\lambda(x) = \frac{\det[x_j^{\lambda_i + d - i}]}{\Delta(x)}$$
-
-This is well-defined despite the Vandermonde in the denominator, because the numerator also vanishes when any $x_i = x_j$ (being a determinant of a matrix with two equal rows). The Schur polynomial gives the character of the irrep $V_\lambda$ and satisfies $\dim V_\lambda = s_\lambda(1, 1, \ldots, 1) = \Delta(\lambda + \rho_W)/\Delta(\rho_W)$.
+The Article's Lean development proves the actual character and dimension identities and the memory asymptotic; see [[results/lemmas/weyl-dimension-asymptotic|the checked dimension route]]. The Letter's Hilbert–Schmidt Jacobian, tube-volume constants, and geometric comparison are separate mathematical content, not additional certified conclusions of those Lean endpoints.
 
 ## Related
 
-- [[concepts/free-entropy|Free Entropy]] -- $\chi_{\mathrm{reg}} = \log|\Delta(p)|^2$
-- [[concepts/physical-free-entropy|Physical Free Entropy]] -- derived via the covering number computation using $|\Delta|^2$
-- [[definitions/regularized-free-entropy|Regularized Free Entropy]] -- the finite part of free entropy
-- [[concepts/schur-polynomials|Schur Polynomials]] -- ratio of generalized to ordinary Vandermonde
-- [[concepts/weyl-dimension-formula|Weyl Dimension Formula]] -- numerator is a generalized Vandermonde
-- [[concepts/free-entropy-dimension|Free Entropy Dimension]] -- the degenerate-spectrum Vandermonde splitting determines $\delta$
-
-## External References
-
-- [Vandermonde matrix (Wikipedia)](https://en.wikipedia.org/wiki/Vandermonde_matrix)
-- [Vandermonde's identity / determinant (Wikipedia)](https://en.wikipedia.org/wiki/Vandermonde%27s_identity)
-- M. L. Mehta, *Random Matrices*, 3rd edition, Academic Press (2004)
+- [[concepts/free-entropy|Logarithmic energy]]
+- [[concepts/physical-free-entropy|Tube volumes and exact constants]]
+- [[definitions/regularized-free-entropy|Regularized spectral term]]
+- [[concepts/schur-polynomials|Schur characters]]
+- [[concepts/weyl-dimension-formula|Weyl dimension formula]]
+- [[concepts/free-entropy-dimension|Multiplicity-dependent dimension]]

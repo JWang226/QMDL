@@ -1,4 +1,5 @@
 {
+  "companion_letter_sha256": "0b6a2c45b1565c3e9aadcdaa1c6631a2d7e2e2ec259b7382d04bcbce83622260",
   "dependencies": {
     "Cli": {
       "revision": "3de531c1135f5e3a01f3ac04830996fda476b28e",
@@ -55,8 +56,8 @@
       "sha256": "c0cffe67bcac9b0b6dac8033623ac0db8dd8b6d4d8afb883481bfdf596edb818"
     },
     ".gitignore": {
-      "bytes": 845,
-      "sha256": "059e1a583518ec8f753793d39eb47df718a48df6f050fab3c10596937bcf8cfc"
+      "bytes": 841,
+      "sha256": "403d5086fe05d9afcf8da96579c771922505e54ca71ebb64a4b70b19f7d0fadc"
     },
     "CITATION.cff": {
       "bytes": 1168,
@@ -67,36 +68,40 @@
       "sha256": "3da7d8274182dccc407bc7de52720d37f6d9e03c81fa973ed80e55046a647ea9"
     },
     "NOTICE": {
-      "bytes": 2601,
-      "sha256": "6c1cba42baa0a044f41cffc3fb7fc04f74f0fcc1687cd7b34db43ff4e585fa10"
+      "bytes": 2909,
+      "sha256": "81db40878628bb0e041b2fb144c88c6256a7daba59727825cc6a71623ecc97e1"
     },
     "README.md": {
-      "bytes": 5867,
-      "sha256": "1cf5471abd25b38d4853d6314d21a527dace8f6e37dea5da0dc2bfda5d847e32"
+      "bytes": 6088,
+      "sha256": "85eda64fc2618c7822a5822910940f263d9f7fda35abd4aae11f8686b4602ff0"
     },
     "article.tex": {
       "bytes": 98692,
       "sha256": "09fc0a6bb205180cd820be94d843a1dc0d4342a543492e30dde54e367ae843a9"
+    },
+    "compression.pdf": {
+      "bytes": 73993,
+      "sha256": "6707de047ac16f44d3a5cf9549f34128bc1972b66d2edb0ed4635a3acd234be1"
     },
     "docs/AI_PROVENANCE.md": {
       "bytes": 4919,
       "sha256": "93f2654439cf3e91bb939e063ecc87b09efd23d09fec6ce7efa19e143dae08ea"
     },
     "docs/FORMALIZATION_STATUS.md": {
-      "bytes": 9606,
-      "sha256": "8560bfd987edfeee97f6b3c6cc299ee8c26121484d14d13d96617fe8b44317c2"
+      "bytes": 10321,
+      "sha256": "ac95117b74896b9ef3d51268071dc83904f183975e2d8630f0427947ab763713"
     },
     "docs/RELEASE_CHECKLIST.md": {
       "bytes": 2825,
       "sha256": "58e51f56265c000291a61727243a6209ec4c1b7530b88b15fbfc5a8c6dad2284"
     },
     "docs/REPRODUCIBILITY.md": {
-      "bytes": 13015,
-      "sha256": "9bf390ff07e9cfd47298564bb043239ba36adc77e60a901069db85a52ba29d71"
+      "bytes": 13851,
+      "sha256": "cef56188ce6f31d4723d3ce4036c0ebadd13155f44ee741c97a08ba2d3590585"
     },
     "formalization.yaml": {
-      "bytes": 8270,
-      "sha256": "48557e0cc59d56270383aa3bd6f3a53d4762a441ed3010dde51bf6c08dbb7d29"
+      "bytes": 8887,
+      "sha256": "f5899bf126c0d5d4cdc3d3421c94301c32668b05e2d85fa788dff7812081d96b"
     },
     "free.bib": {
       "bytes": 30817,
@@ -1314,9 +1319,17 @@
       "bytes": 993,
       "sha256": "01351ed1d7d2ec092dc236cf53dfb793a57f027bdc39546abc25cbf550187afc"
     },
+    "letter.tex": {
+      "bytes": 38617,
+      "sha256": "0b6a2c45b1565c3e9aadcdaa1c6631a2d7e2e2ec259b7382d04bcbce83622260"
+    },
+    "metadata/letter-source-map.json": {
+      "bytes": 10379,
+      "sha256": "a2e09ce75eb2df452fcb170a8fa5fb9ff6f10543919ca235f05c184916e13739"
+    },
     "metadata/natural-language-map.json": {
-      "bytes": 35390,
-      "sha256": "f4baf4a3d2fe1627bc879dd0ae51872bca82a6cc46dc042acea960537cf3e507"
+      "bytes": 35453,
+      "sha256": "bbc430d1c5197f4d40db702471a1dec8e0a9456ea0ec55ae3ddd83392a85a37b"
     },
     "metadata/schema-sources.json": {
       "bytes": 1319,
@@ -1327,8 +1340,8 @@
       "sha256": "12074f60b9a196e67c3e27fae46b0d8fb05630794a90977269c954f31c680307"
     },
     "scripts/prepare_release.py": {
-      "bytes": 12285,
-      "sha256": "225e3ca126fe99f6b24ffc281c278a56f84e89bf6626d979bf193753606815ed"
+      "bytes": 12766,
+      "sha256": "1ff11b8ce61c79956bf77f18d9a187bb891f955f0a32be91a72f6a9f2460d6b2"
     },
     "scripts/requirements-release.txt": {
       "bytes": 351,
@@ -1339,8 +1352,8 @@
       "sha256": "b32c6683ecacd8c09afaa4c6f55695e9f19f5be0b01cce790861290d52473189"
     },
     "scripts/validate_artifacts.py": {
-      "bytes": 33595,
-      "sha256": "4b8cb139ee29d78e38bb22a5bea7229696dbd20e09b3c0b662c0ecbb55a9d841"
+      "bytes": 37777,
+      "sha256": "80eaee0b497f214f0f6662b720a926545d328595b3e9ae8761b14f984548fc11"
     },
     "utphys.bst": {
       "bytes": 26044,

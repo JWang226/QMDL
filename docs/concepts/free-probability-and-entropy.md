@@ -1,203 +1,140 @@
-# Introduction to Free Probability, Free Entropy, and Free Entropy Dimension
+# Free Probability and the Entropy Constructions
 
-This page provides a self-contained introduction to the mathematical background from free probability theory used in this project.
+**Appears in:** the current [[Letter|Letter]], introduction and discussion.
+**Source:** [letter.tex](https://github.com/JWang226/QMDL/blob/main/letter.tex).
 
----
+## Intuition
 
-## Part I: Free Probability
+The Letter distinguishes two ways to pass from classical entropy to a noncommutative setting. One replaces a probability distribution by a density operator, leading to von Neumann entropy. The other replaces typical strings by matrix microstates, leading to Voiculescu's free entropy.
 
-### Motivation
+The project then introduces a third object: a finite-resolution volume count around a finite-dimensional unitary orbit. This **physical free entropy** is the one related to the memory needed to encode an unknown eigenbasis with known spectrum.
 
-Free probability theory, developed by Dan Voiculescu beginning in the 1980s, is a noncommutative analogue of classical probability. Its original motivation was the **free group factors problem**: are the type $\mathrm{II}_1$ factors $L(\mathbb{F}_n)$ and $L(\mathbb{F}_m)$ isomorphic for $n \neq m$? (This remains open.) The theory gained broader significance when Voiculescu discovered (1991) that independent random matrices become **freely independent** in the large-$N$ limit.
+## 1. Tracial Probability and Freeness
 
-### Noncommutative Probability Spaces
+A tracial noncommutative probability space provides an algebra of operators and a normalized trace $\tau$. For finite matrices the example used by the Letter is
 
-A **noncommutative probability space** is a pair $(\mathcal{A}, \varphi)$ where $\mathcal{A}$ is a unital algebra over $\mathbb{C}$ and $\varphi: \mathcal{A} \to \mathbb{C}$ is a linear functional with $\varphi(1) = 1$.
+$$
+(M_d(\mathbb C),\tau),\qquad \tau(A)=d^{-1}\operatorname{Tr}A.
+$$
 
-The most important setting is the **tracial $W^*$-probability space** $(M, \tau)$, where $M$ is a von Neumann algebra and $\tau$ is a faithful normal tracial state.
+The distribution of a self-adjoint operator $a$ is specified by its moments $\tau(a^k)$, equivalently by its spectral measure. For a density matrix this measure assigns weight $1/d$ to each eigenvalue, counting multiplicity. It is different from the probability vector of eigenvalues used in $S(\rho)=-\operatorname{Tr}\rho\log_2\rho$.
 
-**Canonical example:** $(M_N(\mathbb{C}),\, \mathrm{tr}_N)$ where $\mathrm{tr}_N = \frac{1}{N}\mathrm{Tr}$ -- the space of random matrices.
+Subalgebras $\mathcal A_i$ are freely independent when
 
-### Free Independence
+$$
+\tau(a_1\cdots a_m)=0
+$$
 
-Unital subalgebras $\mathcal{A}_1, \ldots, \mathcal{A}_m \subseteq \mathcal{A}$ are **freely independent** if
+whenever $a_j\in\mathcal A_{i_j}$, $\tau(a_j)=0$, and **adjacent** indices differ: $i_j\ne i_{j+1}$. All the indices need not be pairwise distinct.
 
-$$\varphi(a_1 a_2 \cdots a_n) = 0$$
+This notion governs mixed moments and differs from tensor-product independence. Appropriate large-matrix models can converge to free families. The current Letter does not assume that the eigenvalues and eigenvectors of $\rho^{\otimes n}$ become freely independent, and the compression proof does not require such a limit.
 
-whenever each $a_j \in \mathcal{A}_{i(j)}$ with alternating indices $i(1) \neq i(2) \neq \cdots \neq i(n)$ and each $a_j$ is centered: $\varphi(a_j) = 0$.
+## 2. Three Counting Constructions
 
-**Key model:** If $A$ is a subalgebra and $U$ is a Haar-random unitary, then $A$ and $UAU^*$ are asymptotically free. This is why freeness governs the eigenbasis structure of random matrices.
+| Quantity | Microstates or approximants | What the logarithm measures |
+| --- | --- | --- |
+| Shannon entropy | Strings whose empirical frequencies approach $p$ | Typical-string count per symbol |
+| Von Neumann entropy | Subspaces capturing almost all mass of $\rho^{\otimes N}$ | Typical-subspace dimension per copy |
+| Microstate free entropy | Hermitian matrices matching all moments through order $m$ | Renormalized large-matrix Lebesgue volume |
 
-### Free Cumulants and Noncrossing Partitions
+In [eq:shannon](https://github.com/JWang226/QMDL/blob/main/letter.tex#L86), the Letter writes
 
-Roland Speicher reformulated free probability using **free cumulants** and **noncrossing partitions** $\mathrm{NC}(n)$ (partitions with no crossing blocks, counted by Catalan numbers $C_n$). The moment-cumulant formula:
+$$
+H(p)=\inf_{\varepsilon>0}\lim_{N\to\infty}\frac1N
+\log_2\#\{x^N:\|p_{x^N}-p\|_1\le\varepsilon\}.
+$$
 
-$$\varphi(a^n) = \sum_{\pi \in \mathrm{NC}(n)} \prod_{V \in \pi} \kappa_{|V|}(a, \ldots, a)$$
+The [von Neumann counterpart](https://github.com/JWang226/QMDL/blob/main/letter.tex#L94) minimizes $\log_2\dim V$ over subspaces whose projector captures at least $1-\varepsilon$ of the source. At finite $N$, the smallest such subspace need not equal a frequency-window typical subspace, although their asymptotic rates agree.
 
-**Freeness criterion:** $X_1, \ldots, X_m$ are free iff all mixed free cumulants vanish.
+For one bounded self-adjoint $a$, fix an operator-norm cutoff $R>\|a\|$. The [matrix microstate definition](https://github.com/JWang226/QMDL/blob/main/letter.tex#L106) is
 
-### Key Distributions
+$$
+\chi(a)=\inf_m\inf_{\varepsilon>0}\limsup_{N\to\infty}
+\left[\frac12\log_2N+\frac1{N^2}\log_2\operatorname{Vol}\Gamma_R(a;m,\varepsilon,N)\right],
+$$
 
-**Semicircular (Wigner):** density $f(x) = \frac{1}{2\pi}\sqrt{4 - x^2}$ on $[-2, 2]$. Moments are Catalan numbers. Only $\kappa_2 \neq 0$. This is the **free Gaussian** -- the limit of sums of freely independent variables (free CLT). See [[concepts/semicircular-element|Semicircular Element and Free Independence]].
+where every moment through order $m$ must match within tolerance. Volume makes this analogous to **differential** entropy. The [[concepts/free-entropy|free entropy page]] specifies $\Gamma_R$ and explains the normalization.
 
-**Marchenko-Pastur (Free Poisson):** all free cumulants equal $\lambda$. Arises from Wishart matrices $\frac{1}{N}X^*X$.
+For several operators, moment constraints must also specify mixed noncommutative words. The Letter discusses this richer theory as a direction for general operator programming, not as an established multivariable QMDL theorem.
 
-### R-Transform and Free Convolution
+## 3. Spectral Energy and Finite Resolution
 
-The **R-transform** $R_\mu(z) = \sum_{n=1}^\infty \kappa_n z^{n-1}$ linearizes additive free convolution:
+For a single variable,
 
-$$R_{\mu \boxplus \nu}(z) = R_\mu(z) + R_\nu(z)$$
+$$
+\chi(a)=\iint\log_2|s-t|\,d\mu_a(s)\,d\mu_a(t)
++\frac34\log_2e+\frac12\log_2(2\pi).
+$$
 
-This is the free analogue of the additivity of classical cumulant generating functions.
+The logarithmic energy comes from the squared Vandermonde Jacobian in matrix volume. A finite-dimensional spectral measure is atomic, making this ordinary free entropy $-\infty$.
 
-### The Random Matrix Connection
+The Letter holds the matrix dimension fixed and defines instead
 
-**Wigner's Semicircle Law:** Eigenvalues of $N \times N$ Wigner matrices converge to the semicircular distribution.
+$$
+\chi_{\mathrm{phy}}(\rho;\varepsilon)
+=\log_2\frac{\operatorname{Vol}(\Omega_\varepsilon)}
+{\operatorname{Vol}(B_\varepsilon^{d^2})},
+\qquad
+\Omega_\varepsilon=
+\{X\in M_d^{\mathrm{s.a.}}:\|\lambda(X)-p\|_2\le\varepsilon\}.
+$$
 
-**Asymptotic Freeness (Voiculescu, 1991):** Independent GUE matrices are asymptotically free as $N \to \infty$.
+This is the exact volume ratio, not the exact logarithm of a covering number. Its ambient tube includes non-density matrices. The choice fixes the order-one normalization needed for the memory comparison.
 
-**Significance for this project:** When $\rho^{\otimes n}$ is decomposed via the [[concepts/schur-weyl-duality|Schur-Weyl Duality]], eigenvalues and eigenvectors become freely independent in the large-$n$ limit. This is why [[concepts/free-entropy|Free Entropy]] -- not von Neumann entropy -- governs the [[concepts/quantum-minimum-description-length|QMDL]].
+If the distinct spectral levels have multiplicities $g_a$, put
 
-### Classical vs. Free
+$$
+N_\rho=d^2-\sum_a g_a^2.
+$$
 
-| Classical | Free |
-|---|---|
-| Independence: moments factorize | Freeness: alternating centered moments vanish |
-| Gaussian | Semicircular |
-| Shannon entropy | Free entropy |
-| Fourier/MGF | R-transform |
-| All partitions | Noncrossing partitions |
-| Tensor products | Free products |
+For resolution smaller than half the smallest distinct spectral gap,
 
----
+$$
+\chi_{\mathrm{phy}}(\rho;\varepsilon)
+=N_\rho\log_2\varepsilon^{-1}
++\chi_{\mathrm{reg}}(\rho)
++C_{d,(g_a)}
++O_d(\varepsilon^2/g^2).
+$$
 
-## Part II: Free Entropy
+The [[concepts/physical-free-entropy|physical free entropy page]] gives the complete constant and derivation. The normalized orbit dimension $N_\rho/d^2$ equals the single-variable free entropy dimension of the atomic spectral measure.
 
-### Microstate Definition
+| Spectrum | Real orbit dimension $N_\rho$ |
+| --- | --- |
+| All eigenvalues distinct | $d^2-d$ |
+| Scalar operator | $0$ |
+| Pure state, $d\ge2$ | $2(d-1)$ |
+| Two spectral levels with multiplicities $k,d-k$ | $2k(d-k)$ |
 
-For self-adjoint $X_1, \ldots, X_n$ in a tracial $W^*$-probability space $(M, \tau)$, the **microstate space** is:
+The geometry formula covers arbitrary multiplicities. It should not be read as a proved optimal-memory formula for every such spectrum.
 
-$$\Gamma_R(X_1, \ldots, X_n;\, m, k, \varepsilon) = \left\{ (A_1, \ldots, A_n) \in (M_k^{sa})^n : \begin{array}{l} \|A_j\| < R, \\ \left|\tau(X_{i_1} \cdots X_{i_p}) - k^{-1}\mathrm{Tr}(A_{i_1} \cdots A_{i_p})\right| < \varepsilon \end{array} \right\}$$
+## 4. The Operational Connection
 
-for all $1 \le p \le m$ and all index tuples. The **free entropy** is:
+For the known-spectrum orbit family with distinct positive eigenvalues, the Letter combines the Article's optimal memory formula with its volume calculation:
 
-$$\chi(X_1, \ldots, X_n) = \sup_R\, \inf_m\, \inf_\varepsilon\, \limsup_{k \to \infty}\left(k^{-2}\log\mathrm{vol}\,\Gamma_R + \frac{n}{2}\log k\right)$$
+$$
+\log_2\dim M_n
+=\frac12\chi_{\mathrm{phy}}(\rho;n^{-1})+C_{d,r}+o(1)
+$$
 
-**Analogy:** Shannon entropy counts typical *sequences*; free entropy counts typical *matrices*.
+for an attaining sequence. Every reliable sequence obeys the matching lower bound through the additive constant. No purification must be preserved, and the whole $n$-copy trace error must vanish.
 
-### Closed-Form Formula
+The factor $1/2$ is consistent with the squared spectral-gap product in Hilbert–Schmidt volume and the first-power gap product in the Weyl dimension formula. The comparison resolution $n^{-1}$ is distinct from the statistical angular scale $n^{-1/2}$.
 
-For a single self-adjoint $X$ with spectral measure $\mu$:
+The End Matter's [double-scaling remark](https://github.com/JWang226/QMDL/blob/main/letter.tex#L314) relates physical free entropy back to $\chi$ only under explicit regularity, discrete-energy convergence, and resolution assumptions. It is not an unrestricted interchange of large-dimension and small-resolution limits.
 
-$$\chi(X) = \iint \log|s - t|\, d\mu(s)\, d\mu(t) + \frac{3}{4} + \frac{1}{2}\log 2\pi$$
+## Role in the Project
 
-The double integral $\Sigma(\mu) = \iint \log|s-t|\, d\mu(s)\, d\mu(t)$ is the **logarithmic energy**, arising from the [[concepts/vandermonde-determinant|Vandermonde determinant]] in random matrix eigenvalue densities.
+The [[Article|Article]] establishes compression and cloning; the [[Letter|Letter]] interprets the optimal memory geometrically. The checked Lean proof covers Article Theorems 1 and 2. It does not certify all the free-probability background, the Letter's tube-volume formulas, or its proposed general programming applications.
 
-For a $d$-dimensional density matrix $\rho$ with eigenvalues $p_1, \ldots, p_d$:
-
-$$\chi(\rho) = \frac{2}{d^2}\sum_{i < j}\log|p_i - p_j| + \text{(divergent)}$$
-
-The divergence motivates the [[concepts/physical-free-entropy|Physical Free Entropy]].
-
-### Key Properties
-
-| Property | Statement |
-|----------|-----------|
-| **Subadditivity** | $\chi(X_1, \ldots, X_{m+n}) \le \chi(X_1, \ldots, X_m) + \chi(X_{m+1}, \ldots, X_{m+n})$ |
-| **Additivity under freeness** | If freely independent with finite $\chi$, then $\chi(X_1, \ldots, X_n) = \sum_j \chi(X_j)$ |
-| **Maximum entropy** | Freely independent semicircular variables maximize $\chi$ among all with given second moments |
-
-### Non-Microstate Free Entropy $\chi^*$
-
-Voiculescu also defined $\chi^*$ using **free Fisher information** $\Phi^*$:
-
-$$\chi^*(X_1, \ldots, X_n) = \frac{1}{2}\int_0^\infty \left(\frac{n}{1+t} - \Phi^*(X_1 + \sqrt{t}\,S_1, \ldots)\right)dt + \frac{n}{2}\log 2\pi e$$
-
-The fundamental inequality $\chi \le \chi^*$ holds; equality for $n = 1$ is known; the general case is open.
-
-### The Coulomb Gas Picture
-
-The GUE joint eigenvalue density is $p(\lambda_1, \ldots, \lambda_N) \propto e^{-\frac{N}{2}\sum \lambda_i^2} \prod_{j<k}|\lambda_j - \lambda_k|^2$ -- a 2D Coulomb gas with logarithmic repulsion. By Ben Arous-Guionnet large deviations, free entropy is the rate function for random matrix ensembles at speed $N^2$.
-
-### Applications in Operator Algebras
-
-- **Primeness of free group factors (Ge, 1997):** $L(\mathbb{F}_n)$ cannot decompose as a tensor product.
-- **Absence of Cartan subalgebras (Voiculescu, 1996):** $L(\mathbb{F}_n)$ has no Cartan subalgebra.
-
----
-
-## Part III: Free Entropy Dimension
-
-### Definition
-
-$$\delta(a) = 1 + \limsup_{\varepsilon \to 0} \frac{\chi(a + \varepsilon s)}{-\log \varepsilon}$$
-
-where $s$ is a freely independent semicircular element. The perturbation regularizes $\chi$, and the rate of divergence encodes a dimension. Always $0 \leq \delta(a) \leq 1$.
-
-### Explicit Formula
-
-For a $d$-dimensional operator with spectral multiplicities $g_1, \ldots, g_m$ (where $\sum g_i = d$):
-
-$$\delta(\rho) = 1 - \frac{\sum_i g_i^2}{d^2}$$
-
-The unnormalized version $d^2 \cdot \delta(\rho) = d^2 - \sum_i g_i^2$ counts real degrees of freedom: a $d \times d$ Hermitian matrix has $d^2$ parameters, and the stabilizer $\prod_i \mathrm{U}(g_i)$ has dimension $\sum_i g_i^2$.
-
-### Derivation (Letter, Appendix A)
-
-Adding $\varepsilon s$ smooths the point-mass spectrum via free additive convolution:
-
-$$\chi(\rho + \varepsilon s) = \frac{\sum_i g_i^2}{d^2}\log \varepsilon + \chi_{\mathrm{reg}}(\rho) + \mathrm{const} + O(\varepsilon)$$
-
-Substituting: $\delta(\rho) = 1 - \sum_i g_i^2/d^2$. The $\chi_{\mathrm{reg}}$ and constant vanish in the limit.
-
-This connects to [[concepts/physical-free-entropy|Physical Free Entropy]]: $\chi_{\mathrm{phy}}(\rho;\varepsilon) = d^2\delta(\rho)\log(1/\varepsilon) + \chi_{\mathrm{reg}}(\rho) + \mathrm{const}$.
-
-### Examples
-
-| State | $\delta(\rho)$ | $d^2\delta$ | Geometric interpretation |
-|-------|----------------|-------------|--------------------------|
-| Non-degenerate ($g_i = 1$) | $(d-1)/d$ | $d(d-1)$ | Flag manifold $\mathrm{U}(d)/\mathrm{U}(1)^d$ |
-| Maximally mixed ($g_1 = d$) | $0$ | $0$ | Invariant under all unitaries |
-| Pure state ($g = 1, d-1$) | $2(d-1)/d^2$ | $2(d-1)$ | $\mathbb{CP}^{d-1}$ |
-| Rank-$k$ projector ($g = k, d-k$) | $2k(d-k)/d^2$ | $2k(d-k)$ | Grassmannian $\mathrm{Gr}(k,d)$ |
-
-### Role in QMDL
-
-$$\log|M_n| = \frac{d^2 \cdot \delta(\rho)}{2} \log n + O(1)$$
-
-The division by 2 is the geometric quantization factor from the [[concepts/kks-theorem|KKS Theorem]].
-
----
-
-## References
-
-**Free probability:**
-- voiculescu1993analogues through voiculescu2002free: Voiculescu's foundational series
-- speicher1996universal: Speicher on universal products
-- hiai2000semicircle: Hiai-Petz textbook
-
-**Free entropy:**
-- ge1997applications, ge1998applications: Ge's applications
-- arous1997large: Ben Arous-Guionnet large deviations
-- Jung_2003, Jung_2006: Free entropy dimension
-
-**Textbooks:**
-- A. Nica and R. Speicher, *Lectures on the Combinatorics of Free Probability*, Cambridge (2006)
-- J. Mingo and R. Speicher, *Free Probability and Random Matrices*, Springer (2017)
-- D. Voiculescu, K. Dykema, and A. Nica, *Free Random Variables*, AMS (1992)
+Free entropy's additivity for free families and its subadditivity motivate a possible description-length theory for several operators. The Letter treats this as a research direction. Its discussion of asymptotic temporal freeness also requires suitable large-system or large-$N$ chaotic limits.
 
 ## Related
 
-- [[concepts/free-probability-theory|Free Probability Theory]] -- role in this project
-- [[concepts/free-entropy|Free Entropy]] -- central object of the project
-- [[concepts/physical-free-entropy|Physical Free Entropy]] -- finite-dimensional regularized version
-- [[definitions/regularized-free-entropy|Regularized Free Entropy]] -- the $O(1)$ correction
-- [[concepts/semicircular-element|Semicircular Element and Free Independence]]
-- [[concepts/vandermonde-determinant|Vandermonde Determinant]]
-
-## External References
-
-- [Free probability (Wikipedia)](https://en.wikipedia.org/wiki/Free_probability)
-- [Free entropy (Wikipedia)](https://en.wikipedia.org/wiki/Free_entropy)
-- [Voiculescu, "Free entropy" (survey, 2002)](https://doi.org/10.1112/S0024609301008992)
-- [F. Hiai and D. Petz, *The Semicircle Law, Free Random Variables and Entropy*, AMS (2000)](https://bookstore.ams.org/view?ProductCode=SURV/77)
+- [[concepts/free-entropy|Microstate free entropy]]
+- [[concepts/physical-free-entropy|Physical free entropy and its constants]]
+- [[concepts/free-entropy-dimension|Free entropy dimension]]
+- [[concepts/free-probability-theory|Free probability theory]]
+- [[concepts/schumacher-compression|Schumacher compression]]
+- [[concepts/quantum-minimum-description-length|Quantum minimum description length]]
+- [[open-questions/free-entropy-conjecture|Broader programming conjecture]]

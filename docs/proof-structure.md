@@ -155,3 +155,16 @@ families, optimal prescribed-error tradeoffs, repeated positive eigenvalues,
 unknown-spectrum coding and the later entropy/programming discussion are
 not all certified by these results. See the relevant [[index|open-question pages]]
 and [[formalization|formalization scope]].
+
+## Relation to the current Letter
+
+The [current Letter](https://github.com/JWang226/QMDL/blob/main/letter.tex)
+states the full-rank memory formula at `eq:result_qmdl` and its distinct-positive,
+rank-deficient extension at `eq:rank_def_qmdl`. These follow the Article's
+checked achievability and converse above. Its entropy identity compares that
+memory with one half of the ambient tube-volume entropy at resolution
+$n^{-1}$ and includes an explicit spectrum-independent offset. The geometric
+volume derivation and the conditional large-dimension bridge do not appear
+in this Lean dependency graph. See the
+[companion source map](https://github.com/JWang226/QMDL/blob/main/metadata/letter-source-map.json)
+and [[Letter|Letter overview]] for that boundary.

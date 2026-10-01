@@ -1,62 +1,77 @@
 # Physical Free Entropy (Formal Definition)
 
-**Label:** `eq:free_phys_def` (Letter)
-**Source:** Letter Eq. 8 (line ~149); Notes line ~153
+**Source:** current [[Letter]], `eq:free_phys_def`, `eq:free_phys`, and `eq:degenerate_free_ent` in [letter.tex](https://github.com/JWang226/QMDL/blob/main/letter.tex). All logarithms are base two.
 
 ## Statement
 
-For a $d \times d$ density matrix $\rho$ with minimal spectral gap $g = \min_{i \neq j}|p_i - p_j|$, and for $\varepsilon < g/2$, the **physical free entropy** is:
+Let $\rho$ be a $d\times d$ Hermitian matrix with ordered eigenvalues $p_1\ge\cdots\ge p_d$. Define
 
-$$\chi_{\mathrm{phy}}(\rho; \varepsilon) = \log N(\Omega_\varepsilon, \varepsilon)$$
+$$
+\Omega_\varepsilon=\{X\in M_d^{\mathrm{s.a.}}:\|\lambda(X)-p\|_2\le\varepsilon\},
+\qquad
+\chi_{\mathrm{phy}}(\rho;\varepsilon)
+=\log_2\frac{\operatorname{Vol}(\Omega_\varepsilon)}
+{\operatorname{Vol}(B_\varepsilon^{d^2})}.
+$$
 
-where:
-- $\Omega_\varepsilon = \{X \in M_d^{\mathrm{s.a.}} : \|{\mathrm{spec}(X) - \mathrm{spec}(\rho)}\|_2 \leq \varepsilon \}$ is the set of Hermitian matrices whose spectrum is $\varepsilon$-close (in $L^2$) to that of $\rho$
-- $N(\Omega, \varepsilon)$ is the minimum number of Hilbert-Schmidt $\varepsilon$-balls needed to cover $\Omega$
+Here $\lambda(X)$ is the ordered eigenvalue list, and both volumes use the Hilbert–Schmidt Euclidean metric on the **full Hermitian matrix space**. The tube may contain matrices that are not density operators. The definition applies at every $\varepsilon>0$; it does not require a spectral-gap condition.
 
-## Intuition
+The Hoffman–Wielandt inequality, with equality after aligning eigenbases, gives
 
-How many "patches" of size $\varepsilon$ do you need to cover all Hermitian matrices that look spectrally similar to $\rho$? The answer is dominated by the volume of the unitary orbit, which depends on eigenvalue spacings through the [[concepts/vandermonde-determinant|Vandermonde Determinant]].
+$$\min_U\|X-U\rho U^\dagger\|_2=\|\lambda(X)-p\|_2.$$
 
-### Why $\varepsilon < g/2$
+Thus $\Omega_\varepsilon$ is exactly the radius-$\varepsilon$ neighborhood of the unitary orbit. It contains the ball centered at $\rho$, so $\chi_{\mathrm{phy}}\ge0$. For a scalar matrix the orbit is a point and the entropy is exactly zero.
 
-The constraint $\varepsilon < g/2$ (where $g = \min_{i \neq j}|p_i - p_j|$ is the minimal spectral gap) is essential for the covering number to be well-defined and meaningful. Here is the geometric reason:
+## Volume Ratio and Covering Numbers
 
-When $\varepsilon < g/2$, any matrix $X \in \Omega_\varepsilon$ has eigenvalues that remain in *separated clusters* around each $p_i$. Specifically, the eigenvalue closest to $p_i$ stays within distance $\varepsilon < g/2$ of $p_i$, so it cannot approach any other $p_j$. This means:
+The current Letter defines a **volume ratio**, not an exact minimum covering number. At fixed $d$, its logarithm and the logarithm of a suitable covering number agree up to $O(1)$ as $\varepsilon\to0$. The volume convention fixes that otherwise ambiguous additive constant, which matters for the Letter's QMDL relation.
 
-1. **The eigenvalue labeling is stable:** We can unambiguously associate each eigenvalue of $X$ with a specific $p_i$. The ordering of eigenvalues is preserved.
-2. **The orbit topology is fixed:** The unitary orbit of any $X \in \Omega_\varepsilon$ has the same topology as that of $\rho$ (namely $U(d)/\prod_a U(g_a)$, where $g_a$ are the multiplicities). No eigenvalue crossings can occur.
-3. **The Vandermonde determinant stays controlled:** Since eigenvalues cannot collide, the squared Vandermonde $\prod_{i<j}(\lambda_i - \lambda_j)^2$ stays close to $\prod_{i<j}(p_i - p_j)^2$, justifying the approximation used in the volume calculation.
+## Small-Resolution Expansion
 
-If $\varepsilon \geq g/2$, eigenvalues from different clusters could merge. This would change the dimension of the unitary orbit (e.g., from $d^2 - d$ to $d^2 - \sum g_a^2$ for a coarser degeneracy pattern), making the covering number discontinuous.
+Let the distinct eigenvalues have multiplicities $g_a$, including any zero eigenspace, and put
 
-## Worked Example: Qubit ($d = 2$)
+$$\kappa=\sum_a g_a^2,\qquad N_\rho=d^2-\kappa.$$
 
-For a qubit with eigenvalues $p_1 = 0.7$, $p_2 = 0.3$, at resolution $\varepsilon = 0.1$:
+Let $g$ be the smallest gap between **distinct** eigenvalues, with $g=\infty$ for a scalar matrix. For $\varepsilon<g/2$, the Letter derives
 
-- Spectral gap: $g = |0.7 - 0.3| = 0.4$, so we need $\varepsilon < 0.2$. Our choice $\varepsilon = 0.1$ satisfies this.
-- Degrees of freedom: $d^2 - d = 4 - 2 = 2$ (one complex off-diagonal parameter).
-- The physical free entropy is:
+$$
+\chi_{\mathrm{phy}}(\rho;\varepsilon)
+=N_\rho\log_2\varepsilon^{-1}
++\chi_{\mathrm{reg}}(\rho)+c(d,(g_a))
++O_d(\varepsilon^2/g^2),
+$$
 
-$$\chi_{\mathrm{phy}}(\rho; 0.1) = (4 - 2)\log(1/0.1) + 2\log|0.7 - 0.3| + \mathrm{const}$$
+where
 
-$$= 2\log 10 + 2\log 0.4 + \mathrm{const} \approx 6.64 - 2.64 + \mathrm{const} \approx 4.0 + \mathrm{const}$$
+$$
+\begin{aligned}
+ c(d,(g_a))={}&\frac{N_\rho}{2}\log_2 2
++\log_2\frac{\Gamma(d^2/2+1)}{\Gamma(\kappa/2+1)}\\
+&+\sum_a\sum_{k=1}^{g_a-1}\log_2(k!)
+-\sum_{k=1}^{d-1}\log_2(k!).
+\end{aligned}
+$$
 
-(using $\log_2$). So there are roughly $2^4 = 16$ distinguishable density matrices with spectrum close to $(0.7, 0.3)$ at resolution $\varepsilon = 0.1$. Note how the Vandermonde term $2\log(0.4)$ reduces the count: matrices with more separated eigenvalues fill out a larger orbit, but the logarithmic potential is still negative because $|p_1 - p_2| < 1$.
+The small-gap condition controls the expansion and prevents different spectral clusters from crossing. Eigenvalues within a repeated cluster can still split, so matrices in the tube need not have the same stabilizer as $\rho$.
 
-## Connection to Proof Architecture
+For a qubit with fixed gap $h=2p-1>0$,
 
-The physical free entropy is the bridge between the mathematical free entropy (which diverges in finite dimensions) and the operationally meaningful QMDL. The main result of the Letter establishes:
+$$\chi_{\mathrm{phy}}(\rho;\varepsilon)
+=2\log_2\varepsilon^{-1}+2\log_2 h+2+O(\varepsilon^2/h^2).$$
 
-$$|M| = \frac{1}{2}\chi_{\mathrm{phy}}(\rho; n^{-1}) + \mathrm{const} + o(1)$$
+This is an asymptotic effective cell count, not an exact number of distinguishable states.
 
-The factor of $1/2$ reflects geometric quantization: Voiculescu's free entropy counts with the flat Euclidean (Lebesgue) measure, yielding a squared Vandermonde $\Delta(p)^2$, while the QMDL counts quantum states via the Weyl dimension formula, which involves only the first power $\Delta(p)$ due to the symplectic structure of coadjoint orbits.
+## Role in QMDL and Formalization
+
+For the Letter's attaining codes with distinct nonzero eigenvalues,
+
+$$|M_n|=\tfrac12\chi_{\mathrm{phy}}(\rho;n^{-1})+C_{d,r}+o(1).$$
+
+The resolution $n^{-1}$ belongs to this volume comparison; it is not an eigenbasis-estimation accuracy claim. The [[Article]] and Lean endpoints prove the underlying memory formula. The tube-volume calculation and this free-entropy identification are additional Letter results, outside the current two-theorem formalization.
 
 ## Used By
 
-- [[concepts/physical-free-entropy|Physical Free Entropy]] (concept page)
+- [[concepts/physical-free-entropy|Physical Free Entropy]]
+- [[definitions/regularized-free-entropy|Regularized Free Entropy]]
 - [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]]
-
-## External References
-
-- [Covering number (Wikipedia)](https://en.wikipedia.org/wiki/Covering_number)
-- [Kolmogorov and Tikhomirov, "epsilon-entropy and epsilon-capacity of sets in functional spaces" (1959; English transl. 1961)](https://www.ams.org/books/trans2/017/)
+- [[open-questions/degenerate-spectrum|Repeated positive eigenvalues]]

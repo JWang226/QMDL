@@ -1,61 +1,48 @@
-# Free Entropy Dimension (Formal Definition)
+# Free Entropy Dimension for a Finite Spectrum
 
-**Source:** Notes line ~200; Letter Eq. 34 (line ~385)
+**Source:** current [[Letter]], discussion following `eq:reg_free_ent` and End Matter on degenerate spectra in [letter.tex](https://github.com/JWang226/QMDL/blob/main/letter.tex). General perturbative definitions belong to the broader free-probability background and the earlier [[Notes]].
 
-## Statement (Voiculescu)
+## Atomic Spectral Formula
 
-For a bounded self-adjoint operator $a$ in a tracial von Neumann algebra:
+For a self-adjoint $d\times d$ matrix with distinct eigenvalues $p_1,\ldots,p_m$ and multiplicities $g_1,\ldots,g_m$, its normalized spectral measure is
 
-$$\delta(a) = 1 + \limsup_{\varepsilon \to 0} \frac{\chi(a + \varepsilon s)}{-\log \varepsilon}$$
+$$\mu_\rho=\sum_{a=1}^m\frac{g_a}{d}\delta_{p_a}.$$
 
-where $s$ is a freely independent standard [[concepts/semicircular-element|Semicircular Element]].
+The single-variable free entropy dimension is
 
-## Statement (Finite Dimensions)
+$$
+\delta(\rho)=1-\sum_a\mu_\rho(\{p_a\})^2
+=1-\frac{\sum_a g_a^2}{d^2}.
+$$
 
-For a $d \times d$ operator with spectral measure $\mu_a = \sum_i (g_i/d) \cdot \delta_{p_i}$:
+Thus $N_\rho=d^2\delta(\rho)=d^2-\sum_a g_a^2$ is the real dimension of the unitary orbit. At fixed $d$, $0\le\delta\le1-1/d$. The lower bound is attained by scalar matrices and the upper bound by simple spectra. A zero eigenvalue has its full multiplicity in this calculation.
 
-$$\delta(a) = 1 - \sum_i \mu_a(\{p_i\})^2 = 1 - \frac{\sum_i g_i^2}{d^2}$$
+## Examples
 
-## Intuition
+| Spectrum | $\delta(\rho)$ | Real orbit dimension |
+| --- | --- | --- |
+| All $d$ eigenvalues distinct | $1-1/d$ | $d^2-d$ |
+| Scalar matrix | $0$ | $0$ |
+| Pure state | $2(d-1)/d^2$ | $2(d-1)$ |
+| Normalized rank-$k$ projector, $\rho=P/k$ | $2k(d-k)/d^2$ | $2k(d-k)$ |
 
-The free entropy dimension measures what fraction of the full $d^2$ degrees of freedom of a $d \times d$ Hermitian matrix are "active" for $\rho$. A generic Hermitian matrix with all distinct eigenvalues can be freely rotated by $U(d)$, giving $d^2 - d$ real orbital degrees of freedom out of $d^2$ total, so $\delta = 1 - 1/d$. When eigenvalues are degenerate, the orbit shrinks because rotations within degenerate eigenspaces are undetectable.
+For the last row, the eigenvalues are $1/k$ with multiplicity $k$ and $0$ with multiplicity $d-k$. The projector $P$ itself has eigenvalues $1$ and $0$ and the same orbit dimension.
 
-### Why $0 \leq \delta \leq 1$
+## Geometric and Operational Roles
 
-The finite-dimensional formula $\delta(a) = 1 - \sum_i (g_i/d)^2$ is manifestly bounded. Since $\mu_a(\{p_i\}) = g_i/d$ defines a probability distribution on the distinct eigenvalues (with $\sum_i g_i/d = 1$), the sum $\sum_i (g_i/d)^2$ is the squared $\ell^2$-norm of a probability vector. By Cauchy-Schwarz (or the fact that $\|q\|_2^2 \leq \|q\|_1^2 = 1$ for any probability vector $q$):
+The Letter derives the geometric formula, for arbitrary fixed multiplicities,
 
-$$0 < \sum_i \left(\frac{g_i}{d}\right)^2 \leq 1$$
+$$
+\chi_{\mathrm{phy}}(\rho;\varepsilon)
+=d^2\delta(\rho)\log_2\varepsilon^{-1}
++\chi_{\mathrm{reg}}(\rho)+c(d,(g_a))
++O_d(\varepsilon^2/g^2).
+$$
 
-The upper bound $\sum_i (g_i/d)^2 = 1$ is achieved when the spectral measure is a single point mass, i.e., $\rho = c \cdot I$ (a scalar multiple of the identity). In this case $\delta = 0$, meaning the orbit is trivial.
-
-The lower bound $\sum_i (g_i/d)^2 = 1/d$ is achieved when all eigenvalues are distinct ($g_i = 1$ for all $i$, giving $m = d$ terms each equal to $1/d^2$). In this case $\delta = 1 - 1/d$, which approaches 1 as $d \to \infty$.
-
-## Qubit Example ($d = 2$)
-
-For a qubit:
-- **Non-degenerate spectrum** ($p \neq 1/2$): multiplicities $g_1 = g_2 = 1$, so $\delta = 1 - (1/4 + 1/4) = 1/2$. The number of orbital degrees of freedom is $d^2 \delta = 4 \cdot 1/2 = 2$, matching the 2 real parameters of $SU(2)/U(1)$.
-- **Maximally mixed** ($p = 1/2$): multiplicity $g_1 = 2$, so $\delta = 1 - 1 = 0$. The orbit is a single point (the maximally mixed state is invariant under all unitaries).
-
-For a rank-$k$ projector in $d$ dimensions (eigenvalues $1/k$ with multiplicity $k$ and $0$ with multiplicity $d - k$):
-
-$$\delta(P) = 1 - \left(\frac{k}{d}\right)^2 - \left(\frac{d-k}{d}\right)^2 = \frac{2k(d-k)}{d^2}$$
-
-For a rank-1 pure state in $d$ dimensions: $\delta = 2(d-1)/d^2$, and $d^2 \delta = 2(d-1)$, which correctly counts the real dimension of $\mathbb{CP}^{d-1}$.
-
-## Connection to Proof Architecture
-
-The free entropy dimension controls the **leading-order** term in the [[concepts/physical-free-entropy|Physical Free Entropy]]:
-
-$$\chi_{\mathrm{phy}}(\rho; \varepsilon) = d^2 \delta(\rho) \log(1/\varepsilon) + \chi_{\mathrm{reg}}(\rho) + \mathrm{const} + O(\varepsilon)$$
-
-In the QMDL formula, this translates to the coefficient of $\log n$: the leading compression rate is $\frac{d^2 \delta(\rho)}{2} \log n$. The factor of $1/2$ arises from geometric quantization (the passage from the Euclidean measure on Hermitian matrices to the symplectic measure on coadjoint orbits).
+For states whose **positive** eigenvalues are distinct, [[Article|Article Theorem 1]] proves that the optimal memory cost has leading term $\tfrac12d^2\delta(\rho)\log_2n$, with the explicit additive constant. The Letter expects the analogous operational statement for arbitrary repeated positive spectra, but does not prove it. Neither the entropy definitions nor the general geometric formula are part of the current Lean theorem scope.
 
 ## Used By
 
-- [[concepts/free-entropy-dimension|Free Entropy Dimension]] (concept page)
+- [[concepts/free-entropy-dimension|Free Entropy Dimension]]
 - [[concepts/physical-free-entropy|Physical Free Entropy]]
-
-## External References
-
-- [Free entropy (Wikipedia)](https://en.wikipedia.org/wiki/Free_entropy)
-- [Voiculescu, "The analogues of entropy and of Fisher's information measure in free probability theory, III" (1996)](https://doi.org/10.1007/BF02246772)
+- [[open-questions/degenerate-spectrum|QMDL for repeated positive eigenvalues]]

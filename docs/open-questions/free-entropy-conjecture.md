@@ -1,88 +1,69 @@
-# Conjecture: Free Entropy as Universal QMDL & Programming Extensions
+# Beyond the Proved State-Compression Relation
 
-**Source:** Letter, line ~248; Notes, Secs. 7--9
-**Status:** Broader conjecture; current Lean endpoints cover the fixed-spectrum state-compression theorems.
+**Source:** current [[Letter]], discussion after `eq:result`, `rem:bridge`, and the final paragraph of the End Matter in [letter.tex](https://github.com/JWang226/QMDL/blob/main/letter.tex). The earlier [[Notes]] contain additional programming proposals.
+**Status:** State compression with distinct positive eigenvalues is established; broader programming and repeated-positive-spectrum extensions remain conjectural.
 
-## Conjecture Statement (from the Letter)
+## What the Current Letter Establishes
 
-> We conjecture that free entropy describes the quantum minimum description length of **any** operator in quantum mechanics.
+For a fixed rank-$r$ spectrum with distinct positive eigenvalues, the [[Article]] proves an attaining code sequence and a matching converse through the additive memory constant. The Letter combines that memory formula with its physical tube-volume calculation to obtain
 
-More precisely: for any family of operators (density matrices, unitaries, Hermitian operators, or more general objects like CPTP maps), the optimal program size scales as:
+$$|M_n|=\tfrac12\chi_{\mathrm{phy}}(\rho;n^{-1})+C_{d,r}+o(1).$$
 
-$$\log D = \frac{1}{2}\chi_{\mathrm{phy}}(\text{operator}; \varepsilon) + O(1)$$
+The offset is explicit and depends only on $d$ and $r$. The relation includes rank-deficient states and pure states. It describes the attaining sequence, with a corresponding asymptotic lower bound for arbitrary vanishing-error codes; it is not an equality for every code or every prescribed error schedule.
 
-Free entropy, unlike von Neumann entropy, is defined for **any element of a non-commutative algebra**. This universality of the mathematical definition is conjectured to match a universality of the operational meaning.
+The current Letter does **not** state numbered QMDL or free-entropy theorems. Its main references are `eq:result_qmdl`, `eq:result`, and `eq:rank_def_qmdl`.
 
-## Scope of the Current Formalization
+## What Is Still Conjectural
 
-`Theorem1Complete` proves fixed-known-spectrum state compression through the additive memory constant, including rank-deficient and pure states. `Theorem2Choi` proves the required finite cloner bounds for actual channels. These results do not formalize the general operational free-entropy conjecture, unknown-spectrum overhead, universal lossless coding/entropy conclusions, or the Notes' programming results.
+### Repeated Positive Eigenvalues
 
-The status descriptions below refer to the **Letter and historical Notes**, not to checked Lean endpoints. In particular, broad programming or entropy claims should not be inferred from a successful audit of Theorems 1 and 2. See [[proof-structure]].
+The Letter derives physical free entropy for arbitrary spectral multiplicities, but its final paragraph only **expects** the corresponding general QMDL relation. Distinct positive eigenvalues plus repeated zeros are already covered. Collisions among positive eigenvalues are the additional case; see [[open-questions/degenerate-spectrum|the degeneracy page]].
 
-## Evidence Discussed in the Manuscripts
+### Programming More General Operators
 
-The manuscripts discuss the following classes:
+Within settings where free entropy is defined, the Letter conjectures an analogous role for the memory needed to program more general operators. It cites leading-order work on unitaries and measurements and expects free entropy to appear more generally in the order-one term.
 
-### 1. Density Matrices (State Compression) -- Article, Letter
-For fixed spectra with distinct positive eigenvalues, the current Article proves the exact expression $|M_n|=L_{d,r}(n,x)+o(1)$ and a matching converse. The Letter interprets the spectrum-dependent terms through physical free entropy. A general formal free-entropy identity is not claimed by the current endpoint.
+This is not a proved universal formula for arbitrary operators or channels. A proposed extension must specify the operator family, encoding model, error criterion, resolution and normalization. The mere existence of a mathematical free entropy does not determine that operational task. Standard microstate free entropy requires a tracial setting; type-III or other non-tracial extensions need separate treatment.
 
-### 2. Unitary Programming -- Notes, Sec. 8
-For an $f$-parameter family of unitaries with non-degenerate spectrum: $\log D = \frac{f}{2}\log(1/\varepsilon) + O(1)$.
+### Several Operators and Free Mutual Information
 
-**Achievability** uses sine states (optimal Bayesian phase estimation, Buzek-Derka-Massar 1999) achieving Heisenberg-limited MSE $\sim 1/D^2$. A coherent variant uses quantum PCA.
-
-**Converse** uses a Holevo information argument.
-
-### 3. Observable Programming -- Notes, Sec. 9
-For spectral measurement programming: $\log D = \frac{d^2 \delta(H)}{2}\log(1/\varepsilon) + O(1)$, where $\delta(H)$ is the [[concepts/free-entropy-dimension|Free Entropy Dimension]]. Proved via reduction to unitary programming on the flag manifold.
-
-In all three cases, the leading-order coefficient is $\frac{1}{2}$ times the free entropy dimension.
-
----
-
-## Open Problems
-
-### Visible Setting Converse (State Programming)
-**Notes Sec. 7.** In the visible setting, you know $\rho$ classically and prepare a program state $|\pi_\rho\rangle$. Achievability follows from compression. The **converse is open**: the encoder can use adaptive strategies (different encodings for different $\rho$), breaking the Holevo information argument that works in the blind case. A possible approach: show the decoder can be assumed covariant WLOG.
-
-### Subleading Term for Unitary Programming
-For state compression, the $O(1)$ term is $\chi_{\mathrm{reg}}(\rho)$. For unitary programming, only the leading term is established. The authors conjecture it involves the **Kirillov character formula**: the leading order equals the symplectic volume of the coadjoint orbit ([[concepts/kks-theorem|KKS]]), and subleading corrections arise from curvature and the Weyl vector.
-
-### Observable Expectation Converse
-For the weaker task of programming $\mathrm{Tr}[H\rho]$ (rather than the full spectral measurement), only achievability is known. The spectral measurement converse uses reduction to unitary estimation, but this breaks down for expectation values -- estimating $\mathrm{Tr}[H\rho]$ does not require knowing the full diagonalizing unitary.
+The Letter expects multivariate free entropy to describe joint programming with the operators' relations known. It also asks about operational meanings of free mutual information. Subadditivity and free-independence identities motivate these questions; they do not themselves prove coding theorems.
 
 ### Unknown Spectrum
 
-The Article discusses the additional cost when the spectrum is unknown in `app:unknown_spectrum`. That result is outside the fixed-spectrum formalization; it is an extension not claimed here, rather than an unresolved premise of the checked theorem.
+The Letter quotes the established leading universal memory cost
 
-### Further Extensions
-- **Quantum channels:** Free entropy can be defined for CPTP maps; the corresponding task is channel programming.
-- **Infinite-dimensional connection:** Relating $\chi_{\mathrm{phy}}$ (finite $d$) to Voiculescu's $\chi$ (von Neumann algebra, $d \to \infty$).
-- **Multivariate free entropy:** $\chi(a_1, \ldots, a_k)$ should govern joint programming of multiple operators. Free entropy is subadditive, with equality for freely independent operators.
+$$|M_n|=\frac{d^2-1}{2}\log_2n+o(\log n),$$
 
----
+expects a dimension-dependent order-one term, and leaves a Bayesian free-entropy interpretation of the whole family unspecified. The [[Article]] separately discusses the additional unknown-spectrum cost in `app:unknown_spectrum`. Neither extension is a premise or conclusion of the fixed-spectrum Lean endpoint.
 
-## Summary of Open Problems
+## A Bridge That Is No Longer Merely Open
 
-| Problem | Setting | Status |
-|---------|---------|--------|
-| Visible converse | State programming | Open |
-| Subleading $O(1)$ term | Unitary programming | Open (conjectured: Kirillov formula) |
-| Expectation converse | Observable programming | Open |
-| Channel programming | CPTP maps | Unexplored |
-| Multivariate | Joint programming | Unexplored |
+The current Letter's `rem:bridge` and `eq:bridge` give a **conditional double-scaling derivation** of Voiculescu's entropy. For quantile matrices $X_d$ with nonzero minimum gaps $g_d$ and convergent discrete logarithmic energies, assume
+
+$$\varepsilon_d\to0,\qquad \varepsilon_d=o(g_d),\qquad \log_2\varepsilon_d^{-1}=o(d).$$
+
+Then the manuscript obtains
+
+$$
+\chi(x)=\lim_{d\to\infty}\left[
+\frac{\chi_{\mathrm{phy}}(X_d;\varepsilon_d)}{d^2}
+-\log_2\varepsilon_d^{-1}-\frac12\log_2d\right]
++\frac12\log_2e+\frac12\log_2(2\pi).
+$$
+
+This establishes the stated bridge under its regularity and scaling assumptions. It should not remain listed as an entirely unexplored connection, or be read as a theorem for every sequence of finite matrices.
+
+## Historical Notes and Formalization Scope
+
+The older Notes discuss visible-state programming, unitary programming, spectral measurements, expectation-value programming, and possible character-formula corrections. Those document-specific discussions are background, not additional theorems of the current Letter. Their old proof/open-status claims are not certified by this wiki refresh.
+
+The Lean endpoints prove Article Theorems 1 and 2 for actual states and channels. They do not formalize the physical free-entropy volume, the double-scaling bridge, or the broader programming conjectures. See [[formalization|Formalization scope]] and [[proof-structure|Current proof structure]].
 
 ## Related
 
-- [[concepts/free-entropy|Free Entropy]]
+- [[Letter|Current Letter]]
+- [[definitions/physical-free-entropy-def|Physical Free Entropy]]
+- [[definitions/free-entropy-voiculescu|Voiculescu's Free Entropy]]
 - [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]]
-- [[concepts/free-entropy-dimension|Free Entropy Dimension]]
-- [[definitions/regularized-free-entropy|Regularized Free Entropy]]
-- [[concepts/kks-theorem|KKS Theorem]]
-- [[concepts/holevo-information|Holevo Information]]
-
-## External References
-
-- [Voiculescu, "Free entropy" (survey, 2002)](https://doi.org/10.1112/S0024609301008992)
-- [Yang, Renner, and Chiribella, "Optimal universal programming of unitary gates" (2020)](https://doi.org/10.1103/PhysRevLett.125.210501)
-- [Kirillov, *Lectures on the Orbit Method* (AMS, 2004)](https://bookstore.ams.org/gsm-64/)
+- [[open-questions/degenerate-spectrum|Repeated Positive Eigenvalues]]

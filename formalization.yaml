@@ -21,6 +21,19 @@ sources:
   license: pending
   note: Bundled source manuscript. Theorems thm:qmdl and thm:main are the requested scope. Publication
     date and source-author endorsement are not asserted.
+- title: Free entropy and quantum minimum description length
+  authors:
+  - Patrick Hayden
+  - Alexander Maloney
+  - Jinzhao Wang
+  - Yuxiang Yang
+  id: letter.tex; SHA-256 0b6a2c45b1565c3e9aadcdaa1c6631a2d7e2e2ec259b7382d04bcbce83622260
+  type: manuscript
+  license: pending
+  note: Current author-supplied companion Letter, with compression.pdf and the shared free.bib.
+    Its QMDL formulas are covered by the Article's memory endpoints; its tube-volume,
+    physical-free-entropy, and large-dimension bridge claims are not separately formalized.
+    Detailed correspondence is in metadata/letter-source-map.json.
 status:
   scope: 'Theorems 1 and 2 for actual finite complex matrices and constructed CPTP channels: fixed-spectrum
     physical tensor-source compression with exact additive memory constant and uniform achievability;

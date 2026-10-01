@@ -1,50 +1,65 @@
-# Semicircular Element and Free Independence
+# Semicircular Elements and Free Independence
 
-**Appears in:** Letter, Notes (Sec. 2)
+**Context:** background for [[concepts/free-probability-theory|free probability]]. The current [[Letter|Letter]] discusses freeness, but its physical-entropy derivation does not use semicircular perturbations.
 
-## Semicircular Element
+## Intuition
 
-A **semicircular element** $s$ in a tracial von Neumann algebra $(A, \tau)$ is a self-adjoint operator whose spectral measure is the **Wigner semicircle law**:
+A semicircular element is a self-adjoint noncommutative random variable with the semicircle distribution. It plays the Gaussian's role in the free central limit theorem. This is background for the meaning of “free”; it is not the mechanism that produces the Letter's unitary-orbit volume formula.
 
-$$d\mu_s(t) = \frac{1}{2\pi}\sqrt{4 - t^2} \, dt, \quad t \in [-2, 2]$$
+## Formal Description
 
-### Why "Semicircular"?
+A standard centered, variance-one semicircular element $s$ in a tracial von Neumann algebra $(\mathcal A,\tau)$ has spectral measure
 
-The name comes directly from the shape of the density function: $\frac{1}{2\pi}\sqrt{4 - t^2}$ is the equation of the upper half of a circle of radius 2 (scaled by $1/2\pi$). Plotting this density gives a semicircle sitting on the interval $[-2, 2]$. Compare this with the Gaussian density $\frac{1}{\sqrt{2\pi}}e^{-t^2/2}$, which has infinite tails -- the semicircular distribution has **compact support**, reflecting the boundedness of operators in a finite von Neumann algebra.
+$$
+d\mu_s(t)=\frac1{2\pi}\sqrt{4-t^2}\,\mathbf 1_{[-2,2]}(t)\,dt.
+$$
 
-### The Semicircle Density Explicitly
+Its moments satisfy
 
-The moments of the semicircular distribution are the **Catalan numbers**:
+$$
+\tau(s^{2k})=\frac1{k+1}\binom{2k}{k},
+\qquad
+\tau(s^{2k+1})=0.
+$$
 
-$$\tau(s^{2k}) = C_k = \frac{1}{k+1}\binom{2k}{k}, \qquad \tau(s^{2k+1}) = 0$$
+In particular, $\tau(s)=0$, $\tau(s^2)=1$, and $\tau(s^4)=2$. These are the Catalan even moments; see [Speicher's random-matrix course, Exercise 3](https://www.math.uni-sb.de/ag/speicher/lehre/ZMwise1920/ZMBlatt01.pdf).
 
-The variance is $\tau(s^2) = 1$, and the fourth moment is $\tau(s^4) = 2$ (compared to 3 for the Gaussian -- the semicircular distribution has lighter tails).
+The density is proportional to a semicircle and has compact support. The normalization here matters: rescaling $s$ changes its variance and support.
 
-This is the **free probability analogue of a Gaussian**: just as the Gaussian is the limit of sums of independent random variables (classical CLT), the semicircular law is the limit of sums of **freely independent** random variables (free CLT). In the random matrix realization, the empirical eigenvalue distribution of a Wigner matrix (symmetric with i.i.d. entries) converges to the semicircle law as $N \to \infty$.
+## Free Independence
 
-## Free Independence (Freeness)
+Unital subalgebras $\mathcal A_i\subseteq\mathcal A$ are free if
 
-Two subalgebras $A_1, A_2 \subset A$ are **freely independent** if for all $a_i \in A_{j_i}$ with $\tau(a_i) = 0$ and alternating indices $j_1 \neq j_2 \neq \cdots$:
+$$
+\tau(a_1\cdots a_m)=0
+$$
 
-$$\tau(a_1 a_2 \cdots a_n) = 0$$
+whenever $a_j\in\mathcal A_{i_j}$, $\tau(a_j)=0$, and $i_j\ne i_{j+1}$ for every adjacent pair. The indices need not all be different.
 
-This replaces classical independence (factorization of joint moments) with a subtler "alternating vanishing" condition. The key model: if $U$ is a Haar-random unitary, then $A$ and $UAU^*$ are asymptotically freely independent.
+The [Letter's discussion](https://github.com/JWang226/QMDL/blob/main/letter.tex#L260) uses this definition to distinguish free independence from tensor-product independence. It mentions temporal asymptotic freeness only in suitable large-system or large-$N$ chaotic limits.
 
-## Role in the Project
+A Haar rotation of a finite matrix does not by itself establish freeness of its “eigenvalues and eigenvectors.” Freeness concerns joint moments of specified algebras or operator families. A single unitary conjugation preserves the matrix's spectral distribution.
 
-1. **Free entropy dimension**: defined via perturbation by a freely independent semicircular: $\delta(a) = 1 + \lim_{\varepsilon \to 0} \chi(a + \varepsilon s)/(-\log\varepsilon)$
-2. **Eigenvalue-eigenvector independence**: In the random matrix model for free entropy, eigenvalues and eigenvectors are "free" (independent in the free sense), which is why the volume of $\Omega_\varepsilon$ factorizes into a Vandermonde part (eigenvalues) and a unitary orbit part (eigenvectors)
-3. **Free entropy conjecture**: The conjecture that free entropy = QMDL for all operators rests on the idea that quantum descriptions are governed by free (not classical) independence
+## Role in the Current Letter
+
+The Letter's physical free entropy is an ambient Hilbert–Schmidt tube-volume ratio. Its End Matter evaluates this ratio using the [[concepts/vandermonde-determinant|Vandermonde Jacobian]], integration over eigenvalue blocks, Gaussian integrals, and radial integration. It does **not** obtain that formula by replacing $\rho$ with $\rho+\varepsilon s$.
+
+Semicircular perturbations belong to the broader study of [[concepts/free-entropy-dimension|free entropy dimension]]. For the atomic spectrum, the Letter cites the dimension value
+
+$$
+\delta(\rho)=1-\frac1{d^2}\sum_a g_a^2
+$$
+
+and relates it to the orbit dimension. This connection should be distinguished from a claim that the Letter proves a semicircular-smearing expansion.
+
+Likewise, the QMDL relation is established by combining the Article's representation-dimension result with the Letter's geometric calculation. The broader [[open-questions/free-entropy-conjecture|operator-programming conjecture]] is not a consequence of freeness alone.
+
+The semicircular background and the Letter's volume calculation are outside the Article Theorems 1 and 2 Lean endpoints.
 
 ## Related
 
-- [[concepts/free-entropy|Free Entropy]]
-- [[concepts/free-entropy-dimension|Free Entropy Dimension]]
-- [[concepts/free-probability-theory|Free Probability Theory]]
-
-## External References
-
-- [Wigner semicircle distribution (Wikipedia)](https://en.wikipedia.org/wiki/Wigner_semicircle_distribution)
-- [Free independence (Wikipedia)](https://en.wikipedia.org/wiki/Free_independence)
-- D. Voiculescu, K. Dykema, and A. Nica, *Free Random Variables*, CRM Monograph Series, AMS (1992)
-- A. Nica and R. Speicher, *Lectures on the Combinatorics of Free Probability*, Cambridge University Press (2006)
+- [[concepts/free-probability-and-entropy|The entropy constructions]]
+- [[concepts/free-entropy|Microstate free entropy]]
+- [[concepts/free-entropy-dimension|Free entropy dimension]]
+- [[concepts/physical-free-entropy|Physical free entropy]]
+- [Speicher, Lecture Notes on Free Probability Theory](https://arxiv.org/abs/1908.08125)

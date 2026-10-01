@@ -4,6 +4,8 @@
 **Source:** [main statement](https://github.com/JWang226/QMDL/blob/main/article.tex#L85), [achievability section](https://github.com/JWang226/QMDL/blob/main/article.tex#L607).
 **Lean endpoint:** [FreeEntropy.theorem1_achievability](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/Theorem1Complete.lean#L23).
 
+The current [[Letter]] restates this attaining memory formula in `eq:result_qmdl` for full rank and `eq:rank_def_qmdl` for lower rank. Its separate volume calculation yields $|M_n|=\tfrac12\chi_{\mathrm{phy}}(\rho;n^{-1})+C_{d,r}+o(1)$. That entropy identification is additional Letter material, not an extra conclusion of the Lean endpoint below.
+
 ## Statement
 
 Fix $d\ge1$ and a known normalized spectrum $x_1>\cdots>x_r>0$, with $1\le r\le d$ and $x_i=0$ for $i>r$. The unknown state ranges over $\rho_U=U\operatorname{diag}(x)U^\dagger$, $U\in\mathrm U(d)$. There are CPTP encoders and decoders, depending on $n$ and $x$ but not on $U$, with

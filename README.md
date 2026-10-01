@@ -4,6 +4,10 @@ Lean 4 formalization of Theorems 1 and 2 in the [Article](article.tex), by
 Patrick Hayden, Alexander Maloney, Jinzhao Wang, and Yuxiang Yang.
 Developed with assistance from Codex.
 
+Both current manuscripts are included: the [Article](article.tex) gives the
+proofs, and the [Letter](letter.tex) explains the physical free-entropy relation.
+The Lean certificates cover the Article results listed below.
+
 [Project wiki](https://jwang226.github.io/QMDL/) ·
 [Proof structure](https://jwang226.github.io/QMDL/proof-structure/) ·
 [Statement-to-Lean map](metadata/natural-language-map.json)

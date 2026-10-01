@@ -4,9 +4,9 @@
 
 ## Intuition
 
-Given $n$ copies of a density matrix $\rho^{\otimes n}$, how small a quantum memory do you need to store a faithful description? This is NOT Schumacher compression (which preserves purifications). QMDL compression only needs to recover the **state itself**, not its correlations with a reference system.
+Given $n$ copies of a density matrix $\rho^{\otimes n}$, how small a quantum memory do you need to store a faithful description? The source family has a known spectrum and unknown eigenbasis. QMDL compression must recover the **state itself**; it need not preserve correlations with a reference system, as Schumacher compression does.
 
-Concretely: you know the spectrum of $\rho$ (its eigenvalues), but not its eigenbasis. You want to compress $\rho^{\otimes n}$ into a quantum memory $M_n$ such that you can later decompress and recover $\rho^{\otimes n}$ with high fidelity.
+Concretely: you know the spectrum of $\rho$ (its eigenvalues), but not its eigenbasis. You want to compress $\rho^{\otimes n}$ into a quantum memory $M_n$ such that you can later decompress and recover $\rho^{\otimes n}$ with vanishing global trace-distance error.
 
 The key insight is that since the spectrum is known, you only need to store the **eigenbasis** -- a point on a continuous manifold. The memory cost should therefore scale as $O(\log n)$ (not $O(n)$ like Schumacher), with the coefficient determined by the dimension of this manifold.
 
@@ -27,7 +27,7 @@ Any retained classical register is included in the memory dimension. The convers
 | Preserves purification? | Yes | No |
 | Rate (leading order) | $nS(\rho)$ | $O(\log n)$ |
 | What is retained | State and reference correlations | Quantum description sufficient to recover the orbit state |
-| Entropy notion | von Neumann entropy | Free entropy |
+| Entropy relation | von Neumann entropy | Physical free entropy at finite resolution, with an explicit offset |
 
 The QMDL rate is only $O(\log n)$ because knowing the spectrum means you only need to describe the eigenbasis, which lives on a [[concepts/flag-manifold|Flag Manifold]] of dimension $r(2d-r-1)$ (when spectrum is non-degenerate with rank $r$).
 
@@ -37,7 +37,17 @@ For $\rho$ of rank $r$ with non-degenerate positive eigenvalues $x_1 > \cdots > 
 
 $$|M_n| = \frac{r(2d - r - 1)}{2}\log n + \sum_{i < j \leq r} \log(x_i - x_j) + (d-r)\sum_{i=1}^r \log x_i - \sum_{k=d-r}^{d-1} \log k! + o(1)$$
 
-The first term ($\propto \log n$) is governed by [[concepts/free-entropy-dimension|Free Entropy Dimension]]. The second-order terms ($O(1)$) are governed by [[concepts/free-entropy|regularized free entropy]]. Together they equal $\frac{1}{2}\chi_{\mathrm{phy}}(\rho; n^{-1/2})$ plus universal constants.
+The first term is half the real orbit dimension times $\log n$. The state-dependent order-one terms equal half the [[definitions/regularized-free-entropy|regularized free entropy]]. The current Letter compares the complete memory formula with its ambient tube-volume definition and obtains, for an attaining sequence,
+
+$$|M_n|=\frac12\chi_{\mathrm{phy}}(\rho;n^{-1})+C_{d,r}+o(1).$$
+
+Writing $N_\rho=r(2d-r-1)$ and $\kappa=(d-r)^2+r$, its explicit spectrum-independent offset is
+
+$$C_{d,r}=-\frac12\sum_{k=d-r}^{d-1}\log k!
+-\frac{N_\rho}{4}\log2
+-\frac12\log\frac{\Gamma(d^2/2+1)}{\Gamma(\kappa/2+1)}.$$
+
+The full-rank case is labeled `eq:result` and `eq:result_const` in the Letter; the rank-deficient extension follows `eq:rank_def_qmdl` in its End Matter. All logarithms are binary. The volume-comparison resolution is $n^{-1}$, distinct from the $n^{-1/2}$ local statistical scale. The numeric memory formula is Lean verified; the tube-volume expansion used to express it as physical free entropy is an additional manuscript argument.
 
 ## Proof Strategy: Achievability
 
@@ -96,7 +106,7 @@ The current Lean proof uses a proved uniform gap sufficient for this limit; it n
 
 ## Related
 
-- [[concepts/free-entropy|Free Entropy]] -- the information-theoretic quantity that governs QMDL
+- [[concepts/physical-free-entropy|Physical Free Entropy]] -- the Letter's finite-resolution volume comparison
 - [[concepts/free-entropy-dimension|Free Entropy Dimension]] -- governs the leading $\log n$ coefficient
 - [[concepts/schur-weyl-duality|Schur-Weyl Duality]] -- the representation-theoretic decomposition
 - [[concepts/generalized-cloning-map|Generalized Cloning Map]] -- the key technical tool for achievability

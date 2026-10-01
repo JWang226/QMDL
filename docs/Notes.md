@@ -10,7 +10,7 @@
 These are extended working notes from the earlier wiki source snapshot. They contain an earlier state-compression proof and additional programming topics:
 - [[open-questions/free-entropy-conjecture|Programming Extensions]] (Secs. 7-9: state programming, unitary programming, observable programming)
 
-The current [[Article]] and [[proof-structure|Lean proof structure]] supersede the older fidelity-based compression route described here. In particular, the current direct trace-distance estimate proves $O(\log n/\sqrt n)$ reconstruction error. Historical working comments are not evidence of an unresolved gap in those endpoints; see [[open-questions/error-scaling|the remaining error-tradeoff questions]].
+The current [[Article]] and [[proof-structure|Lean proof structure]] supersede the older fidelity-based compression route described here. The current [[Letter]] also supersedes the Notes' earlier physical-entropy conventions: it defines a tube-volume ratio and uses resolution $n^{-1}$ in the half-entropy relation. In particular, the current direct trace-distance estimate proves $O(\log n/\sqrt n)$ reconstruction error. Historical working comments are not evidence of an unresolved gap in those endpoints; see [[open-questions/error-scaling|the remaining error-tradeoff questions]].
 
 ## Sections
 

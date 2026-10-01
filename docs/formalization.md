@@ -75,6 +75,19 @@ checks intended for a trusted checkout.
 
 ## Limits of the claim
 
+The current author-supplied [Article](https://github.com/JWang226/QMDL/blob/main/article.tex)
+and [Letter](https://github.com/JWang226/QMDL/blob/main/letter.tex) are included
+at the repository root, with their shared bibliography and the Letter's figure.
+The Article source is unchanged from the independent proof check. The
+[Letter source map](https://github.com/JWang226/QMDL/blob/main/metadata/letter-source-map.json)
+binds both source snapshots and records equation-level coverage.
+
+The Letter's full-rank and rank-deficient QMDL formulas follow the checked
+Article memory endpoints. Its ambient tube-volume expansion, explicit
+$C_{d,r}$ comparison with $\tfrac12\chi_{\mathrm{phy}}(\rho;n^{-1})$, general
+multiplicity geometry and conditional double-scaling bridge are manuscript
+claims without separate Lean certificates.
+
 This is not a formalization of the entire Article, Letter or Notes. In
 particular, the later universal-coding overhead, block-entropy asymptotic,
 unknown-spectrum discussion and broader free-entropy/programming claims

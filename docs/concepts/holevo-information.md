@@ -1,61 +1,62 @@
 # Holevo Information
 
-**Appears in:** [[Article]] (Sec. 5, converse), [[Notes]] (Sec. 6, Sec. 8.5)
+**Appears in:** [[Article]] (the universal-compression discussion, `sec:redundancy`); [[Letter]] (Discussion); historical [[Notes]] (unitary-programming arguments).
 
 ## Definition
 
-For an ensemble $\{p_x, \rho_x\}$ of quantum states, the **Holevo information** (or Holevo $\chi$-quantity) is:
+For an ensemble $\{p_x,\rho_x\}$, the Holevo quantity is
 
-$$\chi_H = S\left(\sum_x p_x \rho_x\right) - \sum_x p_x S(\rho_x)$$
+$$\chi_H=S\!\left(\sum_xp_x\rho_x\right)-\sum_xp_xS(\rho_x),$$
 
-where $S(\rho) = -\mathrm{Tr}[\rho\log\rho]$ is the von Neumann entropy. It equals the mutual information $I(X:Q)$ between the classical label $X$ and the quantum system $Q$ carrying the state $\rho_x$.
+where $S(\rho)=-\operatorname{Tr}(\rho\log\rho)$. It is the mutual information between the classical preparation label and the quantum system. Any measurement's classical information about that label is bounded above by $\chi_H$.
 
-## Intuition
+If the ensemble is encoded in a memory of dimension $m$, its Holevo information is at most $\log_2m$. Data processing makes this useful for lower bounds, although a sharp constant-order compression converse requires more than this observation alone.
 
-The Holevo bound is the fundamental limit on classical information extraction from quantum states: no measurement on $\rho_x$ can yield more than $\chi_H$ bits of information about the label $x$. Equivalently, if you encode classical data into quantum states and then try to read it back, the Holevo quantity caps how much you can recover.
+## Known-Spectrum Universal Coding
 
-For converse proofs in quantum compression, the logic runs backwards: if a compressed quantum memory has dimension $|M|$, then the compressed state can carry at most $\log|M|$ bits of Holevo information about whatever parameter was used to prepare it. This translates a dimension bound on the memory into an information-theoretic inequality.
+Let $\rho_U=U\rho U^\dagger$ and $\bar\rho_n=\int\rho_U^{\otimes n}\,dU$. The Haar ensemble has
 
-## Role in the State Compression Converse (Article, Sec. 5)
+$$\chi_H=S(\bar\rho_n)-nS(\rho)
+=D(\rho^{\otimes n}\Vert\bar\rho_n).$$
 
-The converse for QMDL needs to show that the memory $|M_n|$ must be at least $\log \dim \mathcal{H}_\lambda$ for each Schur sector. The argument in the Article uses the [[concepts/koashi-imoto|Koashi-Imoto Structure Theorem]] as the primary tool for this (see Proposition 4). The Holevo bound provides a complementary perspective:
+The Article's `prop:orbit_redundancy` identifies this with the exact minimax excess in ideal average code length:
 
-Consider the continuous Haar ensemble $\mathcal{E} = \{dg, (U(g)\rho U(g)^\dagger)^{\otimes n}\}$ and a compression code $(\mathcal{E}_{\mathrm{enc}}, \mathcal{D})$. By the data processing inequality:
+$$R_n(x)=\inf_{\sigma_n}\sup_U
+D(\rho_U^{\otimes n}\Vert\sigma_n)
+=\sum_\lambda q_{\lambda,n}
+\bigl[\log\dim H_\lambda-S(\rho_\lambda)\bigr].$$
 
-$$\log|M| \geq \chi_H(\mathcal{E}_{\mathrm{enc}}(\mathcal{E})) \geq \chi_H(\mathcal{D} \circ \mathcal{E}_{\mathrm{enc}}(\mathcal{E})) \geq \chi_H(\mathcal{E}) - O(\varepsilon \log n)$$
+The infimum ranges over normalized code states with the required support. An invariant code with a different sector distribution $P_n$ incurs the additional classical penalty $D(q\Vert P_n)$, as stated in `eq:invariant_split`.
 
-The Holevo information of the Haar ensemble decomposes via Schur-Weyl duality. The ensemble mixture is $\mathrm{U}(d)$-invariant, so by Schur's lemma it is flat within each irrep block. Computing the Holevo information gives $\chi_H(\mathcal{E}) = \sum_\lambda p_\lambda \log \dim V_\lambda - f(\mathbf{p})$, where $f(\mathbf{p}) \sim O(1)$ is a remainder involving the entropies of the sector states. The compressed state of dimension $|M|$ can carry at most $\log|M|$ bits about the eigenbasis parameter $g \in \mathrm{U}(d)$, yielding the lower bound.
+For distinct positive eigenvalues, the Article then derives
 
-## Role in the Unitary Programming Converse (Notes, Sec. 8.5)
+$$R_n(x)=L_{d,r}(n,x)-s_{\mathrm{blk}}(x)+o(1),$$
 
-In the unitary programming problem (from the Notes), one seeks a program state $\sigma_U$ of dimension $D$ and a universal processor $\mathcal{P}$ such that $\|\mathcal{P}(\cdot \otimes \sigma_U) - U(\cdot)U^\dagger\|_\diamond \leq \varepsilon$ for all $U$ in an $f$-parameter unitary family.
+where $L_{d,r}$ is the optimal QMDL formula and `eq:block_entropy_limit` defines
 
-The converse argument again uses the Holevo bound. The program state $\sigma_U$ lives in a $D$-dimensional space, so any measurement on it can extract at most $\log D$ bits about the parameter $x$ labeling $U_x$. The key steps are:
+$$s_{\mathrm{blk}}(x)=\sum_{1\le i<j\le r}
+\left[-\log\left(1-\frac{x_j}{x_i}\right)
+-\frac{x_j}{x_i-x_j}\log\frac{x_j}{x_i}\right].$$
 
-1. By the data processing inequality, $\log|M| \geq I_H(\mathcal{U}_x^{\otimes m}(\Phi_m), dp_x) - O(m\sqrt{\varepsilon}\log d_m)$, where $\Phi_m$ is a suitable input state and $d_m$ is the effective dimension.
+The sum is finite for the allowed spectra and is zero for rank one. This entropy correction distinguishes redundancy in ideal average length from the memory-dimension cost of QMDL. The Letter summarizes this result in its Discussion.
 
-2. Choosing $\Phi_m$ to be the optimal metrology state (the "sine-shaped state") and $dp_x$ to be uniform on a mesh of spacing $\sim 1/m$, the Holevo information is at least $f \log m - O(1)$, because the optimal estimator achieves Heisenberg-limited precision $\sim 1/m$.
+## Distinction from the Formalized Converse
 
-3. Optimizing over $m \sim \delta/\sqrt{\varepsilon}$ gives the converse bound:
+The current Lean [[results/converse|compression converse]] transfers a physical source code to an irreducible orbit and applies a quantitative memory bound. It does not infer the constant-order result from a continuity estimate with an uncontrolled error-times-$\log n$ term, or from exact Koashi–Imoto structure alone.
 
-$$\log|M| \geq \frac{f}{2}\log(1/\varepsilon) - O(1)$$
+The universal-lossless-coding identities and block-entropy limit above are additional Article results outside the current Lean endpoints. Historical Notes also use Holevo bounds in unitary-programming arguments. Those arguments are not part of the Article's formalized Theorem 1 or Theorem 2, and do not establish the Letter's broader free-entropy programming conjecture. See [[proof-structure]] and [[open-questions/free-entropy-conjecture]].
 
-This shows that the program dimension $D$ must grow as $\varepsilon^{-f/2}$, matching the achievability and confirming that [[concepts/physical-free-entropy|Physical Free Entropy]] governs the programming cost.
+## Two Different Chi Quantities
 
-## Key Distinction: Holevo vs. Free Entropy $\chi$
-
-The symbol $\chi$ is used for both the Holevo information $\chi_H$ and Voiculescu's [[concepts/free-entropy|Free Entropy]] $\chi$. These are completely different quantities: the Holevo $\chi_H$ is a von Neumann entropy difference measuring classical information in quantum states, while the free entropy $\chi$ is a logarithmic potential measuring the volume of matricial microstates. In this wiki, we use $\chi_H$ for Holevo information and $\chi$ (unsubscripted) for free entropy to avoid confusion.
+The Holevo quantity $\chi_H$ is a von Neumann entropy difference. Voiculescu's [[concepts/free-entropy|free entropy]] $\chi$ measures matrix-microstate volume. The shared symbol does not identify them; this wiki uses the subscript $H$ to distinguish Holevo information.
 
 ## Related
 
-- [[concepts/koashi-imoto|Koashi-Imoto Structure Theorem]] -- the algebraic approach to the same converse
-- [[results/converse|Converse (State Compression)]] -- the full converse proof
-- [[open-questions/free-entropy-conjecture|Programming Extensions (Notes)]] -- where the Holevo bound governs program dimension
-- [[concepts/free-entropy|Free Entropy]] -- a different $\chi$ that should not be confused with Holevo $\chi_H$
+- [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]]
+- [[concepts/koashi-imoto|Koashi–Imoto Structure]]
+- [[concepts/free-entropy|Free Entropy]]
 
-## External References
+## References
 
-- [Holevo's theorem (Wikipedia)](https://en.wikipedia.org/wiki/Holevo%27s_theorem)
-- A. S. Holevo, "Bounds for the quantity of information transmitted by a quantum communication channel," *Problems of Information Transmission* 9(3), 177--183 (1973)
-- M. A. Nielsen and I. L. Chuang, *Quantum Computation and Quantum Information*, Cambridge University Press (2000)
-- [Accessible information (Wikipedia)](https://en.wikipedia.org/wiki/Accessible_information)
+- A. S. Holevo, "Bounds for the quantity of information transmitted by a quantum communication channel," *Problems of Information Transmission* 9(3), 177–183 (1973).
+- `hayashi2010universal`: Universal quantum lossless data compression.

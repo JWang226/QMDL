@@ -33,9 +33,9 @@ sources/
 
 # Other drafts in the working folder are outside this release
 /letter*
+!/letter.tex
 /notes/
 /prv_channel_optimality.tex
-/compression.pdf
 /JHEP.bst
 
 # Release bundles and local diagnostic output

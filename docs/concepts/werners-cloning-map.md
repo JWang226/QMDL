@@ -1,48 +1,55 @@
 # Werner's Cloning Map
 
-**Appears in:** Article (Sec. 2.2, Sec. 3.2.1), Notes (Sec. 3.1)
+**Source:** current [[Article]], `eq:werner` and `eq:qubitcloning` in the YCH review; historical [[Notes]] background.
 
-## Intuition
+## The Channel
 
-Werner's cloning map is the optimal way to "clone" a quantum state from $n$ copies to $m > n$ copies, when the states live in symmetric subspaces. It is the **qubit special case** of the [[concepts/generalized-cloning-map|Generalized Cloning Map]].
+Werner's cloner maps $n$ identical pure-state copies to an approximate $m$-copy output, $m\ge n$. It exists in every dimension $d$; its qubit instance is used in the [[concepts/ych-scheme|YCH protocol]]. Generalized cloning extends the symmetric-power construction to other highest weights.
 
-## Formal Description
+Write $d_k=\dim\operatorname{Sym}^k(\mathbb C^d)=\binom{k+d-1}{d-1}$. Let
 
-For qubits ($d = 2$), the symmetric subspace $\mathrm{Sym}^n(\mathbb{C}^2)$ has dimension $n+1$. Werner's cloning map $W_{n \to m}: \mathcal{B}(\mathrm{Sym}^n) \to \mathcal{B}(\mathrm{Sym}^m)$ is defined by:
+$$V:\operatorname{Sym}^m(\mathbb C^d)\longrightarrow
+\operatorname{Sym}^n(\mathbb C^d)\otimes\operatorname{Sym}^{m-n}(\mathbb C^d)$$
 
-$$W_{n \to m}(\sigma) = \frac{n+1}{m+1} P_{\mathrm{Sym}^m} (\sigma \otimes I_{m-n}) P_{\mathrm{Sym}^m}$$
+be the intertwining isometry. The Article's intrinsic formula is
 
-where $P_{\mathrm{Sym}^m}$ is the projector onto $\mathrm{Sym}^m(\mathbb{C}^2)$.
+$$\mathcal C_{n\to m}(X)=\frac{d_n}{d_m}V^\dagger(X\otimes I_{m-n})V,$$
 
-## Key Properties
+where $I_{m-n}$ is the identity on the auxiliary symmetric subspace. Equivalently one may write the projected operator in the ambient tensor product. For qubits, $d_k=k+1$ and the prefactor is $(n+1)/(m+1)$.
 
-1. **$U(d)$-covariant**: commutes with the $U(d)$ action, i.e., $W_{n \to m}(U^{\otimes n} \rho (U^\dagger)^{\otimes n}) = U^{\otimes m} W_{n \to m}(\rho) (U^\dagger)^{\otimes m}$
-2. **Optimal**: achieves the best fidelity for $1 \to m$ cloning of pure states (Keyl-Werner 1999)
-3. **Fidelity for pure states**: For cloning a single pure qubit state $|\psi\rangle$ from $n$ copies to $m$ copies:
+The map is CPTP and covariant under the same unknown unitary on every copy. For $m=n$ it is the identity; partial trace supplies the reverse direction when reducing the number of copies.
 
-$$F = \frac{n+1}{m+1}$$
+## Global Overlap and Fidelity Convention
 
-This is a remarkably clean formula. When $m = n$, fidelity is 1 (no cloning needed). As $m \to \infty$ with $n$ fixed, fidelity $\to 0$ (you cannot create infinitely many clones from finite information). Keyl and Werner proved this is **optimal**: no cloning map, covariant or not, can achieve higher fidelity for the worst-case pure state input.
+For a normalized pure state $\psi$, put
 
-**Intuition for the formula:** The symmetric subspace $\mathrm{Sym}^n(\mathbb{C}^2)$ has dimension $n+1$. Werner's cloner embeds the $n$-copy symmetric subspace into the $m$-copy one by tensoring with the identity and projecting. The dimension ratio $(n+1)/(m+1)$ is the trace-preserving normalization factor, and it directly gives the fidelity because the overlap between the projected state and the target is controlled by this ratio.
+$$\sigma_m=\mathcal C_{n\to m}(|\psi\rangle\langle\psi|^{\otimes n}).$$
+
+The pure target lies in the symmetric subspace, so the formula gives the **global overlap**
+
+$$\langle\psi^{\otimes m}|\sigma_m|\psi^{\otimes m}\rangle=\frac{d_n}{d_m}.$$
+
+Using the wiki's [[notation|unsquared fidelity]] convention,
+
+$$F(\sigma_m,|\psi\rangle\langle\psi|^{\otimes m})
+=\left\|\sqrt{\sigma_m}\sqrt{|\psi\rangle\langle\psi|^{\otimes m}}\right\|_1
+=\sqrt{\frac{d_n}{d_m}}.$$
+
+Thus for qubits the ratio $(n+1)/(m+1)$ is **squared fidelity**, while the unsquared $F$ is its square root. This is a global $m$-copy figure of merit, distinct from the fidelity of a single output clone. Werner's global optimal-cloning result and Keyl–Werner's single-clone analysis concern these different criteria.
 
 ## Role in the Project
 
-The Yang-Chiribella-Hayashi (YCH) qubit compression scheme uses Werner's cloning map to move states between different symmetric subspaces. The [[concepts/generalized-cloning-map|Generalized Cloning Map]] extends this from $\mathrm{Sym}^n$ (single-row Young diagrams) to arbitrary Young diagrams, enabling the qudit generalization.
+The YCH protocol uses this channel between spin sectors: as $\mathrm{SU}(2)$ representations, $\mathcal H_J\simeq\operatorname{Sym}^{2J}(\mathbb C^2)$, and determinant phases cancel under conjugation. The current [[results/cloning-fidelity|Article Theorem 2]] generalizes the needed approximation estimate to supported highest rows, directly in trace distance.
 
-## References
-
-- werner1998optimal: Original paper by Werner (1998)
-- keyl1999optimal: Keyl-Werner extension (1999)
+The global pure-state overlap formula above is background; it is not the fidelity convention or an additional optimality assertion supplied by the final mixed-state cloning endpoint.
 
 ## Related
 
-- [[concepts/generalized-cloning-map|Generalized Cloning Map]] -- the qudit generalization
-- [[concepts/ych-scheme|YCH Scheme]] -- uses Werner's cloner for qubit compression
+- [[concepts/generalized-cloning-map|Generalized Cloning Map]]
+- [[concepts/ych-scheme|YCH Scheme]]
+- [[open-questions/cloning-optimality|What general cloning optimality would require]]
 
-## External References
+## References
 
-- [Quantum cloning (Wikipedia)](https://en.wikipedia.org/wiki/Quantum_cloning)
-- [Werner, "Optimal cloning of pure states, testing single clones" (1998)](https://doi.org/10.1103/PhysRevA.58.1827)
-- [Scarani, Iblisdir, Gisin, and Acin, "Quantum cloning" (2005)](https://doi.org/10.1103/RevModPhys.77.1225)
-- [Keyl and Werner, "Optimal cloning of pure states, judging single clones" (1999)](https://doi.org/10.1063/1.532887)
+- [Werner, “Optimal cloning of pure states” (1998)](https://doi.org/10.1103/PhysRevA.58.1827)
+- [Keyl and Werner, “Optimal cloning of pure states, judging single clones” (1999)](https://doi.org/10.1063/1.532887)

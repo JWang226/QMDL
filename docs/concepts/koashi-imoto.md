@@ -1,6 +1,6 @@
 # Koashi-Imoto Structure and the Approximate Converse
 
-**Appears in:** [[Article]], opening of `sec:converse`; historical converse discussion in [[Letter]] and [[Notes]].
+**Appears in:** [[Article]], opening of `sec:converse`; historical converse discussion in [[Notes]]. The current [[Letter]] refers to the Article for the matching converse.
 
 ## Exact Compression
 

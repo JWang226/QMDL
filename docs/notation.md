@@ -1,6 +1,6 @@
 # Notation Glossary
 
-Central reference for the current [[Article]] and historical [[Letter]]/[[Notes]]. Article theorem numbering and conventions take precedence for the current Lean endpoints; see [[proof-structure]]. All Article logarithms are base two, while $\ln$ and $\exp$ denote natural logarithms and exponentials.
+Central reference for the current [[Article]] and [[Letter]], with historical [[Notes]] conventions identified separately. Article theorem numbering takes precedence for the Lean endpoints; Letter results use equation labels. See [[proof-structure]]. Both current manuscripts use base-two logarithms; $\ln$ and $\exp$ denote natural logarithms and exponentials.
 
 ## Quantum States and Operators
 
@@ -22,6 +22,7 @@ Central reference for the current [[Article]] and historical [[Letter]]/[[Notes]
 | $\lambda, \mu, \nu$ | Dominant highest rows; source/target rows in Theorem 2 are nonnegative partitions supported on the first $r$ entries | Article |
 | $H_\lambda$ | $\mathrm{GL}(d,\mathbb{C})$ irreducible representation with highest weight $\lambda$ | Article, Notes |
 | $M_\lambda$ | Symmetric group $S_n$ irreducible representation (multiplicity space) | Article, Notes |
+| $\mathcal K_\lambda$ | Same permutation multiplicity space, denoted $M_\lambda$ in the Article | Letter |
 | $d_\lambda = \dim H_\lambda$ | Dimension of GL irrep | All papers |
 | $s_\lambda(x)$ | Schur polynomial: $\mathrm{Tr}[\pi_\lambda(\mathrm{diag}(x))]$ | All papers |
 | $K_{\lambda,w}$ | Kostka number: multiplicity of weight $w$ in $H_\lambda$ | Article, Notes |
@@ -50,11 +51,16 @@ Central reference for the current [[Article]] and historical [[Letter]]/[[Notes]
 | Symbol | Meaning | Defined in |
 |--------|---------|------------|
 | $\chi(a)$ | Voiculescu's free entropy of operator $a$ | Letter, Notes |
-| $\chi_{\mathrm{phy}}(\rho; \varepsilon)$ | Physical free entropy at resolution $\varepsilon$ | Letter, Notes |
-| $\chi_{\mathrm{reg}}(\rho)$ | Regularized free entropy: $2\sum_{i<j}\log\lvert p_i-p_j\rvert$ | Letter, Notes |
+| $\chi_{\mathrm{phy}}(\rho; \varepsilon)$ | Unnormalized $\log_2[\operatorname{Vol}(\Omega_\varepsilon)/\operatorname{Vol}(B_\varepsilon^{d^2})]$ | Current Letter |
+| $\chi_{\mathrm{reg}}(\rho)$ | $2\sum_{i<j,\,p_i\ne p_j}\log_2\lvert p_i-p_j\rvert$; coinciding values excluded | Current Letter |
 | $\delta(a)$ | Free entropy dimension | Letter, Notes |
 | $N(\Omega, \varepsilon)$ | $\varepsilon$-covering number | Letter, Notes |
-| $\Omega_\varepsilon$ | Set of Hermitian matrices spectrally $\varepsilon$-close to $\rho$ | Letter |
+| $\Omega_\varepsilon$ | Ambient Hermitian tube: $\|\lambda(X)-p\|_2\le\varepsilon$; not restricted to density matrices | Letter |
+| $g_a$ | Multiplicity of distinct spectral value $p_a$ in the multiplicity formulas | Letter |
+| $\kappa=\sum_a g_a^2$ | Real normal dimension of the unitary orbit | Letter |
+| $N_\rho=d^2-\kappa$ | Real orbit dimension; $r(2d-r-1)$ for distinct positive eigenvalues and a zero block | Letter |
+| $g=\min_{a\ne b}\lvert p_a-p_b\rvert$ | Minimum distinct spectral gap; $g=\infty$ for scalar operators | Letter |
+| $C_{d,r}$ | Spectrum-independent offset in $\log_2\dim M_n=\tfrac12\chi_{\mathrm{phy}}(\rho;n^{-1})+C_{d,r}+o(1)$ for an attaining sequence | Letter |
 
 ## Compression
 
@@ -62,8 +68,8 @@ Central reference for the current [[Article]] and historical [[Letter]]/[[Notes]
 |--------|---------|------------|
 | $(E, D)$ | Encoder-decoder pair | All papers |
 | $m_n=\dim M_n$ | Memory dimension; represented by `memory n : ℕ` in Lean | Article, Lean |
-| $\lvert M_n\rvert=\log_2\dim M_n$ | Memory cost in qubits, including retained classical registers | Article |
-| $\delta_n$ | Worst-case trace error over the unitary orbit | Article |
+| $\lvert M_n\rvert=\log_2\dim M_n$ | Memory cost in qubits, including retained classical registers | Article, Letter |
+| $\delta_n$ | Worst-case trace error over the unitary orbit | Article, Letter |
 | $\overline\delta_n$ | Haar-average trace error; sufficient for the final converse | Article, Lean |
 | $L_{d,r}(n,x)$ | Exact QMDL expression through its additive constant (`Weyl.qmdl`) | Article, Lean |
 | QMDL | Quantum Minimum Description Length | All papers |
@@ -76,6 +82,11 @@ Central reference for the current [[Article]] and historical [[Letter]]/[[Notes]
 | $J_\omega$ | Choi operator: $(d_\mu/d_\omega)\Pi_\omega$ | Article, Notes |
 
 ## Asymptotics
+
+The Letter's entropy comparison uses volume resolution $\varepsilon=n^{-1}$.
+Local statistical distinguishability occurs at angular scale $n^{-1/2}$.
+These scales play different roles; neither is the Article's unnormalized
+typical-row width $\epsilon_n$ below.
 
 | Symbol | Meaning | Defined in |
 |--------|---------|------------|

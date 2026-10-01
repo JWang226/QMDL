@@ -34,7 +34,7 @@ Summary of the most important cited works and their relevance to the project.
 - **yang2018compression**: Compression for quantum population coding (qudits, leading order)
 - **yang2018compressionfor**: Compression for qubit clocks
 
-**Relevance:** Direct precursors. YCH established the qubit compression rate using Werner's cloning map. This project generalizes to qudits and identifies the $O(1)$ correction as free entropy.
+**Relevance:** Direct precursors. YCH established the qubit compression rate using Werner's cloning map. This project generalizes to qudits and identifies the spectral part of the $O(1)$ correction with half the Letter's regularized free entropy, together with explicit dimension- and rank-dependent constants.
 
 ---
 

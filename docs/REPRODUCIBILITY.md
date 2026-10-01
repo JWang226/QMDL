@@ -103,7 +103,7 @@ Do not zip the working manuscript directory: it can contain correspondence,
 notes, older drafts, TeX build products, and local package symlinks.
 [`prepare_release.py`](../scripts/prepare_release.py) uses an explicit
 allowlist and rejects selected symlinks. It never copies `.lake/`, `.git/`,
-private notes, letters, or draft documents.
+private correspondence, working notes, or unrelated draft documents.
 
 After a successful current audit and completion of the publication metadata:
 
@@ -112,8 +112,9 @@ python3 scripts/prepare_release.py --list
 python3 scripts/prepare_release.py --output /tmp/free-entropy-source.tar.gz
 ```
 
-The archive contains the manuscript, its bibliography and required local
-class/style files, proof and verification scripts, pinned configuration,
+The archive contains the current `article.tex` and `letter.tex`, their shared
+`free.bib`, the Letter's `compression.pdf`, and required local class/style files,
+proof and verification scripts, pinned configuration,
 named publication metadata, the workflow, and a current portable audit
 summary. `RELEASE_MANIFEST.json` records a SHA-256 digest for every selected
 file and records every locked dependency. Raw machine-specific logs are
@@ -121,10 +122,11 @@ excluded; CI uploads newly generated logs separately.
 
 The exporter checks that the audit's proof fingerprint matches the selected
 proof source bytes. A stale summary makes the default export fail. It also
-checks the Lean/mathlib pins and the original manuscript SHA-256:
+checks the Lean/mathlib pins and the exact SHA-256 of both supplied manuscripts:
 
 ```text
-09fc0a6bb205180cd820be94d843a1dc0d4342a543492e30dde54e367ae843a9
+article.tex  09fc0a6bb205180cd820be94d843a1dc0d4342a543492e30dde54e367ae843a9
+letter.tex   0b6a2c45b1565c3e9aadcdaa1c6631a2d7e2e2ec259b7382d04bcbce83622260
 ```
 
 `--include-manuscript-pdf` adds the existing `article.pdf` without
@@ -209,6 +211,18 @@ illustrated by [OpenAI's ten-proofs](https://github.com/openai/ten-proofs).
 See [`FORMALIZATION_STATUS.md`](FORMALIZATION_STATUS.md) for the statement
 mapping and [`AI_PROVENANCE.md`](AI_PROVENANCE.md) for provenance. Workflow
 configuration is not evidence that a hosted CI run has already occurred.
+
+## Building the manuscript sources
+
+The two supplied TeX sources are preserved byte-for-byte. A standard TeX
+distribution needs `quantumarticle.cls` and `utphys.bst` (bundled) for the
+Article and `revtex4-2` for the Letter. Both use the bundled `free.bib`; the
+Letter also needs `compression.pdf`. From the repository root, compile each
+source with LaTeX, BibTeX, then two further LaTeX passes. Manuscript compilation
+is separate from checking the Lean proofs. The
+[companion source map](../metadata/letter-source-map.json) binds these inputs
+by hash and distinguishes the Letter's geometric claims from the checked
+Article statements.
 
 ## Completed clean source reproduction
 

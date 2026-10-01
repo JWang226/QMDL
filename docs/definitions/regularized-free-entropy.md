@@ -1,72 +1,55 @@
 # Regularized Free Entropy
 
-**Label:** `eq:reg_free_ent` (Letter)
-**Source:** Letter Eq. 10 (line ~161); Notes Eq. ~168
+**Source:** current [[Letter]], `eq:reg_free_ent` and `eq:degenerate_free_ent` in [letter.tex](https://github.com/JWang226/QMDL/blob/main/letter.tex).
 
 ## Statement
 
-For a $d \times d$ density matrix $\rho$ with distinct eigenvalues $p_1, \ldots, p_m$ having multiplicities $g_1, \ldots, g_m$:
+For eigenvalues $p_1,\ldots,p_d$, the Letter uses the **unnormalized** convention
 
-$$\chi_{\mathrm{reg}}(\rho) = \frac{2}{d^2}\sum_{a < b} g_a g_b \log|p_a - p_b|$$
+$$\chi_{\mathrm{reg}}(\rho)=2\sum_{i<j,\ p_i\ne p_j}\log_2|p_i-p_j|.$$
 
-For the non-degenerate case ($g_i = 1$ for all $i$):
+Equivalently, if the distinct eigenvalues are $p_1>\cdots>p_m$ with multiplicities $g_1,\ldots,g_m$,
 
-$$\chi_{\mathrm{reg}}(\rho) = \frac{2}{d^2}\sum_{i < j} \log|p_i - p_j|$$
+$$\chi_{\mathrm{reg}}(\rho)=2\sum_{a<b}g_ag_b\log_2|p_a-p_b|.$$
 
-## Intuition
-
-The regularized free entropy is the "volume" part of the [[concepts/physical-free-entropy|Physical Free Entropy]] -- it captures how the eigenvalue spacings affect the size of the unitary orbit. Larger gaps between eigenvalues mean a "bigger" orbit (more room for the eigenbasis to vary), hence more bits needed to describe it.
-
-Note: $\chi_{\mathrm{reg}}$ is always $\leq 0$ (since $|p_i - p_j| \leq 1$ for eigenvalues of density matrices), and $\chi_{\mathrm{reg}} \to -\infty$ as eigenvalues collide.
+The normalized logarithmic energy is $d^{-2}\chi_{\mathrm{reg}}$, a different quantity. Older wiki formulas included this factor in the definition; that is not the current Letter's convention. Repeated eigenvalues, including repeated zeros, contribute no coincident-pair terms.
 
 ## Relation to Physical Free Entropy
 
-$$\chi_{\mathrm{phy}}(\rho; \varepsilon) = d^2 \cdot \delta(\rho) \cdot \log(1/\varepsilon) + d^2 \cdot \chi_{\mathrm{reg}}(\rho) + \text{const} + O(\varepsilon)$$
+With $N_\rho=d^2-\sum_a g_a^2$ and smallest distinct spectral gap $g$,
+
+$$
+\chi_{\mathrm{phy}}(\rho;\varepsilon)
+=N_\rho\log_2\varepsilon^{-1}
++\chi_{\mathrm{reg}}(\rho)+c(d,(g_a))
++O_d(\varepsilon^2/g^2).
+$$
+
+The constant is given on the [[definitions/physical-free-entropy-def|physical free entropy definition page]]. For density matrices, all nonzero gaps lie in $(0,1]$, so $\chi_{\mathrm{reg}}\le0$. Equality includes pure states **and scalar states**, whose sum has no terms.
+
+As a pair of distinct eigenvalues approaches a collision, its logarithmic contribution diverges negatively. At the exact collision, that pair is omitted and the multiplicities and orbit dimension change. Thus this regularized quantity is not continuous across strata, and the fixed-gap expansion is not uniform through a collision.
+
+For a qubit with eigenvalues $p,1-p$, $p>1/2$,
+
+$$\chi_{\mathrm{reg}}(\rho)=2\log_2(2p-1).$$
+
+At $p=0.7$ this is approximately $-2.644$ bits. At the exactly maximally mixed state it is zero by the empty-sum convention.
 
 ## Role in QMDL
 
-The regularized free entropy gives the **$O(1)$ correction** to the compression rate:
+For rank $r$ with distinct positive eigenvalues, the Letter and [[Article]] give an attaining sequence with
 
-$$\log|M_n| = \underbrace{\frac{d^2 \delta(\rho)}{2}\log n}_{\text{leading}} + \underbrace{\sum_{i<j}\log|p_i - p_j|}_{\propto \chi_{\mathrm{reg}}} + \text{universal const} + o(1)$$
+$$
+|M_n|=\frac{r(2d-r-1)}2\log_2 n
++\frac12\chi_{\mathrm{reg}}(\rho)
+-\sum_{k=d-r}^{d-1}\log_2(k!)+o(1).
+$$
 
-### Why $\chi_{\mathrm{reg}} \leq 0$ always
-
-For a density matrix $\rho$ with eigenvalues $p_1, \ldots, p_d$ summing to 1, each eigenvalue satisfies $0 \leq p_i \leq 1$. Therefore every pairwise difference satisfies $|p_i - p_j| \leq 1$, which means $\log|p_i - p_j| \leq 0$ for all pairs. Since $\chi_{\mathrm{reg}}$ is a sum of such terms (with positive coefficients $2g_a g_b / d^2$), it is always non-positive:
-
-$$\chi_{\mathrm{reg}}(\rho) = \frac{2}{d^2}\sum_{a < b} g_a g_b \log|p_a - p_b| \leq 0$$
-
-Equality $\chi_{\mathrm{reg}} = 0$ would require every pair of distinct eigenvalues to differ by exactly 1, which for a probability distribution (with all $p_i \in [0,1]$) can only happen for a rank-1 projector (eigenvalues 1 and 0).
-
-### What happens as eigenvalues collide
-
-As two distinct eigenvalues $p_a$ and $p_b$ approach each other, $|p_a - p_b| \to 0$ and $\log|p_a - p_b| \to -\infty$. This drives $\chi_{\mathrm{reg}} \to -\infty$. Physically, this reflects the fact that when eigenvalues nearly coincide, the unitary orbit of $\rho$ shrinks (the eigenbasis becomes less distinguishable), so fewer bits are needed to describe it. In the QMDL formula, this means the $O(1)$ correction becomes very negative, reducing the required memory.
-
-In the extreme limit of full degeneracy ($p_i = 1/d$ for all $i$), $\rho$ is the maximally mixed state with a trivial orbit (a single point), and no compression memory is needed at all.
-
-## Qubit Example ($d = 2$)
-
-For a qubit with eigenvalues $p$ and $1-p$ (non-degenerate, $p > 1/2$):
-
-$$\chi_{\mathrm{reg}}(\rho) = \frac{2}{4}\log|p - (1-p)| = \frac{1}{2}\log(2p - 1)$$
-
-| $p$ | $2p-1$ | $\chi_{\mathrm{reg}}$ (bits) |
-|-----|--------|------|
-| 0.9 | 0.8 | $-0.16$ |
-| 0.7 | 0.4 | $-0.66$ |
-| 0.6 | 0.2 | $-1.16$ |
-| 0.51 | 0.02 | $-2.82$ |
-
-As $p \to 1/2$, the gap closes and $\chi_{\mathrm{reg}} \to -\infty$. As $p \to 1$, the gap approaches 1 and $\chi_{\mathrm{reg}} \to 0$.
+Here $|M_n|=\log_2\dim M_n$ already denotes a logarithmic cost. The formula for general repeated positive spectra is a conjectural extension; the general geometric entropy expansion does not itself prove a compression theorem. The current Lean endpoints prove the displayed memory formula in the distinct-positive-spectrum case, without formalizing the entropy definition or its volume calculation.
 
 ## Used By
 
 - [[concepts/free-entropy|Free Entropy]]
 - [[concepts/physical-free-entropy|Physical Free Entropy]]
-- [[concepts/free-entropy-dimension|Free Entropy Dimension]]
-- [[results/achievability|Achievability (State Compression)]]
-- [[results/converse|Converse (State Compression)]]
-
-## External References
-
-- [Hiai and Petz, *The Semicircle Law, Free Random Variables and Entropy* (AMS, 2000)](https://bookstore.ams.org/view?ProductCode=SURV/77)
-- [Voiculescu, "Free entropy" (survey, 2002)](https://doi.org/10.1112/S0024609301008992)
+- [[results/achievability|Achievability]] and [[results/converse|converse]]
+- [[open-questions/degenerate-spectrum|Repeated positive eigenvalues]]

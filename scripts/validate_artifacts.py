@@ -509,6 +509,65 @@ class Validator:
         if formalization["project"]["license"].lower() == "pending":
             self.warnings.append("License is pending: local preparation is permitted; validation is not publication approval.")
 
+    def letter_sources(self):
+        """Bind current companion sources and keep geometric claims separate."""
+        filename = "metadata/letter-source-map.json"
+        article = self.read_json("metadata/natural-language-map.json")
+        self.require(article.get("companion_mapping_file") == filename,
+                     "Missing or incorrect companion source-map reference")
+        data = self.read_json(filename)
+        self.require((data["format"], data["version"], data["path_base"]) ==
+                     ("free-entropy-letter-map", 1, "repository root"),
+                     "Unexpected companion mapping format")
+        sources = data["source_files"]
+        self.require(Counter(s["file"] for s in sources) ==
+                     Counter(["article.tex", "letter.tex", "free.bib", "compression.pdf"]),
+                     "Companion source inventory is incomplete or duplicated")
+        by_file = {s["file"]: s for s in sources}
+        for source in sources:
+            self.require(digest(self.path(source["file"]).read_bytes()) == source["sha256"],
+                         f"Companion source checksum differs: {source['file']}")
+        self.require(data["manuscript"]["file"] == "letter.tex" and
+                     data["manuscript"]["sha256"] == by_file["letter.tex"]["sha256"] and
+                     article["manuscript"]["sha256"] == by_file["article.tex"]["sha256"],
+                     "Inconsistent manuscript identity in companion map")
+        formalization = self.read_yaml("formalization.yaml")
+        letter_id = "letter.tex; SHA-256 " + by_file["letter.tex"]["sha256"]
+        self.require(sum(s.get("id") == letter_id for s in formalization["sources"]) == 1,
+                     "formalization.yaml does not identify the current Letter")
+        article_entries = {e["id"]: e for e in article["entries"]}
+        entries = data["entries"]
+        ids = [entry["id"] for entry in entries]
+        self.require(entries and len(ids) == len(set(ids)), "Empty or duplicate Letter entry ids")
+        lines = self.text("letter.tex").splitlines()
+        statuses = {"consequence-of-article", "definition-correspondence", "not-formalized"}
+        for entry in entries:
+            self.require(entry["status"] in statuses, f"Unknown Letter coverage: {entry['id']}")
+            self.require(entry["manuscript"]["file"] == "letter.tex", "Unexpected Letter entry source")
+            self.require(entry["manuscript"]["anchors"], "Letter entry has no source anchor")
+            for anchor in entry["manuscript"]["anchors"]:
+                token = "\\label{" + anchor["label"] + "}"
+                found = [i for i, line in enumerate(lines, 1) if token in line]
+                self.require(type(anchor["line"]) is int and found == [anchor["line"]],
+                             f"Missing, duplicated or stale Letter locator: {anchor}")
+            refs = entry["article_entries"]
+            self.require(len(refs) == len(set(refs)) and set(refs) <= set(article_entries),
+                         f"Unknown/duplicate Article correspondence: {entry['id']}")
+            if entry["status"] == "consequence-of-article":
+                expected = [d for ref in refs for d in article_entries[ref]["lean"]]
+                self.require(refs and entry["lean"] == expected,
+                             f"Letter consequence does not match Article declarations: {entry['id']}")
+                for decl in entry["lean"]:
+                    self.require(self.module_file(decl["module"]) == decl["file"],
+                                 f"Module/file mismatch: {decl}")
+                    self.declared(decl["declaration"], decl["file"], decl["line"])
+            else:
+                self.require(entry["lean"] == [],
+                             f"Uncertified Letter claim has direct Lean certificates: {entry['id']}")
+        self.require("\\includegraphics[width=\\linewidth]{compression.pdf}" in "\n".join(lines)
+                     and "\\bibliography{free}" in "\n".join(lines),
+                     "Letter dependency inventory needs updating")
+
     def pins(self):
         self.require(self.text("lean/lean-toolchain").strip() == TOOLCHAIN, "Lean toolchain pin changed")
         lock = self.read_json("lean/lake-manifest.json")
@@ -575,6 +634,7 @@ class Validator:
         self.check("Comparator configuration and declaration names", self.comparator)
         self.check("Nanoda pins and execution-evidence bindings", self.nanoda)
         self.check("manuscript and theorem mappings", self.mapping)
+        self.check("companion Letter source inventory and coverage", self.letter_sources)
         self.check("toolchain and dependency pins", self.pins)
         self.check("proof audit evidence", self.audit)
         for message in self.warnings:

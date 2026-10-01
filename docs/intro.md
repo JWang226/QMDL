@@ -9,8 +9,10 @@ Theorems 1 and 2 in the bundled
 [Article source](https://github.com/JWang226/QMDL/blob/main/article.tex).
 Start with the results below, then follow [[proof-structure|the proof map]]
 for their dependencies or [[formalization|the verification guide]] to check
-this formalization yourself. The wiki also retains broader material from
-the [[Letter]] and [[Notes]]; that material is not all covered by the Lean proof.
+this formalization yourself. The current
+[Letter source](https://github.com/JWang226/QMDL/blob/main/letter.tex)
+develops the entropy interpretation below. [[Notes]] retains historical
+programming material. These broader claims are not all covered by the Lean proof.
 
 ## The compression problem
 
@@ -62,8 +64,40 @@ The scalar case $d=1$ and rank-one states are included.
 The coefficient $r(2d-r-1)/2$ is **half** the real dimension of the
 [[concepts/flag-manifold|unitary orbit]]. The spectral terms are half the
 logarithm of its Hilbert–Schmidt volume, up to a constant depending on $d,r$.
-The companion [[Letter]] develops the connection with free entropy;
-this geometric interpretation is separate from the scope of the two Lean endpoints.
+The current [[Letter]] makes this connection precise using its
+[[definitions/physical-free-entropy-def|physical free entropy]]:
+
+$$
+\chi_{\mathrm{phy}}(\rho;\varepsilon)
+=\log_2\frac{\operatorname{Vol}(\Omega_\varepsilon)}
+{\operatorname{Vol}(B_\varepsilon^{d^2})},
+\qquad
+\Omega_\varepsilon=\{X=X^\dagger:\|\lambda(X)-p\|_2\le\varepsilon\}.
+$$
+
+This is an ambient Hilbert–Schmidt tube-volume ratio. Its additive constant
+is fixed by that convention; covering-number entropy agrees only up to
+$O(1)$. For the attaining sequence and the spectra above, the Letter gives
+
+$$
+\log_2\dim M_n=\tfrac12\chi_{\mathrm{phy}}(\rho;n^{-1})+C_{d,r}+o(1),
+$$
+
+where, with $N_\rho=r(2d-r-1)$ and $\kappa=(d-r)^2+r$,
+
+$$
+C_{d,r}=-\frac12\sum_{k=d-r}^{d-1}\log_2(k!)
+-\frac{N_\rho}{4}\log_2 2
+-\frac12\log_2\frac{\Gamma(d^2/2+1)}{\Gamma(\kappa/2+1)}.
+$$
+
+Here $n^{-1}$ is the resolution in the volume comparison; the local
+statistical distinguishability scale is $n^{-1/2}$. The memory formula is
+covered by the Article certificates. The tube-volume derivation, offset
+identity and conditional large-dimension bridge in the Letter are separate
+manuscript results without current Lean certificates. Ordinary Voiculescu
+entropy of a finite atomic spectrum is $-\infty$, so it cannot replace this
+finite-resolution definition.
 
 ## Theorem 2: the finite cloning estimate
 
@@ -106,8 +140,8 @@ not establish the required vanishing-error lower bound through its constant.
 | Source | Role | Formalization boundary |
 | --- | --- | --- |
 | [[Article]] | Current full proof, including generalized cloning and optimal known-spectrum memory | Theorems 1 and 2 and their required supporting development are formalized. |
-| [[Letter]] | Announcement and free-entropy interpretation | Broader geometric interpretation is not claimed by those endpoints. |
-| [[Notes]] | Extended material, including programming questions | These extensions are not automatically certified by the Article formalization. |
+| [[Letter]] | Current finite-resolution entropy definition, geometric derivation and compression interpretation | Memory formulas follow the Article endpoints; volume and bridge claims are not separately formalized. |
+| [[Notes]] | Historical extended material, including programming questions | These extensions are not automatically certified by the Article formalization. |
 
 - [[index|Wiki index]]: results, concepts and supporting lemmas.
 - [[proof-structure|Current proof structure]]: dependency diagram and Lean module map.

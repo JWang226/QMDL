@@ -1,6 +1,6 @@
 # Yang-Chiribella-Hayashi (YCH) Scheme
 
-**Appears in:** Article (Sec. 2.2), Notes (Sec. 3.1)
+**Source:** current [[Article]], `sec:review`, `eq:qJ`, `eq:qubitcloning`, and `eq:achievable_qubit`; historical [[Notes]] background.
 
 ## Overview
 
@@ -8,15 +8,15 @@ The YCH scheme (2016) solved the qubit compression problem: compressing $\rho^{\
 
 ## The Qubit Protocol (Detailed)
 
-For a qubit ($d = 2$) with eigenvalues $p > 1-p > 0$:
+For a qubit ($d = 2$) with eigenvalues $p,1-p$ and $1/2<p\le1$, choose $J^\star$ to be an allowed spin nearest the concentration center $(p-1/2)(n+1)$. The allowed spins are $j_{\min},j_{\min}+1,\ldots,n/2$, where $j_{\min}=0$ for even $n$ and $1/2$ for odd $n$. At $p=1$, this gives $J^\star=n/2$.
 
 ### Encoding
 
 1. **Schur transform:** Apply the [[concepts/schur-weyl-duality|Schur Transform]] to decompose $(\mathbb{C}^2)^{\otimes n} = \bigoplus_{J} \mathcal{H}_J \otimes \mathcal{M}_J$, where $\mathcal{H}_J$ is the spin-$J$ representation on restriction to $\mathrm{SU}(2)$ (dimension $2J+1$, isomorphic there to $\mathrm{Sym}^{2J}(\mathbb{C}^2)$; the $\mathrm{U}(2)$ determinant twist cancels in conjugation) and $\mathcal{M}_J$ is the multiplicity space (an irrep of $S_n$).
 
-2. **Measure the spin $J$:** Perform a non-demolition measurement of the quantum number $J$, which is equivalent to measuring the [[concepts/young-diagrams|Young diagram]] $\lambda = (n/2 + J, n/2 - J)$. This preserves the quantum information within $\mathcal{H}_J$. The probability distribution $q_J$ concentrates sharply around the **typical value** $J^\star = (p - 1/2)(n+1)$, which is the spin corresponding to the typical Young diagram with rows proportional to the spectrum.
+2. **Measure the spin $J$:** Perform a non-demolition measurement of the quantum number $J$, which is equivalent to measuring the [[concepts/young-diagrams|Young diagram]] $\lambda = (n/2 + J, n/2 - J)$. This preserves the quantum information within $\mathcal{H}_J$. The probability distribution $q_J$ concentrates near $(p-1/2)(n+1)$. The chosen $J^\star$ is rounded to the allowed spin lattice; it need not be the exact mode of $q_J$.
 
-3. **Discard the multiplicity register:** The $S_n$ part $\mathcal{M}_J$ is maximally mixed and carries no information about $\rho$, so it can be discarded.
+3. **Discard the multiplicity register:** The $S_n$ part $\mathcal{M}_J$ is maximally mixed and carries no information about the unknown eigenbasis, so it can be discarded.
 
 4. **Clone to the typical sector:** Apply [[concepts/werners-cloning-map|Werner's Cloning Map]] $\mathcal{C}_{J \to J^\star}$ to map the state $\rho_{g,J}$ from whatever sector $J$ was measured to the fixed target sector $J^\star$. This is the crucial step: rather than recording the classical outcome $J$ (which would cost $\sim \log n$ bits), we use the covariant cloning map to move all sectors to a single target. For $J \leq J^\star$, this is "cloning up" ($2J$ effective copies to $2J^\star$); for $J > J^\star$, this is partial tracing.
 
@@ -36,11 +36,15 @@ The scheme relies on Werner's cloner being **$\mathrm{U}(2)$-covariant**: $\math
 
 ### The Choice of $J^\star$
 
-The target $J^\star = (p - 1/2)(n+1)$ is chosen to maximize $q_J$, i.e., it is the most likely measurement outcome. Since $q_J$ concentrates around $J^\star$ with fluctuations of order $O(\sqrt{n})$, the typical cloning displacement $|J - J^\star|$ is $O(\sqrt{n})$, which is small compared to $J^\star \sim n$. This ensures the cloning fidelity is high.
+The current Article explicitly uses the nearest allowed spin, not an exact maximizer of $q_J$. For fixed $p>1/2$,
+
+$$J^\star=(p-1/2)(n+1)+O(1).$$
+
+The $O(1)$ rounding changes the log memory dimension by $o(1)$. Concentration near this target makes the displacement small relative to its order-$n$ spin, which is the regime in which the channel approximates the desired representation state.
 
 ### The Padding $\xi_n$
 
-In the qudit generalization, one must slightly enlarge the target representation by a "padding" $\xi_n \sim \sqrt{n} \log n$ to ensure all typical sectors can be cloned with high fidelity. The current direct trace-distance estimate gives $O(\log n/\sqrt n)$ error; see [[open-questions/error-scaling|Error Scaling Beyond the Current Bound]].
+In the qudit generalization, one must slightly enlarge the target representation by a "padding" $\xi_n=O(\sqrt{n}\log n)$ to ensure all typical sectors can be cloned with high fidelity. The current direct trace-distance estimate gives $O(\log n/\sqrt n)$ error; see [[open-questions/error-scaling|Error Scaling Beyond the Current Bound]].
 
 **Memory cost:** $|M_n|=\log_2(2J^\star+1)=\log n+\log(2p-1)+o(1)$.
 

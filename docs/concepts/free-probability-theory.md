@@ -1,68 +1,46 @@
 # Free Probability Theory
 
-**Appears in:** Letter, Notes
+**Appears in:** [[Letter]] (Introduction and Discussion); historical [[Notes]].
 
-## Overview
+## Free Independence
 
-Free probability theory is a mathematical framework developed by Dan Voiculescu that provides a non-commutative analogue of classical probability. Where classical probability studies commuting random variables, free probability studies operators in von Neumann algebras that satisfy "freeness" -- a non-commutative analogue of independence.
+Free probability studies noncommuting random variables in a tracial probability space. Unital subalgebras $(\mathcal A_i)$ are freely independent when
 
-## Brief History
+$$\tau(a_1\cdots a_k)=0$$
 
-- **1983:** Voiculescu introduced free probability to study the **free products of groups**. His original motivation was operator algebra: understanding the structure of free group von Neumann algebras $L(\mathbb{F}_n)$, one of the oldest open problems in the field.
-- **1991:** Voiculescu discovered the deep connection to **random matrix theory**: independent random matrices become freely independent in the large-$N$ limit. This was a breakthrough that connected abstract operator algebra to concrete, computable random matrix ensembles.
-- **1993-99:** Voiculescu developed the theory of **free entropy** in a series of papers ("Analogues of entropy I-V"), defining $\chi(a)$ via matricial microstates and establishing its properties.
-- **2000s:** Hiai and Petz developed computational tools for free entropy, including the semicircle law computations used in this project.
+whenever $\tau(a_j)=0$, $a_j\in\mathcal A_{i_j}$, and successive indices differ: $i_j\ne i_{j+1}$. This condition determines mixed moments from the separate distributions.
 
-## Free Products vs. Tensor Products
+Tensor independence instead combines commuting subsystem algebras with a product state. The two independence notions have different moment rules. Freeness should not be identified with ordinary statistical independence, nor with independence between a matrix's eigenvalue list and its eigenbasis.
 
-The distinction between "free" and "tensor" independence is fundamental:
+## Entropy and Microstates
 
-- **Tensor product** $A \otimes B$: The two algebras commute -- $ab = ba$ for $a \in A, b \in B$. Joint moments factorize: $\tau(ab) = \tau(a)\tau(b)$. This is the independence relevant for spatially separated quantum systems.
+Voiculescu's [[concepts/free-entropy|free entropy]] counts matrix microstates that approximately reproduce a tracial noncommutative distribution. In the current Letter's single-variable definition (`eq:free_ent`), the microstates are bounded self-adjoint matrices, constrained in every moment up to a cutoff. Lebesgue volume, normalized by matrix size, replaces the number of typical strings in Shannon's formula.
 
-- **Free product** $A * B$: The two algebras do *not* commute, but satisfy the "alternating vanishing" condition (see [[concepts/semicircular-element|Semicircular Element and Free Independence]]). Knowing one operator tells you nothing about the other, but products can be nontrivial. This is the independence relevant for **temporally separated** systems, e.g., observables at different times under chaotic dynamics.
+The definition depends on a trace. It therefore does not directly apply to a type III algebra without a separate non-tracial extension. Moment constraints also make sense for several noncommuting variables, even though those variables have no joint spectral distribution.
 
-Free entropy is additive under free independence (free product), just as von Neumann entropy is additive under tensor independence (tensor product). This is the deepest reason why free entropy -- not von Neumann entropy -- governs the compression of density matrices in our setting: the eigenvalues and eigenvectors of a random matrix are freely independent (not tensor-independent).
+For freely independent families, free entropy is additive, paralleling entropy additivity for tensor products. The Letter discusses this as a possible guide to more general programming tasks, not as an assumption in its finite-state compression theorem.
 
-## Key Concepts
+## Random Matrices and Dynamics
 
-| Classical | Free |
-|-----------|------|
-| Independent random variables | Freely independent operators |
-| Gaussian distribution | [[concepts/semicircular-element|Semicircular distribution]] |
-| Shannon entropy $H(X)$ | [[concepts/free-entropy|Free Entropy]] $\chi(a)$ |
-| Fisher information | Free Fisher information |
-| Central limit theorem | Free CLT (convergence to semicircle) |
-| Typical sequences | Typical matrices (microstates) |
+Suitable independent random-matrix ensembles become asymptotically free in the large-matrix limit. Independence alone is not a sufficient statement for arbitrary matrix ensembles. Likewise, observables at different times can become asymptotically free in suitable large-system chaotic limits; time separation by itself does not imply freeness.
 
-## The Random Matrix Connection
-
-Free probability is deeply connected to random matrix theory. As the matrix size $N \to \infty$:
-- Independent random matrices become freely independent
-- Eigenvalue distributions converge to free probability predictions
-- Voiculescu's free entropy $\chi(a)$ captures the volume of "typical" $N \times N$ matrices
+For a single Hermitian matrix, changing to eigenvalue–eigenvector coordinates produces a squared [[concepts/vandermonde-determinant|Vandermonde determinant]] and an invariant orbit measure. This change of variables explains the logarithmic energy in the single-variable entropy formula. It does not require a claim that eigenvalues and eigenvectors are freely independent.
 
 ## Role in the Project
 
-This project gives free probability an **operational meaning in physics**:
-- [[concepts/free-entropy|Free Entropy]] = quantum minimum description length
-- [[concepts/free-entropy-dimension|Free Entropy Dimension]] = leading-order compression rate
-- [[concepts/semicircular-element|Free independence]] = the independence between eigenvalues and eigenvectors under Haar measure
+The Letter defines a finite-dimensional [[concepts/physical-free-entropy|physical free entropy]] by a Hilbert–Schmidt tube-volume ratio. For known spectra with distinct positive eigenvalues, it relates this quantity at resolution $n^{-1}$ to optimal [[concepts/quantum-minimum-description-length|QMDL]], with an explicit additive constant.
 
-## Key References
-
-- voiculescu1993analogues through voiculescu2002free: Voiculescu's foundational series
-- hiai2000semicircle: Hiai-Petz textbook on free entropy computations
-- arous1997large: Ben Arous-Guionnet on large deviations
+The Article and Lean formalization prove the compression theorem used in this comparison. The geometric volume relation and the conditional large-dimension bridge to Voiculescu's entropy are additional Letter arguments. Multivariate programming, free mutual information, and the broader operational meaning of freeness remain discussion or conjectural directions; see [[proof-structure]] and [[open-questions/free-entropy-conjecture]].
 
 ## Related
 
 - [[concepts/free-entropy|Free Entropy]]
+- [[concepts/free-entropy-dimension|Free Entropy Dimension]]
 - [[concepts/semicircular-element|Semicircular Element and Free Independence]]
-- [[concepts/vandermonde-determinant|Vandermonde Determinant]] -- the eigenvalue repulsion factor
 
-## External References
+## References
 
-- [Free probability (Wikipedia)](https://en.wikipedia.org/wiki/Free_probability)
-- [Voiculescu, "Free entropy" (survey, 2002)](https://doi.org/10.1112/S0024609301008992)
-- A. Nica and R. Speicher, *Lectures on the Combinatorics of Free Probability*, London Mathematical Society Lecture Note Series, Cambridge University Press (2006)
-- D. Voiculescu, K. Dykema, and A. Nica, *Free Random Variables*, CRM Monograph Series, AMS (1992)
+- `voiculescu1994analogues`: Voiculescu's microstate free entropy and additivity results.
+- `voiculescu2002free`: Voiculescu, "Free entropy" (survey, 2002).
+- `hiai2000semicircle`: Hiai and Petz, *The Semicircle Law, Free Random Variables and Entropy*.
+- `vardhan2025`: The dynamics and free-mutual-information work cited in the Letter.

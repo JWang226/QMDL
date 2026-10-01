@@ -157,3 +157,20 @@ Every definition page now has: concrete examples, expanded intuition, connection
   their proved scope from general channel claims and genuine extensions.
 - Updated the verification guide and source links. Manuscript and Lean proof
   sources are unchanged; this update changes their wiki explanations.
+
+## 2026-10-01 — Current Article and Letter source reconciliation
+
+- Compared the author-supplied `article.tex` and `letter.tex` with the public
+  sources. The Article is byte-identical to the checked manuscript; added the
+  current Letter and its required `compression.pdf` without changing either
+  manuscript or any Lean theorem source.
+- Replaced stale Letter definitions and interpretations throughout the wiki:
+  exact ambient tube-volume ratio, resolution $n^{-1}$, omitted coincident
+  eigenvalue terms, Hilbert–Schmidt normalization, explicit offsets and
+  conditional double-scaling assumptions.
+- Distinguished current Letter equations from Article theorem numbering and
+  historical Notes, and separated general-multiplicity geometric formulas
+  from the open repeated-positive-spectrum compression problem.
+- Added a hash-bound companion source map and release/metadata validation.
+  The Article's compression formulas retain their checked Lean correspondence;
+  Letter volume and bridge claims are explicitly not separately formalized.

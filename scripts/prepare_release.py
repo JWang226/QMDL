@@ -15,6 +15,7 @@ import re
 import tarfile
 
 MANUSCRIPT_SHA256 = "09fc0a6bb205180cd820be94d843a1dc0d4342a543492e30dde54e367ae843a9"
+LETTER_SHA256 = "0b6a2c45b1565c3e9aadcdaa1c6631a2d7e2e2ec259b7382d04bcbce83622260"
 LEAN_TOOLCHAIN = "leanprover/lean4:v4.29.0-rc6"
 MATHLIB_REVISION = "f156f7abd91ac67adb22bf999e5a71ba22e22e41"
 PREFIX = "free-entropy-formalization"
@@ -22,7 +23,7 @@ PREFIX = "free-entropy-formalization"
 # Every non-proof file is individually named. New files require an explicit
 # review of this list; recursive copies of the manuscript directory are unsafe.
 CORE_FILES = (
-    "article.tex", "free.bib", "quantumarticle.cls", "utphys.bst",
+    "article.tex", "letter.tex", "compression.pdf", "free.bib", "quantumarticle.cls", "utphys.bst",
     "lean/lakefile.toml", "lean/lake-manifest.json", "lean/lean-toolchain",
     "lean/FreeEntropy.lean", "lean/Audit.lean", "lean/audit.py", "lean/check.sh",
     "lean/Theorem1.lean", "lean/Theorem2.lean", "lean/All.lean",
@@ -30,7 +31,8 @@ CORE_FILES = (
 )
 PUBLICATION_FILES = (
     "README.md", "LICENSE", "NOTICE", "CITATION.cff", ".gitignore",
-    "formalization.yaml", "metadata/natural-language-map.json", "metadata/schema-sources.json",
+    "formalization.yaml", "metadata/natural-language-map.json", "metadata/letter-source-map.json",
+    "metadata/schema-sources.json",
     "docs/AI_PROVENANCE.md", "docs/RELEASE_CHECKLIST.md",
     "docs/FORMALIZATION_STATUS.md", "docs/REPRODUCIBILITY.md",
     ".github/workflows/lean.yml", "scripts/prepare_release.py",
@@ -81,6 +83,8 @@ def collect(root: Path, args: argparse.Namespace) -> tuple[dict[str, bytes], dic
     files = {name: read_regular(root, name) for name in sorted(names)}
     if digest(files["article.tex"]) != MANUSCRIPT_SHA256:
         raise ValueError("article.tex differs from the authorized original manuscript")
+    if digest(files["letter.tex"]) != LETTER_SHA256:
+        raise ValueError("letter.tex differs from the supplied companion Letter")
     if files["lean/lean-toolchain"].decode().strip() != LEAN_TOOLCHAIN:
         raise ValueError("Lean toolchain does not match the pinned release toolchain")
     lock = json.loads(files["lean/lake-manifest.json"])
@@ -155,6 +159,7 @@ def collect(root: Path, args: argparse.Namespace) -> tuple[dict[str, bytes], dic
     manifest = {
         "format_version": 1,
         "manuscript_sha256": MANUSCRIPT_SHA256,
+        "companion_letter_sha256": LETTER_SHA256,
         "lean_toolchain": LEAN_TOOLCHAIN,
         "dependencies": dependencies,
         "proof_sources_sha256": proof_hash,
@@ -226,6 +231,8 @@ def main() -> None:
         # Confirm the input remained intact throughout collection/export.
         if digest(read_regular(root, "article.tex")) != MANUSCRIPT_SHA256:
             raise ValueError("Manuscript changed during export")
+        if digest(read_regular(root, "letter.tex")) != LETTER_SHA256:
+            raise ValueError("Companion Letter changed during export")
         print(f"Selected {len(files)} files; manuscript SHA-256 {MANUSCRIPT_SHA256}.")
         print("Verification: " + manifest["verification"] + ".")
         print("Historical reproduction evidence: " + manifest["historical_reproducibility"]["status"] + ".")

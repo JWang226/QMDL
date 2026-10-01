@@ -1,60 +1,53 @@
 # Free Entropy (Voiculescu's Definition)
 
-**Source:** Letter Eq. 3 (line ~118); Notes line ~99
+**Source:** current [[Letter]], `eq:free_ent` and `eq:free_ent_formula` in [letter.tex](https://github.com/JWang226/QMDL/blob/main/letter.tex). The formulas below follow its binary-logarithm and Hilbert–Schmidt Lebesgue-volume conventions.
 
 ## Statement
 
-For a bounded self-adjoint operator $a$ in a tracial von Neumann algebra $(A, \tau)$, define the **microstate space**:
+For a bounded self-adjoint variable $a$ in a tracial von Neumann algebra $(A,\tau)$, fix an operator-norm cutoff $R>\|a\|$ and define
 
-$$\Gamma(a; m, \varepsilon, N) = \left\{ X \in M_N^{\mathrm{s.a.}} : \left|\mathrm{tr}_N(X^k) - \tau(a^k)\right| < \varepsilon \text{ for } k = 1, \ldots, m \right\}$$
+$$
+\Gamma_R(a;m,\varepsilon,N)=\left\{
+X\in M_N^{\mathrm{s.a.}}:
+\|X\|\le R,\quad
+\left|N^{-1}\operatorname{Tr}X^k-\tau(a^k)\right|\le\varepsilon
+\text{ for }1\le k\le m\right\}.
+$$
 
-where $M_N^{\mathrm{s.a.}}$ is the set of $N \times N$ self-adjoint matrices and $\mathrm{tr}_N = \frac{1}{N}\mathrm{Tr}$ is the normalized trace.
+Then
 
-The **free entropy** is:
+$$
+\chi(a)=\inf_m\inf_{\varepsilon>0}\limsup_{N\to\infty}
+\left[\frac12\log_2 N
++\frac1{N^2}\log_2\operatorname{Vol}\Gamma_R(a;m,\varepsilon,N)\right].
+$$
 
-$$\chi(a) = \inf_{m \in \mathbb{N}, \varepsilon > 0} \limsup_{N \to \infty} \left[ \frac{N^2}{2}\log(2\pi e) + \frac{1}{N^2}\log \mathrm{Vol}(\Gamma(a; m, \varepsilon, N)) \right]$$
+For the stated cutoff range the result is independent of $R$. The $N^{-2}$ factor normalizes by the real dimension of the Hermitian matrix space, and $\tfrac12\log_2N$ removes the universal volume divergence. A Gaussian reference measure would define a related free-energy functional with an extra quadratic-moment term; it is not the volume convention used here.
 
-where $\mathrm{Vol}$ is the Lebesgue measure on self-adjoint matrices.
+## Single-Variable Logarithmic Energy
 
-## Intuition
+Writing $\mu_a$ for the spectral measure,
 
-Count the volume of $N \times N$ matrices whose moments approximate those of $a$, renormalize by $N^2$ (the number of real parameters), and take $N \to \infty$. This is the random matrix analogue of Shannon's typical set: instead of typical sequences, we have "typical matrices."
+$$
+\chi(a)=\iint\log_2|s-t|\,d\mu_a(s)\,d\mu_a(t)
++\frac34\log_2e+\frac12\log_2(2\pi).
+$$
 
-## Explicit Formula for Finite Dimensions
+The Vandermonde factor in matrix volume gives the logarithmic interaction. Its diagonal self-interactions must not be discarded when evaluating this formula.
 
-For a $d \times d$ density matrix $\rho$ with eigenvalues $p_1, \ldots, p_d$:
+In particular, every finite-dimensional Hermitian matrix has atomic spectral measure
 
-$$\chi(\rho) = \sum_{i < j} \log|p_i - p_j|^2 + \frac{d}{2}\log(2\pi e) + \frac{d(d-1)}{4}\log 2$$
+$$\mu_\rho=\frac1d\sum_{i=1}^d\delta_{p_i},$$
 
-The eigenvalue-dependent part is $2\sum_{i<j}\log|p_i - p_j|$, the log squared [[concepts/vandermonde-determinant|Vandermonde Determinant]].
+and hence $\chi(\rho)=-\infty$, even if all matrix eigenvalues are distinct. A finite sum of pairwise gaps is instead the [[definitions/regularized-free-entropy|regularized quantity]]; it is not Voiculescu's $\chi$ of that matrix.
 
-### Understanding the $N^2/2$ normalization
+## Relation to the Letter
 
-The normalization in the definition arises from the geometry of the space of $N \times N$ self-adjoint matrices:
-
-1. **Counting real parameters:** An $N \times N$ self-adjoint (Hermitian) matrix has $N$ real diagonal entries and $N(N-1)/2$ complex off-diagonal entries (each contributing 2 real parameters). Total: $N + N(N-1) = N^2$ real parameters. So $M_N^{\mathrm{s.a.}}$ embeds into $\mathbb{R}^{N^2}$.
-
-2. **The Gaussian reference measure:** If we draw a random $N \times N$ GUE matrix, the probability density is proportional to $\exp(-N \cdot \mathrm{Tr}(X^2)/2)$. Integrating this Gaussian over $\mathbb{R}^{N^2}$ gives a volume factor of $(2\pi/N)^{N^2/2}$, contributing $\frac{N^2}{2}\log(2\pi/N)$ to the log-volume. After appropriate normalization, the term $\frac{N^2}{2}\log(2\pi e)$ exactly cancels this reference Gaussian contribution, isolating the non-trivial information about the spectral distribution of $a$.
-
-3. **Per degree of freedom:** Dividing $\log \mathrm{Vol}$ by $N^2$ normalizes to "entropy per matrix degree of freedom." The factor $1/N^2$ is the free probability analog of the $1/N$ in Shannon entropy for length-$N$ strings.
-
-## Qubit Example ($d = 2$)
-
-For a qubit density matrix $\rho$ with eigenvalues $p$ and $1-p$ (where $p > 1/2$), the explicit formula gives:
-
-$$\chi(\rho) = 2\log|p - (1-p)| + \frac{2}{2}\log(2\pi e) + \frac{2 \cdot 1}{4}\log 2$$
-
-$$= 2\log(2p - 1) + \log(2\pi e) + \frac{1}{2}\log 2$$
-
-The eigenvalue-dependent part is $2\log(2p-1)$. For $p = 0.7$: this is $2\log(0.4) \approx -2.64$ (in nats) or $2\log_2(0.4) \approx -2.64$ bits. Notice that $\chi \to -\infty$ as $p \to 1/2$ (eigenvalues collide), reflecting the divergence that motivates the [[definitions/regularized-free-entropy|Regularized Free Entropy]] and the [[concepts/physical-free-entropy|Physical Free Entropy]].
+The Letter defines [[definitions/physical-free-entropy-def|physical free entropy]] at finite dimension and resolution. Its End Matter, `rem:bridge` and `eq:bridge`, gives a conditional double-scaling recovery of $\chi$ for regular quantile discretizations with convergent logarithmic energies. That bridge is a current manuscript result, not an entirely open question. It is not part of the Article's Lean endpoints.
 
 ## Used By
 
-- [[concepts/free-entropy|Free Entropy]] (concept page)
-- [[concepts/physical-free-entropy|Physical Free Entropy]]
+- [[concepts/free-entropy|Free Entropy]]
+- [[definitions/physical-free-entropy-def|Physical Free Entropy]]
 - [[definitions/regularized-free-entropy|Regularized Free Entropy]]
-
-## External References
-
-- [Free entropy (Wikipedia)](https://en.wikipedia.org/wiki/Free_entropy)
-- [Voiculescu, "Free entropy" (survey, 2002)](https://doi.org/10.1112/S0024609301008992)
+- [[open-questions/free-entropy-conjecture|Broader operational conjectures]]

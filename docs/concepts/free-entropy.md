@@ -1,107 +1,107 @@
 # Free Entropy
 
-**Appears in:** [[Letter]], [[Article]]
+**Appears in:** the current [[Letter|Letter]], with the compression result supplied by the [[Article|Article]].
+**Source labels:** [eq:free_ent](https://github.com/JWang226/QMDL/blob/main/letter.tex#L106), [eq:free_ent_formula](https://github.com/JWang226/QMDL/blob/main/letter.tex#L125).
 
 ## Intuition
 
-Free entropy is Voiculescu's non-commutative generalization of Shannon's differential entropy. While von Neumann entropy counts how many qubits you need to store a quantum state (preserving its entanglement with a reference), free entropy counts how many qubits you need to **describe** a quantum state -- to record its eigenbasis -- given that you already know its spectrum.
+Voiculescu's microstate free entropy counts matrices whose moments approximate a tracial noncommutative distribution. Since the count uses continuous volume, it is closer to Shannon's **differential** entropy than to a discrete entropy.
 
-The key analogy:
+It is distinct from von Neumann entropy. The latter is an entropy of a state; free entropy takes the moments of one or more operators in a tracial algebra as input. The Letter's operational statement uses a separate finite-dimensional quantity, [[concepts/physical-free-entropy|physical free entropy]], rather than substituting a density matrix directly into the large-matrix definition.
 
-| Shannon entropy | Free entropy |
-|---|---|
-| Counts typical *strings* | Counts typical *matrices* |
-| Microstates are length-$N$ sequences $x^N$ | Microstates are $N \times N$ matrices $X_N$ |
-| Typicality = empirical frequency $\approx p$ | Typicality = empirical spectrum $\approx \mu_a$ |
-| Volume measured by counting | Volume measured by Lebesgue measure on $\mathbb{R}^{N^2}$ |
+## Formal Description
 
-Shannon entropy is $\log W$ where $W$ is the number of typical strings. Free entropy is $\log W$ where $W$ is the volume of typical matrices -- those whose spectral moments approximate a given operator.
+Let $a$ be a bounded self-adjoint operator in a tracial von Neumann algebra $(\mathcal A,\tau)$. Fix $R>\|a\|$. Define
 
-## Formal Definition
+$$
+\Gamma_R(a;m,\varepsilon,N)=
+\left\{X\in M_N^{\mathrm{s.a.}}:
+\|X\|\le R,\quad
+\left|N^{-1}\operatorname{Tr}X^k-\tau(a^k)\right|\le\varepsilon
+\text{ for every }1\le k\le m\right\}.
+$$
 
-For a bounded self-adjoint operator $a$ in a tracial von Neumann algebra $(\mathcal{A}, \tau)$, Voiculescu defined:
+With Hilbert–Schmidt Lebesgue volume and base-two logarithms,
 
-$$\chi(a) = \inf_{m, \varepsilon} \limsup_{N \to \infty} \left[ \frac{1}{2}\log N + \frac{1}{N^2} \log \mathrm{Vol}\left(\Gamma(a; m, \varepsilon, N)\right) \right]$$
+$$
+\chi(a)=\inf_m\inf_{\varepsilon>0}
+\limsup_{N\to\infty}
+\left[\frac12\log_2 N+
+\frac1{N^2}\log_2\operatorname{Vol}\Gamma_R(a;m,\varepsilon,N)\right].
+$$
 
-where $\Gamma(a; m, \varepsilon, N) = \{X_N \in M_N^{\mathrm{s.a.}}(\mathbb{C}) : |N^{-1}\mathrm{Tr}\, X_N^k - \tau(a^k)| \leq \varepsilon,\; \forall k \leq m\}$ is the set of $N \times N$ self-adjoint matrices whose first $m$ moments approximate those of $a$ within $\varepsilon$.
+The result is independent of the chosen cutoff $R>\|a\|$. The factor $N^{-2}$ reflects the $N^2$ real matrix coordinates; the additive $\frac12\log_2N$ removes a universal volume divergence. Moment matching is essential: an atomic empirical spectral measure does not approach a continuous measure in total variation, though it can approach it in moments or a weak metric.
 
-The normalization $1/N^2$ accounts for the $O(N^2)$ degrees of freedom in a Hermitian matrix. The additive $\frac{1}{2}\log N$ term removes a universal divergence in the volume.
+For a single self-adjoint variable with spectral measure $\mu_a$, the Letter uses
 
-## Closed-Form Formula
+$$
+\chi(a)=
+\iint_{\mathbb R^2}\log_2|s-t|\,d\mu_a(s)\,d\mu_a(t)
++\frac34\log_2e+\frac12\log_2(2\pi).
+$$
 
-Just as Shannon's differential entropy has the closed form $h(p) = -\int p(x)\log p(x)\,dx$, the free entropy has:
+The factor $\log_2e$ is required by the binary-log convention. The additive constant also depends on the stated volume normalization.
 
-$$\chi(a) = \iint_{\mathbb{R}^2} \log|x - y|\, d\mu_a(x)\, d\mu_a(y) + \frac{3}{4} + \frac{1}{2}\log 2\pi$$
+## Why the Logarithmic Energy Appears
 
-where $\mu_a$ is the spectral measure of $a$. The logarithmic potential $\iint \log|x-y|$ arises because the volume of the unitary orbit of a matrix with given spectrum is controlled by the [[concepts/vandermonde-determinant|Vandermonde Determinant]].
+In eigenvalue and eigenvector coordinates, Hermitian matrix volume has a squared [[concepts/vandermonde-determinant|Vandermonde factor]]:
 
-### Finite-dimensional density matrix
+$$
+dX\ \propto\ \prod_{i<j}(\lambda_i-\lambda_j)^2\,d\lambda\,dU.
+$$
 
-For a $d$-dimensional density matrix $\rho$ with eigenvalues $p_1, \ldots, p_d$, the spectral measure is $\mu_\rho = \frac{1}{d}\sum_i \delta(x - p_i)$. Substituting into the formula gives:
+Its normalized logarithm is
 
-$$\chi(\rho) = \frac{2}{d^2}\sum_{i < j} \log|p_i - p_j| - \infty$$
+$$
+\frac1{N^2}\log_2\Delta(\lambda)^2
+=\frac1{N^2}\sum_{i\ne j}\log_2|\lambda_i-\lambda_j|,
+$$
 
-The divergence arises because delta functions collide (point masses in the double integral produce $\log 0$ terms). This is why the raw free entropy is not directly useful in finite dimensions, motivating the [[concepts/physical-free-entropy|Physical Free Entropy]] as a regularized, non-negative version.
+a discrete logarithmic energy. This geometric Jacobian, not an assertion that eigenvalues and eigenvectors are free random variables, explains the spectral-gap terms.
 
-## Worked Examples
+The Letter keeps the Lebesgue convention. Using a Gaussian reference measure instead introduces an additional quadratic-moment term, so the two functionals should not be identified without that correction.
 
-### Qubit ($d = 2$)
+## Finite-Dimensional Operators
 
-Let $\rho$ have eigenvalues $(p, 1-p)$ with $0 < p < 1$ and $p \neq 1/2$. The regularized free entropy (the finite part, discarding the divergence) is:
+For $\rho\in(M_d(\mathbb C),d^{-1}\operatorname{Tr})$,
 
-$$\chi_{\mathrm{reg}}(\rho) = 2\log|2p - 1|$$
+$$
+\mu_\rho=\frac1d\sum_{i=1}^d\delta_{p_i}.
+$$
 
-The physical free entropy at resolution $\varepsilon$ is:
+Every atom contributes a divergent self-interaction, hence $\chi(\rho)=-\infty$, even if all eigenvalues are distinct. Omitting coincident-eigenvalue terms defines the finite spectral expression
 
-$$\chi_{\mathrm{phy}}(\rho; \varepsilon) = 2\log(1/\varepsilon) + 2\log|2p - 1| + \mathrm{const} + O(\varepsilon)$$
+$$
+\chi_{\mathrm{reg}}(\rho)
+=2\sum_{\substack{i<j\\p_i\ne p_j}}\log_2|p_i-p_j|.
+$$
 
-Here $d^2 - d = 2$, reflecting 2 real degrees of freedom in the eigenbasis (a point on the Bloch sphere, modulo the phase). As $p \to 1/2$ (maximally mixed), the logarithmic potential diverges to $-\infty$, reflecting the fact that the maximally mixed state has no eigenbasis to describe (every basis works equally well, but the unitary orbit degenerates).
-
-### Qutrit ($d = 3$) with spectrum $(p_1, p_2, p_3)$
-
-For a qutrit with non-degenerate spectrum $p_1 > p_2 > p_3 > 0$:
-
-$$\chi_{\mathrm{reg}}(\rho) = 2[\log|p_1 - p_2| + \log|p_1 - p_3| + \log|p_2 - p_3|]$$
-
-The physical free entropy is:
-
-$$\chi_{\mathrm{phy}}(\rho; \varepsilon) = 6\log(1/\varepsilon) + 2\log[(p_1 - p_2)(p_1 - p_3)(p_2 - p_3)] + \mathrm{const} + O(\varepsilon)$$
-
-The coefficient 6 = $3^2 - 3$ counts the 6 real degrees of freedom in a $3 \times 3$ unitary modulo the stabilizer of a non-degenerate diagonal matrix. For the QMDL, $\varepsilon = n^{-1/2}$ and the memory cost is $\frac{1}{2}\chi_{\mathrm{phy}}(\rho; n^{-1/2}) + \mathrm{const}$, giving a leading term of $3\log n$.
-
-### Maximally mixed qutrit: $\rho = I/3$
-
-All eigenvalues are equal: $p_1 = p_2 = p_3 = 1/3$. The logarithmic potential is $-\infty$ (all gaps vanish), and the free entropy dimension is $\delta = 0$. The physical free entropy is zero (at leading order), reflecting that the maximally mixed state requires no description at all -- it has no eigenbasis information.
+Then $d^{-2}\chi_{\mathrm{reg}}$ is the logarithmic energy with those terms omitted. This convention is not an equality between the ordinary $\chi(\rho)$ and a finite entropy. The Letter instead defines a nonnegative finite-resolution tube-volume ratio.
 
 ## Role in the Project
 
-This is **the** central object. The main result of the project is:
+For fixed dimension and distinct positive eigenvalues, the attaining known-spectrum compression sequence satisfies
 
-$$|M| = \frac{1}{2}\chi_{\mathrm{phy}}(\rho; n^{-1/2}) + \mathrm{const} + o(1)$$
+$$
+\log_2\dim M_n
+=\frac12\chi_{\mathrm{phy}}(\rho;n^{-1})+C_{d,r}+o(1).
+$$
 
-Free entropy gives the quantum minimum description length its second-order correction, just as Shannon entropy gives the Schumacher compression rate. The leading term $\frac{d^2 - d}{2}\log n$ is universal (depends only on dimension and rank), while the second-order term $\sum_{i<j}\log|p_i - p_j|$ is state-dependent and is precisely the regularized free entropy.
+The exact offset is given on the [[concepts/physical-free-entropy|physical free entropy page]]. The resolution is $n^{-1}$ in this volume comparison; the local statistical distinguishability scale is $n^{-1/2}$. These scales have different roles.
 
-## Why "Free"?
+The [[Article|Article]] and its Lean formalization prove the memory formula and optimality. They do not formalize the Letter's ambient-volume calculation or its bridge back to $\chi$.
 
-"Free" refers to **free probability theory** (Voiculescu), where "freeness" replaces classical independence. Just as independent random variables have additive Shannon entropy, **freely independent** random variables have additive free entropy. Free entropy is extensive under free products, while von Neumann entropy is extensive under tensor products.
+## Why “Free”?
 
-The relevant independence here is between eigenvalues and eigenvectors. When the eigenbasis is Haar-random (as it is for a "typical" density matrix drawn from the unitary orbit), the eigenvalues and eigenvectors become freely independent in the large-$d$ limit. This is the random matrix manifestation of freeness: the empirical spectral measure of a Haar-rotated diagonal matrix converges to a free convolution, not a classical convolution.
+“Free” refers to free independence of subalgebras: alternating products of centered elements have zero trace. Free entropy is additive for freely independent families, subject to the relevant entropy hypotheses, as ordinary entropies are additive for independent tensor factors.
 
-In physics, freeness pertains to the independence between observables separated across *time* under chaotic dynamics, whereas tensor independence pertains to observables separated across *space*. This suggests that free entropy and related quantities have a natural role in characterizing quantum information in dynamical settings.
+Conjugating a single matrix by a unitary preserves its spectral measure; it does not create a free convolution of its eigenvalues and eigenvectors. The Letter mentions asymptotic freeness of observables in suitable chaotic large-system limits as motivation for future dynamical applications. That is separate from the fixed-$d$, $n\to\infty$ compression proof.
 
 ## Related
 
-- [[concepts/physical-free-entropy|Physical Free Entropy]] -- finite-dimensional, non-negative version
-- [[definitions/regularized-free-entropy|Regularized Free Entropy]] -- the $O(1)$ eigenvalue-dependent part
-- [[concepts/free-entropy-dimension|Free Entropy Dimension]] -- the leading-order scaling
-- [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]] -- the operational task
-- [[concepts/vandermonde-determinant|Vandermonde Determinant]] -- appears as $|\Delta(p)|^2$ in the volume integral
-- [[concepts/free-probability-theory|Free Probability Theory]] -- the broader mathematical framework
-- [[concepts/schumacher-compression|Schumacher Compression]] -- the von Neumann entropy analogue
-
-## External References
-
-- [Free probability (Wikipedia)](https://en.wikipedia.org/wiki/Free_probability)
-- [Free entropy (Wikipedia)](https://en.wikipedia.org/wiki/Free_entropy)
-- [Voiculescu, "Free entropy" (survey, 2002)](https://doi.org/10.1112/S0024609301008992)
-- [F. Hiai and D. Petz, *The Semicircle Law, Free Random Variables and Entropy*, AMS Mathematical Surveys and Monographs, vol. 77 (2000)](https://bookstore.ams.org/view?ProductCode=SURV/77)
+- [[concepts/free-probability-and-entropy|Introduction to free probability and entropy]]
+- [[definitions/free-entropy-voiculescu|Microstate definition]]
+- [[concepts/physical-free-entropy|Finite-resolution physical free entropy]]
+- [[definitions/regularized-free-entropy|Regularized spectral term]]
+- [[concepts/free-entropy-dimension|Free entropy dimension]]
+- [[concepts/quantum-minimum-description-length|The operational compression task]]

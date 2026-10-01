@@ -1,47 +1,49 @@
 # Covering Numbers (Kolmogorov $\varepsilon$-Entropy)
 
-**Appears in:** Letter (Eq. 8), Notes (Sec. 2.2)
+**Appears in:** [[Letter]] (the footnote to `eq:free_phys_def`); historical [[Notes]] (Sec. 2.2).
 
 ## Definition
 
-For a subset $\Omega$ of a metric space and $\varepsilon > 0$, the **$\varepsilon$-covering number** $N(\Omega, \varepsilon)$ is the minimum number of $\varepsilon$-balls needed to cover $\Omega$.
+For a subset $\Omega$ of a metric space, the $\varepsilon$-covering number $N(\Omega,\varepsilon)$ is the minimum number of radius-$\varepsilon$ balls needed to cover $\Omega$. Its logarithm is the Kolmogorov $\varepsilon$-entropy. All logarithms here are binary.
 
-The **Kolmogorov $\varepsilon$-entropy** is $\log N(\Omega, \varepsilon)$.
+This is a geometric measure of resolution: it counts how many descriptions suffice to locate a point to the specified accuracy. It is distinct from algorithmic [[concepts/kolmogorov-complexity|Kolmogorov complexity]].
 
-## Role in the Project
+## The Letter's Volume Convention
 
-The [[concepts/physical-free-entropy|Physical Free Entropy]] is defined as the covering number of the set of Hermitian matrices with prescribed spectrum:
+The current Letter defines [[concepts/physical-free-entropy|physical free entropy]] by an ambient volume ratio, not an exact covering number. For the fixed-spectrum unitary orbit $\mathcal O_\rho$, let
 
-$$\chi_{\mathrm{phy}}(\rho; \varepsilon) = \log N(\Omega_\varepsilon, \varepsilon)$$
+$$\Omega_\varepsilon=\{X=X^\dagger:\operatorname{dist}_{\mathrm{HS}}(X,\mathcal O_\rho)\le\varepsilon\}.
+\qquad
+\chi_{\mathrm{phy}}(\rho;\varepsilon)
+=\log\frac{\operatorname{Vol}(\Omega_\varepsilon)}{\operatorname{Vol}(B_\varepsilon^{d^2})}.$$
 
-where the metric is the Hilbert-Schmidt norm.
+The distance and reference ball use the Hilbert–Schmidt norm on the full real vector space of Hermitian matrices. The tube includes matrices that need not be positive or trace one. Equivalently, its ordered eigenvalue list lies within Euclidean distance $\varepsilon$ of the prescribed list.
 
-## Example: Covering a Ball
+At fixed dimension, the Letter notes that the logarithmic volume ratio and logarithmic covering count agree up to $O(1)$ as $\varepsilon\to0$. That bounded ambiguity matters when comparing additive constants. The volume convention fixes the explicit constant in the Letter's QMDL relation; an unspecified covering convention does not.
 
-The simplest example is the $\varepsilon$-covering number of a $d$-dimensional Euclidean ball of radius $R$. Each covering ball has volume proportional to $\varepsilon^d$, while the large ball has volume proportional to $R^d$. By a volume comparison argument:
+## Dimension and Resolution
 
-$$N(B_d(R), \varepsilon) \sim \left(\frac{R}{\varepsilon}\right)^d$$
+For a Euclidean ball of fixed radius $R$, volume bounds give
 
-so the Kolmogorov $\varepsilon$-entropy is $\log N \sim d \log(R/\varepsilon)$. The dimension $d$ plays the role of the [[concepts/free-entropy-dimension|Free Entropy Dimension]] -- it controls the leading $\log(1/\varepsilon)$ coefficient. The radius $R$ contributes a state-dependent constant. This is exactly the structure of the [[concepts/physical-free-entropy|Physical Free Entropy]]: $\chi_{\mathrm{phy}}(\rho; \varepsilon) = d^2 \delta(\rho) \log(1/\varepsilon) + \chi_{\mathrm{reg}}(\rho) + O(\varepsilon)$.
+$$\log N(B^m(R),\varepsilon)=m\log(R/\varepsilon)+O_m(1).$$
 
-## Connection to Classical Information Theory (Kolmogorov-Tikhomirov)
+For an orbit whose distinct eigenvalues have multiplicities $g_a$, the analogous leading coefficient is its real dimension $N_\rho=d^2-\sum_a g_a^2$. The Letter's stronger tube-volume calculation gives
 
-Kolmogorov and Tikhomirov (1961) introduced $\varepsilon$-entropy as a measure of the "complexity" or "massiveness" of a compact set in a metric space. Their key insight was that $\log N(\Omega, \varepsilon)$ quantifies how many bits are needed to specify a point in $\Omega$ up to accuracy $\varepsilon$. This is a metric-geometric version of Shannon entropy: rather than counting typical sequences, one counts distinguishable points.
+$$\chi_{\mathrm{phy}}(\rho;\varepsilon)
+=N_\rho\log\varepsilon^{-1}+\chi_{\mathrm{reg}}(\rho)
++C(d,(g_a))+O_d(\varepsilon^2/g^2),$$
 
-The physical free entropy extends this framework to the **non-commutative setting**: the set $\Omega_\varepsilon$ lives in the space of Hermitian matrices, and the metric is the Hilbert-Schmidt norm. The covering number then counts the number of "distinguishable quantum microstates" -- density matrices that are $\varepsilon$-separated in operator norm.
+where $g$ is the smallest gap between distinct eigenvalues and $\varepsilon<g/2$. The result is labeled `eq:degenerate_free_ent` in the End Matter. These geometric calculations are not part of the current Lean proof of the Article's compression theorems; see [[proof-structure]].
 
-## References
-
-- KolmogorovTikhomirov1961: Original $\varepsilon$-entropy paper
-- Kolmogorov1963: Theory of transmission of information
+The Letter evaluates this quantity at $\varepsilon=n^{-1}$ in its half-entropy memory formula. The separate statistical scale $n^{-1/2}$ describes local distinguishability of orbit states and should not be substituted into that formula.
 
 ## Related
 
 - [[concepts/physical-free-entropy|Physical Free Entropy]]
 - [[definitions/physical-free-entropy-def|Physical Free Entropy (Formal Definition)]]
+- [[concepts/free-entropy-dimension|Free Entropy Dimension]]
 
-## External References
+## References
 
-- [Covering number (Wikipedia)](https://en.wikipedia.org/wiki/Covering_number)
-- A. N. Kolmogorov and V. M. Tikhomirov, "$\varepsilon$-entropy and $\varepsilon$-capacity of sets in functional spaces," *Uspekhi Mat. Nauk* 14(2), 3--86 (1959); English transl. in *AMS Translations* Ser. 2, 17, 277--364 (1961)
-- [Metric entropy (Wikipedia)](https://en.wikipedia.org/wiki/Metric_entropy)
+- `KolmogorovTikhomirov1961`: A. N. Kolmogorov and V. M. Tikhomirov, "$\varepsilon$-entropy and $\varepsilon$-capacity of sets in functional spaces."
+- `Kolmogorov1963`: Theory of transmission of information.

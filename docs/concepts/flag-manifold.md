@@ -1,78 +1,99 @@
 # Flag Manifold
 
-**Appears in:** [[Letter]], [[Article]]
+**Appears in:** the current [[Letter|Letter]] and [[Article|Article]].
+**Source labels:** [eq:degenerate_free_ent](https://github.com/JWang226/QMDL/blob/main/letter.tex#L380), [eq:weyl_geometry](https://github.com/JWang226/QMDL/blob/main/letter.tex#L228), [eq:rank_def_qmdl](https://github.com/JWang226/QMDL/blob/main/letter.tex#L404).
 
 ## Definition
 
-The **(partial) flag manifold** associated to a partition of $d$ into blocks of sizes $g_1, \ldots, g_m$ is the coset space:
+For positive block sizes $g_1,\ldots,g_m$ with $\sum_a g_a=d$, the partial flag manifold is
 
-$$\mathrm{Fl}(g_1, \ldots, g_m) = U(d) / (U(g_1) \times U(g_2) \times \cdots \times U(g_m))$$
+$$
+\mathrm{Fl}(g_1,\ldots,g_m)
+=\mathrm U(d)/\bigl(\mathrm U(g_1)\times\cdots\times\mathrm U(g_m)\bigr).
+$$
 
-Its real dimension is $d^2 - \sum_a g_a^2$.
+Its real dimension is
+
+$$
+N_\rho=d^2-\sum_a g_a^2
+=2\sum_{a<b}g_ag_b.
+$$
 
 ## Intuition
 
-The flag manifold parameterizes all possible **eigenbases** of a Hermitian operator with a given degeneracy structure. If $\rho$ has eigenvalues with multiplicities $g_1, g_2, \ldots, g_m$, then the set of all density matrices with the same spectrum as $\rho$ is exactly the flag manifold $U(d)/(U(g_1) \times \cdots \times U(g_m))$. The stabilizer $U(g_1) \times \cdots \times U(g_m)$ consists of unitaries that rotate within each eigenspace (which doesn't change the operator).
+The flag manifold parameterizes the ordered eigenspaces of a Hermitian operator with fixed distinct spectral levels and multiplicities $g_a$. Equivalently, it is the operator's unitary orbit. It does not retain a choice of basis within each eigenspace: the stabilizer factors $\mathrm U(g_a)$ identify rotations that leave the operator unchanged.
 
-## Dimensional Counting
-
-Start with $U(d)$, which has real dimension $d^2$. Each block $U(g_a)$ in the stabilizer has real dimension $g_a^2$. The stabilizer $U(g_1) \times \cdots \times U(g_m)$ has total dimension $\sum_a g_a^2$. By the theory of coset spaces:
-
-$$\dim_{\mathbb{R}} \mathrm{Fl}(g_1, \ldots, g_m) = d^2 - \sum_a g_a^2$$
-
-Each $U(g_a)$ factor "removes" $g_a^2$ real parameters -- the $g_a^2$ degrees of freedom corresponding to rotations within the $a$-th eigenspace that leave $\rho$ invariant.
+The dimension follows by subtracting the stabilizer's $\sum_a g_a^2$ real parameters from the $d^2$ parameters of $\mathrm U(d)$.
 
 ## Special Cases
 
-- **Full flag manifold** ($g_i = 1$ for all $i$, i.e., non-degenerate spectrum): $U(d)/U(1)^d$, dimension $d^2 - d = d(d-1)$. The stabilizer consists of $d$ independent phase rotations.
+- **Full flag:** all $g_a=1$. The orbit is $\mathrm U(d)/\mathrm U(1)^d$, of real dimension $d(d-1)$.
+- **Grassmannian:** two distinct spectral levels of multiplicities $k$ and $d-k$. The orbit is the space of $k$-dimensional subspaces of $\mathbb C^d$, of real dimension $2k(d-k)$.
+- **Rank $r$ with distinct positive eigenvalues:** each positive level is simple, and zero has multiplicity $d-r$ when $r<d$. The dimension is $r(2d-r-1)$.
+- **Scalar operator:** one block of size $d$. The orbit is a point and has dimension zero.
 
-- **Grassmannian** ($m = 2$, $g_1 = k$, $g_2 = d-k$): $U(d)/(U(k) \times U(d-k))$, dimension $2k(d-k)$. This is the space of $k$-dimensional subspaces of $\mathbb{C}^d$.
+## Qutrit Examples and Their Scope
 
-- **Rank-$r$ non-degenerate state** ($g_1 = \cdots = g_r = 1$, $g_{r+1} = d-r$): dimension $d^2 - r - (d-r)^2 = r(2d - r - 1)$. This is the most common case in the QMDL problem.
+For $p_1>p_2>0=p_3$, all three spectral levels are distinct. The stabilizer is $\mathrm U(1)^3$, so the rank-two qutrit orbit is the full flag manifold, with real dimension $9-3=6$. A full-rank qutrit with three distinct eigenvalues has the same orbit dimension.
 
-## Worked Example: $d = 3$, Rank-2 Non-Degenerate State
+For both cases, the Article's theorem gives an attaining memory cost
 
-Consider a qutrit state $\rho$ with spectrum $p_1 > p_2 > 0 = p_3$ (rank 2, non-degenerate positive eigenvalues). The degeneracy structure is $g_1 = 1, g_2 = 1, g_3 = 1$ -- wait, the zero eigenvalue has multiplicity $d - r = 1$ as well. So the partition is $(1, 1, 1)$, giving the full flag manifold? No: the correct grouping is that the two nonzero eigenvalues are distinct (each with $g = 1$) and the zero eigenvalue has $g_0 = d - r = 1$. The stabilizer is $U(1) \times U(1) \times U(1) = U(1)^3$.
+$$
+|M_n|=3\log_2 n+O(1),
+\qquad |M_n|:=\log_2\dim M_n,
+$$
 
-$$\dim_{\mathbb{R}} = d^2 - \sum g_a^2 = 9 - 3 = 6$$
+with the spectrum-dependent constant specified in the theorem. The equal leading coefficients do not imply equal order-one terms.
 
-Alternatively, using the rank-$r$ formula: $r(2d - r - 1) = 2(2 \cdot 3 - 2 - 1) = 2 \cdot 3 = 6$.
+For the normalized rank-two projector
 
-The QMDL leading term is $\frac{1}{2} \times 6 \times \log n = 3 \log n$ qubits. This matches: the eigenbasis of a rank-2 qutrit lives on a 6-real-dimensional manifold, and geometric quantization halves the dimension.
+$$
+\rho=\tfrac12\bigl(|0\rangle\langle0|+|1\rangle\langle1|\bigr),
+$$
 
-Now consider a full-rank qutrit $\rho$ with $p_1 > p_2 > p_3 > 0$. The stabilizer is $U(1)^3$, dimension $= 9 - 3 = 6$, and QMDL $= 3\log n$. This is the same because both cases have the same degeneracy structure (all eigenvalues distinct).
+the spectrum $(1/2,1/2,0)$ has multiplicities $(2,1)$. Its orbit is $\mathrm{Gr}(2,3)$, with real dimension $9-4-1=4$. The Letter's tube-volume expansion applies and gives a leading physical-entropy term $4\log_2\varepsilon^{-1}$.
 
-For a qutrit projector $\rho = \frac{1}{2}(|0\rangle\langle 0| + |1\rangle\langle 1|)$, the spectrum is $(1/2, 1/2, 0)$ with degeneracies $g_1 = 2, g_2 = 1$. The stabilizer is $U(2) \times U(1)$, dimension $= 9 - 4 - 1 = 4$. QMDL $= 2\log n$, reflecting the smaller orbit (the Grassmannian $\mathrm{Gr}(2,3)$).
+The predicted memory coefficient is therefore $2\log_2 n$, but this example has **repeated positive eigenvalues** and lies outside the Article's stated and Lean-checked QMDL theorem. The Letter describes the general multiplicity-dependent QMDL relation as an expected extension; see [[open-questions/degenerate-spectrum|the degenerate-spectrum question]].
 
-## Connection to the KKS Theorem
+## Hilbert–Schmidt and KKS Volume Forms
 
-The flag manifold is a **coadjoint orbit** of $U(d)$. The [[concepts/kks-theorem|KKS Theorem]] (Kirillov-Kostant-Souriau) equips it with a natural symplectic structure, and geometric quantization of this symplectic manifold produces the irrep $H_\lambda$. The key consequence is:
+A flag manifold is a coadjoint orbit of $\mathrm U(d)$. The [[concepts/kks-theorem|Kirillov–Kostant–Souriau construction]] equips it with a symplectic form.
 
-$$\dim H_\lambda \sim \mathrm{Vol}(\mathcal{O}_\lambda)^{1/2}$$
+For distinct eigenvalues, the two real tangent directions associated with a pair $(i,j)$ each acquire an eigenvalue-gap factor in the induced Hilbert–Schmidt metric. Thus Hilbert–Schmidt orbit volume carries
 
-in appropriate units. More precisely, the symplectic volume of the coadjoint orbit is controlled by the Vandermonde determinant $\prod_{i<j}(x_i - x_j)^2$, and taking the square root yields the Weyl dimension. This is why there is a **factor of 1/2** between the real dimension of the flag manifold and the leading $\log n$ coefficient:
+$$
+\Delta(p)^2,\qquad \Delta(p)=\prod_{i<j}(p_i-p_j).
+$$
 
-$$\log|M_n| = \frac{1}{2} \dim_{\mathbb{R}} \mathrm{Fl} \times \log n + O(1)$$
+The KKS form treats those directions as one canonical pair, contributing one gap to symplectic volume and giving $\Delta(p)$. For multiplicities $g_a$, the corresponding inter-level factors have exponents $2g_ag_b$ and $g_ag_b$, respectively.
 
-## Connection to Free Entropy Dimension
+These different exponents explain the factor of one half in the entropy comparison. They do **not** give a literal identity between representation dimension and the square root of Hilbert–Schmidt volume. Normalization constants, integral-weight shifts, and the tube's reference-cell volume must also be included. The [[concepts/vandermonde-determinant|Vandermonde page]] records these distinctions.
 
-The real dimension of the flag manifold relates directly to the [[concepts/free-entropy-dimension|Free Entropy Dimension]]:
+For the spectra covered by the Article, the attaining code satisfies
 
-$$\dim_{\mathbb{R}} \mathrm{Fl}(g_1, \ldots, g_m) = d^2 - \sum_a g_a^2 = d^2 \cdot \delta(\rho)$$
+$$
+|M_n|=\frac{N_\rho}{2}\log_2 n+O(1)
+=\frac12\chi_{\mathrm{phy}}(\rho;n^{-1})+C_{d,r}+o(1).
+$$
 
-where $\delta(\rho) = 1 - \sum_a g_a^2/d^2$ is the free entropy dimension from Voiculescu's theory. This provides the bridge between the operator-algebraic notion (free entropy dimension) and the geometric notion (flag manifold dimension).
+The second equality uses the Letter's explicit volume calculation and offset. Here $n^{-1}$ is the resolution in the volume comparison, distinct from the $n^{-1/2}$ angular distinguishability scale.
+
+## Free Entropy Dimension and Formal Scope
+
+For the finite-dimensional atomic spectral distribution with multiplicities $g_a$, the Letter cites
+
+$$
+\delta(\rho)=1-\frac1{d^2}\sum_a g_a^2,
+\qquad N_\rho=d^2\delta(\rho).
+$$
+
+This identifies an operator-algebraic dimension with the normalized orbit dimension. The Letter's geometry permits arbitrary multiplicities. The Article's Lean endpoints prove the memory and cloning statements for distinct positive eigenvalues, allowing a repeated zero eigenvalue; they do not formalize the flag-manifold geometry or establish the conjectured QMDL extension to repeated positive levels.
 
 ## Related
 
-- [[concepts/free-entropy-dimension|Free Entropy Dimension]] -- $\delta(\rho) = \dim \mathrm{Fl} / d^2$
-- [[concepts/kks-theorem|KKS Theorem]] -- geometric quantization of flag manifolds
-- [[open-questions/free-entropy-conjecture|Programming Extensions (Notes)]] -- programming rate governed by flag manifold dimension
-- [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]] -- compression rate governed by $\frac{1}{2}\dim \mathrm{Fl} \cdot \log n$
-- [[concepts/weyl-dimension-formula|Weyl Dimension Formula]] -- the leading $\log n$ coefficient is $\frac{1}{2}\dim \mathrm{Fl}$
-
-## External References
-
-- [Flag manifold (Wikipedia)](https://en.wikipedia.org/wiki/Flag_manifold)
-- [Generalized flag variety (Wikipedia)](https://en.wikipedia.org/wiki/Generalized_flag_variety)
-- [W. Fulton and J. Harris, *Representation Theory: A First Course*, Graduate Texts in Mathematics, Springer (1991)](https://doi.org/10.1007/978-1-4612-0979-9)
-- [Grassmannian (Wikipedia)](https://en.wikipedia.org/wiki/Grassmannian)
+- [[concepts/free-entropy-dimension|Free entropy dimension]]
+- [[concepts/physical-free-entropy|Physical entropy and tube volumes]]
+- [[concepts/kks-theorem|KKS symplectic form]]
+- [[concepts/quantum-minimum-description-length|Quantum minimum description length]]
+- [[concepts/weyl-dimension-formula|Weyl dimension formula]]
+- [[open-questions/degenerate-spectrum|QMDL with repeated positive eigenvalues]]

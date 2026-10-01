@@ -1,0 +1,294 @@
+{
+  "format": "free-entropy-letter-map",
+  "version": 1,
+  "path_base": "repository root",
+  "manuscript": {
+    "file": "letter.tex",
+    "title": "Free entropy and quantum minimum description length",
+    "sha256": "0b6a2c45b1565c3e9aadcdaa1c6631a2d7e2e2ec259b7382d04bcbce83622260"
+  },
+  "source_files": [
+    {
+      "file": "article.tex",
+      "sha256": "09fc0a6bb205180cd820be94d843a1dc0d4342a543492e30dde54e367ae843a9",
+      "role": "Current companion proof manuscript; Article Theorems 1 and 2 are formalized"
+    },
+    {
+      "file": "letter.tex",
+      "sha256": "0b6a2c45b1565c3e9aadcdaa1c6631a2d7e2e2ec259b7382d04bcbce83622260",
+      "role": "Current companion Letter; equation-level correspondence and geometric scope recorded below"
+    },
+    {
+      "file": "free.bib",
+      "sha256": "c126c8db7dbb775c603d0bfbb9a17d231ca47cd6343afa9bf3e343123b56cab7",
+      "role": "Shared bibliography"
+    },
+    {
+      "file": "compression.pdf",
+      "sha256": "6707de047ac16f44d3a5cf9549f34128bc1972b66d2edb0ed4635a3acd234be1",
+      "role": "Figure required by the Letter"
+    }
+  ],
+  "scope": "Source inventory and correspondence, not a claim to formalize the whole Letter. Status consequence-of-article means specialization of an existing checked Article statement; definition-correspondence records shared definitions; not-formalized means no Lean certificate for that Letter claim.",
+  "locator_policy": "TeX labels and fully qualified Lean declarations are primary. One-based line numbers are navigation hints for the current source snapshot and can shift after edits.",
+  "review": {
+    "status": "agent-reviewed",
+    "independent_human_review": "not established"
+  },
+  "entries": [
+    {
+      "id": "letter-full-rank-qmdl",
+      "title": "Full-rank known-spectrum QMDL",
+      "manuscript": {
+        "file": "letter.tex",
+        "anchors": [
+          {
+            "label": "eq:result_qmdl",
+            "line": 201
+          }
+        ]
+      },
+      "status": "consequence-of-article",
+      "summary": "Achievability with the exact additive constant, and a liminf converse for every vanishing-error sequence, specialize the Article endpoints to r=d. This entry does not certify a physical-free-entropy identity.",
+      "article_entries": [
+        "theorem1-achievability",
+        "theorem1-converse-average",
+        "theorem1-converse-uniform"
+      ],
+      "lean": [
+        {
+          "declaration": "FreeEntropy.theorem1_achievability",
+          "module": "FreeEntropy.Theorem1Complete",
+          "file": "lean/FreeEntropy/Theorem1Complete.lean",
+          "line": 23
+        },
+        {
+          "declaration": "FreeEntropy.theorem1_converse",
+          "module": "FreeEntropy.Theorem1Complete",
+          "file": "lean/FreeEntropy/Theorem1Complete.lean",
+          "line": 43
+        },
+        {
+          "declaration": "FreeEntropy.theorem1_converse_of_uniform",
+          "module": "FreeEntropy.Theorem1Complete",
+          "file": "lean/FreeEntropy/Theorem1Complete.lean",
+          "line": 60
+        }
+      ]
+    },
+    {
+      "id": "letter-rank-deficient-qmdl",
+      "title": "Rank-deficient known-spectrum QMDL",
+      "manuscript": {
+        "file": "letter.tex",
+        "anchors": [
+          {
+            "label": "eq:rank_def_qmdl",
+            "line": 404
+          }
+        ]
+      },
+      "status": "consequence-of-article",
+      "summary": "The Article endpoints cover every positive rank with distinct positive eigenvalues and a zero block. The pure-state memory formula follows by r=1, p1=1. General repeated positive eigenvalues are not covered.",
+      "article_entries": [
+        "theorem1-achievability",
+        "theorem1-converse-average",
+        "theorem1-converse-uniform"
+      ],
+      "lean": [
+        {
+          "declaration": "FreeEntropy.theorem1_achievability",
+          "module": "FreeEntropy.Theorem1Complete",
+          "file": "lean/FreeEntropy/Theorem1Complete.lean",
+          "line": 23
+        },
+        {
+          "declaration": "FreeEntropy.theorem1_converse",
+          "module": "FreeEntropy.Theorem1Complete",
+          "file": "lean/FreeEntropy/Theorem1Complete.lean",
+          "line": 43
+        },
+        {
+          "declaration": "FreeEntropy.theorem1_converse_of_uniform",
+          "module": "FreeEntropy.Theorem1Complete",
+          "file": "lean/FreeEntropy/Theorem1Complete.lean",
+          "line": 60
+        }
+      ]
+    },
+    {
+      "id": "letter-error",
+      "title": "Global reconstruction-error criterion",
+      "manuscript": {
+        "file": "letter.tex",
+        "anchors": [
+          {
+            "label": "eq:error",
+            "line": 187
+          }
+        ]
+      },
+      "status": "definition-correspondence",
+      "summary": "Same worst-case half-trace-norm criterion and actual physical tensor source as the Article definitions. The Letter does not require preserving a purification.",
+      "article_entries": [
+        "quantum-channel",
+        "physical-source",
+        "trace-distance",
+        "reconstruction-errors",
+        "physical-code"
+      ],
+      "lean": []
+    },
+    {
+      "id": "letter-weyl",
+      "title": "Dimension of the retained representation",
+      "manuscript": {
+        "file": "letter.tex",
+        "anchors": [
+          {
+            "label": "eq:weyl_geometry",
+            "line": 228
+          }
+        ]
+      },
+      "status": "consequence-of-article",
+      "summary": "The full-rank Weyl dimension asymptotic follows from the actual dimension and padded-target expansion proved in the Article development. Its KKS interpretation is a separate geometric explanation.",
+      "article_entries": [
+        "weyl-dimension",
+        "padded-memory-dimension"
+      ],
+      "lean": [
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.canonical_dimension_fullWeyl",
+          "module": "FreeEntropy.CanonicalDimension",
+          "file": "lean/FreeEntropy/CanonicalDimension.lean",
+          "line": 27
+        },
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.targetCanonicalDimension",
+          "module": "FreeEntropy.CanonicalDimension",
+          "file": "lean/FreeEntropy/CanonicalDimension.lean",
+          "line": 68
+        },
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.targetCanonicalDimension_log_asymptotic",
+          "module": "FreeEntropy.CanonicalDimension",
+          "file": "lean/FreeEntropy/CanonicalDimension.lean",
+          "line": 86
+        }
+      ]
+    },
+    {
+      "id": "letter-physical-entropy",
+      "title": "Physical free entropy and regularized spectral term",
+      "manuscript": {
+        "file": "letter.tex",
+        "anchors": [
+          {
+            "label": "eq:free_phys_def",
+            "line": 146
+          },
+          {
+            "label": "eq:reg_free_ent",
+            "line": 161
+          }
+        ]
+      },
+      "status": "not-formalized",
+      "summary": "Defines an unnormalized ambient Hilbert-Schmidt tube-volume ratio, with coinciding eigenvalues excluded from the logarithmic-gap sum. Covering-number entropy agrees only up to O(1); the current Lean endpoint definitions do not include this volume ratio.",
+      "article_entries": [],
+      "lean": []
+    },
+    {
+      "id": "letter-hs-geometry",
+      "title": "Hilbert-Schmidt Jacobian and full-rank tube expansion",
+      "manuscript": {
+        "file": "letter.tex",
+        "anchors": [
+          {
+            "label": "eq:hs_volume_element",
+            "line": 285
+          },
+          {
+            "label": "eq:free_phys1_app",
+            "line": 298
+          }
+        ]
+      },
+      "status": "not-formalized",
+      "summary": "The Letter derives the exact (2 pi) Jacobian, gamma/factorial constant and O_d(epsilon^2/g^2) remainder. These geometric calculations have not been formalized in this repository.",
+      "article_entries": [],
+      "lean": []
+    },
+    {
+      "id": "letter-entropy-relation",
+      "title": "Half-physical-entropy identity and spectrum-independent offset",
+      "manuscript": {
+        "file": "letter.tex",
+        "anchors": [
+          {
+            "label": "eq:result",
+            "line": 208
+          },
+          {
+            "label": "eq:result_const",
+            "line": 212
+          },
+          {
+            "label": "eq:rank_def_qmdl",
+            "line": 404
+          }
+        ]
+      },
+      "status": "not-formalized",
+      "summary": "The attaining memory is one half of chi_phy at resolution n^-1 plus the explicit C_{d,r} and o(1). Article certificates establish the memory formula; the additional volume comparison and C_{d,r} identity are not separately Lean certified.",
+      "article_entries": [
+        "theorem1-achievability",
+        "qmdl"
+      ],
+      "lean": []
+    },
+    {
+      "id": "letter-degenerate-geometry",
+      "title": "General-multiplicity tube volume",
+      "manuscript": {
+        "file": "letter.tex",
+        "anchors": [
+          {
+            "label": "eq:degenerate_volume",
+            "line": 367
+          },
+          {
+            "label": "eq:degenerate_free_ent",
+            "line": 380
+          }
+        ]
+      },
+      "status": "not-formalized",
+      "summary": "The Letter derives a geometric entropy expansion for arbitrary spectral multiplicities. This does not prove QMDL optimality for repeated positive eigenvalues, which remains conjectural, and neither geometric expansion is currently a Lean certificate.",
+      "article_entries": [],
+      "lean": []
+    },
+    {
+      "id": "letter-double-scaling",
+      "title": "Conditional large-dimension bridge to Voiculescu entropy",
+      "manuscript": {
+        "file": "letter.tex",
+        "anchors": [
+          {
+            "label": "rem:bridge",
+            "line": 314
+          },
+          {
+            "label": "eq:bridge",
+            "line": 316
+          }
+        ]
+      },
+      "status": "not-formalized",
+      "summary": "A manuscript derivation under compact support, finite logarithmic energy, separated quantile discretizations with convergent discrete energies, epsilon_d=o(g_d), and log(epsilon_d^-1)=o(d). These assumptions and the double-scaling claim are not covered by the current finite-dimensional Lean endpoints.",
+      "article_entries": [],
+      "lean": []
+    }
+  ]
+}

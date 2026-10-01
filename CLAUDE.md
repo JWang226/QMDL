@@ -8,19 +8,19 @@ Help the authors and collaborators understand all technical details of the paper
 
 ## Source Files
 
-The bundled repository-root `article.tex` and `free.bib` are the current public Article snapshot used by the Lean formalization. Historical Letter and Notes source snapshots may remain in the ignored `sources/` directory. Source files are the ground truth. **Never modify source files.**
+The repository-root `article.tex` and `letter.tex` are the current author-supplied manuscripts. They share `free.bib`; `compression.pdf` is the Letter's figure. The Article snapshot is the source checked by the Lean formalization. Historical Notes source snapshots may remain in the ignored `sources/` directory. Preserve the supplied source bytes; replacing a snapshot requires an explicit user request for the new manuscript version.
 
 For the current Article, Theorem 1 is optimal known-spectrum memory (`thm:qmdl`) and Theorem 2 is finite cloning accuracy (`thm:main`). Use these labels rather than carrying over numbering from older wiki pages. Follow `docs/proof-structure.md`, the actual Lean endpoints, and `metadata/natural-language-map.json` when describing the current formal proof; broader Letter/Notes material is not automatically formalized.
 
-- `sources/letter.tex` — PRL letter: "Free entropy and quantum minimum description length" (short announcement)
+- `letter.tex` — Current PRL letter: "Free entropy and quantum minimum description length" (physical free entropy and its QMDL interpretation)
 - `article.tex` — Current full paper: "Quantum minimum description of density matrices" (companion with full proofs)
 - `sources/Free.tex` — Extended working notes with full proofs + unitary/observable programming
 - `free.bib` — Current shared bibliography
-- `sources/compression.pdf` — Compression figure
+- `compression.pdf` — Current Letter's compression figure
 
 ## Working Directory
 
-The canonical working copy is `~/Documents/free-entropy-wiki/`. This is a git repo that auto-deploys to GitHub Pages via `.github/workflows/deploy.yml`. **After making wiki edits, commit and push to update the live site.**
+Use the current checkout of `JWang226/QMDL`. This git repository auto-deploys to GitHub Pages via `.github/workflows/deploy.yml`. **After making authorized wiki edits, commit and push to update the live site.**
 
 The Obsidian vault root is `docs/` inside this directory.
 
@@ -33,6 +33,8 @@ free-entropy-wiki/
   requirements.txt   — Python deps for MkDocs
   .github/workflows/ — GitHub Actions deploy to Pages
   article.tex        — Current Article snapshot (immutable)
+  letter.tex         — Current Letter snapshot (immutable)
+  compression.pdf    — Letter figure
   free.bib           — Current bibliography (immutable)
   sources/           — Historical source snapshots (ignored; immutable)
   docs/              — All wiki markdown (Obsidian vault + MkDocs source)
@@ -116,7 +118,7 @@ What the authors have tried or conjectured.
 When the user asks to commit, commit all changes and push to `origin main`. The GitHub Actions workflow will automatically rebuild and deploy the live site at https://jwang226.github.io/QMDL/.
 
 ### On Ingest (new/updated source)
-1. Diff against previous version in `sources/`
+1. Diff against the previous repository-root manuscript snapshot (or a historical copy in `sources/`)
 2. Update or create pages for every new/changed definition, result, concept
 3. Update cross-references (`## Dependencies`, `## Used By`)
 4. Update `notation.md` for any new symbols

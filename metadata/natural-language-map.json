@@ -8,6 +8,7 @@
     "sha256": "09fc0a6bb205180cd820be94d843a1dc0d4342a543492e30dde54e367ae843a9"
   },
   "scope": "Theorems 1 and 2 and the supporting developments identified below; not the whole paper.",
+  "companion_mapping_file": "metadata/letter-source-map.json",
   "locator_policy": "TeX labels and fully qualified Lean declarations are primary. One-based line numbers are navigation hints for the current source snapshot and can shift after edits.",
   "review": {
     "status": "agent-reviewed",

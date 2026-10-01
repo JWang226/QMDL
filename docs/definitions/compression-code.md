@@ -1,7 +1,7 @@
 # Compression Code
 
-**Label:** `eq:error` (Letter)
-**Source:** Letter line ~186; Article line ~124; Notes line ~241
+**Label:** `eq:error` in both the current [[Letter]] and [[Article]].
+**Source:** [Letter compression task](https://github.com/JWang226/QMDL/blob/main/letter.tex#L183) and [Article introduction](https://github.com/JWang226/QMDL/blob/main/article.tex#L76). The earlier [[Notes]] use their own version.
 
 ## Statement
 
@@ -22,7 +22,7 @@ Think of $E$ as a compression algorithm and $D$ as decompression. The code is go
 
 ## Key Distinction
 
-This is **not** entanglement-preserving compression (Schumacher). The decoder only needs to recover $\rho^{\otimes n}$, not $|\psi\rangle^{\otimes n}$ for any purification $|\psi\rangle$. This weaker requirement is what makes the rate $O(\log n)$ instead of $O(n)$.
+This is **not** entanglement-preserving compression (Schumacher). The decoder only needs to recover $\rho^{\otimes n}$, not $|\psi\rangle^{\otimes n}$ for any purification $|\psi\rangle$. For a mixed source, this weaker requirement permits logarithmic memory instead of the extensive $nS(ho)$ cost. For pure states there is no purification to preserve; the distinction is that the QMDL encoder knows only the spectrum, while the usual known-source Schumacher task can regenerate a known pure state.
 
 ### Why non-entanglement-preserving makes the rate logarithmic
 

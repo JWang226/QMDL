@@ -10,6 +10,10 @@ Quantum minimum description of density matrices, by Patrick Hayden,
 Alexander Maloney, Jinzhao Wang, and Yuxiang Yang; manuscript article.tex
 as supplied with this project. Bibliographic authorship does not imply that
 all manuscript authors reviewed or endorsed the generated Lean code.
+The companion Letter, Free entropy and quantum minimum description length,
+by the same authors, is included as letter.tex with its compression.pdf figure.
+The manuscripts and figure retain their authors' rights; the Lean certificates
+cover the Article's stated scope, not all geometric claims of the Letter.
 
 AI assistance
 -------------

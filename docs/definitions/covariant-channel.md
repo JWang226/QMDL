@@ -1,6 +1,6 @@
 # $U(d)$-Covariant Channel
 
-**Source:** Article line ~269; Notes line ~323
+**Source:** current [[Article]], `eq:covariance` and `eq:covChoi`, in [the PRV-channel section](https://github.com/JWang226/QMDL/blob/main/article.tex#L340); historical [[Notes]] background.
 
 ## Statement
 
@@ -14,7 +14,7 @@ where $\pi_\mu, \pi_\nu$ are the representations of $U(d)$ on $H_\mu, H_\nu$.
 
 The channel "commutes with rotations": **rotating the input is the same as rotating the output**. Physically, this means the channel does not "see" any preferred basis -- it treats all orientations of the state equally. If Alice rotates her input state by some unitary $U$ before sending it through the channel, the result is the same as if she sent the original state and Bob rotated the output by $U$.
 
-This is the natural symmetry requirement for any channel used in the compression scheme: since the state $\rho = U \rho_0 U^\dagger$ has an unknown eigenbasis (parameterized by $U \in U(d)$), the encoder and decoder must handle all eigenbases equally. A covariant channel automatically respects this symmetry.
+The constructed cloning channels satisfy this symmetry, making their error bounds uniform over the unknown eigenbasis. A general admissible compression code need only be fixed independently of the unknown unitary; covariance is not an extra assumption in the Article's converse.
 
 ## Classification
 
