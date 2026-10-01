@@ -1,0 +1,27 @@
+/* Copyright (c) 2026 Free Entropy formalization contributors.
+   See LICENSE and NOTICE for license and attribution. */
+.qmdl-reading-links {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .75rem;
+  margin: 1.4rem 0 1.8rem;
+}
+.qmdl-reading-links a {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  padding: 1rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: .25rem;
+  color: var(--md-typeset-color);
+  text-decoration: none;
+}
+.qmdl-reading-links a:hover,
+.qmdl-reading-links a:focus-visible {
+  border-color: var(--md-accent-fg-color);
+}
+.qmdl-reading-links strong { color: var(--md-primary-fg-color); }
+.qmdl-reading-links span { font-size: .8em; color: var(--md-default-fg-color--light); }
+@media (max-width: 800px) {
+  .qmdl-reading-links { grid-template-columns: 1fr; }
+}

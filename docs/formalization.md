@@ -3,7 +3,9 @@
 The Lean development proves the two main statements of the current
 [[Article]]: optimal known-spectrum memory (`thm:qmdl`) and finite cloning
 accuracy (`thm:main`). [[proof-structure|The proof map]] explains the route
-from actual representations and channels to those endpoints.
+from actual representations and channels to those endpoints. The
+[Lean explorer](proof-explorer.md) lets you search the declarations, inspect
+their compiled types and follow direct references in either direction.
 
 ## What is checked
 
@@ -56,22 +58,17 @@ this page does not infer a completed hosted run from workflow configuration.
 
 ## Reproduce the checks
 
-Use the [repository README](https://github.com/JWang226/QMDL#reproduce-the-lean-proof-check)
-for the full installation and fresh-checkout commands. It pins the Lean
-and dependency versions and gives separate instructions for Comparator,
-Nanoda and the Linux sandbox. Once the prerequisites and public dependency
-cache are installed, the central commands from the repository root are:
+Use [[verify|the verification guide]] for prerequisites, pinned tools, fresh
+logs, success markers and the separate Linux sandbox procedure. From the
+repository root, run:
 
 ```sh
-(cd lean && bash check.sh)
-python3 lean/ComparatorConfig/check_local.py
-python3 lean/ComparatorConfig/check_nanoda.py --nanoda-bin /path/to/nanoda_bin
+bash scripts/verify.sh all
 ```
 
-The final path must refer to the real binary built with the README's pinned
-Nanoda source and Rust version. All three commands fail with a nonzero exit
-status when their checks fail. The latter two commands are local, unsandboxed
-checks intended for a trusted checkout.
+Success ends with `VERIFICATION PASSED: all`; a failed check returns nonzero.
+The guide also documents separate `lean`, `comparator` and `nanoda` modes.
+Comparator and Nanoda execution is local and unsandboxed.
 
 ## Limits of the claim
 

@@ -35,6 +35,9 @@ PUBLICATION_FILES = (
     "metadata/schema-sources.json",
     "docs/AI_PROVENANCE.md", "docs/RELEASE_CHECKLIST.md",
     "docs/FORMALIZATION_STATUS.md", "docs/REPRODUCIBILITY.md",
+    "docs/verify.md", "docs/PROOF_EXPLORER.md",
+    "docs/assets/lean-catalog.json",
+    "scripts/verify.sh", "scripts/generate_proof_catalog.py", "scripts/export_proof_catalog.lean",
     ".github/workflows/lean.yml", "scripts/prepare_release.py",
     "scripts/validate_artifacts.py", "scripts/requirements-release.txt",
 )

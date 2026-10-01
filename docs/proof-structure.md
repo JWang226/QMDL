@@ -4,7 +4,9 @@ This map follows the formal proof of [[Article|Article Theorems 1 and 2]].
 The source labels `thm:qmdl` and `thm:main` identify the targets. The arrows
 show mathematical dependencies, grouping many Lean modules into each stage;
 they are not a literal graph of every import. See [[formalization|Formalization and reproduction]] for
-reproduction and review status.
+reproduction and review status. The [Lean explorer](proof-explorer.md) complements
+this route with searchable compiled statements, direct dependencies, reverse
+references and module imports.
 
 ## The dependency map
 
@@ -153,7 +155,7 @@ Earlier conditional reduction lemmas remain useful internally; their extra
 premises are discharged before reaching these endpoints. Broader channel
 families, optimal prescribed-error tradeoffs, repeated positive eigenvalues,
 unknown-spectrum coding and the later entropy/programming discussion are
-not all certified by these results. See the relevant [[index|open-question pages]]
+not all certified by these results. See the relevant [[wiki-index|open-question pages]]
 and [[formalization|formalization scope]].
 
 ## Relation to the current Letter

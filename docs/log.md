@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-10-01 — Proof explorer and verification entrypoint
+
+- Added a searchable catalog of compiled Lean types and direct constant
+  references, including supplemental structures and compiler declarations.
+- Added one verification wrapper for Lean, local Comparator and Nanoda,
+  with fresh logs, pinned checker builds, negative controls and explicit verdicts.
+- Simplified the repository README and proof website navigation; preserved the
+  mathematical wiki index and the current Article/Letter coverage boundaries.
+- Added deterministic catalog validation to artifact checks and site deployment.
+
 ## 2026-04-09 — Content revisions: merges, new pages, corrections
 
 ### New pages

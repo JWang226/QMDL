@@ -1,173 +1,88 @@
-# Free Entropy & Quantum Minimum Description Length — Wiki Index
+# Quantum minimum description of density matrices
 
-> **Project:** "Free entropy and quantum minimum description length"
-> **Authors:** Patrick Hayden, Alexander Maloney, Jinzhao Wang, Yuxiang Yang
-> **Last updated:** 2026-10-01
+Lean 4 proofs of Article Theorems 1 and 2, by **Patrick Hayden, Alexander Maloney,
+Jinzhao Wang and Yuxiang Yang**. The formalization was developed with assistance
+from Codex. The current [Article](https://github.com/JWang226/QMDL/blob/main/article.tex)
+and [Letter](https://github.com/JWang226/QMDL/blob/main/letter.tex) are included in
+the [repository](https://github.com/JWang226/QMDL).
 
-**[[intro|Start here]]** -- overview of the project, main result, and how to navigate.
+<div class="qmdl-reading-links">
+<a href="proof-structure/"><strong>Read the proof route</strong><span>From representations to optimal memory</span></a>
+<a href="proof-explorer/"><strong>Explore the Lean statements</strong><span>Search declarations and follow dependencies</span></a>
+<a href="verify/"><strong>Check it yourself</strong><span>Copy commands for Lean, Comparator and Nanoda</span></a>
+</div>
 
-**[[proof-structure|Current proof structure]]** -- how representation theory, finite cloning bounds,
-physical compression and the quantitative converse fit together.
+## What is proved
 
-**[[formalization|Lean formalization and reproduction]]** -- checked scope and commands
-for Lean, Comparator and Nanoda.
+A known-spectrum state has an unknown eigenbasis. One pair of quantum channels
+must compress and recover its entire $n$-copy state for every basis, with
+vanishing global trace-distance error. All retained quantum and classical
+registers count toward the memory.
 
----
+For fixed dimension $d$, rank $r$, and distinct positive eigenvalues
+$x_1>\cdots>x_r>0$ summing to one, with all remaining eigenvalues zero, define
 
-## Source Papers
+$$
+L_{d,r}(n,x)=\frac{r(2d-r-1)}2\log_2 n
++\sum_{1\le i<j\le r}\log_2(x_i-x_j)
++(d-r)\sum_{i=1}^r\log_2 x_i
+-\sum_{k=d-r}^{d-1}\log_2(k!).
+$$
 
-| File | Title | Role |
-|------|-------|------|
-| [[Letter]] (repository-root `letter.tex`) | Free entropy and quantum minimum description length | Current Letter: physical entropy, orbit geometry and operational relation |
-| [[Article]] (repository-root `article.tex`) | Quantum minimum description of density matrices | Full journal paper (proofs) |
-| [[Notes]] (`sources/Free.tex`, historical local snapshot) | Free entropy and quantum minimum description length | Earlier extended notes (+ unitary & observable programming) |
-
-The repository-root Article and Letter match the author-supplied sources.
-They share `free.bib`; the Letter also includes `compression.pdf`.
-The [companion source map](https://github.com/JWang226/QMDL/blob/main/metadata/letter-source-map.json)
-records file hashes, Letter equation labels and the boundary of Lean coverage.
-
----
-
-## Core Concepts
-
-### Free Probability & Free Entropy
-- [[concepts/free-probability-and-entropy|Introduction to Free Probability, Free Entropy, and Free Entropy Dimension]] — self-contained pedagogical introduction
-- [[concepts/free-probability-theory|Free Probability Theory]] — the broader mathematical framework
-- [[concepts/semicircular-element|Semicircular Element and Free Independence]] — non-commutative Gaussian and freeness
-- [[concepts/free-entropy|Free Entropy]] — Voiculescu's non-commutative Shannon entropy
-- [[concepts/physical-free-entropy|Physical Free Entropy]] — finite-dimensional, resolution-dependent version
-- [[concepts/free-entropy-dimension|Free Entropy Dimension]] — leading-order scaling coefficient
-- [[definitions/regularized-free-entropy|Regularized Free Entropy]] — the $O(1)$ eigenvalue-dependent correction
-- [[concepts/vandermonde-determinant|Vandermonde Determinant]] — eigenvalue repulsion factor
-
-### Information Theory & Compression
-- [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]] — the compression task and main result
-- [[concepts/kolmogorov-complexity|Kolmogorov Complexity & QKC]] — classical and quantum descriptive complexity
-- [[concepts/schumacher-compression|Schumacher Compression]] — contrasting: von Neumann entropy governs this
-- [[concepts/covering-numbers|Covering Numbers]] — comparison with physical entropy up to an additive $O(1)$
-
-### Representation Theory
-- [[concepts/schur-weyl-duality|Schur-Weyl Duality & Schur Transform]] — the fundamental decomposition and its unitary implementation
-- [[concepts/young-diagrams|Young Diagrams and Partitions]] — labels for irreps
-- [[concepts/schur-polynomials|Schur Polynomials]] — characters of GL(d) representations
-- [[concepts/gelfand-tsetlin-basis|Gelfand-Tsetlin Basis]] — canonical basis for GL(d) irreps
-- [[concepts/weyl-dimension-formula|Weyl Dimension Formula]] — dimension of irreps
-- [[concepts/prv-component|PRV Component]] — channel component and its relation to the Cartan construction
-- [[concepts/kumars-theorem|Kumar's Theorem]] — general background and the multiplicity-one case needed here
-- [[concepts/casimir-operator|Casimir Operator]] — used in perturbation analysis
-- [[concepts/kostant-partition-function|Kostant Partition Function]] — bounds weight multiplicities
-- [[concepts/flag-manifold|Flag Manifold]] — the eigenbasis manifold
-
-### Cloning & Compression
-- [[concepts/generalized-cloning-map|Generalized Cloning Map]] — the key technical innovation
-- [[concepts/werners-cloning-map|Werner's Cloning Map]] — the qubit special case
-- [[concepts/ych-scheme|YCH Scheme]] — Yang-Chiribella-Hayashi precursor
-- [[concepts/koashi-imoto|Koashi-Imoto Structure Theorem]] — exact incompressibility and the quantitative converse
-- [[concepts/petz-recovery-map|Petz Recovery Map]] — reverse cloner interpretation
-- [[concepts/holevo-information|Holevo Information]] — used in converse proofs
-
-### Geometric Quantization
-- [[concepts/kks-theorem|KKS Theorem]] — explains the factor of 1/2 between free entropy and QMDL
-
----
-
-## Formal Definitions
-
-| Definition | File |
-|------------|------|
-| [[definitions/compression-code|Compression Code]] | $(|M|, \delta)$-code |
-| [[definitions/generalized-cloning-map-def|Generalized Cloning Map (Formal)]] | Stinespring & Choi forms |
-| [[definitions/free-entropy-voiculescu|Free Entropy (Voiculescu)]] | Microstate definition |
-| [[definitions/physical-free-entropy-def|Physical Free Entropy (Definition)]] | Ambient Hilbert–Schmidt tube-volume ratio |
-| [[definitions/regularized-free-entropy|Regularized Free Entropy]] | $\chi_{\mathrm{reg}}(\rho)$ |
-| [[definitions/free-entropy-dimension-def|Free Entropy Dimension (Formal)]] | $\delta(a)$ |
-| [[definitions/covariant-channel|U(d)-Covariant Channel]] | Symmetry requirement |
-| [[definitions/scaling-regime|Scaling Regime]] | Asymptotic regime for vanishing cloning error |
-| [[definitions/typical-set|Typical Set]] | $T_{p,n}$ |
-| [[definitions/edge-gap|Edge Gap]] | $g_\lambda$ |
-| [[definitions/normalized-gl-irrep|Normalized GL Irrep State]] | $\rho_\lambda$ |
-| [[definitions/kostka-number|Kostka Number]] | $K_{\lambda, w}$ |
-| [[definitions/weight-space|Weight and Weight Space]] | Weight decomposition |
-| [[definitions/distance-between-irreps|Distance Between Irreps]] | $d(\mu, \nu)$ |
-
----
-
-## Current Article results
-
-Theorem numbers below refer to the bundled Article. The current [[Letter]]
-states its compression results as labeled equations and its double-scaling
-bridge as a remark; [[Notes]] retains historical numbering. Always qualify
-shared equation labels by their source document.
-
-| Result | Article label | Formal role |
+| Result | Conclusion | Exact Lean statement |
 | --- | --- | --- |
-| [[results/achievability|Theorem 1: achievability]] | `thm:qmdl`, `thm:achievability` | Exact memory constant and uniform $O(\log n/\sqrt n)$ error. |
-| [[results/converse|Theorem 1: converse]] | `thm:qmdl`, `thm:converse` | Haar-average lower bound for arbitrary physical codes. |
-| [[results/cloning-fidelity|Theorem 2: cloning accuracy]] | `thm:main` | Finite trace-distance bounds for the original Choi channels. |
+| Article Theorem 1: achievability | Constructed CPTP codes attain $L_{d,r}(n,x)+o(1)$ memory, with worst-case error $O(\log n/\sqrt n)$. | [theorem1_achievability](proof-explorer.md#declaration=FreeEntropy.theorem1_achievability) |
+| Article Theorem 1: converse | Every physical code with vanishing Haar-average error satisfies $\liminf(\log_2\dim M_n-L_{d,r}(n,x))\ge0$. The worst-case criterion is also covered. | [theorem1_converse](proof-explorer.md#declaration=FreeEntropy.theorem1_converse) |
+| Article Theorem 2: cloning | Both original Choi-projector channels have trace error at most $C_{d,x}\|\nu-\mu\|_1/(b_\mu+1)$. | [theorem2_cloning_accuracy_choi](proof-explorer.md#declaration=FreeEntropy.ExteriorRepresentation.theorem2_cloning_accuracy_choi) |
 
-## Supporting propositions
+Theorem 1 includes every positive rank and $d=1$. Theorem 2 requires $d\ge2$,
+partitions supported on the first $r$ rows, and a dominant integral difference,
+which may have negative entries. Its channels, representations, dimensions,
+concentration and covariance facts are constructed or proved in the library.
+The [[intro|introduction]] explains these statements; the [[proof-structure|proof route]]
+connects each step to its Lean module.
 
-| Result | Article label | Role |
+## Verification
+
+The recorded local check covers **270 proof modules**, **1,873 proved declarations**
+and **2,499 public declarations**. The proof library has no unresolved placeholders
+or custom axioms. Its transitive axiom audit permits only `propext`,
+`Classical.choice` and `Quot.sound`.
+
+| Check | Recorded result | What it checks |
 | --- | --- | --- |
-| [[results/propositions/choi-matrix-lemma|Cartan and Choi formulas]] | `prop:choi` | Identify the constructed forward channel with the source formula. |
-| [[results/propositions/reverse-cloner|Reverse cloner and Petz map]] | `prop:reverse` | Identify the reverse channel and recovery expression. |
-| [[results/propositions/commutativity|Commutativity]] | `prop:commutativity` | Paper-level structural result; see the page for its formalization boundary. |
-| [[results/propositions/orbit-sector-compression|Haar-orbit memory bound]] | `prop:compact_orbit_memory` | Quantitative finite memory lower bound used in the converse. |
+| Lean build and axiom audit | Passed locally | Types, proof terms and transitive axioms of every indexed public declaration. |
+| Local Comparator diagnostic | Passed for three configurations / four endpoints | Expected statements and referenced definitions, allowed axioms, and Lean kernel replay. |
+| Nanoda, a separate Rust kernel | Passed for all three solution exports | The exported endpoint dependency closures, including required theorem roots. |
 
-## Supporting estimates
+The latter two checks were unsandboxed. Independent human review and a
+Linux-sandboxed Comparator run are not established. The [[formalization|scope and evidence]]
+page identifies the actual records; [[verify|fresh verification]] checks your checkout.
 
-| Explanation | Article label or status | Role in the current proof |
-| --- | --- | --- |
-| [[results/lemmas/kostka-monotonicity|Multiplicity monotonicity]] | `lem:kostka` | Compare the relevant weight multiplicities. |
-| [[results/lemmas/perturbation-lemma|Highest-weight projector deficit]] | `lem:perturbation` | Control the traced loss using a Casimir gap. |
-| [[results/lemmas/tail-mass|Uniform mean depth]] | `lem:tail` | Average finite deficits without an $n$-dependent truncation. |
-| [[results/lemmas/probability-ratio|Eigenvalue ratio]] | `lem:ratio` | Control normalized weight-state coefficients. |
-| [[results/lemmas/dimension-ratio|Weyl dimension ratio]] | `lem:dim_ratio` | Bound the finite normalization loss. |
-| [[results/lemmas/weyl-dimension-asymptotic|Asymptotic Weyl dimension]] | `lem:weyl_asymptotic` | Retain the additive memory constant. |
-| [[results/lemmas/sanov-theorem|Physical sector concentration]] | `lem:tail_prob` | Bound the mass outside the typical window. |
-| [[results/lemmas/monotonicity-lemma|Positive-order trace comparison]] | Supporting inequality | Pass from a positive channel branch to a trace-distance bound. |
+With the prerequisites listed in the verification guide installed:
 
-[[results/lemmas/principal-angles|Principal angles]] and
-[[results/lemmas/davis-kahan|Davis–Kahan perturbation theory]] are retained as
-background to the older fidelity-based presentation. The current finite
-trace-distance route is described in [[proof-structure]].
+```sh
+git clone https://github.com/JWang226/QMDL.git
+cd QMDL
+bash scripts/verify.sh all
+```
 
-## Proof reading route
+Success ends with `VERIFICATION PASSED: all`. Each invocation saves fresh logs
+under `.verify-work/`; a failed command returns a nonzero exit status.
+[Separate checker commands and expected verdicts](verify.md) are also documented.
 
-1. [[proof-structure|Start with the dependency diagram and module map]].
-2. Read [[results/cloning-fidelity|the finite cloning estimate]] and its Cartan/Choi/Petz identifications.
-3. Follow [[results/achievability|typical-sector compression to a padded target]].
-4. Follow [[results/converse|the spectral-gap and Haar-average converse]].
-5. Use [[formalization|the verification guide]] to check the exact formal statements.
+## What remains outside this formalization
 
----
+The current Letter expresses the optimal memory as
+$\tfrac12\chi_{\mathrm{phy}}(\rho;n^{-1})+C_{d,r}+o(1)$ using an ambient
+Hilbert–Schmidt tube-volume convention. The Article certificates prove its
+memory formula. The Letter's geometric volume calculation, offset identity
+and conditional large-dimension bridge have no separate Lean certificates.
+Repeated **positive** eigenvalues and broader programming extensions are
+outside these endpoints; repeated zeros are already covered.
 
-## Notation
-
-- [[notation|Notation Glossary]] — all symbols used across the papers
-
----
-
-## Open Questions
-
-- [[open-questions/cloning-optimality|Open: Optimality of the Generalized Cloning Map]] — is the PRV channel the fidelity maximizer among all covariant channels?
-- [[open-questions/degenerate-spectrum|Open: QMDL for Degenerate Spectrum]] — extend the main result to repeated positive eigenvalues; repeated zeros are already covered
-- [[open-questions/error-scaling|Open: Error Scaling]] — optimal tradeoffs beyond the proved $O(\log n/\sqrt n)$ rate
-- [[open-questions/free-entropy-conjecture|Conjecture: Free Entropy as Universal QMDL & Programming Extensions]] — broader operators in settings where free entropy is defined, including unitary/observable/state programming questions
-
----
-
-## References
-
-- [[references/key-references|Key References]] — annotated bibliography of key cited works
-
----
-
-## How to use this wiki
-
-Browse the published site or open the repository's `docs/` folder as an
-Obsidian vault. The current Article source and Lean library are linked from
-the result pages. When sources change, reconcile statement labels, proof
-routes and the [[notation|notation glossary]], then record the update in
-[[log|the change log]].
+See [[Letter|the Letter]], [[formalization|the full scope]], and the
+[manuscript-to-Lean map](https://github.com/JWang226/QMDL/blob/main/metadata/natural-language-map.json).
+The [[wiki-index|mathematical wiki index]] collects the background definitions,
+lemmas, references and open questions. English explanations are reading aids;
+the exact Lean statements are what the checkers prove.

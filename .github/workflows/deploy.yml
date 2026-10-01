@@ -20,4 +20,6 @@ jobs:
 
       - run: pip install -r requirements.txt
 
-      - run: mkdocs gh-deploy --force
+      - run: python3 scripts/generate_proof_catalog.py --check
+
+      - run: mkdocs gh-deploy --strict --force

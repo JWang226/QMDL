@@ -1,107 +1,115 @@
 # Quantum minimum description of density matrices
 
-Lean 4 formalization of Theorems 1 and 2 in the [Article](article.tex), by
-Patrick Hayden, Alexander Maloney, Jinzhao Wang, and Yuxiang Yang.
-Developed with assistance from Codex.
+Lean 4 proofs of Theorems 1 and 2 in the [Article](article.tex), by Patrick Hayden,
+Alexander Maloney, Jinzhao Wang and Yuxiang Yang. Developed with assistance from
+Codex. The current [Article](article.tex), [Letter](letter.tex), shared bibliography
+and Letter figure are included unchanged.
 
-Both current manuscripts are included: the [Article](article.tex) gives the
-proofs, and the [Letter](letter.tex) explains the physical free-entropy relation.
-The Lean certificates cover the Article results listed below.
+[Proof website](https://jwang226.github.io/QMDL/) ·
+[Proof route](https://jwang226.github.io/QMDL/proof-structure/) ·
+[Lean explorer](https://jwang226.github.io/QMDL/proof-explorer/) ·
+[Verification guide](https://jwang226.github.io/QMDL/verify/)
 
-[Project wiki](https://jwang226.github.io/QMDL/) ·
-[Proof structure](https://jwang226.github.io/QMDL/proof-structure/) ·
-[Statement-to-Lean map](metadata/natural-language-map.json)
-
-## Results and scope
+## The statements
 
 | Result | Checked declaration | Conclusion |
 | --- | --- | --- |
-| Theorem 1: achievability | [FreeEntropy.theorem1_achievability](lean/FreeEntropy/Theorem1Complete.lean) | Actual CPTP codes with the exact additive memory constant and worst-case error $O(\log n/\sqrt n)$. |
-| Theorem 1: converse | [FreeEntropy.theorem1_converse](lean/FreeEntropy/Theorem1Complete.lean) | Matching memory lower bound for arbitrary codes with vanishing Haar-average error; also covers vanishing worst-case error. |
-| Theorem 2: cloning | [FreeEntropy.ExteriorRepresentation.theorem2_cloning_accuracy_choi](lean/FreeEntropy/Theorem2Choi.lean) | Both original Choi-projector channel bounds, including signed dominant differences, rank one, and equal rows. |
+| Article Theorem 1: achievability | [theorem1_achievability](https://jwang226.github.io/QMDL/proof-explorer/#declaration=FreeEntropy.theorem1_achievability) | Constructed CPTP codes attain the exact additive memory constant and worst-case error $O(\log n/\sqrt n)$. |
+| Article Theorem 1: converse | [theorem1_converse](https://jwang226.github.io/QMDL/proof-explorer/#declaration=FreeEntropy.theorem1_converse) | Matching lower bound for arbitrary physical codes with vanishing Haar-average error; also covers vanishing worst-case error. |
+| Article Theorem 2: cloning | [theorem2_cloning_accuracy_choi](https://jwang226.github.io/QMDL/proof-explorer/#declaration=FreeEntropy.ExteriorRepresentation.theorem2_cloning_accuracy_choi) | Both original Choi-projector channel bounds, including signed dominant differences, rank one and equal rows. |
 
 The dimension and spectrum are fixed, with distinct positive eigenvalues and
-possible zeros. The cloning theorem assumes $d\ge2$, dominant natural rows
-supported on the first $r$ coordinates, and a dominant integral difference.
-Representation theory, dimensions, concentration, covariance, and
-Choi/Petz identities are proved dependencies. The entire manuscript and its
-broader extensions are not claimed to be formalized; see [exact scope](docs/FORMALIZATION_STATUS.md).
+possible zeros. Theorem 1 covers all positive ranks, including `d=1`. The cloning
+theorem requires `d≥2`, supported natural partitions and a dominant integral
+difference. Representation theory, dimensions, concentration, covariance and
+Choi/Petz identities are proved dependencies.
 
-The proof library has no unresolved placeholders or custom axioms. Its audited
-axioms are only `propext`, `Classical.choice`, and `Quot.sound`.
-The deliberate holes in `lean/ComparatorChallenges/` are independent expected
-statements, excluded from the proof library. Comparator checks their match to
-the proved statements; its [imported-definition trust boundary](lean/ComparatorChallenges/trusted-boundary.json)
-is explicit. These checks do not replace human review of correspondence with the paper.
+The explorer shows the exact elaborated Lean types and declaration references.
+[Source files](lean/FreeEntropy/Theorem1Complete.lean),
+[the cloning endpoint](lean/FreeEntropy/Theorem2Choi.lean) and the
+[statement map](metadata/natural-language-map.json) locate the certificates.
+The Letter's tube-volume geometry, entropy offsets and double-scaling bridge,
+and broader repeated-positive-spectrum/programming claims, are outside these
+certificates. See [precise scope](docs/FORMALIZATION_STATUS.md).
 
-**Recorded status:** a clean local Lean build and axiom audit, all three local
-Comparator diagnostics, and all three independent Nanoda checks passed.
-Independent human review and a Linux-sandboxed Comparator run remain pending.
-[Evidence and reproduction details](docs/REPRODUCIBILITY.md) distinguish these
-completed local checks from the configured [CI workflow](.github/workflows/lean.yml).
+## How it was verified
 
-## Reproduce the Lean proof check
+- **Lean:** a clean local build and transitive axiom audit passed for 270 proof
+  modules, 1,873 proved declarations and 2,499 public declarations. Only
+  `propext`, `Classical.choice` and `Quot.sound` are permitted; the proof library
+  has no unresolved placeholders or project-specific axioms.
+- **Comparator:** three local diagnostics compared expected statements and
+  referenced definitions, checked axioms and replayed the proofs through Lean's
+  kernel. The independent [challenge files](lean/ComparatorChallenges/) contain
+  deliberate specification holes and are excluded from the proof library.
+- **Nanoda:** the separately implemented Rust kernel accepted all three solution
+  exports, including their dependency closures and required theorem roots.
 
-On macOS or Linux, install [elan](https://github.com/leanprover/elan),
-Python 3.11+, Git, and native compiler/linker tools (Xcode Command Line Tools
-on macOS; a C/C++ build toolchain on Linux). Allow several GB of memory and
-disk space, plus internet access for the initial dependencies.
+Comparator diagnostics and Nanoda checks were unsandboxed. Independent human
+review and Linux-sandboxed Comparator execution are not established.
+[Recorded evidence](docs/REPRODUCIBILITY.md) describes completed runs;
+the commands below perform new checks. English names and explanations are
+reading aids: the exact formal statements determine what was proved.
+
+## Check it yourself
+
+Use **macOS or Linux**, [elan](https://github.com/leanprover/elan), Git, Python
+3.11+, native C/C++ compiler/linker tools, and [Rustup](https://rustup.rs/) for
+Nanoda. Initial setup needs internet access and space for the dependencies.
+The wrapper prepares the pinned checker tools and saves fresh logs per run.
 
 ```sh
 git clone https://github.com/JWang226/QMDL.git
 cd QMDL
-export PATH="$HOME/.elan/bin:$PATH"
-(cd lean && lake exe cache get && bash check.sh)
+bash scripts/verify.sh all
 ```
 
-This builds the proof library and reader entry points, audits transitive axioms,
-and writes [verification/summary.json](lean/verification/summary.json).
-The recorded audit covers 270 proof modules and 2,499 public declarations,
-including 1,873 proved declarations. Lean is pinned to **4.29.0-rc6**;
-[the manifest](lean/lake-manifest.json) pins every dependency, including mathlib
-`f156f7abd91ac67adb22bf999e5a71ba22e22e41`. Keep it; do not run `lake update`.
-
-## Reproduce Comparator and Nanoda checks
-
-Run these from the repository root after the Lean build, on trusted local sources.
-Both commands below are **unsandboxed** and exit nonzero on failure.
-
-Comparator compares expected statements and referenced definitions, checks
-solution axioms, then replays the exported proofs in Lean's kernel:
+Success ends with **`VERIFICATION PASSED: all`**. The command returns nonzero
+if any requested check fails. Logs and the new Nanoda report are saved in the
+printed `.verify-work/run-*` directory; old bundled reports are not a new pass.
+For individual layers, from the same repository root:
 
 ```sh
-python3 lean/ComparatorConfig/check_local.py
+bash scripts/verify.sh lean        # build + transitive axiom audit
+bash scripts/verify.sh comparator  # expected statements + Lean kernel replay
+bash scripts/verify.sh nanoda      # pinned independent Rust kernel
 ```
 
-Comparator is pinned to `a4f696825c583ed8a5b4060d9a0faa5b882d365b`.
-For the separate Rust kernel, install [Rustup](https://rustup.rs/), then:
+The default build uses public dependency caches. Comparator/Lean and Nanoda
+replay the exported endpoint dependency closures. Lean is pinned to
+**4.29.0-rc6**; [the lockfile](lean/lake-manifest.json) pins every dependency.
+Comparator is pinned to `a4f696825c583ed8a5b4060d9a0faa5b882d365b`; Nanoda to
+`3a2407216ee84a75f9e1aead6803d0578be06ae7`, built with Rust **1.90.0**.
+Keep the pins; do not run `lake update`.
+
+[The verification guide](docs/verify.md) gives the modes, exact
+success markers and the separate Linux/Landrun sandbox procedure.
+Metadata validation checks evidence bindings; it does not execute the checkers.
+
+## Read the proof
+
+Start with [the proof route](https://jwang226.github.io/QMDL/proof-structure/),
+then use [the explorer](https://jwang226.github.io/QMDL/proof-explorer/) to search
+public declarations, inspect their exact types and follow dependencies in both
+directions. [The mathematical wiki](https://jwang226.github.io/QMDL/wiki-index/)
+explains the concepts and paper-level arguments.
+
+To browse a local Git checkout:
 
 ```sh
-tool_dir="$(mktemp -d)"
-git clone https://github.com/ammkrn/nanoda_lib.git "$tool_dir/nanoda"
-git -C "$tool_dir/nanoda" checkout --detach 3a2407216ee84a75f9e1aead6803d0578be06ae7
-rustup toolchain install 1.90.0 --profile minimal
-CARGO_TARGET_DIR="$tool_dir/nanoda/target" \
-  cargo +1.90.0 build --release --locked --manifest-path "$tool_dir/nanoda/Cargo.toml"
-python3 lean/ComparatorConfig/check_nanoda.py \
-  --nanoda-bin "$tool_dir/nanoda/target/release/nanoda_bin"
+python3 -m venv .venv-docs
+.venv-docs/bin/python -m pip install -r requirements.txt
+.venv-docs/bin/mkdocs serve
 ```
 
-Nanoda 0.4.19 checks each solution's exported dependency closure with the same
-three permitted axioms. The wrapper also requires every named theorem to be
-present in the export; Nanoda independently rejects missing targets.
-[Tool pins and results](lean/ComparatorConfig/nanoda-status.json) bind the
-recorded check to the actual source and exports.
+Open the local URL printed by MkDocs. See [catalog generation](docs/PROOF_EXPLORER.md)
+for rebuilding the explorer data from the Lean environment.
 
-For sandboxed upstream Comparator, follow the [Linux/Landrun setup](lean/ComparatorChallenges/README.md#sandboxed-reproduction-on-linux),
-then run `bash check_comparator.sh --nanoda` from `lean/` with the real
-Nanoda binary on `PATH`. Full Landlock support and an unprivileged Linux
-account are required; an unavailable sandbox causes failure.
+[Formalization metadata](formalization.yaml) · [AI provenance](docs/AI_PROVENANCE.md) ·
+[Citation](CITATION.cff) · [License status](LICENSE) · [Attribution](NOTICE).
+Cite the commit checked. Independent human review and the pending license
+choice are recorded in the [release checklist](docs/RELEASE_CHECKLIST.md).
 
-## Further documentation
-
-- [Lean library guide](lean/README.md) and [wiki proof map](https://jwang226.github.io/QMDL/proof-structure/): mathematical dependencies.
-- [Reproducibility](docs/REPRODUCIBILITY.md): metadata validation, source-only exports, and CI.
-- [Comparator challenges](lean/ComparatorChallenges/README.md): expected statements, exact tools, and sandbox limitations.
-- [Formalization metadata](formalization.yaml), [AI provenance](docs/AI_PROVENANCE.md), and [release checklist](docs/RELEASE_CHECKLIST.md).
-- [Citation](CITATION.cff): cite the commit used. [LICENSE](LICENSE) records the pending license decision; [NOTICE](NOTICE) preserves attribution.
+The reading and verification layout follows the example of
+[Anthropic's FLT repository](https://github.com/anthropics/fermats-last-theorem)
+and its [proof explorer](https://tianyipeng.github.io/fermats-last-theorem/).

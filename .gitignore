@@ -39,6 +39,8 @@ sources/
 /JHEP.bst
 
 # Release bundles and local diagnostic output
+/.verify-work/
+/.venv-docs/
 /dist/
 /lean/verification/build.txt
 /lean/verification/axioms.txt

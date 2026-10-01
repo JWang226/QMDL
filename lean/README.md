@@ -1,5 +1,11 @@
 # Lean formalization of Theorems 1 and 2
 
+To check every verification layer from the repository root, run
+`bash scripts/verify.sh all`. See [the verification guide](../docs/verify.md)
+for prerequisites, separate modes and expected verdicts, and the
+[Lean explorer](https://jwang226.github.io/QMDL/proof-explorer/) for searchable
+compiled statements and direct dependencies.
+
 The final statements concern actual finite complex matrices and completely
 positive trace-preserving (CPTP) channels. The physical source is
 `(U diag(x) U†)^{⊗n}` on the literal tensor-word space. The spectrum is fixed,

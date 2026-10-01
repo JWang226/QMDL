@@ -1,6 +1,6 @@
-site_name: "Free Entropy & QMDL Wiki"
-site_description: "Technical wiki for 'Free Entropy and Quantum Minimum Description Length' by Hayden, Maloney, Wang, Yang"
-site_url: ""
+site_name: "Quantum Minimum Description — Lean Proofs"
+site_description: "Statements, proof route and reproducible Lean, Comparator and Nanoda checks for quantum minimum description length"
+site_url: "https://jwang226.github.io/QMDL/"
 
 docs_dir: docs
 site_dir: site
@@ -12,6 +12,7 @@ exclude_docs: |
   /FORMALIZATION_STATUS.md
   /RELEASE_CHECKLIST.md
   /REPRODUCIBILITY.md
+  /PROOF_EXPLORER.md
 
 theme:
   name: material
@@ -38,6 +39,7 @@ theme:
     - search.highlight
     - toc.follow
     - content.tooltips
+    - content.code.copy
   font:
     text: Roboto
     code: Roboto Mono
@@ -63,20 +65,27 @@ markdown_extensions:
       permalink: true
 
 extra_javascript:
+  - javascripts/proof-explorer.js
   - javascripts/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 
-extra_css: []
+extra_css:
+  - stylesheets/site.css
+  - stylesheets/proof-explorer.css
 
 extra:
   social: []
 
 nav:
   - Home: index.md
-  - Introduction: intro.md
-  - Notation: notation.md
-  - Proof Structure: proof-structure.md
-  - Lean Formalization: formalization.md
+  - Proof Route: proof-structure.md
+  - Lean Explorer: proof-explorer.md
+  - Verify: verify.md
+  - Guide:
+      - Introduction: intro.md
+      - Wiki Index: wiki-index.md
+      - Notation: notation.md
+      - Formalization and Evidence: formalization.md
   - Source Papers:
       - Letter: Letter.md
       - Article: Article.md

@@ -19,6 +19,7 @@ import hashlib
 import json
 from pathlib import Path, PurePosixPath
 import re
+import subprocess
 import sys
 import tomllib
 from urllib.request import urlopen
@@ -171,6 +172,7 @@ class Validator:
         self.errors, self.warnings, self.completed = [], [], []
         self.source, self.decls, self.configs = {}, {}, {}
         self.import_cache = {}
+        self.audit_current = False
 
     def require(self, condition, message):
         if not condition:
@@ -625,6 +627,18 @@ class Validator:
             for group in groups:
                 self.require({x.strip() for x in group.split(",") if x.strip()} <= ALLOWED_AXIOMS,
                              "Axiom log reports an unexpected axiom")
+        self.audit_current = not wrong
+
+    def proof_catalog(self):
+        """Validate generated documentation bindings, without executing Lean."""
+        script = self.path("scripts/generate_proof_catalog.py")
+        result = subprocess.run(
+            [sys.executable, str(script), "--check", "--root", str(self.root)],
+            capture_output=True, text=True, check=False,
+        )
+        self.require(result.returncode == 0,
+                     "Proof catalog is stale or invalid: " +
+                     (result.stderr or result.stdout).strip())
 
     def run(self):
         self.check("official metadata schemas", self.schemas)
@@ -637,6 +651,10 @@ class Validator:
         self.check("companion Letter source inventory and coverage", self.letter_sources)
         self.check("toolchain and dependency pins", self.pins)
         self.check("proof audit evidence", self.audit)
+        if self.allow_stale and not self.audit_current:
+            self.warnings.append("Compiled proof catalog validation is deferred until a current passing audit exists; rerun normal validation after lean/check.sh.")
+        else:
+            self.check("compiled proof catalog and source bindings", self.proof_catalog)
         for message in self.warnings:
             print("NOTE:", message)
         for message in self.errors:

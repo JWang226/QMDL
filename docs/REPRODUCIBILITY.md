@@ -3,6 +3,12 @@
 The proof project stays in `lean/`; `article.tex` and `free.bib` stay at the
 repository root. Verification does not compile or modify the manuscript.
 
+For the simplest fresh-checkout workflow, start with
+[the verification guide](verify.md): `bash scripts/verify.sh all` runs the
+Lean audit, local Comparator diagnostic and independent Nanoda checks, with
+fresh logs and a nonzero exit status on failure. The commands below document
+the individual tools and evidence packaging.
+
 ## Pinned environment
 
 The checked toolchain is **Lean 4.29.0-rc6**, recorded in
@@ -68,7 +74,7 @@ python3 lean/ComparatorConfig/check_local.py
 This invokes the pinned Comparator's exact statement/constant and axiom checks,
 then Lean kernel replay, for each of the three challenge configurations.
 For the separately implemented Nanoda kernel, follow the pinned Rust/source
-build commands in the [root README](../README.md#reproduce-comparator-and-nanoda-checks),
+build commands in the [challenge guide](../lean/ComparatorChallenges/README.md#independent-nanoda-replay-on-macos-or-linux),
 then run `lean/ComparatorConfig/check_nanoda.py` with the resulting binary.
 Both commands work on macOS and Linux and are explicitly unsandboxed.
 Nanoda checks each exported solution's dependency closure with unpermitted
