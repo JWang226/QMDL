@@ -1,98 +1,102 @@
-# Converse (State Compression) (Theorem 3)
+# Converse (Theorem 1, lower bound)
 
-**Label:** `thm:converse` (Article)
-**Source:** Article line ~762; Notes line ~1384
+**Labels:** `thm:qmdl`, `thm:converse` in the current [[Article]].
+**Source:** [main statement](https://github.com/JWang226/QMDL/blob/main/article.tex#L85), [converse proof](https://github.com/JWang226/QMDL/blob/main/article.tex#L923).
+**Lean endpoints:** [FreeEntropy.theorem1_converse](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/Theorem1Complete.lean#L43) and [FreeEntropy.theorem1_converse_of_uniform](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/Theorem1Complete.lean#L60).
 
 ## Statement
 
-Under the same conditions as [[results/achievability|Achievability (State Compression)]], any compression code sequence with vanishing error $\delta_n \to 0$ must have memory size:
+Fix $1\le r\le d$ and $x_1>\cdots>x_r>0$ with $\sum_i x_i=1$, padded by zeros. Let $\rho_U=U\operatorname{diag}(x)U^\dagger$. Consider **any** sequence of CPTP encoders and decoders through memory $M_n$, independent of the unknown $U$.
 
-$$\log|M_n| \geq \frac{r(2d-r-1)}{2}\log n + \sum_{i<j \leq r} \log(x_i - x_j) + (d-r)\sum_{i=1}^r \log x_i - \sum_{k=d-r}^{d-1} \log k! + o(1)$$
+If their normalized-Haar average error satisfies
 
-More precisely, the memory is bounded below by the minimum dimension among the typical Schur sectors:
+$$
+\overline\delta_n=
+\int_{\mathrm U(d)}\frac12\left\|\mathcal D_n\mathcal E_n(\rho_U^{\otimes n})-\rho_U^{\otimes n}\right\|_1\,dU\longrightarrow0,
+$$
 
-$$|M_n| \geq \min_{\lambda \in \mathcal{T}_{p,n}} \log \dim \mathcal{H}_\lambda + o(1)$$
+then
 
-This **exactly matches** the achievability, proving optimality of the compression rate.
+$$
+\liminf_{n\to\infty}\left[\log_2\dim M_n-L_{d,r}(n,x)\right]\ge0.
+$$
+
+Here $L_{d,r}$ is the full expression on the [[results/achievability|achievability page]], including its spectrum-dependent constant. The Lean statement uses an extended-real `liminf`, so it also covers sequences whose excess memory diverges. Equivalently, every fixed $\eta>0$ eventually satisfies $\log_2\dim M_n\ge L_{d,r}(n,x)-\eta$.
+
+Vanishing worst-case error implies vanishing average error and therefore the same bound. No covariance, sectorwise behavior, or rate of error decay is assumed of the arbitrary code. The memory includes every retained classical register. The spectrum and dimension are fixed; rank one and $d=1$ are covered.
 
 ## Intuition
 
-You cannot do better than the achievability protocol. The key insight is that within any single Schur sector $\lambda$, the orbit $\{U \rho_\lambda U^\dagger : U \in \mathrm{U}(d)\}$ generates the full operator algebra $\mathcal{B}(\mathcal{H}_\lambda)$. By the Koashi-Imoto structure theorem, this means the entire irrep space is "non-redundant" -- every qubit carries essential information about the eigenbasis. So you must store at least $\log \dim \mathcal{H}_\lambda$ qubits for each sector, and since this holds for at least one typical sector, it gives the lower bound.
+The [[results/achievability|achievability protocol]] provides accurate maps in both directions between the physical tensor source and one irreducible target orbit. Any smaller physical code would therefore compress that target orbit with vanishing error too. A quantitative orbit-memory inequality rules this out and retains the additive memory constant.
 
 ## Proof Sketch
 
-**Main idea:** Grant the encoder/decoder free access to the classical sector label $\lambda$ (this only makes the task easier). Use Markov's inequality on the Haar-averaged sector errors to find a "good" sector; intersect with the typical set to get a sector $\lambda^{(n)}$ that is both typical and well-compressed. For that sector, the orbit $\{U\rho_\lambda U^\dagger\}$ generates the full matrix algebra $\mathcal{B}(\mathcal{H}_\lambda)$ (via Lagrange interpolation + orbit spanning + bicommutant), so the Koashi-Imoto theorem forces $|M_n| \geq \log \dim \mathcal{H}_\lambda$. Evaluating with the asymptotic Weyl dimension formula gives the matching lower bound.
+### Transfer the arbitrary code to the padded target
 
----
+Let $\mathcal A_n$ map the physical source into the padded target $\mathcal H_{\Lambda(n)}$, and let $\mathcal B_n$ map back. Their two comparison errors sum to a uniform bound $e_n=O(\log n/\sqrt n)$. For the target orbit state $\tau_{U,n}$, form
 
-### Extended Proof
+$$
+\widetilde{\mathcal E}_n=\mathcal E_n\circ\mathcal B_n,
+\qquad
+\widetilde{\mathcal D}_n=\mathcal A_n\circ\mathcal D_n.
+$$
 
-### Step 1: Decompose into Sector Codes
+These use the original memory $M_n$. Trace-distance contractivity and the triangle inequality imply
 
-Apply the Schur transform to write $\rho_g^{\otimes n} = \sum_\lambda q_{\lambda,n} \, \rho_{g,\lambda} \otimes \tau_\lambda \otimes |\lambda\rangle\langle\lambda|$, where $q_{\lambda,n}$ depends only on the spectrum $x$ (not on $g$). Now pass to an easier "assisted" task: grant the encoder and decoder free access to the classical label $\lambda$, and allow them to discard the multiplicity state $\tau_\lambda$ before compression and recreate it for free afterward. Since this only adds free side information and ancillas, any lower bound for the assisted task is also a lower bound for the original task.
+$$
+\int T\bigl(\widetilde{\mathcal D}_n\widetilde{\mathcal E}_n(\tau_{U,n}),\tau_{U,n}\bigr)\,dU
+\le\overline\delta_n+e_n.
+$$
 
-In the assisted task, the code decomposes blockwise: for each $\lambda$ there is a sector code $(\mathcal{E}_{\lambda,n}, \mathcal{D}_{\lambda,n})$ acting on $\mathcal{H}_\lambda$ alone, using the same shared memory $M_n$. Let $\delta_{\lambda,n}(g) = \frac{1}{2}\|\mathcal{D}_{\lambda,n} \circ \mathcal{E}_{\lambda,n}(\rho_{g,\lambda}) - \rho_{g,\lambda}\|_1$ be the sector error. Since the assisted task is easier, we can arrange:
+The literal physical-source statement is [FreeEntropy.SchurWeyl.actual_transferred_average_error_le](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/PhysicalCanonicalConverse.lean#L59).
 
-$$\sup_{g \in \mathrm{U}(d)} \sum_\lambda q_{\lambda,n} \, \delta_{\lambda,n}(g) \leq \delta_n$$
+### Use a uniform positive spectral gap
 
-### Step 2: Haar-Average Sector Errors
+The [[results/propositions/orbit-sector-compression|compact-orbit memory bound]] gives
 
-Average the sector error bound over the Haar measure on $\mathrm{U}(d)$. Define $\bar{\delta}_{\lambda,n} = \int_{\mathrm{U}(d)} dg \; \delta_{\lambda,n}(g)$. Then:
+$$
+\dim M_n\ge\dim\mathcal H_{\Lambda(n)}
+\left(1-\frac{\overline\delta_n+e_n}{\gamma_*}\right),
+$$
 
-$$\sum_\lambda q_{\lambda,n} \, \bar{\delta}_{\lambda,n} \leq \delta_n$$
+for a fixed positive lower bound $\gamma_*$ on the target state's top spectral gap. The checked final route uses
 
-This weighted average of Haar-averaged sector errors is bounded by the overall error $\delta_n \to 0$.
+$$
+q_x=\max_{1\le i<r}\frac{x_{i+1}}{x_i}<1,
+\qquad
+\gamma_*=(1-q_x)^{\binom d2+1}>0,
+$$
 
-### Step 3: Markov Inequality Defines the Good Set
+with $q_x=0$ for $r=1$. The eigenvalue and counting estimates establishing this gap are proved for the actual canonical states. [FreeEntropy.SchurWeyl.physical_memory_bound_of_comparison](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/PhysicalCanonicalConverse.lean#L79) combines them with the transfer bound.
 
-Define the "good set" of sectors with small Haar-average error:
+The Article's `lem:sector_gap` states the sharper bound $\gamma_x=(1-q_x)\prod_{i<j\le r}(1-x_j/x_i)$. The endpoint above uses the weaker $\gamma_*$; its positivity and independence of $n$ suffice for the exact asymptotic conclusion. This page does not identify the two constants.
 
-$$\mathcal{G}_n := \{\lambda : \ell(\lambda) \leq r, \; \bar{\delta}_{\lambda,n} \leq \sqrt{\delta_n}\}$$
+### Take logarithms and the limit
 
-By Markov's inequality applied to the bound in Step 2: $\sum_{\lambda \notin \mathcal{G}_n} q_{\lambda,n} \leq \sqrt{\delta_n}$. Thus the good set captures most of the probability mass: $\sum_{\lambda \in \mathcal{G}_n} q_{\lambda,n} \geq 1 - \sqrt{\delta_n}$.
+Since $\overline\delta_n+e_n\to0$, the parenthesis tends to one and is eventually positive. Therefore
 
-### Step 4: Good $\cap$ Typical is Nonempty
+$$
+\log_2\dim M_n\ge
+\log_2\dim\mathcal H_{\Lambda(n)}
++\log_2\left(1-\frac{\overline\delta_n+e_n}{\gamma_*}\right)
+=L_{d,r}(n,x)+o(1).
+$$
 
-Choose the typical set with $\Delta_n = \log n$:
+The last step is the checked [[results/lemmas/weyl-dimension-asymptotic|padded-target dimension limit]]. The zero-cost $d=1$ case is handled separately before the final theorem combines all dimensions.
 
-$$\mathcal{T}_{p,n} := \{\lambda : \lambda_i = 0 \text{ for } i > r, \; \max_{1 \leq i \leq r} |\lambda_i - nx_i| \leq \sqrt{n} \log n\}$$
+## Formalization Scope
 
-By [[results/lemmas/sanov-theorem|Sanov's Theorem (Lemma 12)]], $\sum_{\lambda \notin \mathcal{T}_{p,n}} q_{\lambda,n} \leq (n+1)^{r(r+1)/2} e^{-(\log n)^2/2} = o(1)$, so the typical set also captures most mass. Since the good set has mass $\geq 1 - \sqrt{\delta_n}$ and the typical set has mass $\geq 1 - o(1)$, for sufficiently large $n$ their total exceeds 1, so $\mathcal{G}_n \cap \mathcal{T}_{p,n} \neq \emptyset$.
+The final theorem assumes only the fixed spectrum, actual CPTP codes, and convergence of their actual Haar-average error. It does not assume a decomposition, a gap, a transfer estimate, or a dimension formula. The worst-case corollary uses the proved inequality between average error and the actual supremum over $U$.
 
-Pick any sequence $\lambda^{(n)} \in \mathcal{G}_n \cap \mathcal{T}_{p,n}$. This sequence has both vanishing Haar-average sector error ($\bar{\delta}_{\lambda^{(n)},n} \leq \sqrt{\delta_n} \to 0$) and typical shape ($\lambda^{(n)}_i = nx_i + O(\sqrt{n} \log n)$).
-
-### Step 5: Apply Koashi-Imoto (Prop 4)
-
-For the specific sequence $\lambda^{(n)}$, the sector code has vanishing Haar-average error. [[results/propositions/orbit-sector-compression|Irreducible Orbit Sector Compression (Prop 4)]] then implies:
-
-$$|M_n| \geq \log \dim \mathcal{H}_{\lambda^{(n)}} + o(1)$$
-
-The proof of Prop 4 proceeds in three stages:
-1. **Lagrange interpolation:** The highest-weight eigenvalue of $\rho_\lambda$ is strictly larger than all others (since the spectrum $x$ has distinct entries), so the rank-one projector $|v_\lambda\rangle\langle v_\lambda|$ onto the highest-weight vector is a polynomial in $\rho_\lambda$: $|v_\lambda\rangle\langle v_\lambda| = \prod_{j \neq 1} (\rho_\lambda - x_j I)/(x_1 - x_j)$.
-2. **Orbit spans:** The orbit $\{U_\lambda(g)|v_\lambda\rangle\langle v_\lambda|U_\lambda(g)^\dagger : g \in \mathrm{U}(d)\}$ consists of rank-one projectors, and their span is all of $\mathcal{H}_\lambda$ (since the linear span of $\{U_\lambda(g)|v_\lambda\rangle\}$ is a nonzero invariant subspace of the irrep, hence all of $\mathcal{H}_\lambda$).
-3. **Bicommutant:** Any operator $X$ commuting with all these rank-one projectors must satisfy $X|u_g\rangle = a(g)|u_g\rangle$ for a continuous function $a(g)$ on connected $\mathrm{U}(d)$ taking values in $\mathrm{spec}(X)$ (a finite set), so $a$ is constant. Hence $X = a \cdot I$, proving the commutant is $\mathbb{C} \cdot I$ and (by finite-dimensional bicommutant) the generated algebra is $\mathcal{B}(\mathcal{H}_\lambda)$.
-
-By the [[concepts/koashi-imoto|Koashi-Imoto Structure Theorem]], since the generated algebra is the full matrix algebra, the nonredundant quantum factor is the entire space $\mathcal{H}_\lambda$, and any compression with vanishing error must use memory $\geq \log \dim \mathcal{H}_\lambda$.
-
-### Step 6: Evaluate with Weyl Dimension Formula
-
-Since $\lambda^{(n)} \in \mathcal{T}_{p,n}$, we have $\lambda^{(n)}_i = nx_i + O(\sqrt{n} \log n)$ for $1 \leq i \leq r$ and $\lambda^{(n)}_i = 0$ for $i > r$. Applying [[results/lemmas/weyl-dimension-asymptotic|Asymptotic Weyl Dimension (Lemma 11)]] with $\Delta_n = \log n$:
-
-$$\log \dim \mathcal{H}_{\lambda^{(n)}} = \frac{r(2d-r-1)}{2}\log n + \sum_{i<j \leq r} \log(x_i - x_j) + (d-r)\sum_{i=1}^r \log x_i - \sum_{k=d-r}^{d-1} \log k! + O\left(\frac{\log n}{\sqrt{n}}\right)$$
-
-Since $\log n / \sqrt{n} = o(1)$, this gives the final converse bound matching the achievability rate.
+Earlier wiki versions described a good-sector/Markov argument followed by exact [[concepts/koashi-imoto|Koashi–Imoto]] incompressibility. That is not the current Article or Lean proof of the approximate converse. Exact incompressibility alone does not supply the quantitative estimate needed for this varying family of representations. The current proof transfers to the padded target and uses the finite spectral-gap bound directly.
 
 ## Dependencies
 
-- [[results/propositions/orbit-sector-compression|Irreducible Orbit Sector Compression (Prop 4)]] -- Koashi-Imoto based lower bound per sector
-- [[concepts/koashi-imoto|Koashi-Imoto Structure Theorem]] -- the key structural result for blind compression
-- [[results/lemmas/weyl-dimension-asymptotic|Asymptotic Weyl Dimension (Lemma 11)]] -- evaluates irrep dimensions asymptotically
-- [[results/lemmas/sanov-theorem|Sanov's Theorem (Lemma 12)]] -- concentration of $\lambda$ around $nx$
+- [[results/achievability|Uniform forward and reverse physical comparison channels]]
+- [[results/propositions/orbit-sector-compression|Quantitative compact-orbit memory bound]]
+- Actual canonical irreducibility and the uniform positive top spectral gap
+- [[results/lemmas/weyl-dimension-asymptotic|Padded-target memory expansion]]
 
 ## Used By
 
-- [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]] -- this is the converse half of the main result
-
-## External References
-
-- [Koashi and Imoto, "Compressibility of quantum mixed-state signals" (2001)](https://doi.org/10.1103/PhysRevLett.87.017902)
+- [[concepts/quantum-minimum-description-length|Quantum minimum description length]]: optimality through the additive constant

@@ -1,94 +1,57 @@
-# Tail Mass (Lemma 8)
+# Uniform Mean Depth and Tail Control
 
-**Label:** `lem:tail` (Article and Notes)
-**Source:** Article line ~1624 (stated), ~2577 (proved); Notes line ~759
+**Label:** `lem:tail`; first-moment bound `eq:uniform_mean_depth`.
+**Source:** [current Article](https://github.com/JWang226/QMDL/blob/main/article.tex#L1507).
+
+The historical page name is retained. The current lemma supplies a uniform first moment; the main proof does not choose a growing depth cutoff.
 
 ## Statement
 
-The tail mass of the GL irrep at depth $T$:
+For the strictly decreasing nonzero spectrum $x_1>\cdots>x_r>0$, define
 
-$$\varepsilon_\mu(T) = \sum_{|\delta| > T} p_\mu(\delta) \cdot m_\mu(\delta) = O\left(T^\kappa \cdot \mathfrak{p}^T\right)$$
+$$q_x=\max_{i<r}x_{i+1}/x_i<1,\qquad N=\binom r2,\qquad
+K(x)=\frac{Nq_x}{(1-q_x)^{N+1}}.$$
 
-where:
-- $\kappa = r(r-1)/2 - 1$
-- $\mathfrak{p} = \max_i(x_{i+1}/x_i) < 1$ (the largest eigenvalue ratio)
-- $p_\mu(\delta) = x^{\mu-\delta}/s_\mu(x)$ is the probability of weight $\mu - \delta$
-- $m_\mu(\delta) = K_{\mu, \mu-\delta}$ is the Kostka number (multiplicity)
+Set $q_x=K(x)=0$ when $r=1$. For every partition $\lambda$ supported on the first $r$ rows,
 
-For rank $r = 1$, there are no positive roots, so $\varepsilon_\mu(T) = 0$ trivially.
+$$\sum_{\delta\in Q_+^{(r)}}|\delta|\,p_\lambda(\delta)m_\lambda(\delta)\le K(x).$$
 
-## Intuition
+Here $\delta=\sum_{i<r}c_i\alpha_i$ has depth $|\delta|=\sum_i c_i$. The coefficient $p_\lambda(\delta)=x^{\lambda-\delta}/s_\lambda(x)$ is an eigenvalue, whereas the block probability is $p_\lambda(\delta)m_\lambda(\delta)$. These block probabilities sum to one.
 
-Deep weight spaces (far from the highest weight) contribute exponentially little to the state. The decay rate $\mathfrak{p}^T$ is governed by the spectral gap: a larger gap between consecutive eigenvalues means the state is more concentrated near the highest weight. The polynomial prefactor $T^\kappa$ comes from the combinatorial growth of weight multiplicities at depth $T$, but this polynomial growth is overwhelmed by the exponential decay. This allows the [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]] proof to truncate the weight sum at a manageable depth $T = O(n^\varepsilon)$ while losing only superpolynomially small mass.
+For an integer $T\ge0$, the immediate tail bound is
 
-## Proof Sketch
+$$\sum_{|\delta|>T}p_\lambda(\delta)m_\lambda(\delta)\le\frac{K(x)}{T+1}.$$
 
-**Main idea:** Each step away from the highest weight costs a factor $\leq \mathfrak{p} = \max_i(x_{i+1}/x_i) < 1$ in probability, giving $p_\mu(\delta) \leq \mathfrak{p}^{|\delta|}$. The total multiplicity at depth $t$ grows polynomially as $O(t^\kappa)$ (bounded via Kostant's partition function and generating functions for type-$A$ root systems). Polynomial times exponential decay sums to $O(T^\kappa \mathfrak{p}^T)$.
+## Proof sketch
 
----
+The highest-weight monomial gives $s_\lambda(x)\ge x^\lambda$. Each simple-root step costs at most $q_x$, hence $p_\lambda(\delta)\le q_x^{|\delta|}$. PBW spanning bounds weight multiplicity by positive-root partitions. At depth $t$, their total number is at most
 
-### Extended Proof
+$$\sum_{|\delta|=t}m_\lambda(\delta)\le\binom{t+N-1}{N-1}\quad(r\ge2).$$
 
-### Step 1: Bound Individual Weights by $\mathfrak{p}^{|\delta|}$
+One concrete counting proof injects weighted root assignments into $N$-tuples of total degree $t$: put the unused degree into a distinguished root of height one. The weighted-depth equation recovers that coordinate, so the map is injective. This justifies the coefficient bound without treating a numerical generating-function inequality as coefficientwise evidence.
 
-Write the offset in the simple-root basis: $\delta = \sum_{i=1}^{r-1} c_i \alpha_i$ with $c_i \geq 0$ and $|\delta| = \sum c_i$. Since $\alpha_i = e_i - e_{i+1}$:
+Summing the first moment gives
 
-$$x^{\mu - \delta} = x^\mu \prod_{i=1}^{r-1} \left(\frac{x_{i+1}}{x_i}\right)^{c_i} \leq x^\mu \cdot \mathfrak{p}^{|\delta|}$$
+$$\sum_{t\ge0}t\binom{t+N-1}{N-1}q_x^t
+=\frac{Nq_x}{(1-q_x)^{N+1}}.$$
 
-The coefficient of $x^\mu$ in $s_\mu(x)$ is 1 (the highest-weight monomial), so $s_\mu(x) \geq x^\mu$. Therefore:
+The displayed tail estimate follows from $|\delta|\ge T+1$ on the tail. Rank one has only the supported highest-weight line and zero depth.
 
-$$p_\mu(\delta) = \frac{x^{\mu-\delta}}{s_\mu(x)} \leq \mathfrak{p}^{|\delta|}$$
+## Lean route
 
-This is the key exponential bound: each step away from the highest weight costs a factor of at most $\mathfrak{p} < 1$.
+- `FreeEntropy.KostantCounting.card_positiveRootAssignments_le` in [KostantCounting.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/KostantCounting.lean) proves the finite combinatorial bound.
+- `FreeEntropy.ExteriorRepresentation.canonical_offsetMultiplicity_rank_depth_le` in [RankRootCounting.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/RankRootCounting.lean) applies it to actual representation multiplicities using only roots within the rank support.
+- `FreeEntropy.MeanDepth.hasSum_first_moment` and `FreeEntropy.MeanDepth.weight_mean_le` in [MeanDepth.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/MeanDepth.lean) supply the analytic summation.
+- `FreeEntropy.Cloning.tail_mass_le_mean_div` in [Cloning.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/Cloning.lean) is the finite tail estimate.
 
-### Step 2: Bound Total Multiplicity via Kostant's Partition Function
-
-Define the total multiplicity at depth $t$: $D_\mu(t) = \sum_{|\delta| = t} m_\mu(\delta)$.
-
-Since $\mathcal{H}_\mu$ is a quotient of the Verma module $M(\mu)$, every weight multiplicity is bounded above by Kostant's partition function: $m_\mu(\delta) \leq \mathcal{P}_r(\delta)$, where $\mathcal{P}_r(\delta)$ counts decompositions of $\delta$ into non-negative integer combinations of positive roots of type $A_{r-1}$.
-
-Hence $D_\mu(t) \leq A_r(t) := \sum_{|\delta|=t} \mathcal{P}_r(\delta)$.
-
-### Step 3: Generating Function Analysis
-
-The generating function of $A_r(t)$ factors over positive roots (since height is additive):
-
-$$\sum_{t \geq 0} A_r(t) q^t = \prod_{\alpha \in \Phi_r^+} \frac{1}{1 - q^{|\alpha|}}$$
-
-For type $A_{r-1}$, there are exactly $r - h$ positive roots of height $h$ (for $h = 1, \ldots, r-1$). So:
-
-$$\sum_{t \geq 0} A_r(t) q^t = \prod_{h=1}^{r-1} \frac{1}{(1 - q^h)^{r-h}}$$
-
-This has a pole of order $N = |\Phi_r^+| = r(r-1)/2$ at $q = 1$. Since all coefficients are non-negative, we can bound coefficientwise by replacing $q^h \to q$:
-
-$$A_r(t) \leq [q^t](1-q)^{-N} = \binom{t + N - 1}{N - 1} \leq C_r (t+1)^{N-1} = C_r(t+1)^\kappa$$
-
-where $\kappa = N - 1 = r(r-1)/2 - 1$ and $C_r$ depends only on $r$.
-
-### Step 4: Combine
-
-$$\varepsilon_\mu(T) = \sum_{|\delta| > T} p_\mu(\delta) m_\mu(\delta) \leq \sum_{t > T} D_\mu(t) \mathfrak{p}^t \leq C_r \sum_{t > T} (t+1)^\kappa \mathfrak{p}^t$$
-
-Substituting $t = T + 1 + s$ with $s \geq 0$:
-
-$$\sum_{t > T} (t+1)^\kappa \mathfrak{p}^t = \mathfrak{p}^{T+1} \sum_{s \geq 0} (T + s + 2)^\kappa \mathfrak{p}^s \leq \mathfrak{p}^{T+1} (T+2)^\kappa \underbrace{\sum_{s \geq 0} (s+2)^\kappa \mathfrak{p}^s}_{< \infty \text{ since } \mathfrak{p} < 1}$$
-
-The series converges because $0 < \mathfrak{p} < 1$. Therefore:
-
-$$\varepsilon_\mu(T) = O(T^\kappa \mathfrak{p}^T)$$
-
-**Application:** When $T = O(n^\varepsilon)$, this becomes $O(n^{\varepsilon\kappa} \mathfrak{p}^{n^\varepsilon})$, which is superpolynomially small -- far below the polynomial error $O(d(\mu,\nu)/n^{1-\varepsilon})$ from the perturbation bound.
+An exponential tail bound belongs to the older fidelity/cutoff discussion. It is not needed, or asserted as a separate sharp endpoint, by this first-moment route.
 
 ## Dependencies
 
-- Kostant's partition function bounds (Verma module weight multiplicities)
-- Generating function analysis for type $A_{r-1}$ root systems
-- Strict positivity of eigenvalue gaps ($x_1 > \cdots > x_r > 0$)
+- [[results/lemmas/kostka-monotonicity|Weight multiplicities and root partitions]]
+- [[concepts/kostant-partition-function|Positive roots and depth]]
 
 ## Used By
 
-- [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]] -- Step 6 (tail truncation at depth $T = O(n^\varepsilon)$)
-
-## External References
-
-- [Kostant partition function (Wikipedia)](https://en.wikipedia.org/wiki/Kostant_partition_function)
+- [[results/lemmas/probability-ratio|Eigenvalue ratio]]
+- [[results/cloning-fidelity|Cloning accuracy]] — average of capped projector deficits.

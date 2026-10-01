@@ -2,12 +2,15 @@
 
 > **Project:** "Free entropy and quantum minimum description length"
 > **Authors:** Patrick Hayden, Alexander Maloney, Jinzhao Wang, Yuxiang Yang
-> **Last updated:** 2026-04-08
+> **Last updated:** 2026-10-01
 
 **[[intro|Start here]]** -- overview of the project, main result, and how to navigate.
 
-**[[formalization|Lean formalization and reproduction]]** -- checked proof sources,
-manuscript mapping, and README commands for Lean, Comparator, and Nanoda.
+**[[proof-structure|Current proof structure]]** -- how representation theory, finite cloning bounds,
+physical compression and the quantitative converse fit together.
+
+**[[formalization|Lean formalization and reproduction]]** -- checked scope and commands
+for Lean, Comparator and Nanoda.
 
 ---
 
@@ -16,7 +19,7 @@ manuscript mapping, and README commands for Lean, Comparator, and Nanoda.
 | File | Title | Role |
 |------|-------|------|
 | [[Letter]] (`sources/letter.tex`) | Free entropy and quantum minimum description length | PRL letter (announcement) |
-| [[Article]] (`sources/article.tex`) | Quantum minimum description of density matrices | Full journal paper (proofs) |
+| [[Article]] (repository-root `article.tex`) | Quantum minimum description of density matrices | Full journal paper (proofs) |
 | [[Notes]] (`sources/Free.tex`) | Free entropy and quantum minimum description length | Extended notes (+ unitary & observable programming) |
 
 ---
@@ -45,8 +48,8 @@ manuscript mapping, and README commands for Lean, Comparator, and Nanoda.
 - [[concepts/schur-polynomials|Schur Polynomials]] — characters of GL(d) representations
 - [[concepts/gelfand-tsetlin-basis|Gelfand-Tsetlin Basis]] — canonical basis for GL(d) irreps
 - [[concepts/weyl-dimension-formula|Weyl Dimension Formula]] — dimension of irreps
-- [[concepts/prv-component|PRV Component]] — Parthasarathy-Ranga Rao-Varadarajan component
-- [[concepts/kumars-theorem|Kumar's Theorem]] — multiplicity-one for PRV components
+- [[concepts/prv-component|PRV Component]] — channel component and its relation to the Cartan construction
+- [[concepts/kumars-theorem|Kumar's Theorem]] — general background and the multiplicity-one case needed here
 - [[concepts/casimir-operator|Casimir Operator]] — used in perturbation analysis
 - [[concepts/kostant-partition-function|Kostant Partition Function]] — bounds weight multiplicities
 - [[concepts/flag-manifold|Flag Manifold]] — the eigenbasis manifold
@@ -55,7 +58,7 @@ manuscript mapping, and README commands for Lean, Comparator, and Nanoda.
 - [[concepts/generalized-cloning-map|Generalized Cloning Map]] — the key technical innovation
 - [[concepts/werners-cloning-map|Werner's Cloning Map]] — the qubit special case
 - [[concepts/ych-scheme|YCH Scheme]] — Yang-Chiribella-Hayashi precursor
-- [[concepts/koashi-imoto|Koashi-Imoto Structure Theorem]] — for the converse proof
+- [[concepts/koashi-imoto|Koashi-Imoto Structure Theorem]] — exact incompressibility and the quantitative converse
 - [[concepts/petz-recovery-map|Petz Recovery Map]] — reverse cloner interpretation
 - [[concepts/holevo-information|Holevo Information]] — used in converse proofs
 
@@ -75,7 +78,7 @@ manuscript mapping, and README commands for Lean, Comparator, and Nanoda.
 | [[definitions/regularized-free-entropy|Regularized Free Entropy]] | $\chi_{\mathrm{reg}}(\rho)$ |
 | [[definitions/free-entropy-dimension-def|Free Entropy Dimension (Formal)]] | $\delta(a)$ |
 | [[definitions/covariant-channel|U(d)-Covariant Channel]] | Symmetry requirement |
-| [[definitions/scaling-regime|Scaling Regime]] | Asymptotic regime for cloning fidelity |
+| [[definitions/scaling-regime|Scaling Regime]] | Asymptotic regime for vanishing cloning error |
 | [[definitions/typical-set|Typical Set]] | $T_{p,n}$ |
 | [[definitions/edge-gap|Edge Gap]] | $g_\lambda$ |
 | [[definitions/normalized-gl-irrep|Normalized GL Irrep State]] | $\rho_\lambda$ |
@@ -85,58 +88,51 @@ manuscript mapping, and README commands for Lean, Comparator, and Nanoda.
 
 ---
 
-## Main Results
+## Current Article results
 
-| Result | Type | Source |
-|--------|------|--------|
-| [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]] | Theorem | Article, Notes |
-| [[results/achievability|Achievability (State Compression)]] | Theorem | Article (Thm 2), Notes |
-| [[results/converse|Converse (State Compression)]] | Theorem | Article (Thm 3), Notes |
+Theorem numbers below refer to the bundled Article. The [[Letter]] and
+[[Notes]] retain their own numbering; source labels identify the statements.
 
----
+| Result | Article label | Formal role |
+| --- | --- | --- |
+| [[results/achievability|Theorem 1: achievability]] | `thm:qmdl`, `thm:achievability` | Exact memory constant and uniform $O(\log n/\sqrt n)$ error. |
+| [[results/converse|Theorem 1: converse]] | `thm:qmdl`, `thm:converse` | Haar-average lower bound for arbitrary physical codes. |
+| [[results/cloning-fidelity|Theorem 2: cloning accuracy]] | `thm:main` | Finite trace-distance bounds for the original Choi channels. |
 
-## Supporting Propositions
+## Supporting propositions
 
-| Result | Type | Source |
-|--------|------|--------|
-| [[results/propositions/choi-matrix-lemma|Choi Matrix Lemma (Prop 1)]] | Proposition | Article |
-| [[results/propositions/reverse-cloner|Reverse Cloner (Prop 2)]] | Proposition | Article |
-| [[results/propositions/commutativity|Commutativity (Prop 3)]] | Proposition | Article |
-| [[results/propositions/orbit-sector-compression|Orbit Sector Compression (Prop 4)]] | Proposition | Article |
+| Result | Article label | Role |
+| --- | --- | --- |
+| [[results/propositions/choi-matrix-lemma|Cartan and Choi formulas]] | `prop:choi` | Identify the constructed forward channel with the source formula. |
+| [[results/propositions/reverse-cloner|Reverse cloner and Petz map]] | `prop:reverse` | Identify the reverse channel and recovery expression. |
+| [[results/propositions/commutativity|Commutativity]] | `prop:commutativity` | Paper-level structural result; see the page for its formalization boundary. |
+| [[results/propositions/orbit-sector-compression|Haar-orbit memory bound]] | `prop:compact_orbit_memory` | Quantitative finite memory lower bound used in the converse. |
 
-## Supporting Lemmas
+## Supporting estimates
 
-| Result | Type | Source |
-|--------|------|--------|
-| [[results/lemmas/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]] | Lemma | Article |
-| [[results/lemmas/principal-angles|Principal Angles (Lemma 4)]] | Lemma | Article |
-| [[results/lemmas/monotonicity-lemma|Monotonicity (Lemma 5)]] | Lemma | Article |
-| [[results/lemmas/davis-kahan|Davis-Kahan Theorem (Lemma 6)]] | Lemma | Article |
-| [[results/lemmas/perturbation-lemma|Perturbation Lemma (Lemma 7)]] | Lemma | Article |
-| [[results/lemmas/tail-mass|Tail Mass (Lemma 8)]] | Lemma | Article |
-| [[results/lemmas/probability-ratio|Probability Ratio (Lemma 9)]] | Lemma | Article |
-| [[results/lemmas/dimension-ratio|Dimension Ratio (Lemma 10)]] | Lemma | Article |
-| [[results/lemmas/weyl-dimension-asymptotic|Asymptotic Weyl Dimension (Lemma 11)]] | Lemma | Article |
-| [[results/lemmas/sanov-theorem|Sanov's Theorem (Lemma 12)]] | Lemma | Article |
+| Explanation | Article label or status | Role in the current proof |
+| --- | --- | --- |
+| [[results/lemmas/kostka-monotonicity|Multiplicity monotonicity]] | `lem:kostka` | Compare the relevant weight multiplicities. |
+| [[results/lemmas/perturbation-lemma|Highest-weight projector deficit]] | `lem:perturbation` | Control the traced loss using a Casimir gap. |
+| [[results/lemmas/tail-mass|Uniform mean depth]] | `lem:tail` | Average finite deficits without an $n$-dependent truncation. |
+| [[results/lemmas/probability-ratio|Eigenvalue ratio]] | `lem:ratio` | Control normalized weight-state coefficients. |
+| [[results/lemmas/dimension-ratio|Weyl dimension ratio]] | `lem:dim_ratio` | Bound the finite normalization loss. |
+| [[results/lemmas/weyl-dimension-asymptotic|Asymptotic Weyl dimension]] | `lem:weyl_asymptotic` | Retain the additive memory constant. |
+| [[results/lemmas/sanov-theorem|Physical sector concentration]] | `lem:tail_prob` | Bound the mass outside the typical window. |
+| [[results/lemmas/monotonicity-lemma|Positive-order trace comparison]] | Supporting inequality | Pass from a positive channel branch to a trace-distance bound. |
 
----
+[[results/lemmas/principal-angles|Principal angles]] and
+[[results/lemmas/davis-kahan|Davis–Kahan perturbation theory]] are retained as
+background to the older fidelity-based presentation. The current finite
+trace-distance route is described in [[proof-structure]].
 
-## Dependency Graph (Proof Architecture)
+## Proof reading route
 
-```
-                    QMDL = Free Entropy
-                   /                    \
-        Achievability (Thm 2)      Converse (Thm 3)
-              |                         |
-    Cloning Fidelity (Thm 1)    Orbit Sector (Prop 4)
-     /     |      |      \              |
-  Lem 7  Lem 9  Lem 8  Lem 10   Weyl Dimension (Lem 11)
-    |      |                          |
-  Lem 6  Lem 3                   Sanov (Lem 12)
- (D-K)  (Kostka)
-    |      |
-  Casimir  GT Basis
-```
+1. [[proof-structure|Start with the dependency diagram and module map]].
+2. Read [[results/cloning-fidelity|the finite cloning estimate]] and its Cartan/Choi/Petz identifications.
+3. Follow [[results/achievability|typical-sector compression to a padded target]].
+4. Follow [[results/converse|the spectral-gap and Haar-average converse]].
+5. Use [[formalization|the verification guide]] to check the exact formal statements.
 
 ---
 
@@ -150,7 +146,7 @@ manuscript mapping, and README commands for Lean, Comparator, and Nanoda.
 
 - [[open-questions/cloning-optimality|Open: Optimality of the Generalized Cloning Map]] — is the PRV channel the fidelity maximizer among all covariant channels?
 - [[open-questions/degenerate-spectrum|Open: QMDL for Degenerate Spectrum]] — extend the main result to density matrices with repeated eigenvalues
-- [[open-questions/error-scaling|Open: Error Scaling]] — optimal error exponent for qudit compression
+- [[open-questions/error-scaling|Open: Error Scaling]] — optimal tradeoffs beyond the proved $O(\log n/\sqrt n)$ rate
 - [[open-questions/free-entropy-conjecture|Conjecture: Free Entropy as Universal QMDL & Programming Extensions]] — extends to all operators? Includes unitary/observable/state programming open problems
 
 ---
@@ -161,9 +157,10 @@ manuscript mapping, and README commands for Lean, Comparator, and Nanoda.
 
 ---
 
-## How to Use This Wiki
+## How to use this wiki
 
-1. **Open in Obsidian**: point Obsidian at `~/Documents/free-entropy-wiki/`. All `[[wikilinks]]` will be clickable.
-2. **Ask questions**: run Claude Code in this directory and ask anything about the papers.
-3. **Update after paper changes**: export new `.tex` from Overleaf, drop in `sources/`, then ask Claude to diff and update.
-4. **Lint**: periodically ask Claude to check for contradictions, stale pages, or missing links.
+Browse the published site or open the repository's `docs/` folder as an
+Obsidian vault. The current Article source and Lean library are linked from
+the result pages. When sources change, reconcile statement labels, proof
+routes and the [[notation|notation glossary]], then record the update in
+[[log|the change log]].

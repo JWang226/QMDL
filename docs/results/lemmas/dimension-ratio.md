@@ -1,33 +1,68 @@
-# Dimension Ratio (Lemma 10)
+# Weyl Dimension-Ratio Bound
 
-**Label:** `lem:dim_ratio`
-**Source:** Article line ~1776 (stated), ~2831 (proved)
+**Label:** `lem:dim_ratio` in the current [[Article]].
+**Source:** [Article finite dimension-ratio lemma](https://github.com/JWang226/QMDL/blob/main/article.tex#L1598).
+**Lean theorem:** [FreeEntropy.ExteriorRepresentation.canonical_dimensionRatio_deficit](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CanonicalDimensionRatio.lean#L72).
 
 ## Statement
 
-For $\nu = \mu + \omega$ in the scaling regime $g_\mu = \Theta(n)$, $\mu_r = \Theta(n)$, $|\omega| = o(n)$:
+Let $d\ge2$, $1\le r\le d$, and let $\mu,\nu$ be dominant natural rows supported on the first $r$ coordinates. Assume the integral difference $\omega=\nu-\mu$ is dominant. Its entries may be negative. Set
 
-$$\frac{d_\mu}{d_\nu} = 1 - O\left(\frac{|\omega|}{n}\right) = 1 - O\left(\frac{d(\mu,\nu)}{n}\right)$$
+$$
+D=\sum_{i=1}^d|\omega_i|,
+\qquad
+b_\mu=\min_{1\le i\le\min(r,d-1)}(\mu_i-\mu_{i+1}),
+\qquad
+d_\lambda=\dim\mathcal H_\lambda.
+$$
+
+Then
+
+$$
+0\le1-\frac{d_\mu}{d_\nu}
+\le\sum_{i<j}\frac{\omega_i-\omega_j}{\mu_i-\mu_j+j-i}
+\le\binom d2\frac{D}{b_\mu+1}.
+$$
+
+This is a finite bound, with no asymptotic scaling assumption. The Lean endpoint proves the last bound for the actual canonical dimensions, and [FreeEntropy.ExteriorRepresentation.canonical_dimensionRatio_pos_le_one](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CanonicalDimensionRatio.lean#L54) proves $0<d_\mu/d_\nu\le1$.
+
+The generic formal lemma is slightly more flexible: $b\ge0$ can be any lower bound on the relevant adjacent gaps, $D$ any upper bound on the row L1 difference, and the rows need only agree beyond the specified rank. Theorem 2 instantiates these parameters with the computed $b_\mu$ and exact $D$.
 
 ## Intuition
 
-When you add a small Young diagram $\omega$ to a large one $\mu$ to get $\nu = \mu + \omega$, the irrep dimensions $d_\mu$ and $d_\nu$ are nearly equal. The ratio deviates from 1 by at most $O(|\omega|/n)$.
+Dominance of the difference means every pairwise row gap can only increase, so the target dimension is at least the source dimension. The dimension loss is controlled by how much the row gaps change relative to their initial separation. A uniform shift of every row leaves the dimension unchanged, even when that shift is negative.
 
 ## Proof Sketch
 
-By the [[concepts/weyl-dimension-formula|Weyl dimension formula]], $d_\nu/d_\mu = \prod_{i < j} (1 + y_{ij})$ where $y_{ij} = (\omega_i - \omega_j)/(\mu_i - \mu_j + j - i)$. Split into three blocks:
+The actual [[results/lemmas/weyl-dimension-asymptotic|Weyl dimension formula]] gives
 
-1. **Nonzero vs. nonzero** ($1 \leq i < j \leq r$): denominators $\geq g_\mu = \Theta(n)$
-2. **Nonzero vs. zero** ($1 \leq i \leq r < j \leq d$): denominators $\geq \mu_r = \Theta(n)$
-3. **Zero vs. zero** ($r < i < j \leq d$): $y_{ij} = 0$
+$$
+\frac{d_\mu}{d_\nu}
+=\prod_{i<j}(1-a_{ij}),
+\qquad
+a_{ij}=\frac{\omega_i-\omega_j}{\nu_i-\nu_j+j-i}\in[0,1).
+$$
 
-So $0 \leq y_{ij} \leq C|\omega|/n$ uniformly. With $O_d(1)$ factors, $\log(d_\nu/d_\mu) = O(|\omega|/n)$.
+Apply $1-\prod_k(1-a_k)\le\sum_k a_k$ and use the source denominators as smaller lower bounds. If $i>r$, the numerator is zero. Otherwise
+
+$$
+0\le\omega_i-\omega_j\le|\omega_i|+|\omega_j|\le D,
+\qquad
+\mu_i-\mu_j+j-i\ge b_\mu+1.
+$$
+
+There are at most $\binom d2$ pairs. This proves the bound, including $D=0$ and $b_\mu=0$.
+
+For typical rows in Theorem 1, $D=O(\sqrt n\log n)$ and $b_\mu=\Omega(n)$, giving $1-d_\mu/d_\nu=O(\log n/\sqrt n)$. Older wiki statements presented only an asymptotic ratio; the current Article and checked channel proof use this explicit finite inequality.
 
 ## Dependencies
 
-- [[concepts/weyl-dimension-formula|Weyl Dimension Formula]]
-- [[definitions/scaling-regime|Scaling Regime]]
+- [[results/lemmas/weyl-dimension-asymptotic|Exact dimensions of the canonical representations]]
+- [[definitions/distance-between-irreps|Row L1 difference]]
+- [[definitions/edge-gap|Supported adjacent-row gap]]
+- Elementary product-deficit inequality
 
 ## Used By
 
-- [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]] -- ensures the normalization prefactor $\sqrt{d_\mu/d_\nu}$ in the block fidelity is close to 1, contributing only an $O(d(\mu,\nu)/n)$ correction
+- [[results/cloning-fidelity|Theorem 2 finite cloning bound]]: controls the dimension normalization loss
+- [[results/achievability|Theorem 1 achievability]]: applies it uniformly to typical rows and their padded target

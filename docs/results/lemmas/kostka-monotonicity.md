@@ -1,80 +1,54 @@
-# Kostka Number Monotonicity (Lemma 3)
+# Multiplicity Monotonicity and Shallow Equality
 
-**Label:** `lem:kostka` (Article and Notes)
-**Source:** Article line ~1058 (stated), ~2343 (proved); Notes line ~533
+**Labels:** `lem:kostka` and `lem:shallow_multiplicities` in the current Article.
+**Source:** [monotonicity](https://github.com/JWang226/QMDL/blob/main/article.tex#L1200) and [shallow multiplicities](https://github.com/JWang226/QMDL/blob/main/article.tex#L1397).
 
-## Statement
+These are two distinct assertions. “Adding a dominant weight” allows a signed integral difference; it need not mean adding boxes to every row.
 
-For $\mathrm{GL}(d)$ irreps $\mu$, $\omega$ and weight offset $\delta \in Q_+$:
+## Statements
 
-$$K_{\mu, \mu - \delta} \leq K_{\mu + \omega, \mu + \omega - \delta}$$
+For dominant integral $\mu,\omega$ and any positive-root offset $\delta$,
 
-**Equality** holds when $|\delta| \leq g_\mu$ (the edge gap $g_\mu = \min_i(\mu_i - \mu_{i+1})$).
+$$m_\mu(\delta)\le m_{\mu+\omega}(\delta).$$
 
-## Intuition
+For $2\le r\le d$, put $g_\lambda=\min_{i<r}(\lambda_i-\lambda_{i+1})$. If $\delta\in Q_+^{(r)}$ and $|\delta|\le g_\lambda$, then
 
-Enlarging a Young diagram (adding $\omega$) can only increase (or maintain) the multiplicity of weight spaces. The proof constructs an explicit injection at the level of Gelfand-Tsetlin patterns. Near the "edge" of the diagram (small $|\delta|$), the injection is actually a bijection because both the original and enlarged modules look like the universal Verma module at shallow depth -- the singular vectors that distinguish the finite-dimensional module from the Verma module haven't appeared yet.
+$$m_\lambda(\delta)=\mathsf P_r(\delta),$$
 
-## Proof Sketch
+where $\mathsf P_r$ counts positive-root partitions of $\delta$ within the first $r$ coordinates. Since $g_{\mu+\omega}\ge g_\mu$, this gives
 
-**Main idea:** (Inequality) Shift every GT pattern entry in column $j$ by $\omega_j$; dominance of $\omega$ preserves interlacing, giving an explicit injection $\mathrm{GT}(\mu, \mu-\delta) \hookrightarrow \mathrm{GT}(\mu+\omega, \mu+\omega-\delta)$. (Equality) When $|\delta| \leq g_\mu$, both weight spaces are isomorphic to their Verma module counterparts (the singular vectors that distinguish finite-dimensional irreps from Verma modules haven't appeared yet), so both multiplicities equal the universal Kostant partition function $\mathcal{P}(\delta)$.
+$$m_\mu(\delta)=m_{\mu+\omega}(\delta)\quad\text{when }|\delta|\le g_\mu.$$
 
----
+At greater depths only the inequality is required. The multiplicity $m_\lambda(\delta)$ is a weight-space dimension, not the dimension of the whole irrep.
 
-### Extended Proof
+## Article proof and combinatorial formalization
 
-### Part 1: Inequality via GT Pattern Injection
+The Article proves monotonicity by shifting a Gelfand–Tsetlin pattern columnwise:
 
-Recall that the weight multiplicity $K_{\lambda, \beta} = |\mathrm{GT}(\lambda, \beta)|$ counts [[concepts/gelfand-tsetlin-basis|Gelfand-Tsetlin patterns]] -- triangular arrays $M = (m_{i,j})$ with top row $\lambda$, satisfying the interlacing conditions $m_{i+1,j} \geq m_{i,j} \geq m_{i+1,j+1}$, and with weight $\beta$ determined by $\beta_i = \sum_{j=1}^i m_{i,j} - \sum_{j=1}^{i-1} m_{i-1,j}$.
+$$m'_{i,j}=m_{i,j}+\omega_j.$$
 
-**The map.** Given any pattern $M = (m_{i,j}) \in \mathrm{GT}(\mu, \mu - \delta)$, define a new array $M' = (m'_{i,j})$ by:
+One interlacing difference is unchanged; the other gains $\omega_j-\omega_{j+1}\ge0$. Row-sum differences show that the weight shifts by $\omega$, and subtracting $\omega_j$ recovers the original pattern. Thus the map is injective even for signed dominant $\omega$.
 
-$$m'_{i,j} := m_{i,j} + \omega_j, \qquad 1 \leq j \leq i \leq d$$
+`FreeEntropy.GelfandTsetlin.multiplicity_mono` in [GelfandTsetlin.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/GelfandTsetlin.lean) proves this finite-pattern statement. [GTPartitions.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/GTPartitions.lean) also constructs vertical-drop root assignments and proves the shallow bijection, including `FreeEntropy.GelfandTsetlin.multiplicity_eq_kostantCount_of_shallow`.
 
-That is, shift each entry in column $j$ by the $j$-th component of $\omega$.
+## Actual representation-space route
 
-**Verify top row:** $m'_{d,j} = m_{d,j} + \omega_j = \mu_j + \omega_j$, so the top row is $\mu + \omega$. Correct.
+The final cloning proof also connects these estimates to concrete matrix representations, rather than using a pattern count as an assumed representation dimension.
 
-**Verify interlacing (left inequality):** $m'_{i+1,j} - m'_{i,j} = (m_{i+1,j} + \omega_j) - (m_{i,j} + \omega_j) = m_{i+1,j} - m_{i,j} \geq 0$. The $\omega_j$ terms cancel -- same column shift on both sides.
+For monotonicity, the highest auxiliary slice of the Cartan projection intertwines raising operators and sends the source highest line nontrivially into the target. A nonzero kernel would be raising-invariant and would contain a highest vector, contradicting uniqueness of that line. The slice is therefore injective on each shifted weight space. This is `FreeEntropy.CartanLieCloning.cartanSlice_injective` and `FreeEntropy.CartanLieCloning.weight_multiplicity_add_le` in [CartanMultiplicity.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CartanMultiplicity.lean).
 
-**Verify interlacing (right inequality):** $m'_{i,j} - m'_{i+1,j+1} = (m_{i,j} + \omega_j) - (m_{i+1,j+1} + \omega_{j+1}) = (m_{i,j} - m_{i+1,j+1}) + (\omega_j - \omega_{j+1}) \geq 0$. Here we use the dominance of $\omega$: $\omega_j \geq \omega_{j+1}$. The original interlacing $m_{i,j} \geq m_{i+1,j+1}$ plus the non-negativity of $\omega_j - \omega_{j+1}$ ensures the shifted pattern still interlaces.
+For shallow equality, ordered lowering monomials give the PBW upper bound. In the explicit exterior-power model, suitable lower-unitriangular minors give distinct monomials and hence independent coordinate functionals, yielding the matching lower bound. The results are assembled in [ExteriorMultiplicity.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/ExteriorMultiplicity.lean) and [ExteriorWeightMultiplicity.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/ExteriorWeightMultiplicity.lean), including `FreeEntropy.ExteriorRepresentation.canonicalWeight_card_eq_rootFiber`. Rank-support arguments restrict the count to the first $r$ coordinates.
 
-**Verify weight shift:** The weight of $M'$ is $\beta'_i = \beta_i + \omega_i = (\mu - \delta)_i + \omega_i = (\mu + \omega - \delta)_i$. This is computed by telescoping: the extra $\omega_j$ terms in each row contribute $\sum_{j=1}^i \omega_j - \sum_{j=1}^{i-1} \omega_j = \omega_i$.
-
-**Injectivity:** The map $M \mapsto M'$ is clearly injective (recover $M$ by subtracting $\omega_j$). Hence:
-
-$$K_{\mu, \mu-\delta} = |\mathrm{GT}(\mu, \mu-\delta)| \leq |\mathrm{GT}(\mu+\omega, \mu+\omega-\delta)| = K_{\mu+\omega, \mu+\omega-\delta}$$
-
-### Part 2: Equality When $|\delta| \leq g_\mu$ via Verma Modules
-
-The Verma module $M(\lambda)$ is the "largest possible" highest-weight module. Its weight space at depth $\delta$ has dimension equal to Kostant's partition function $\mathcal{P}(\delta)$, which is independent of $\lambda$ -- it counts the number of ways to write $\delta = \sum_{\alpha \in \Phi^+} n_\alpha \alpha$ with $n_\alpha \in \mathbb{Z}_{\geq 0}$.
-
-The finite-dimensional irrep $\mathcal{H}_\lambda$ is the quotient $M(\lambda) / N(\lambda)$, where $N(\lambda)$ is the submodule generated by the simple singular vectors $E_{-\alpha_i}^{\langle \lambda, \alpha_i^\vee \rangle + 1} v_\lambda$. These singular vectors first appear at depths $\langle \lambda, \alpha_i^\vee \rangle + 1 = (\lambda_i - \lambda_{i+1}) + 1$, so the shallowest singular vector occurs at depth $g_\lambda + 1$ where $g_\lambda = \min_i(\lambda_i - \lambda_{i+1})$.
-
-**Consequence:** For any $|\delta| \leq g_\lambda$, the quotient map $M(\lambda) \twoheadrightarrow \mathcal{H}_\lambda$ is an isomorphism on the weight-$(\lambda - \delta)$ space, because no kernel element can have depth $\leq g_\lambda$. Thus $K_{\lambda, \lambda - \delta} = \mathcal{P}(\delta)$ for all $|\delta| \leq g_\lambda$.
-
-Now apply this twice:
-- With $\lambda = \mu$: if $|\delta| \leq g_\mu$, then $K_{\mu, \mu-\delta} = \mathcal{P}(\delta)$.
-- With $\lambda = \mu + \omega$: since $\omega$ is dominant, $g_{\mu+\omega} = \min_i((\mu_i + \omega_i) - (\mu_{i+1} + \omega_{i+1})) \geq \min_i(\mu_i - \mu_{i+1}) = g_\mu$. So the same condition $|\delta| \leq g_\mu \leq g_{\mu+\omega}$ gives $K_{\mu+\omega, \mu+\omega-\delta} = \mathcal{P}(\delta)$.
-
-Combining: $K_{\mu, \mu-\delta} = \mathcal{P}(\delta) = K_{\mu+\omega, \mu+\omega-\delta}$.
-
-## Role in the Project
-
-This lemma is essential for the [[results/lemmas/perturbation-lemma|Perturbation Lemma (Lemma 7)]]: it guarantees that the weight spaces being compared (in $\mathcal{H}_\mu$ vs. $\mathcal{H}_\nu$) have the **same dimension** when $|\delta|$ is small enough. Without this, the principal angle bound would be meaningless -- you cannot compare subspaces of different dimension. It also enters the [[results/lemmas/probability-ratio|Probability Ratio (Lemma 9)]] to establish that $Z(x) \leq 1$ (the Kostka monotonicity implies $s_{\mu+\omega}(x) \geq x^\omega s_\mu(x)$).
+This equality is needed for the shallow trace-deficit comparison; subspaces of different dimensions can still be compared, but that particular equal-rank argument would not apply. Deep weights use a separate trivial bound.
 
 ## Dependencies
 
-- [[concepts/gelfand-tsetlin-basis|Gelfand-Tsetlin Basis]] -- the injection is defined on GT patterns
-- Verma module theory (singular vectors and the BGG resolution)
+- [[concepts/gelfand-tsetlin-basis|Gelfand–Tsetlin patterns]]
+- [[concepts/kostant-partition-function|Positive-root partitions and depth]]
+- Constructed Cartan embeddings, highest-weight uniqueness, and PBW spanning.
 
 ## Used By
 
-- [[results/lemmas/perturbation-lemma|Perturbation Lemma (Lemma 7)]] -- equality of weight space dimensions
-- [[results/lemmas/probability-ratio|Probability Ratio (Lemma 9)]] -- upper bound $Z(x) \leq 1$
-- [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]] -- via the above two lemmas
-
-## External References
-
-- [Kostka number (Wikipedia)](https://en.wikipedia.org/wiki/Kostka_number)
-- [Macdonald, *Symmetric Functions and Hall Polynomials* (Oxford University Press, 2nd ed., 1995)](https://doi.org/10.1017/S0013091500023592)
+- [[results/lemmas/perturbation-lemma|Local Casimir and projector deficits]]
+- [[results/lemmas/probability-ratio|Eigenvalue ratio]]
+- [[results/lemmas/tail-mass|Uniform mean depth]]

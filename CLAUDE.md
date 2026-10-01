@@ -8,12 +8,14 @@ Help the authors and collaborators understand all technical details of the paper
 
 ## Source Files
 
-All raw `.tex` and `.bib` files live in `sources/`. These are the ground truth. **Never modify source files.**
+The bundled repository-root `article.tex` and `free.bib` are the current public Article snapshot used by the Lean formalization. Historical Letter and Notes source snapshots may remain in the ignored `sources/` directory. Source files are the ground truth. **Never modify source files.**
+
+For the current Article, Theorem 1 is optimal known-spectrum memory (`thm:qmdl`) and Theorem 2 is finite cloning accuracy (`thm:main`). Use these labels rather than carrying over numbering from older wiki pages. Follow `docs/proof-structure.md`, the actual Lean endpoints, and `metadata/natural-language-map.json` when describing the current formal proof; broader Letter/Notes material is not automatically formalized.
 
 - `sources/letter.tex` — PRL letter: "Free entropy and quantum minimum description length" (short announcement)
-- `sources/article.tex` — Full paper: "Quantum minimum description of density matrices" (companion with full proofs)
+- `article.tex` — Current full paper: "Quantum minimum description of density matrices" (companion with full proofs)
 - `sources/Free.tex` — Extended working notes with full proofs + unitary/observable programming
-- `sources/free.bib` — Shared bibliography
+- `free.bib` — Current shared bibliography
 - `sources/compression.pdf` — Compression figure
 
 ## Working Directory
@@ -30,7 +32,9 @@ free-entropy-wiki/
   mkdocs.yml         — MkDocs Material config (for the online version)
   requirements.txt   — Python deps for MkDocs
   .github/workflows/ — GitHub Actions deploy to Pages
-  sources/           — Raw .tex/.bib (immutable)
+  article.tex        — Current Article snapshot (immutable)
+  free.bib           — Current bibliography (immutable)
+  sources/           — Historical source snapshots (ignored; immutable)
   docs/              — All wiki markdown (Obsidian vault + MkDocs source)
     index.md         — Master table of contents with links to everything
     intro.md         — Introduction and overview

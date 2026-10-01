@@ -18,7 +18,13 @@ Since $|\mu| = \sum_i \mu_i$ and $|\nu| = \sum_i \nu_i$ need not be equal (they 
 
 ## Relation to PRV Component
 
-When $\omega = (\nu - \mu)^+$ is the [[concepts/prv-component|PRV Component]], and in the common case where $\nu - \mu$ is already dominant (meaning $\nu_i - \mu_i \geq \nu_{i+1} - \mu_{i+1}$ for all $i$), we have $d(\mu, \nu) = |\omega| = \sum_i (\nu_i - \mu_i)$. More generally, $d(\mu, \nu) = \sum_i |\nu_i - \mu_i|$, which may differ from $|\omega| = \sum_i \omega_i$ when rearrangement is needed.
+Dominance of $\omega=\nu-\mu$ means that its entries are weakly decreasing; they may be negative. The current Article Theorem 2 uses
+
+$$D=\|\omega\|_1=\sum_i|\nu_i-\mu_i|.$$
+
+Only when every increment is nonnegative does $D=\sum_i(\nu_i-\mu_i)$. Rearranging a vector preserves both its sum and its $L^1$ norm, so rearrangement itself is not the source of a difference between them. For example, $\mu=(3,2)$, $\nu=(4,1)$ gives the dominant signed difference $(1,-1)$: $D=2$ but its ordinary sum is zero.
+
+`differenceNorm` in `CanonicalRowBounds.lean` computes this exact integer distance. The formal theorem includes signed dominant differences; it does not add an entrywise nonnegativity hypothesis.
 
 ## Worked Example
 
@@ -28,11 +34,11 @@ $$d(\mu, \nu) = |5 - 6| + |3 - 2| + |1 - 1| = 1 + 1 + 0 = 2$$
 
 Geometrically: one box moves from row 2 of $\mu$ to row 1 of $\nu$. The total reshuffling is 2 (one box removed from row 2, one box added to row 1).
 
-**Example 2:** $\mu = (7000, 3000)$ and $\Lambda^* = (8305, 3000)$ (typical vs. target in the qubit compression with $n = 10000$):
+**Example 2:** $\mu = (7000, 3000)$ and $\Lambda^* = (8305, 3000)$ (a possible pair of qubit rows):
 
 $$d(\mu, \Lambda^*) = |7000 - 8305| + |3000 - 3000| = 1305$$
 
-This is the distance that enters the cloning fidelity bound: $F \geq 1 - O(1305/n^{1-\varepsilon})$. Since $1305 = O(\sqrt{n}\log n)$ and $n = 10000$, we get $F \geq 1 - O(n^{-1/2+\varepsilon})$, ensuring the error vanishes.
+This is an illustrative row distance, not the current padded target from the Article. In Theorem 2, the error is bounded by $C_{d,x}D/(b_\mu+1)$. For the actual typical-to-target family, $D=O(\sqrt n\log n)$ and $b_\mu=\Omega(n)$.
 
 **Example 3:** $\mu = (4, 2, 0)$ and $\nu = (5, 3, 1)$ in $d = 3$:
 
@@ -42,8 +48,8 @@ Here $\nu - \mu = (1, 1, 1)$, which is dominant, so $\omega = (1, 1, 1)$ and $|\
 
 ## Used By
 
-- [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]] -- error bound is $O(d(\mu,\nu)/n^{1-\varepsilon})$
-- [[results/lemmas/dimension-ratio|Dimension Ratio (Lemma 10)]]
+- [[results/cloning-fidelity|Cloning Accuracy (Article Theorem 2)]] -- error bound is $C_{d,x}D/(b_\mu+1)$
+- [[results/lemmas/dimension-ratio|Dimension Ratio]]
 
 ## External References
 

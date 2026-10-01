@@ -7,10 +7,10 @@
 
 ## Summary
 
-The most comprehensive version. Contains full proofs of the state compression results (duplicating Article) plus three additional topics:
+These are extended working notes from the earlier wiki source snapshot. They contain an earlier state-compression proof and additional programming topics:
 - [[open-questions/free-entropy-conjecture|Programming Extensions]] (Secs. 7-9: state programming, unitary programming, observable programming)
 
-Also contains author working comments (JW/YY) that identify [[open-questions/error-scaling|Open: Error Scaling]] and other unresolved questions.
+The current [[Article]] and [[proof-structure|Lean proof structure]] supersede the older fidelity-based compression route described here. In particular, the current direct trace-distance estimate proves $O(\log n/\sqrt n)$ reconstruction error. Historical working comments are not evidence of an unresolved gap in those endpoints; see [[open-questions/error-scaling|the remaining error-tradeoff questions]].
 
 ## Sections
 

@@ -78,7 +78,7 @@ The two routes differ not just quantitatively but structurally:
 - [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]] -- the QMDL task
 - [[concepts/free-entropy|Free Entropy]] -- the entropy governing QMDL
 - [[concepts/physical-free-entropy|Physical Free Entropy]] -- the finite-dimensional version
-- [[Von Neumann Entropy]] -- the entropy governing Schumacher compression
+- von Neumann entropy -- the entropy governing Schumacher compression
 
 ## External References
 

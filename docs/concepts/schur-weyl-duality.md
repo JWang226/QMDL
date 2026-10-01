@@ -66,7 +66,7 @@ Under the Schur transform:
 $$\rho^{\otimes n} = \bigoplus_\lambda q_\lambda \cdot \rho_\lambda \otimes \frac{I_{M_\lambda}}{\dim M_\lambda}$$
 
 where:
-- $q_\lambda = s_\lambda(p)$ is the [[concepts/schur-polynomials|Schur Polynomial]] evaluated at the eigenvalues -- the **probability** of sector $\lambda$
+- $q_{\lambda,n} = s_\lambda(x)\dim M_\lambda$ is the [[concepts/schur-polynomials|Schur Polynomial]] evaluated at the eigenvalues -- the **probability** of sector $\lambda$
 - $\rho_\lambda = \pi_\lambda(\rho) / s_\lambda(p)$ is the normalized GL irrep state -- contains all **eigenbasis information**
 - The $S_n$ part is **maximally mixed** -- carries no information about $\rho$'s eigenbasis
 
@@ -82,8 +82,16 @@ The Schur transform is **Step 1** of both encoding and decoding:
 
 1. **Compression**: only need to store $\rho_\lambda$ (the $S_n$ part is reconstructable)
 2. **Sector selection**: Young diagrams $\lambda$ concentrate near $\lambda \approx np$ (by Sanov's theorem)
-3. **Memory cost**: $\log|M_n| \approx \log \dim H_{\Lambda^*}$, giving $O(\log n)$ scaling
+3. **Memory cost**: $|M_n|=\log_2\dim M_n\approx\log_2\dim H_{\Lambda}$, giving $O(\log n)$ scaling
 4. **Cloning between sectors**: the [[concepts/generalized-cloning-map|Generalized Cloning Map]] maps $\rho_\lambda$ to $\rho_{\Lambda^*}$
+
+## Constructed Physical Decomposition in Lean
+
+`physicalDecomposition` in `SchurWeylPhysical.lean` constructs an orthogonal irreducible decomposition of the actual tensor action. `physical_source_in_basis` proves the block identity for the actual tensor state. Highest-weight classification identifies each block with a canonical polynomial representation, and equivalent copies have identical source blocks. Grouping those copies gives the multiplicity identity used in compression.
+
+The final concentration argument bounds the number of copies with a given highest row by its word-content space, then uses a proved PBW dimension bound and an entropy estimate. It does not assume a hook-length or tableau formula for physical multiplicities. `physicalAtypicalMass_eventually_le_inv` in `SchurWeylConcentration.lean` and `mixedEncoder`/`mixedDecoder` in `PhysicalCloningChannels.lean` supply the actual tail and CPTP protocol. No decomposition or character premise is left at the Theorem 1 endpoint. See [[proof-structure]].
+
+The mathematical decomposition above explains the source structure; the formalization does not claim the circuit-complexity result discussed earlier on this page.
 
 ## Related
 

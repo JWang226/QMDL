@@ -1,68 +1,116 @@
 # Introduction
 
-> **Project:** "Free Entropy and Quantum Minimum Description Length"
-> **Authors:** Patrick Hayden, Alexander Maloney, Jinzhao Wang, Yuxiang Yang
+**Project:** Free Entropy and Quantum Minimum Description Length
 
----
+**Authors:** Patrick Hayden, Alexander Maloney, Jinzhao Wang, Yuxiang Yang
 
-## What This Wiki Is
+This wiki explains the mathematical project and the current Lean proof of
+Theorems 1 and 2 in the bundled
+[Article source](https://github.com/JWang226/QMDL/blob/main/article.tex).
+Start with the results below, then follow [[proof-structure|the proof map]]
+for their dependencies or [[formalization|the verification guide]] to check
+this formalization yourself. The wiki also retains broader material from
+the [[Letter]] and [[Notes]]; that material is not all covered by the Lean proof.
 
-This is a structured, interlinked knowledge base covering every technical detail of the project on **free entropy and quantum minimum description length (QMDL)**. It is maintained by an LLM and designed to be browsed in [Obsidian](https://obsidian.md/) (all `[[wikilinks]]` are clickable). The raw source files (`.tex`, `.bib`) live in `sources/` and are never modified; everything else is derived from them.
+## The compression problem
 
-## The Central Question
+Suppose the spectrum of a density matrix is known, but its eigenbasis is
+unknown. A single pair of quantum channels must compress and recover
+$\rho_U^{\otimes n}$ for every $U\in\mathrm U(d)$, where
+$\rho_U=U\operatorname{diag}(x)U^\dagger$. The retained memory includes
+any classical register. Its cost is $\log_2\dim M_n$.
 
-Given $n$ copies of a density matrix $\rho$ whose **spectrum is known** but whose **eigenbasis is not**, how much quantum memory do you need to store a faithful description of $\rho^{\otimes n}$?
+The task only asks to recover the state itself. [[concepts/schumacher-compression|Schumacher compression]]
+also preserves correlations with a reference and has a different cost.
+Here, $O(\log n)$ quantum memory suffices. This does not make the protocol
+purely classical: for a nontrivial orbit, tomography followed by state
+preparation cannot give vanishing global reconstruction error.
 
-This is fundamentally different from [[concepts/schumacher-compression|Schumacher compression]], which preserves purifications and costs $nS(\rho)$ qubits. Here we only need to recover the state itself (not its entanglement with a reference), so the cost is only $O(\log n)$ -- we are compressing a classical description of a continuous parameter (the eigenbasis).
+## Theorem 1: optimal memory, including the constant
 
-## The Main Result
+Fix dimension $d$, rank $1\le r\le d$, and distinct positive eigenvalues
+$x_1>\cdots>x_r>0$ with sum one; the remaining eigenvalues are zero. Define
 
-The optimal compression rate is governed by **Voiculescu's free entropy** -- a quantity from free probability theory that had no prior operational meaning in quantum information:
+$$
+L_{d,r}(n,x)=\frac{r(2d-r-1)}2\log_2 n
++\sum_{1\le i<j\le r}\log_2(x_i-x_j)
++(d-r)\sum_{i=1}^r\log_2 x_i
+-\sum_{k=d-r}^{d-1}\log_2(k!).
+$$
 
-$$\log|M_n| = \frac{1}{2}\chi_{\mathrm{phy}}(\rho;\, n^{-1/2}) + \text{universal constants} + o(1)$$
+[[results/achievability|Achievability]] constructs encoders and decoders,
+independent of $U$, with
 
-Explicitly, for a rank-$r$ state with non-degenerate eigenvalues $x_1 > \cdots > x_r > 0$:
+$$
+\log_2\dim M_n=L_{d,r}(n,x)+o(1),\qquad
+\sup_U\frac12\|\rho_U^{\otimes n}-\mathcal D_n\mathcal E_n(\rho_U^{\otimes n})\|_1
+=O\!\left(\frac{\log n}{\sqrt n}\right).
+$$
 
-$$\log|M_n| = \underbrace{\frac{r(2d-r-1)}{2}\log n}_{\text{free entropy dimension}} + \underbrace{\sum_{i<j \leq r} \log(x_i - x_j) + (d-r)\sum_i \log x_i}_{\text{regularized free entropy}} - \sum_{k=d-r}^{d-1} \log k! + o(1)$$
+[[results/converse|The converse]] proves that any physical code sequence
+whose Haar-average reconstruction error vanishes obeys
 
-The leading coefficient $r(2d-r-1)/2$ is the real dimension of the [[concepts/flag-manifold|flag manifold]] (the space of eigenbases), and the $O(1)$ correction encodes the eigenvalue repulsion -- larger spectral gaps make the state more compressible.
+$$
+\liminf_{n\to\infty}\bigl(\log_2\dim M_n-L_{d,r}(n,x)\bigr)\ge0.
+$$
 
-## The Three Papers
+This also covers vanishing worst-case error. The result concerns fixed
+$d$ and fixed $x$; it makes no uniform assertion as eigenvalues collide,
+and does not prescribe the optimal memory for every chosen error schedule.
+The scalar case $d=1$ and rank-one states are included.
 
-| Paper | Role | Key content |
-|-------|------|-------------|
-| **[[Letter]]** (`sources/letter.tex`) | PRL announcement | Defines physical free entropy, states the main QMDL result |
-| **[[Article]]** (`sources/article.tex`) | Full journal paper | Complete proofs: generalized cloning map, achievability, converse |
-| **[[Notes]]** (`sources/Free.tex`) | Extended working notes | All of the above + unitary & observable programming |
+The coefficient $r(2d-r-1)/2$ is **half** the real dimension of the
+[[concepts/flag-manifold|unitary orbit]]. The spectral terms are half the
+logarithm of its Hilbert–Schmidt volume, up to a constant depending on $d,r$.
+The companion [[Letter]] develops the connection with free entropy;
+this geometric interpretation is separate from the scope of the two Lean endpoints.
 
-## Key Ideas at a Glance
+## Theorem 2: the finite cloning estimate
 
-### The Compression Protocol
+The technical input is [[results/cloning-fidelity|a trace-distance bound in both directions]]
+for the generalized cloning channels. Fix $d\ge2$ and the same normalized
+rank-$r$ spectrum. If $\mu,\nu$ are partitions vanishing beyond the first
+$r$ rows and $\nu-\mu$ is dominant, their errors are at most
 
-1. Apply the [[concepts/schur-weyl-duality|Schur transform]] to decompose $\rho^{\otimes n}$ into irreducible sectors labeled by Young diagrams $\lambda$.
-2. Discard the symmetric-group multiplicity (it carries no eigenbasis information).
-3. Clone each sector's state into a single universal target irrep $\Lambda^*$ using the [[concepts/generalized-cloning-map|generalized cloning map]].
-4. Store the result in a quantum memory of dimension $d_{\Lambda^*}$.
+$$C_{d,x}\frac{\|\nu-\mu\|_1}{b_\mu+1},$$
 
-The converse uses the [[concepts/koashi-imoto|Koashi-Imoto structure theorem]] to show the orbit ensemble generates the full matrix algebra, forcing the memory to be at least $\log \dim \mathcal{H}_\lambda$.
+where $b_\mu$ is the minimum supported adjacent-row gap. Dominance does
+not require every entry of the difference to be nonnegative. The formal
+proof constructs actual CPTP maps and identifies them with the original
+normalized Choi-projector formulas; its reverse map is also identified with
+the Petz formula. Rank one and equal rows are covered.
 
-### Beyond State Compression: Programming
+## How the proofs fit together
 
-The Notes extend the framework to **programming** -- storing a quantum program that implements an unknown unitary or observable:
+The [[proof-structure|proof map]] gives the full route. Its central steps are:
 
-- **[[open-questions/free-entropy-conjecture|Unitary programming (Notes)]]**: Cost $(f/2)\log(1/\varepsilon) + O(1)$, where $f$ is the number of free parameters.
-- **[[open-questions/free-entropy-conjecture|Observable programming (Notes)]]**: Cost $(d^2 \delta(H)/2)\log(1/\varepsilon) + O(1)$, where $\delta(H)$ is the [[concepts/free-entropy-dimension|free entropy dimension]].
+1. Construct canonical irreducible representations and identify the physical
+   tensor-power sectors with them; prove the required character, dimension,
+   weight and covariance facts.
+2. Prove the finite cloning bound directly in trace distance, then identify
+   the Cartan, Choi and Petz descriptions of the channels.
+3. Concentrate the physical source on typical sectors and send them to one
+   padded target representation. Here $\|\nu-\mu\|_1=O(\sqrt n\log n)$ and
+   $b_\mu=\Omega(n)$, yielding the stated uniform error rate. Explicit
+   replacement channels handle atypical sectors.
+4. Evaluate the target's dimension through its additive constant. For the
+   converse, combine a uniform positive spectral gap with the quantitative
+   Haar-orbit memory bound and transfer arbitrary physical codes to that orbit.
 
-The common thread: **free entropy governs the cost of storing classical descriptions of quantum objects**.
+This converse uses the quantitative incompressibility argument proved in the
+library; merely citing the exact-reconstruction Koashi–Imoto theorem would
+not establish the required vanishing-error lower bound through its constant.
 
-## How to Navigate
+## Wider project and reading routes
 
-- **[[index]]** -- master table of contents with links to every page
-- **[[notation]]** -- central glossary of all symbols
-- **`concepts/`** -- one page per key concept (free entropy, Schur-Weyl duality, PRV component, ...)
-- **`definitions/`** -- one page per formal definition
-- **`results/`** -- one page per theorem/lemma, each with a **Main idea** summary and a detailed proof sketch
-- **`open-questions/`** -- unresolved questions and conjectures
-- **`references/`** -- annotated bibliography
+| Source | Role | Formalization boundary |
+| --- | --- | --- |
+| [[Article]] | Current full proof, including generalized cloning and optimal known-spectrum memory | Theorems 1 and 2 and their required supporting development are formalized. |
+| [[Letter]] | Announcement and free-entropy interpretation | Broader geometric interpretation is not claimed by those endpoints. |
+| [[Notes]] | Extended material, including programming questions | These extensions are not automatically certified by the Article formalization. |
 
-Start with [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]] for the full story, or browse the [[index]] for a bird's-eye view.
+- [[index|Wiki index]]: results, concepts and supporting lemmas.
+- [[proof-structure|Current proof structure]]: dependency diagram and Lean module map.
+- [[formalization|Formalization and reproduction]]: checked scope and how to rerun the checkers.
+- [[notation|Notation]]: memory cost, error conventions, rows and spectral parameters.
+- [[open-questions/free-entropy-conjecture|Broader questions]]: entropy and programming extensions outside the formalized scope.

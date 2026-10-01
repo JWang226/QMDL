@@ -12,7 +12,7 @@ For a qubit ($d = 2$) with eigenvalues $p > 1-p > 0$:
 
 ### Encoding
 
-1. **Schur transform:** Apply the [[concepts/schur-weyl-duality|Schur Transform]] to decompose $(\mathbb{C}^2)^{\otimes n} = \bigoplus_{J} \mathcal{H}_J \otimes \mathcal{M}_J$, where $\mathcal{H}_J$ is the spin-$J$ irrep of $\mathrm{U}(2)$ (dimension $2J+1$, isomorphic to $\mathrm{Sym}^{2J}(\mathbb{C}^2)$) and $\mathcal{M}_J$ is the multiplicity space (an irrep of $S_n$).
+1. **Schur transform:** Apply the [[concepts/schur-weyl-duality|Schur Transform]] to decompose $(\mathbb{C}^2)^{\otimes n} = \bigoplus_{J} \mathcal{H}_J \otimes \mathcal{M}_J$, where $\mathcal{H}_J$ is the spin-$J$ representation on restriction to $\mathrm{SU}(2)$ (dimension $2J+1$, isomorphic there to $\mathrm{Sym}^{2J}(\mathbb{C}^2)$; the $\mathrm{U}(2)$ determinant twist cancels in conjugation) and $\mathcal{M}_J$ is the multiplicity space (an irrep of $S_n$).
 
 2. **Measure the spin $J$:** Perform a non-demolition measurement of the quantum number $J$, which is equivalent to measuring the [[concepts/young-diagrams|Young diagram]] $\lambda = (n/2 + J, n/2 - J)$. This preserves the quantum information within $\mathcal{H}_J$. The probability distribution $q_J$ concentrates sharply around the **typical value** $J^\star = (p - 1/2)(n+1)$, which is the spin corresponding to the typical Young diagram with rows proportional to the spectrum.
 
@@ -40,16 +40,16 @@ The target $J^\star = (p - 1/2)(n+1)$ is chosen to maximize $q_J$, i.e., it is t
 
 ### The Padding $\xi_n$
 
-In the qudit generalization, one must slightly enlarge the target representation by a "padding" $\xi_n \sim \sqrt{n} \log n$ to ensure all typical sectors can be cloned with high fidelity. This padding is the main source of suboptimal error scaling -- see [[open-questions/error-scaling|Open: Why Does the Error Scale as $\varepsilon \sim n^{-1}$?]].
+In the qudit generalization, one must slightly enlarge the target representation by a "padding" $\xi_n \sim \sqrt{n} \log n$ to ensure all typical sectors can be cloned with high fidelity. The current direct trace-distance estimate gives $O(\log n/\sqrt n)$ error; see [[open-questions/error-scaling|Error Scaling Beyond the Current Bound]].
 
-**Rate:** $\log|M_n| = \frac{1}{2}\log n + \log(2p - 1) + o(1)$
+**Memory cost:** $|M_n|=\log_2(2J^\star+1)=\log n+\log(2p-1)+o(1)$.
 
 ## What Changed for Qudits
 
 The qudit generalization required:
 1. Replacing $\mathrm{Sym}^n$ (single-row Young diagrams) with **arbitrary GL$(d)$ irreps** $H_\lambda$
 2. Replacing Werner's cloning map with the [[concepts/generalized-cloning-map|Generalized Cloning Map]]
-3. Proving the [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]] for the generalized cloner (the main technical challenge)
+3. Proving the [[results/cloning-fidelity|Cloning Accuracy (Article Theorem 2)]] for the generalized cloner (the main technical challenge)
 
 ## References
 

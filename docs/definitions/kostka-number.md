@@ -30,13 +30,13 @@ $$\begin{array}{|c|c|}\hline 1 & 1 \\\hline 2 \\\cline{1-1}\end{array}$$
 
 (Rows weakly increasing, columns strictly increasing.)
 
-### Example 2: $K_{(2,1), (1,1,1)} = 1$
+### Example 2: $K_{(2,1), (1,1,1)} = 2$
 
-Shape $\lambda = (2,1)$, content $w = (1,1,1)$ (one each of 1, 2, 3). The unique SSYT is:
+Shape $\lambda=(2,1)$ and content $w=(1,1,1)$ admit two tableaux. The first is:
 
 $$\begin{array}{|c|c|}\hline 1 & 2 \\\hline 3 \\\cline{1-1}\end{array}$$
 
-Wait -- we must check: columns strictly increasing requires $1 < 3$, which holds. But we also need $1 < 2$ in the first row (weakly), which holds. However, we could also try:
+The second is:
 
 $$\begin{array}{|c|c|}\hline 1 & 3 \\\hline 2 \\\cline{1-1}\end{array}$$
 
@@ -60,7 +60,7 @@ So $K_{(1,1,1), (1,1,1)} = 1$.
 
 ### Example 5: Qubit ($d = 2$)
 
-For $d = 2$, all partitions have at most 2 rows: $\lambda = (\lambda_1, \lambda_2)$. The weights are $w = (\lambda_1 - k, \lambda_2 + k)$ for $k = 0, \ldots, \lambda_1 - \lambda_2$. For each such $w$, $K_{\lambda, w} = 1$: there is exactly one SSYT with the given content. This is because with only two symbols, the column-strict and row-weak conditions fully determine the tableau. This is why $\rho_\lambda$ is fully diagonal (not just block-diagonal) for qubits.
+For $d = 2$, all partitions have at most 2 rows: $\lambda = (\lambda_1, \lambda_2)$. The weights are $w = (\lambda_1 - k, \lambda_2 + k)$ for $k = 0, \ldots, \lambda_1 - \lambda_2$. For each such $w$, $K_{\lambda, w} = 1$: there is exactly one SSYT with the given content. This is because with only two symbols, the column-strict and row-weak conditions fully determine the tableau. In every dimension the representation state is scalar on each weight block and diagonal in any weight basis; the qubit case has no nontrivial block multiplicities.
 
 ## Connection to the Schur Polynomial
 
@@ -72,10 +72,10 @@ This is the "combinatorial definition" of Schur polynomials. The normalization o
 
 ## Used By
 
-- [[results/lemmas/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]]
-- [[results/lemmas/perturbation-lemma|Perturbation Lemma (Lemma 7)]]
-- [[results/lemmas/tail-mass|Tail Mass (Lemma 8)]]
-- [[results/lemmas/probability-ratio|Probability Ratio (Lemma 9)]]
+- [[results/lemmas/kostka-monotonicity|Multiplicity Monotonicity]]
+- [[results/lemmas/perturbation-lemma|Highest-Weight Subspace Perturbation]]
+- [[results/lemmas/tail-mass|Uniform Mean Depth]]
+- [[results/lemmas/probability-ratio|Eigenvalue Ratio]]
 - [[definitions/normalized-gl-irrep|Normalized GL Irrep State]]
 
 ## External References

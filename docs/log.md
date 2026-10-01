@@ -140,3 +140,20 @@ Every definition page now has: concrete examples, expanded intuition, connection
   manuscript labels identify the formalization's targets.
 - Kept repository-oriented proof documentation out of the generated wiki, where
   its relative links to Lean files would not resolve.
+
+## 2026-10-01 — Reconcile the wiki with the current proof structure
+
+- Reindexed the current Article: Theorem 1 is optimal known-spectrum memory;
+  Theorem 2 is finite cloning accuracy. Source labels distinguish these from
+  historical Letter/Notes numbering.
+- Added a rendered dependency diagram and a Lean module reading map, and
+  revised the introduction, Article overview, result index and navigation.
+- Replaced the older fidelity/truncation and good-sector converse accounts
+  with direct trace deficits, uniform mean depth, physical typical-sector
+  comparison, exact padded-target dimensions and the Haar-orbit memory bound.
+- Corrected supported gaps, signed differences, typical-set padding, memory
+  conventions, representation-state weights and physical sector probabilities.
+- Linked the Cartan, original Choi and Petz certificates and distinguished
+  their proved scope from general channel claims and genuine extensions.
+- Updated the verification guide and source links. Manuscript and Lean proof
+  sources are unchanged; this update changes their wiki explanations.

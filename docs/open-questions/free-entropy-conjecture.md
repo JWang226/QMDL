@@ -1,7 +1,7 @@
 # Conjecture: Free Entropy as Universal QMDL & Programming Extensions
 
 **Source:** Letter, line ~248; Notes, Secs. 7--9
-**Status:** Conjectured / Partially established
+**Status:** Broader conjecture; current Lean endpoints cover the fixed-spectrum state-compression theorems.
 
 ## Conjecture Statement (from the Letter)
 
@@ -13,12 +13,18 @@ $$\log D = \frac{1}{2}\chi_{\mathrm{phy}}(\text{operator}; \varepsilon) + O(1)$$
 
 Free entropy, unlike von Neumann entropy, is defined for **any element of a non-commutative algebra**. This universality of the mathematical definition is conjectured to match a universality of the operational meaning.
 
-## Evidence
+## Scope of the Current Formalization
 
-The project establishes this for three classes:
+`Theorem1Complete` proves fixed-known-spectrum state compression through the additive memory constant, including rank-deficient and pure states. `Theorem2Choi` proves the required finite cloner bounds for actual channels. These results do not formalize the general operational free-entropy conjecture, unknown-spectrum overhead, universal lossless coding/entropy conclusions, or the Notes' programming results.
+
+The status descriptions below refer to the **Letter and historical Notes**, not to checked Lean endpoints. In particular, broad programming or entropy claims should not be inferred from a successful audit of Theorems 1 and 2. See [[proof-structure]].
+
+## Evidence Discussed in the Manuscripts
+
+The manuscripts discuss the following classes:
 
 ### 1. Density Matrices (State Compression) -- Article, Letter
-Fully proved with tight $O(1)$ bounds: $|M_n| = \frac{1}{2}\chi_{\mathrm{phy}}(\rho; n^{-1/2}) + O(1)$.
+For fixed spectra with distinct positive eigenvalues, the current Article proves the exact expression $|M_n|=L_{d,r}(n,x)+o(1)$ and a matching converse. The Letter interprets the spectrum-dependent terms through physical free entropy. A general formal free-entropy identity is not claimed by the current endpoint.
 
 ### 2. Unitary Programming -- Notes, Sec. 8
 For an $f$-parameter family of unitaries with non-degenerate spectrum: $\log D = \frac{f}{2}\log(1/\varepsilon) + O(1)$.
@@ -44,6 +50,10 @@ For state compression, the $O(1)$ term is $\chi_{\mathrm{reg}}(\rho)$. For unita
 
 ### Observable Expectation Converse
 For the weaker task of programming $\mathrm{Tr}[H\rho]$ (rather than the full spectral measurement), only achievability is known. The spectral measurement converse uses reduction to unitary estimation, but this breaks down for expectation values -- estimating $\mathrm{Tr}[H\rho]$ does not require knowing the full diagonalizing unitary.
+
+### Unknown Spectrum
+
+The Article discusses the additional cost when the spectrum is unknown in `app:unknown_spectrum`. That result is outside the fixed-spectrum formalization; it is an extension not claimed here, rather than an unresolved premise of the checked theorem.
 
 ### Further Extensions
 - **Quantum channels:** Free entropy can be defined for CPTP maps; the corresponding task is channel programming.

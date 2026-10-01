@@ -13,7 +13,7 @@ Summary of the most important cited works and their relevance to the project.
 - **voiculescu1999analogues** (VI): Liberation and mutual free information.
 - **voiculescu2002free**: Survey article on free entropy. [doi:10.1112/S0024609301008992](https://doi.org/10.1112/S0024609301008992)
 
-**Relevance:** The mathematical foundation. This project gives Voiculescu's free entropy its first operational/physical interpretation.
+**Relevance:** Background for the project's free-entropy interpretation. The broader geometric correspondence is separate from the two formalized Article endpoints; see [[formalization|the checked scope]].
 
 ---
 
@@ -54,19 +54,19 @@ Summary of the most important cited works and their relevance to the project.
 - **koashi2001compressibility**: Compressibility of quantum mixed-state signals [doi:10.1103/PhysRevLett.87.017902](https://doi.org/10.1103/PhysRevLett.87.017902)
 - **koashi2001possible**: Operations that do not disturb partially known quantum states
 
-**Relevance:** The [[concepts/koashi-imoto|Koashi-Imoto Structure Theorem]] is the key tool in the [[results/converse|Converse (State Compression)]].
+**Relevance:** The [[concepts/koashi-imoto|Koashi–Imoto theorem]] motivates orbit incompressibility. The current [[results/converse|converse]] needs the quantitative Haar-average memory bound under a spectral gap, which is proved in the formal library; exact non-disturbance alone is insufficient for the limiting additive constant.
 
 ---
 
 ## Representation Theory
 
 - **parthasarathy1967**: PRV theorem (representations of complex semi-simple Lie groups)
-- **kumar1988proof**: Proof of the PRV conjecture (multiplicity one) [doi:10.1007/BF01393689](https://doi.org/10.1007/BF01393689)
+- **kumar1988proof**: Proof of the PRV conjecture [doi:10.1007/BF01393689](https://doi.org/10.1007/BF01393689)
 - **gelfand1950finite**: Gelfand-Tsetlin basis
 - **fulton1991representation**: Standard reference for representation theory
 - **macdonald1995symmetric**: Symmetric functions and Hall polynomials (Schur polynomials, Kostka numbers)
 
-**Relevance:** The mathematical toolkit. PRV theorem defines the [[concepts/prv-component|PRV Component]], GT basis enables explicit computations.
+**Relevance:** Background for the [[concepts/prv-component|PRV component]], weights and dimensions. For the canonical pairs used in Theorem 2, the formal library proves its needed multiplicity-one result by the Cartan construction and tensor–Hom adjunction; it does not insert Kumar's theorem as an extra axiom. The actual character and dimension identities are proved locally. See [[proof-structure|the module map]].
 
 ---
 
@@ -74,7 +74,7 @@ Summary of the most important cited works and their relevance to the project.
 
 - **davis1970rotation**: The rotation of eigenvectors by a perturbation [doi:10.1137/0707001](https://doi.org/10.1137/0707001)
 
-**Relevance:** The [[results/lemmas/davis-kahan|Davis-Kahan Theorem (Lemma 6)]] is the workhorse of the [[results/lemmas/perturbation-lemma|Perturbation Lemma (Lemma 7)]].
+**Relevance:** [[results/lemmas/davis-kahan|Davis–Kahan theory]] is background to the older fidelity-based presentation. The current [[results/lemmas/perturbation-lemma|highest-weight projector estimate]] uses a Casimir-gap bound on the traced deficit, followed by uniform mean-depth averaging, rather than the old norm-perturbation and square-root-error route.
 
 ---
 

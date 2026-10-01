@@ -1,44 +1,35 @@
-# Open: Error Scaling
+# Error Scaling Beyond the Current Bound
 
-**Source:** Notes, line ~274 (JW comment)
-**Status:** Open
+**Source:** Historical [[Notes]] discussion; current [[Article]], `thm:achievability`, `thm:main`.
+**Status:** Earlier exponent bottleneck resolved; sharp finite-error tradeoffs remain outside the proved statement.
 
-## Context
+## Current Result
 
-The achievability proof gives compression error $\delta_n = O(n^{-1/4 + \varepsilon})$, which is known to be suboptimal. The expected optimal scaling is $\delta_n = O(1/\sqrt{n})$, matching the qubit case established by Yang-Chiribella-Hayashi (YCH).
+The current Article and the Lean endpoint `FreeEntropy.theorem1_achievability` prove worst-case trace-distance error
 
-## Question
+$$\delta_n=O\!\left(\frac{\log n}{\sqrt n}\right)$$
 
-What is the optimal error exponent? Can the generalized cloning map achieve $\delta_n = O(1/\sqrt{n})$ for qudits, as in the qubit case?
+with memory cost $L_{d,r}(n,x)+o(1)$, for a fixed spectrum with strictly decreasing positive eigenvalues. Rank-deficient and rank-one sources are included.
 
-## Evidence for $1/\sqrt{n}$ Scaling
+The Notes' older $O(n^{-1/4+\varepsilon})$ route passed through a fidelity estimate and a square-root conversion. It is not the current error bound or an unclosed formalization gap.
 
-In the qubit case ($d = 2$), Werner's optimal cloning map achieves error $\delta_n = O(1/\sqrt{n})$. The YCH scheme (Yang-Chiribella-Hayashi 2016) demonstrates this rate explicitly. This suggests the same scaling should hold for general $d$.
+## Why the Bound Improved
 
-## Current Bottleneck
+The current cloning theorem controls trace distance directly:
 
-The gap between $n^{-1/4+\varepsilon}$ and $n^{-1/2}$ arises from the **padding** $\xi_n \sim \sqrt{n}\log n$:
+$$\frac12\|\mathcal C_{\mu\to\nu}(\rho_\mu)-\rho_\nu\|_1
+\le C_{d,x}\frac{\|\nu-\mu\|_1}{b_\mu+1},$$
 
-1. The target representation $\Lambda^\star = np + \xi_n$ is chosen larger than the typical $\lambda \approx np$ to ensure all typical sectors can be cloned *into* it. The padding $\xi_n$ must dominate the typical fluctuations ($O(\sqrt{n})$), hence $\xi_n \sim \sqrt{n}\log n$.
+with the same bound in reverse. The proof averages localized Casimir **trace deficits**, using shallow multiplicity equality and a bounded mean root depth. Typical rows have $b_\mu=\Omega(n)$ and padded-target distance $O(\sqrt n\log n)$. The actual atypical mass is negligible. No Davis–Kahan hypothesis or assumed concentration estimate remains in the final endpoint.
 
-2. In the cloning fidelity analysis, the perturbation between the source irrep $H_\mu$ and the target irrep $H_\nu$ (with $\nu = \mu + \omega$) is controlled by the [[results/lemmas/perturbation-lemma|Perturbation Lemma (Lemma 7)]]. The current Davis-Kahan-based bound gives error $O(\sqrt{|\delta| \cdot \|\omega\|/n})$ per weight sector at depth $\delta$.
+## What Is Not Claimed
 
-3. Since $\|\omega\| \sim \xi_n \sim \sqrt{n}\log n$, summing over weight sectors gives $\delta_n = O(n^{-1/4+\varepsilon})$.
-
-## Possible Approaches
-
-1. **Direct sector-wise cloning** -- clone within each Schur sector $\lambda$ independently, avoiding the universal target $\Lambda^\star$. This would make $\|\omega\| = O(1)$, potentially improving the error to $O(1/\sqrt{n})$. The difficulty: the memory dimension would depend on the measurement outcome, requiring a hybrid classical-quantum memory.
-
-2. **Direct combinatorial argument on GT patterns** -- avoid the Davis-Kahan perturbation theory altogether, directly comparing the Gelfand-Tsetlin bases of $H_\mu$ and $H_\nu$ when $\nu = \mu + \omega$ with small $\omega$.
+The current theorem does not establish the optimal error at every fixed memory budget, nor a general $O(n^{-1/2})$ bound without the logarithmic factor at the same $L_{d,r}(n,x)+o(1)$ memory precision. Whether a different protocol or more refined choice of window improves that tradeoff is a separate question. The older Notes' proposed approaches should be read in that historical context.
 
 ## Related
 
-- [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]]
-- [[results/lemmas/perturbation-lemma|Perturbation Lemma (Lemma 7)]]
+- [[proof-structure]]
+- [[results/cloning-fidelity|Cloning Accuracy (Article Theorem 2)]]
+- [[results/achievability|Achievability (Article Theorem 1)]]
+- [[concepts/casimir-operator|Casimir Operator]]
 - [[concepts/ych-scheme|YCH Scheme]]
-
-## External References
-
-- [Yang, Chiribella, and Hayashi, "Optimal compression for identically prepared qubit states" (2016)](https://doi.org/10.1103/PhysRevLett.117.090502)
-- [Werner, "Optimal cloning of pure states" (1998)](https://doi.org/10.1103/PhysRevA.58.1827)
-- [Davis and Kahan, "The rotation of eigenvectors by a perturbation. III" (1970)](https://doi.org/10.1137/0707001)

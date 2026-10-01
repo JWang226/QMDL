@@ -1,57 +1,40 @@
-# Open: QMDL for Degenerate Spectrum
+# QMDL for Repeated Positive Eigenvalues
 
-**Source:** Letter Appendix B (line ~408); Article line ~131, ~797
-**Status:** Open
+**Source:** [[Letter]] Appendix B; current [[Article]] fixed-spectrum hypotheses.
+**Status:** General repeated-positive-spectrum extension is outside the current formalized theorem.
 
-## Context
+## What Is Already Included
 
-All main theorems in the Article assume that $\rho$ has **strictly non-degenerate** positive eigenvalues $x_1 > x_2 > \cdots > x_r > 0$. This non-degeneracy is used in several critical places:
+The current Article and `Theorem1Complete` assume strictly decreasing **positive** eigenvalues $x_1>\cdots>x_r>0$. They include $r<d$, repeated zero eigenvalues, pure states ($r=1$), and $d=1$. Those cases are not open formalization gaps.
 
-1. **Edge gap $g_\lambda = \Theta(n)$**: The [[definitions/edge-gap|edge gap]] of typical Young diagrams $\lambda \approx nx$ satisfies $g_\lambda \approx n \min_i(x_i - x_{i+1}) = \Theta(n)$ only when consecutive eigenvalues are distinct. This gap drives the spectral gap $\Delta = \Theta(n)$ in the [[results/lemmas/perturbation-lemma|Perturbation Lemma (Lemma 7)]].
+The extension considered here is a collision among positive eigenvalues, such as $x_i=x_{i+1}>0$. The fully maximally mixed state has a singleton orbit and needs no basis memory, but that elementary endpoint does not establish a general theorem for intermediate degeneracy patterns.
 
-2. **Kostka monotonicity equality**: The equality $K_{\mu, \mu-\delta} = K_{\nu, \nu-\delta}$ in [[results/lemmas/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]] holds when $|\delta| \leq g_\mu$. A vanishing edge gap breaks this.
+## Why the Current Estimates Change
 
-3. **Probability ratio**: The exponential bound $Z(x) \geq 1 - O(e^{-(g_\mu+1)\xi})$ in [[results/lemmas/probability-ratio|Probability Ratio (Lemma 9)]] depends on the logarithmic spectral gap $\xi = \min_i(\ln x_i - \ln x_{i+1}) > 0$.
+The supported [[definitions/edge-gap|row gaps]] of typical partitions grow linearly only across distinct eigenvalues. At a repeated positive eigenvalue this uniform lower bound is unavailable. Also, the ratio $q_x=\max_{i<r}x_{i+1}/x_i$ can reach one, so the present mean-depth and uniform canonical-gap bounds no longer provide spectrum-dependent positive constants.
 
-4. **Converse (Lagrange interpolation)**: The proof that the orbit ensemble generates $\mathcal{B}(\mathcal{H}_\lambda)$ uses Lagrange interpolation to extract the highest-weight projector, which requires distinct eigenvalues of $\rho_\lambda$.
+The actual physical decomposition, CPTP channel construction, and concentration proofs are established. Extending the final asymptotic estimates to repeated positive spectra requires an argument adapted to the smaller unitary orbit, rather than filling a missing Schur decomposition premise.
 
-When eigenvalues collide ($x_i = x_{i+1}$ for some $i$), the unitary orbit of $\rho$ shrinks — rotations within degenerate eigenspaces are undetectable. The [[concepts/flag-manifold|flag manifold]] changes from $U(d)/U(1)^d$ to $U(d)/(U(g_1) \times \cdots \times U(g_k))$, reducing the number of degrees of freedom.
+## Expected Leading Term
 
-## The Expected Answer
+For distinct eigenvalues with multiplicities $g_1,\ldots,g_k$, **including the zero eigenspace if present**, the orbit is
 
-The Letter (Appendix B) gives the free entropy formula for degenerate spectrum. For distinct eigenvalues $p_1 < \cdots < p_k$ with multiplicities $g_1, \ldots, g_k$ ($\sum_a g_a = d$):
+$$U(d)/(U(g_1)\times\cdots\times U(g_k))$$
 
-$$\chi_{\mathrm{phy}}(\rho; \varepsilon) = \left(d^2 - \sum_a g_a^2\right) \log \varepsilon^{-1} + 2\sum_{a < b} g_a g_b \log|p_a - p_b| + \mathrm{const}$$
+and its real dimension is $d^2-\sum_a g_a^2$. The Letter motivates the expected leading memory cost
 
-The [[concepts/free-entropy-dimension|free entropy dimension]] becomes $\delta(\rho) = 1 - \sum_a g_a^2/d^2$, and the expected QMDL rate is:
+$$|M_n|=\frac{d^2-\sum_a g_a^2}{2}\log n+O(1).$$
 
-$$\log|M_n| = \frac{d^2 - \sum_a g_a^2}{2} \log n + O(1)$$
+This broader formula and its additive constant are not conclusions of the current Lean endpoint.
 
-The Letter states: "We expect that with a more careful analysis for $\rho$ with a degenerate spectrum, the QMDL of any density operator $\rho^{\otimes n}$ can be shown to be the free entropy."
+## Converse Issue
 
-## What Needs to Be Done
-
-### Achievability
-
-The compression protocol should still work: the Schur transform decomposes $\rho^{\otimes n}$ into sectors, and the generalized cloning map can still be applied. The main technical issue is that typical Young diagrams $\lambda \approx nx$ now have **rows of equal length** (when $x_i = x_{i+1}$), so the edge gap $g_\lambda$ no longer grows with $n$ for those pairs. The Casimir perturbation argument breaks down at those specific row boundaries.
-
-A possible approach: decompose the problem according to the block structure of the degenerate eigenspaces. Within each degenerate block, the state is effectively maximally mixed, so no eigenbasis information needs to be stored. The compression only needs to handle the inter-block structure, which lives on the smaller flag manifold $U(d)/(U(g_1) \times \cdots \times U(g_k))$.
-
-### Converse
-
-The Lagrange interpolation trick (extracting $|v_\lambda\rangle\langle v_\lambda|$ as a polynomial in $\rho_\lambda$) fails when eigenvalues coincide, since the polynomial has repeated roots. A modified argument is needed — possibly using higher-order projectors or the full block structure of the degenerate eigenspaces.
+The current approximate converse uses a simple top eigenvalue separated by a uniform positive gap, rather than the older wiki's Lagrange-interpolation/Koashi–Imoto argument. Repeated positive spectra can destroy that simple-top-gap input. A suitable block version or a different quantitative memory argument would be needed for the general extension.
 
 ## Related
 
-- [[concepts/free-entropy|Free Entropy]] -- the degenerate formula
-- [[concepts/free-entropy-dimension|Free Entropy Dimension]] -- $\delta(\rho) = 1 - \sum_a g_a^2/d^2$
-- [[concepts/flag-manifold|Flag Manifold]] -- the reduced orbit space under degeneracy
-- [[definitions/edge-gap|Edge Gap]] -- vanishes at degenerate pairs
-- [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]] -- currently requires non-degeneracy
-- [[results/converse|Converse (State Compression)]] -- Lagrange interpolation step fails
-
-## External References
-
-- [Voiculescu, "Free Entropy" (2002)](https://doi.org/10.1112/S0024609301008992)
-- [Hiai and Petz, *The Semicircle Law, Free Random Variables and Entropy* (2000)](https://bookstore.ams.org/view?ProductCode=SURV/77)
-- [Flag manifold (Wikipedia)](https://en.wikipedia.org/wiki/Generalized_flag_variety)
+- [[proof-structure]]
+- [[concepts/flag-manifold|Flag Manifold]]
+- [[definitions/edge-gap|Supported Row Gaps]]
+- [[results/converse|Converse (Article Theorem 1)]]
+- [[open-questions/free-entropy-conjecture|Broader Free-Entropy Questions]]

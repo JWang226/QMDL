@@ -1,120 +1,65 @@
-# Perturbation Lemma (Lemma 7)
+# Highest-Weight Subspace Perturbation and Trace Deficits
 
-**Label:** `lem:perturbation` (Article)
-**Source:** Article line ~1230 (stated), ~1264 (proved); Notes line ~665
+**Label:** `lem:perturbation`; equations `eq:projector_casimir_bound`, `eq:casimir_slice_gap`, `eq:casimir_deficit_compression`.
+**Source:** [current Article](https://github.com/JWang226/QMDL/blob/main/article.tex#L1412).
 
 ## Statement
 
-Let $\nu = \mu + \omega$ with $\mu, \omega$ dominant. Let $P_\nu$ project onto $\mathcal{H}_\nu \subset \mathcal{H}_\mu \otimes \mathcal{H}_\omega$, and let $P_\mu^{(\omega)} = \mathrm{id}_\mu \otimes |\omega\rangle\langle\omega|$. For a positive root sum $\delta \in Q_+$, define the restricted projectors $\widetilde{\Pi}_{\nu-\delta} = Q_{\nu-\delta} P_\nu$ and $\Pi_{\mu-\delta}^{(\omega)} = Q_{\nu-\delta} P_\mu^{(\omega)}$ (both commute with $Q_{\nu-\delta}$ since they respect the total Cartan action). Then:
+Use the supported rows and dominant difference $\omega=\nu-\mu$ of [[results/cloning-fidelity|Article Theorem 2]], and put $D=\|\omega\|_1$. Inside $\mathcal H_\mu\otimes\mathcal H_\omega$, define
 
-$$\|\widetilde{\Pi}_{\nu-\delta} - \Pi_{\mu-\delta}^{(\omega)}\| = O\left(\sqrt{\frac{|\delta| \, \|\omega\|}{n}}\right)$$
+$$P_\delta=V\Pi_{\nu-\delta}V^\dagger,\qquad
+Q_\delta=\Pi_{\mu-\delta}\otimes|\omega\rangle\langle\omega|.$$
 
-under the scaling regime $|\mu| = \Theta(n)$, $g_\mu = \Theta(n)$, $|\delta|^2 \|\omega\| \ll n$, where $\|\omega\| = \omega_1 - \omega_d$ is the width of $\omega$.
+Both projectors lie in the total-weight sector $\nu-\delta$. For $r\ge2$, put $g_\mu=\min_{i<r}(\mu_i-\mu_{i+1})$. If $\delta\in Q_+^{(r)}$ and $|\delta|\le g_\mu$, their ranks agree and the Article proves
 
-## Intuition
+$$\|P_\delta-Q_\delta\|\le
+\sqrt{\frac{2(\delta,\omega)}{g_\mu+2}}
+\le\sqrt{\frac{2|\delta|D}{g_\mu+2}}.$$
 
-The weight spaces of $\mathcal{H}_\nu$ are "close" to the product weight spaces $\mathcal{H}_\mu \otimes |\omega\rangle$ viewed inside $\mathcal{H}_\mu \otimes \mathcal{H}_\omega$. Physically, tensoring a large irrep ($\mu$ of size $\Theta(n)$) with a small one ($\omega$) barely changes the weight space geometry -- the Clebsch-Gordan coupling is a small perturbation of the uncoupled product. The proof makes this precise using the Casimir operator as a Hamiltonian and applying the Davis-Kahan theorem to its spectral projectors.
+For $r=1$, only the supported offset $\delta=0$ contributes and the projectors coincide. This is a finite statement, not an asymptotic assumption that $|\delta|^2\|\omega\|\ll n$.
 
-## Proof Sketch
+## Local Casimir argument
 
-**Main idea:** Treat the total Casimir restricted to a fixed weight slice as a perturbed Hamiltonian $H = H_0 + V$. The uncoupled product subspace $\Pi_{\mu-\delta} \otimes |\omega\rangle$ is an eigenspace of $H_0$ with spectral gap $\Delta = \Theta(n)$ (from the edge gap $g_\mu$). The key trick: $E_\alpha^{(\omega)}|\omega\rangle = 0$ annihilates half the perturbation on this subspace, giving $\|VP_0\| = O(\sqrt{n|\delta|\|\omega\|})$ instead of the full $\|V\| = O(|\delta|\sqrt{n\|\omega\|})$. Davis-Kahan then yields $\|P - P_0\| \leq \|VP_0\|/\Delta = O(\sqrt{|\delta|\|\omega\|/n})$.
+On the total-weight sector, a constituent meeting the sector has highest row $\chi=\nu-\eta$, where both $\eta$ and $\delta-\eta$ belong to the positive-root cone. In particular, only supported simple roots occur. For any constituent other than the Cartan component,
 
----
+$$c_\nu-c_\chi
+=\sum_{i<r}\eta_i^{\mathrm{simple}}
+\bigl[(\nu_i-\nu_{i+1})+(\chi_i-\chi_{i+1})+2\bigr]
+\ge g_\mu+2.$$
 
-### Extended Proof
+Let $S_\delta$ denote the projector onto the whole total-weight sector and $A$ its compressed Casimir deficit. The useful inequality is local:
 
-### Setup: Casimir as a Hamiltonian
+$$A\ge(g_\mu+2)(S_\delta-P_\delta).$$
 
-Work on the fixed total-weight slice $W_{\nu-\delta} \subset \mathcal{H}_\mu \otimes \mathcal{H}_\omega$. The total quadratic Casimir restricted to this slice is:
+It is not a gap assertion on the entire tensor-product space. Compressing onto $Q_\delta$ kills the root-exchange terms because the auxiliary factor is highest weight, leaving
 
-$$H = Q_{\nu-\delta} \, C_2(\mu \otimes \omega) \, Q_{\nu-\delta}$$
+$$Q_\delta A Q_\delta=2(\delta,\omega)Q_\delta.$$
 
-Split as $H = H_0 + V$ where:
+These identities, with shallow rank equality, yield the displayed projector bound in the Article.
 
-$$H_0 = Q \left(C_2(\mu) \otimes \mathrm{id}_\omega + \mathrm{id}_\mu \otimes C_2(\omega) + 2\sum_{i=1}^d H_i^{(\mu)} \otimes H_i^{(\omega)}\right) Q$$
+## Direct trace-deficit route in Lean
 
-is the diagonal Cartan part, and:
+For the cloning estimate one can use traces directly. Define
 
-$$V = Q \left(2\sum_{\alpha > 0} \left(E_{-\alpha}^{(\mu)} \otimes E_\alpha^{(\omega)} + E_\alpha^{(\mu)} \otimes E_{-\alpha}^{(\omega)}\right)\right) Q$$
+$$T(P,Q)=\operatorname{Tr}[P(I-Q)P]\ge0.$$
 
-contains the root-exchange (off-diagonal) terms.
+The localized gap and compression identity imply, at shallow depths,
 
-### Step 1: Identify the Unperturbed Eigenspace
+$$T(P_\delta,Q_\delta)\le e_\delta\operatorname{Tr}P_\delta,\qquad
+T(Q_\delta,P_\delta)\le e_\delta\operatorname{Tr}Q_\delta,$$
 
-The projector $P_0 = \Pi_{\mu-\delta}^{(\omega)} = \Pi_{\mu-\delta} \otimes |\omega\rangle\langle\omega|$ is an eigenspace of $H_0$ with eigenvalue:
+where $e_\delta=\min\{1,2|\delta|D/(g_\mu+2)\}$. Equal ranks transfer one trace deficit to the other by cyclicity of trace. For integral $D\ge1$, deeper offsets satisfy $e_\delta=1$, and the trivial trace bound applies regardless of unequal ranks. Averaging these estimates preserves the linear $D/(b_\mu+1)$ error rate.
 
-$$\lambda_0 = C_2(\mu) + C_2(\omega) + 2(\mu - \delta, \omega)$$
+`FreeEntropy.CasimirTrace.traceDeficits_le_min_of_local_gap` in [CasimirTrace.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CasimirTrace.lean) is the matrix bridge. Actual Lie-generator identities and tensor decomposition discharge its gap and compression inputs in [LieMatrixCasimir.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/LieMatrixCasimir.lean), [CartanLieCloning.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CartanLieCloning.lean) and the canonical cloning construction. In particular, `FreeEntropy.CartanLieCloning.TensorDecomposition.local_gap` and `FreeEntropy.CartanLieCloning.tensor_weight_deficit` provide the local operator statements.
 
-This is because $|\omega\rangle$ has weight $\omega$, so fixing total weight $\nu - \delta$ forces the $\mu$-register to weight $\mu - \delta$, and the Cartan interaction term $2\sum_i H_i^{(\mu)} \otimes H_i^{(\omega)}$ evaluates to $2(\mu-\delta, \omega)$ on this product subspace.
-
-### Step 2: Spectral Gap is $\Theta(n)$
-
-Any vector in $W_{\nu-\delta}$ orthogonal to $P_0$ must have the $\omega$-register at some lower weight $\omega - \eta$ with $\eta \in Q_+$, $\eta \neq 0$ (and correspondingly the $\mu$-register at weight $\mu - \delta + \eta$). The eigenvalue of $H_0$ on such a subspace is $\lambda_1(\eta) = C_2(\mu) + C_2(\omega) + 2(\mu - \delta + \eta, \omega - \eta)$.
-
-The gap $\lambda_0 - \lambda_1(\eta)$ is computed by expanding:
-
-$$\lambda_0 - \lambda_1(\eta) = 2(\mu, \eta) - 2(\delta, \eta) - 2(\omega, \eta) + 2(\eta, \eta)$$
-
-Bounding each term using the simple root decomposition $\eta = \sum_k c_k \alpha_k$:
-- $(\mu, \eta) = \sum_k c_k(\mu_k - \mu_{k+1}) \geq g_\mu |\eta|$ (each $\mu_k - \mu_{k+1} \geq g_\mu$)
-- $|(\delta, \eta)| \leq 2|\delta| \, |\eta|$ (using $|(\alpha_i, \alpha_k)| \leq 2$ in type $A$)
-- $(\omega, \eta) = \sum_k c_k(\omega_k - \omega_{k+1}) \leq \|\omega\| \, |\eta|$
-- $(\eta, \eta) \geq 0$
-
-Therefore:
-$$\lambda_0 - \lambda_1(\eta) \geq |\eta|(2g_\mu - 4|\delta| - 2\|\omega\|)$$
-
-Since $g_\mu = \Theta(n)$ and $|\delta|, \|\omega\| = o(n)$ (implied by $|\delta|^2\|\omega\| \ll n$), the bracket is $\Theta(n)$, giving a spectral gap $\Delta = \Omega(n)$.
-
-### Step 3: The Perturbed Projector is $\widetilde{\Pi}_{\nu-\delta}$
-
-The perturbed Hamiltonian $H = H_0 + V$ is the total Casimir restricted to the slice, so its eigenspaces are exactly $Q_{\nu-\delta} P_\lambda$ for irreps $\lambda \subset \mu \otimes \omega$. We need to verify that $Q_{\nu-\delta} P_\nu$ is the spectral projector near $\lambda_0$.
-
-The eigenvalue of $H$ on $Q_{\nu-\delta} P_\nu$ is $C_2(\nu)$, and $|\lambda_0 - C_2(\nu)| = 2|(\delta, \omega)| \leq 2|\delta| \|\omega\| = o(n)$, so it lies within the spectral gap. Any competing irrep $\nu - \gamma$ (with $\gamma \preceq \delta$, $\gamma \neq 0$) has Casimir $C_2(\nu) - C_2(\nu - \gamma) \geq 2g_\mu|\gamma| - O(|\gamma|^2) = \Omega(n)$, so it lies far below. This confirms $P = \widetilde{\Pi}_{\nu-\delta}$.
-
-### Step 4: Bound $\|V\|$ and $\|VP_0\|$
-
-**Depth factorization.** Every vector in $W_{\nu-\delta}$ decomposes as tensors with $\mu$-depth $\leq |\delta|$ and $\omega$-depth $\leq |\delta|$:
-
-$$Q_{\nu-\delta} = Q_{\nu-\delta}(Q_{\leq|\delta|}^{(\mu)} \otimes Q_{\leq|\delta|}^{(\omega)})$$
-
-On the shallow subspaces, the $\alpha$-string structure gives norm bounds for the root operators:
-- $\|E_{\pm\alpha}^{(\mu)}\|_{\text{shallow}} = O(\sqrt{|\delta| \, n})$ (string length $\leq |\mu| = O(n)$)
-- $\|E_{\pm\alpha}^{(\omega)}\|_{\text{shallow}} = O(\sqrt{|\delta| \, \|\omega\|})$ (string length $\leq \|\omega\|$)
-
-Combining with the tensor structure and summing over finitely many positive roots:
-
-$$\|V\| = O(|\delta| \sqrt{n \, \|\omega\|})$$
-
-**Key trick for $\|VP_0\|$:** Since $|\omega\rangle$ is a highest-weight vector, $E_\alpha^{(\omega)}|\omega\rangle = 0$ for all positive roots $\alpha$. This kills half the perturbation terms on $P_0$, leaving only:
-
-$$VP_0 = 2 Q_{\nu-\delta} \sum_{\alpha > 0} E_\alpha^{(\mu)} \otimes E_{-\alpha}^{(\omega)} P_0$$
-
-Moreover, $|\omega\rangle$ sits at position $q = 0$ in every $\alpha$-string, so $\|E_{-\alpha}^{(\omega)}|\omega\rangle\|^2 = \langle\omega, \alpha^\vee\rangle \leq \|\omega\|$ -- a much tighter bound than the general shallow-depth estimate. This gives:
-
-$$\|VP_0\| = O(\sqrt{n \, |\delta| \, \|\omega\|})$$
-
-Note: $\|VP_0\| = O(\sqrt{n|\delta|\|\omega\|})$ is much smaller than $\|V\| = O(|\delta|\sqrt{n\|\omega\|})$ by a factor of $\sqrt{|\delta|}$. This is the payoff of using the tighter form of Davis-Kahan.
-
-### Step 5: Apply Davis-Kahan
-
-By the [[results/lemmas/davis-kahan|Davis-Kahan Theorem (Lemma 6)]]:
-
-$$\|\widetilde{\Pi}_{\nu-\delta} - \Pi_{\mu-\delta}^{(\omega)}\| = \|P - P_0\| \leq \frac{\|VP_0\|}{\Delta - \|V\|} = \frac{O(\sqrt{n \, |\delta| \, \|\omega\|})}{\Omega(n)} = O\left(\sqrt{\frac{|\delta| \, \|\omega\|}{n}}\right)$$
-
-The condition $\|V\| \ll \Delta$ is satisfied since $\|V\| = O(|\delta|\sqrt{n\|\omega\|}) = o(n)$ under the assumption $|\delta|^2\|\omega\| \ll n$.
+The final theorem certifies the resulting trace-distance bound. It does not rely on a standalone formalization of the historical Davis–Kahan/principal-angle fidelity argument.
 
 ## Dependencies
 
-- [[results/lemmas/davis-kahan|Davis-Kahan Theorem (Lemma 6)]] -- the spectral perturbation theorem
-- [[results/lemmas/kostka-monotonicity|Kostka Number Monotonicity (Lemma 3)]] -- ensures $\mathrm{rank}(P_0) = \mathrm{rank}(P)$, i.e., $K_{\mu,\mu-\delta} = K_{\nu,\nu-\delta}$
-- Casimir operator eigenvalue structure and $\alpha$-string norm bounds
+- [[concepts/casimir-operator|Quadratic Casimir]]
+- [[results/lemmas/kostka-monotonicity|Shallow multiplicity equality]]
+- [[results/propositions/choi-matrix-lemma|Cartan isometry]]
 
 ## Used By
 
-- [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]] -- Step 4 of the proof (quantum part of the fidelity)
-
-## External References
-
-- [Davis and Kahan, "The rotation of eigenvectors by a perturbation. III" (1970)](https://doi.org/10.1137/0707001)
-- [Stewart and Sun, *Matrix Perturbation Theory* (Academic Press, 1990)](https://doi.org/10.1016/C2009-0-22288-3)
+- [[results/cloning-fidelity|Cloning accuracy]] — averaging positive projector losses.

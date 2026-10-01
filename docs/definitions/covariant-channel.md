@@ -18,32 +18,32 @@ This is the natural symmetry requirement for any channel used in the compression
 
 ## Classification
 
-By Schur's lemma, any $U(d)$-covariant channel from $H_\mu$ to $H_\nu$ is characterized by its Choi operator, which must be a positive operator on $H_\nu \otimes H_{\mu^*}$ that is $U(d)$-invariant. The irreducible $U(d)$-invariant subspaces in $H_\nu \otimes H_{\mu^*}$ give the possible "building blocks." Decomposing:
+The Choi operator commutes with $U_{\mu^*}\otimes U_\nu$. If
 
-$$\mu^* \otimes \nu \simeq \bigoplus_\lambda \lambda$$
+$$H_{\mu^*}\otimes H_\nu\simeq\bigoplus_\lambda H_\lambda\otimes\mathbb C^{m_\lambda},$$
 
-the Choi operator must be a convex combination of projectors onto these irreps:
+then Schur's lemma gives
 
-$$J_{\mathcal{N}} = \bigoplus_\lambda c_\lambda \frac{d_\mu}{d_\lambda} \Pi_\lambda, \quad \sum_\lambda c_\lambda = 1, \quad c_\lambda \geq 0$$
+$$J_{\mathcal N}\simeq\bigoplus_\lambda I_{H_\lambda}\otimes A_\lambda,\qquad A_\lambda\ge0,$$
 
-The [[concepts/generalized-cloning-map|Generalized Cloning Map]] uses the **minimal** such block (the [[concepts/prv-component|PRV Component]]) -- the irrep $\omega = (\nu - \mu)^+$ that is dominated by every other irrep in the decomposition.
+with trace-preservation constraints. Multiplicity spaces cannot in general be replaced by scalar coefficients. A normalized projector onto a multiplicity-one component does give a channel; the [[concepts/generalized-cloning-map|generalized cloner]] uses the PRV component.
 
-## Qubit Example: Werner's Cloner as the Unique Covariant Channel
+## Qubit Example: Selecting the PRV Channel
 
 For $d = 2$, the irreps $\mu = (n, 0)$ and $\nu = (m, 0)$ correspond to $\mathrm{Sym}^n(\mathbb{C}^2)$ and $\mathrm{Sym}^m(\mathbb{C}^2)$ -- the spaces of $n$ and $m$ symmetric qubits.
 
-The decomposition $\mu^* \otimes \nu$ contains irreps $\mathrm{Sym}^{|n-m|+2k}(\mathbb{C}^2)$ for $k = 0, \ldots, \min(m,n)$. The minimal irrep ($k = 0$) gives Werner's cloner $\mathcal{C}_{n \to m}$, which is the **unique** $U(2)$-covariant channel from $\mathrm{Sym}^n$ to $\mathrm{Sym}^m$ that uses only the PRV component. This is the optimal approximate cloning map for pure qubits.
+After restriction to $\mathrm{SU}(2)$, the decomposition $\mu^* \otimes \nu$ contains irreps $\mathrm{Sym}^{|n-m|+2k}(\mathbb{C}^2)$ for $k = 0, \ldots, \min(m,n)$. The minimal irrep ($k = 0$) gives Werner's cloner $\mathcal{C}_{n \to m}$, which is the **unique** $U(2)$-covariant channel from $\mathrm{Sym}^n$ to $\mathrm{Sym}^m$ that uses only the PRV component. This is the optimal approximate cloning map for pure qubits.
 
 The covariance property $\mathcal{C}_{n \to m}(U^{\otimes n} \sigma U^{\dagger \otimes n}) = U^{\otimes m} \mathcal{C}_{n \to m}(\sigma) U^{\dagger \otimes m}$ means: cloning and then rotating gives the same result as rotating and then cloning.
 
 ## Connection to Proof Architecture
 
-Covariance is the design principle behind the [[definitions/generalized-cloning-map-def|Generalized Cloning Map]]. The [[results/propositions/commutativity|Commutativity (Prop 3)]] shows that any $U(d)$-covariant channel automatically satisfies $[\mathcal{N}(\rho_\mu), \rho_\nu] = 0$, meaning the cloned state commutes with the target state. This implies the cloning error is purely in the eigenvalues, not in the eigenbasis -- a key simplification for the [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]] proof.
+Covariance is the design principle behind the [[definitions/generalized-cloning-map-def|Generalized Cloning Map]]. The [[results/propositions/commutativity|Commutativity]] shows that any $U(d)$-covariant channel automatically satisfies $[\mathcal{N}(\rho_\mu), \rho_\nu] = 0$, meaning the cloned state commutes with the target state. The two states can therefore be simultaneously diagonalized, although the output need not be scalar on each degenerate target weight space. The final formal proof derives covariance and its uniform orbit error directly; it does not claim a separate formal endpoint for the Article's general commutativity proposition.
 
 ## Used By
 
 - [[concepts/generalized-cloning-map|Generalized Cloning Map]]
-- [[results/propositions/commutativity|Commutativity (Prop 3)]]
+- [[results/propositions/commutativity|Commutativity]]
 
 ## External References
 

@@ -1,68 +1,52 @@
 # Typical Set of Young Diagrams
 
-**Source:** Article line ~869
+**Source:** [[Article]], `eq:typical_set`, `eq:target_rep`, `eq:tail_prob_bound`.
 
 ## Statement
 
-For eigenvalue vector $p = (p_1, \ldots, p_r, 0, \ldots, 0)$ and parameter $\xi_n = \sqrt{2n}\log n + 1$, the **typical set** is:
+Let $x_1>\cdots>x_r>0$, with $x_i=0$ for $i>r$. All logarithms below are base two. Set
 
-$$T_{p,n} = \left\{\lambda \vdash n, \ell(\lambda) \leq d : d(\lambda/n, p) \leq \xi_n / \sqrt{n}\right\}$$
+$$\epsilon_n=\sqrt{n/2}\log n,\qquad
+\mathcal T_{x,n}=\left\{\lambda\vdash n:\ell(\lambda)\le r,\
+\max_{1\le i\le r}|\lambda_i-nx_i|\le\epsilon_n\right\}.$$
 
-where $d(\lambda/n, p) = \sum_i |\lambda_i/n - p_i|$ is the $L^1$ distance.
+This is a coordinatewise window in the **unnormalized** row lengths. Its normalized width is $\epsilon_n/n=(\log n)/\sqrt{2n}\to0$.
 
-## Intuition
+## Padded Target
 
-The typical set contains Young diagrams whose normalized shape $\lambda/n$ is close to the eigenvalue distribution $p$. By [[results/lemmas/sanov-theorem|Sanov's Theorem (Lemma 12)]], the probability of being outside $T_{p,n}$ is exponentially small: $\Pr[\lambda \notin T_{p,n}] \leq (n+1)^{r(r+1)/2} e^{-2n\xi_n^2/n}$.
+Put $\xi_n=2\epsilon_n+1$. The fixed target is
 
-The padding $\xi_n = O(\sqrt{n}\log n)$ is chosen to be large enough that atypical sectors are negligible, but small enough that $\xi_n/\sqrt{n} \to 0$.
+$$\Lambda_i=\begin{cases}
+\lceil nx_i+(r-i+1)\xi_n\rceil,&1\le i\le r,\\
+0,&i>r.
+\end{cases}$$
 
-### Why $\xi_n = 2\sqrt{n\Delta_n/2} + 1$
+The $+1$ in $r-i+1$ pads the last positive row as well. For every typical $\lambda$, $\Lambda-\lambda$ is nonnegative and dominant. Adjacent typical rows can fluctuate in opposite directions by a total $2\epsilon_n$; the buffer absorbs this and the ceiling error. The target need not be a partition of $n$.
 
-The padding parameter $\xi_n$ must be chosen so that the target representation $\Lambda^*$ strictly dominates every typical $\lambda$. The achievability proof constructs $\Lambda^*_i = \lceil n x_i + (r-i)\xi_n \rceil$, and requires the dominance condition:
+For example, at $d=r=2$, $n=10000$, and $x=(0.7,0.3)$, $\epsilon_n\approx939.6$ and $\xi_n\approx1880.2$. The target is approximately $(10761,4881)$, with the exact entries given by the ceiling formula. Finite-size padding can be substantial even though it is $o(n)$ asymptotically.
 
-$$\Lambda^*_i - \Lambda^*_{i+1} \geq \lambda_i - \lambda_{i+1}$$
+## Concentration and the Formal Proof
 
-for all typical $\lambda$. In the worst case, adjacent rows fluctuate in opposite directions, giving $\lambda_i - \lambda_{i+1} \leq n(x_i - x_{i+1}) + 2\epsilon_n$ where $\epsilon_n = \sqrt{n\Delta_n/2}$ is the maximum fluctuation bound from the typical set definition. Meanwhile, the guaranteed gap of $\Lambda^*$ is at least $n(x_i - x_{i+1}) + \xi_n - 1$ (accounting for ceiling rounding). After the macroscopic $n(x_i - x_{i+1})$ terms cancel, we need:
+The Article displays the supported Schur tail bound
 
-$$\xi_n - 1 \geq 2\epsilon_n$$
+$$\sum_{\lambda\notin\mathcal T_{x,n}}q_{\lambda,n}
+\le(n+1)^{r(r+1)/2}\exp[-(\log n)^2/4].$$
 
-Setting $\xi_n = 2\epsilon_n + 1 = 2\sqrt{n\Delta_n/2} + 1$ is the **tightest** sub-extensive buffer that absorbs both the worst-case statistical fluctuations *and* the discrete rounding error from the ceiling function. This is the "Goldilocks" choice: just barely large enough to guarantee dominance, but not so large as to inflate the memory cost beyond $o(1)$.
+The final Lean proof derives concentration directly for the probabilities of the constructed physical irreducible blocks. It uses the proved, coarser prefactor
 
-## Numerical Example: $d = 2$, $n = 10000$
+$$\operatorname{physicalAtypicalMass}(s,n)
+\le(n+1)^{(d-1)\binom d2+d}\exp[-(\log_2 n)^2/4],\qquad n\ge2.$$
 
-Consider a qubit with spectrum $p = (0.7, 0.3)$ and $n = 10000$ copies.
+`physicalAtypicalMass_eventually_le_inv` in `SchurWeylConcentration.lean` then gives a bound of $1/n$ eventually. The pointwise probability bound, decomposition, and multiplicity estimate are proved in the dependency chain; none is a premise of this endpoint. The sharper displayed prefactor from the Article is not claimed by this particular theorem.
 
-**Parameters:**
-- $r = 2$ (rank)
-- $\Delta_n = (\log n)^2 = (\log 10000)^2 \approx (13.3)^2 \approx 177$ (using $\log_2$; in the article, $\Delta_n = (\log n)^2$ with natural log gives $\Delta_n \approx 85$)
-- Using natural log: $\epsilon_n = \sqrt{n\Delta_n/2} = \sqrt{10000 \cdot 85/2} \approx \sqrt{425000} \approx 652$
-- $\xi_n = 2 \cdot 652 + 1 = 1305$
+## Role in the Protocol
 
-**Typical set:** A Young diagram $\lambda = (\lambda_1, \lambda_2)$ with $\lambda_1 + \lambda_2 = 10000$ is typical if:
+On typical sectors, Theorem 2 gives forward and reverse error $O(\log n/\sqrt n)$. The two atypical contributions add at most twice their probability mass. Replacement channels make the physical encoder and decoder valid on all sectors and for every $n$.
 
-$$|\lambda_1 - 7000| \leq 652 \quad \text{and} \quad |\lambda_2 - 3000| \leq 652$$
-
-So the typical range is $\lambda_1 \in [6348, 7652]$, which contains about 1305 distinct Young diagrams out of the 10001 possible partitions of 10000 into at most 2 parts.
-
-**Target representation:**
-- $\Lambda^*_1 = \lceil 7000 + 1 \cdot 1305 \rceil = 8305$
-- $\Lambda^*_2 = \lceil 3000 + 0 \cdot 1305 \rceil = 3000$
-- Note: $|\Lambda^*| = 11305 \neq 10000$ -- the target is *not* a partition of $n$.
-
-**Tail probability:** $\Pr[\lambda \notin T_{p,n}] \leq (10001)^3 e^{-85} \approx 10^{12} \cdot 10^{-37} \approx 10^{-25}$, which is astronomically small.
-
-## Connection to Proof Architecture
-
-The typical set plays a dual role:
-- In the **achievability** proof, it defines the set of Young diagrams for which the [[definitions/generalized-cloning-map-def|Generalized Cloning Map]] achieves high fidelity. Atypical $\lambda$ contribute at most $\delta_{\mathrm{tail}} \leq (n+1)^{r(r+1)/2} e^{-\Delta_n}$ to the error.
-- In the **converse** proof, the typical set $\mathcal{T}_{p,n}$ intersects the "good set" $\mathcal{G}_n$ (where the sector codes perform well), guaranteeing that at least one typical $\lambda$ has a well-performing code. The memory lower bound then follows from the Weyl dimension of this typical irrep.
+The current converse transfers an arbitrary physical code to the fixed target orbit and applies a quantitative orbit-memory bound. It does not require selecting a good typical sector by Markov's inequality. See [[proof-structure]].
 
 ## Used By
 
-- [[results/achievability|Achievability (State Compression)]]
-- [[results/converse|Converse (State Compression)]]
-
-## External References
-
-- [Typical set (Wikipedia)](https://en.wikipedia.org/wiki/Typical_set)
-- [T. M. Cover and J. A. Thomas, *Elements of Information Theory* (Wiley, 2nd ed., 2006)](https://doi.org/10.1002/047174882X)
+- [[results/achievability|Achievability (Article Theorem 1)]]
+- [[results/converse|Converse (Article Theorem 1)]]
+- [[concepts/schur-weyl-duality|Schur-Weyl Decomposition]]

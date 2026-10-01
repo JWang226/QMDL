@@ -49,7 +49,11 @@ plugins:
 markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.highlight
   - pymdownx.details
   - pymdownx.mark
@@ -71,6 +75,7 @@ nav:
   - Home: index.md
   - Introduction: intro.md
   - Notation: notation.md
+  - Proof Structure: proof-structure.md
   - Lean Formalization: formalization.md
   - Source Papers:
       - Letter: Letter.md
@@ -122,25 +127,25 @@ nav:
       - Distance Between Irreps: definitions/distance-between-irreps.md
   - Results:
       - Theorems:
-          - Cloning Fidelity (Thm 1): results/cloning-fidelity.md
-          - Achievability (Thm 2): results/achievability.md
-          - Converse (Thm 3): results/converse.md
+          - Achievability (Article Thm 1): results/achievability.md
+          - Converse (Article Thm 1): results/converse.md
+          - Cloning Accuracy (Article Thm 2): results/cloning-fidelity.md
       - Propositions:
-          - Choi Matrix Lemma (Prop 1): results/propositions/choi-matrix-lemma.md
-          - Reverse Cloner (Prop 2): results/propositions/reverse-cloner.md
-          - Commutativity (Prop 3): results/propositions/commutativity.md
-          - Orbit Sector Compression (Prop 4): results/propositions/orbit-sector-compression.md
+          - Cartan and Choi Formulas: results/propositions/choi-matrix-lemma.md
+          - Reverse Cloner and Petz Map: results/propositions/reverse-cloner.md
+          - Commutativity: results/propositions/commutativity.md
+          - Haar-Orbit Memory Bound: results/propositions/orbit-sector-compression.md
       - Lemmas:
-          - Kostka Monotonicity (Lem 3): results/lemmas/kostka-monotonicity.md
-          - Principal Angles (Lem 4): results/lemmas/principal-angles.md
-          - Monotonicity (Lem 5): results/lemmas/monotonicity-lemma.md
-          - Davis-Kahan (Lem 6): results/lemmas/davis-kahan.md
-          - Perturbation Lemma (Lem 7): results/lemmas/perturbation-lemma.md
-          - Tail Mass (Lem 8): results/lemmas/tail-mass.md
-          - Probability Ratio (Lem 9): results/lemmas/probability-ratio.md
-          - Dimension Ratio (Lem 10): results/lemmas/dimension-ratio.md
-          - Asymptotic Weyl Dim (Lem 11): results/lemmas/weyl-dimension-asymptotic.md
-          - "Sanov's Theorem (Lem 12)": results/lemmas/sanov-theorem.md
+          - Multiplicity Monotonicity: results/lemmas/kostka-monotonicity.md
+          - Principal Angles (Background): results/lemmas/principal-angles.md
+          - Positive-Order Trace Comparison: results/lemmas/monotonicity-lemma.md
+          - Davis–Kahan (Background): results/lemmas/davis-kahan.md
+          - Highest-Weight Projector Deficit: results/lemmas/perturbation-lemma.md
+          - Uniform Mean Depth: results/lemmas/tail-mass.md
+          - Eigenvalue Ratio: results/lemmas/probability-ratio.md
+          - Weyl Dimension Ratio: results/lemmas/dimension-ratio.md
+          - Asymptotic Weyl Dimension: results/lemmas/weyl-dimension-asymptotic.md
+          - "Physical Sector Concentration": results/lemmas/sanov-theorem.md
   - Open Questions:
       - Cloning Optimality: open-questions/cloning-optimality.md
       - Degenerate Spectrum: open-questions/degenerate-spectrum.md

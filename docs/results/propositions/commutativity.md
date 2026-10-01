@@ -1,29 +1,36 @@
-# Commutativity (Proposition 3)
+# Commutativity (Article Proposition 3)
 
-**Label:** `prop:commutativity` (Article), `lem:commutativity` (Notes)
-**Source:** Article line ~421 (stated), ~2190 (proved); Notes line ~862
+**Label:** `prop:commutativity` in the current Article; the Notes used `lem:commutativity`.
+**Source:** [current Article](https://github.com/JWang226/QMDL/blob/main/article.tex#L589).
 
 ## Statement
 
-For any $\mathrm{U}(d)$-covariant channel $\mathcal{C}_{\mu \to \nu}$:
+Let $\rho$ have rank $r$, let $\mu,\nu$ be partitions with at most $r$ rows, and let $\mathcal N:\mathcal B(\mathcal H_\mu)\to\mathcal B(\mathcal H_\nu)$ be any $\mathrm U(d)$-covariant channel. Then
 
-$$[\mathcal{C}_{\mu \to \nu}(\rho_\mu), \rho_\nu] = 0$$
+$$[\mathcal N(\rho_\mu),\rho_\nu]=0.$$
 
-## Intuition
+Here the states are the normalized representation states, not arbitrary matrices on the two representation spaces.
 
-The output of any covariant cloning map commutes with the target state. This means both operators are simultaneously diagonalizable in the weight basis, reducing the fidelity computation to a classical (diagonal) sum over weight blocks.
+## Intuition and proof
 
-## Proof Sketch
+In an eigenbasis of $\rho$, the input state is invariant under the diagonal unitary torus. Covariance makes the output torus-invariant too. Distinct torus characters separate weight spaces, so the output is block diagonal in those spaces. The target representation state is scalar on every weight space; it therefore commutes with the output.
 
-Work in the eigenbasis of $\rho$ where $\rho = \Lambda$ is diagonal. Both $\rho_\mu \propto \pi_\mu(\Lambda)$ and $\rho_\nu \propto \pi_\nu(\Lambda)$ are images of a diagonal matrix. The maximal torus $T \subset \mathrm{U}(d)$ of diagonal unitaries commutes with $\Lambda$, so $[\rho_\mu, U_\mu(t)] = 0$ for all $t \in T$.
+Weight spaces may have multiplicity greater than one. The output need not already be diagonal in an arbitrarily chosen weight basis: it can be diagonalized further within each block. Likewise, strictly decreasing eigenvalues of $\rho$ do not imply that every eigenvalue of $\rho_\nu$ is distinct.
 
-By $\mathrm{U}(d)$-covariance, $\mathcal{C}_{\mu \to \nu}(U_\mu(t)\rho_\mu U_\mu(t)^{-1}) = U_\nu(t)\mathcal{C}_{\mu \to \nu}(\rho_\mu)U_\nu(t)^{-1}$. Since $\rho_\mu$ commutes with $U_\mu(t)$, $[\mathcal{C}_{\mu \to \nu}(\rho_\mu), U_\nu(t)] = 0$ for all $t \in T$. Since $\mathcal{H}_\nu$ decomposes into weight spaces with unique phase characters under $T$, $\mathcal{C}_{\mu \to \nu}(\rho_\mu)$ must be block-diagonal in the weight basis. Since $\rho_\nu$ acts as a scalar on each weight space, the two operators commute.
+## Relation to the formal proof
+
+The audited main endpoint is [[results/cloning-fidelity|Article Theorem 2]], whose direct trace-distance proof uses actual weight projectors, retained positive Kraus branches and positive remainders. It does not require a separately supplied general commutativity proposition or a classical fidelity calculation.
+
+Relevant constructed ingredients include [TorusWeightProjection.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/TorusWeightProjection.lean), [CanonicalOrbit.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CanonicalOrbit.lean), and the proved channel covariance in [CanonicalCloningOrbit.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CanonicalCloningOrbit.lean). For example, `FreeEntropy.ExteriorRepresentation.canonicalForward_covariant` treats the actual forward channel.
+
+There is no separately indexed Lean endpoint here certifying Proposition 3 for **every** covariant channel. Its short mathematical proof is recorded above; the existence of the supporting torus and covariance modules should not be read as a claim that the whole proposition was packaged and audited as a standalone theorem.
 
 ## Dependencies
 
-- [[concepts/schur-weyl-duality|Schur-Weyl Duality]] -- weight space decomposition
-- [[definitions/covariant-channel|U(d)-Covariant Channel]] -- the symmetry requirement
+- [[definitions/covariant-channel|Covariant channel]]
+- Torus characters and representation weight spaces.
 
 ## Used By
 
-- [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]] -- simplifies fidelity to a sum over weight blocks
+- Structural interpretation of [[concepts/generalized-cloning-map|generalized cloning]].
+- Historical fidelity-based discussions; it is not an extra premise of the current finite trace-distance endpoint.

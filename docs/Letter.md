@@ -5,6 +5,11 @@
 **Format:** PRL letter (RevTeX4-2, two-column)
 **File:** `sources/letter.tex`
 
+The section and equation references on this page belong to the Letter source
+snapshot. The current Article theorem numbering and formal proof are indexed
+separately in [[Article]] and [[proof-structure]]. The Letter's broader geometric
+claims are not automatically certified by the two Article endpoints.
+
 ## Summary
 
 The short announcement paper. Introduces [[concepts/physical-free-entropy|Physical Free Entropy]], states the main result connecting [[concepts/free-entropy|Free Entropy]] to [[concepts/quantum-minimum-description-length|Quantum Minimum Description Length]], and provides physical interpretation. Contains the explicit formulas for physical free entropy (non-degenerate and degenerate spectra), [[concepts/free-entropy-dimension|Free Entropy Dimension]], and the main QMDL theorem.

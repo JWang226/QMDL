@@ -1,32 +1,30 @@
-# Principal Angles (Lemma 4)
+# Principal Angles — Historical Proof Background
 
-**Label:** `lem:principle_angles`
-**Source:** Article line ~1095 (stated), ~2511 (proved)
+**Status:** Background for the older fidelity argument. The historical wiki referred to `lem:principle_angles`; that label is absent from the current root `article.tex`. It is not a current Article lemma number or a separate audited Lean endpoint.
 
-## Statement
+## Linear-algebra identity
 
-For projectors $P, Q$ with $r = \min(\mathrm{rank}\, P, \mathrm{rank}\, Q)$:
+For orthogonal projectors $P,Q$, let $k=\min(\operatorname{rank}P,\operatorname{rank}Q)$ and let $\theta_1,\ldots,\theta_k$ be the principal angles between their ranges. Then
 
-$$\mathrm{Tr}\sqrt{PQP} = \sum_{i=1}^r \cos(\theta_i)$$
+$$\operatorname{Tr}\sqrt{PQP}=\sum_{i=1}^k\cos\theta_i.$$
 
-where $\theta_i$ are the principal angles between $\mathrm{Im}(P)$ and $\mathrm{Im}(Q)$.
+To see this, write $P=UU^\dagger$ and $Q=VV^\dagger$ with orthonormal-column matrices. The singular values of $U^\dagger V$ are $\cos\theta_i$, while $PQP$ has their squares as its possibly nonzero eigenvalues. Taking the positive square root and trace proves the identity. This concerns unnormalized projectors; normalizing them as states introduces rank factors.
 
-## Intuition
+## Relation to the current proof
 
-The fidelity between two subspaces (as measured by $\mathrm{Tr}\sqrt{PQP}$) equals the sum of cosines of the angles between them. This connects an algebraic quantity (trace of a matrix square root) to a geometric one (angles between subspaces).
+The current [[results/lemmas/perturbation-lemma|subspace lemma]] still has geometric content: equal-rank projector distances can be interpreted through angles. But [[results/cloning-fidelity|Article Theorem 2]] is proved by a direct trace-distance argument. Its Lean route uses positive trace deficits
 
-## Proof Sketch
+$$\operatorname{Tr}[P(I-Q)P]=\operatorname{Tr}P-\operatorname{Tr}(PQ),$$
 
-Let $U, V$ have orthonormal columns spanning $\mathrm{Im}(P)$ and $\mathrm{Im}(Q)$. Then $PQP = U(U^\dagger V)(U^\dagger V)^\dagger U^\dagger$. The nonzero eigenvalues of $PQP$ equal the squared singular values $\sigma_i^2 = \cos^2\theta_i$ of $M = U^\dagger V$. Taking the positive square root gives eigenvalues $\cos\theta_i$, and the trace sums them.
+a local Casimir gap, and a uniform mean-depth estimate. It does not pass through the sum of principal-angle cosines or claim the older $1-O(D/n^{1-\varepsilon})$ fidelity estimate as its main certificate.
+
+See `FreeEntropy.CasimirTrace.traceDeficit_eq` and `FreeEntropy.CasimirTrace.traceDeficits_le_min_of_local_gap` in [CasimirTrace.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CasimirTrace.lean) for the checked quantities actually used.
 
 ## Dependencies
 
-- Linear algebra (singular value decomposition)
+- Orthogonal projectors and singular values.
 
 ## Used By
 
-- [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]] -- the block fidelity $F_{\mathrm{block}}(\delta) = \sqrt{d_\mu/d_\nu} \sum_i \cos\theta_i$ where $\theta_i$ are the principal angles between uncoupled and coupled weight subspaces
-
-## Key Equations
-
-$$F_{\mathrm{block}}(\delta) = \sqrt{d_\mu/d_\nu} \, \mathrm{Tr}\sqrt{\widetilde{\Pi}_{\nu-\delta} \Pi_{\mu-\delta}^{(\omega)} \widetilde{\Pi}_{\nu-\delta}}$$
+- Historical fidelity-based interpretation of [[results/cloning-fidelity|cloning accuracy]].
+- Geometric intuition for [[results/lemmas/perturbation-lemma|subspace comparison]].

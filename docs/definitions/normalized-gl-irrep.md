@@ -8,7 +8,7 @@ For a density matrix $\rho$ with eigenvalues $x_1, \ldots, x_d$ and a partition 
 
 $$\rho_\lambda = \frac{\pi_\lambda(\rho)}{s_\lambda(x)}$$
 
-where $\pi_\lambda(\rho) = \sum_\sigma \rho^{\otimes n} \cdot P_\sigma$ restricted to $H_\lambda$ (the GL irrep component), and $s_\lambda(x)$ is the [[concepts/schur-polynomials|Schur polynomial]] ensuring $\mathrm{Tr}[\rho_\lambda] = 1$.
+Here $\pi_\lambda$ is the polynomial representation extended to matrices, and $s_\lambda(x)=\operatorname{Tr}\pi_\lambda(\rho)$. The normalization requires $s_\lambda(x)>0$. For a rank-$r$ source this holds for the supported partitions with at most $r$ rows; unsupported sectors have zero probability and need no normalized conditional state.
 
 ## Intuition
 
@@ -22,9 +22,9 @@ $$\rho_\lambda = \sum_{\delta \in Q_+} \frac{x^{\lambda - \delta}}{s_\lambda(x)}
 
 where $\Pi_{\lambda-\delta}$ is the projector onto the weight-$(\lambda - \delta)$ subspace, which has dimension $K_{\lambda, \lambda - \delta}$ (the [[definitions/kostka-number|Kostka Number]]).
 
-The eigenvalue of $\rho_\lambda$ on the weight-$(\lambda - \delta)$ block is $x^{\lambda - \delta}/s_\lambda(x)$, where $x^w = x_1^{w_1} \cdots x_d^{w_d}$ is the monomial. This is a **classical probability** on the weight spaces, determined entirely by the spectrum $x$ of $\rho$.
+The eigenvalue of $\rho_\lambda$ on the weight-$(\lambda - \delta)$ block is $x^{\lambda - \delta}/s_\lambda(x)$, where $x^w = x_1^{w_1} \cdots x_d^{w_d}$ is the monomial. This is the eigenvalue on each vector in that weight space. The probability of the whole block is $m_\lambda(\delta)x^{\lambda-\delta}/s_\lambda(x)$; the multiplicity factor is essential.
 
-**Key point:** $\rho_\lambda$ is diagonal in the weight basis but generally *not* in the [[concepts/gelfand-tsetlin-basis|Gelfand-Tsetlin Basis]] within each weight space (though for 1-dimensional weight spaces, these coincide). The block structure means we can analyze the fidelity weight-by-weight in the [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]] proof.
+**Key point:** in an eigenbasis of the source, $\rho_\lambda$ is scalar on each weight space, hence diagonal in **every** orthonormal weight basis, including the [[concepts/gelfand-tsetlin-basis|GT basis]]. On the full unitary orbit it is conjugated by the representation action. The block structure permits the weight-by-weight trace-deficit analysis in [[results/cloning-fidelity|Article Theorem 2]].
 
 ## Qubit Example ($d = 2$)
 
@@ -34,16 +34,20 @@ Each weight space is **1-dimensional** (all Kostka numbers are 1 for $d = 2$), s
 
 $$\rho_\lambda = \sum_{k=0}^{2J} \frac{p^{n/2+J-k}(1-p)^{n/2-J+k}}{s_\lambda(p, 1-p)} |k\rangle\langle k|$$
 
-The Schur polynomial is $s_\lambda(p, 1-p) = \sum_{k=0}^{2J} p^{n/2+J-k}(1-p)^{n/2-J+k}$, which is a truncated binomial sum. The eigenvalues decay geometrically from the highest weight ($k = 0$, eigenvalue $\propto p^{n/2+J}(1-p)^{n/2-J}$) to the lowest weight ($k = 2J$, eigenvalue $\propto p^{n/2-J}(1-p)^{n/2+J}$). For $p > 1/2$, most of the spectral mass concentrates near $k = 0$ (the highest weight).
+The Schur polynomial is $s_\lambda(p, 1-p) = \sum_{k=0}^{2J} p^{n/2+J-k}(1-p)^{n/2-J+k}$, which is a finite geometric sum. The eigenvalues decay geometrically from the highest weight ($k = 0$, eigenvalue $\propto p^{n/2+J}(1-p)^{n/2-J}$) to the lowest weight ($k = 2J$, eigenvalue $\propto p^{n/2-J}(1-p)^{n/2+J}$). For $p > 1/2$, most of the spectral mass concentrates near $k = 0$ (the highest weight).
 
 ## Connection to Proof Architecture
 
-The normalized irrep state $\rho_\lambda$ is the object that the compression scheme must faithfully store and recover. The [[results/achievability|Achievability (State Compression)]] encodes $\rho_\lambda$ by applying the [[definitions/generalized-cloning-map-def|Generalized Cloning Map]] $\mathcal{C}_{\lambda \to \Lambda^*}(\rho_\lambda)$. The block-diagonal structure enables the weight-by-weight analysis in the [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]] proof: the "classical part" of the fidelity depends on the eigenvalue ratios $x^{\mu-\delta}/x^{\nu-\delta}$ between corresponding weight blocks, while the "quantum part" depends on the alignment of weight subspaces.
+The encoder maps the normalized state to the padded target, and the decoder uses the reverse cloner. The current proof retains a highest-weight Kraus branch, estimates its positive trace loss in each weight block using the localized Casimir gap, and averages those losses using the coefficient-ratio and mean-depth estimates. This yields trace distance directly. It does not require an additional fidelity-to-trace-distance square root.
+
+## Formal Identification
+
+`canonicalMonomialState_eq_relativeState` in `CanonicalMonomialState.lean` proves that the normalized monomial diagonal is the relative-weight state used by the cloning proof, including zero eigenvalues for supported rows. `canonicalOrbitState` conjugates it by the actual canonical unitary representation. This identity connects the physical tensor source to the canonical theorem; it is not a supplied state-identification premise. See [[proof-structure]].
 
 ## Used By
 
 - [[concepts/generalized-cloning-map|Generalized Cloning Map]]
-- [[results/cloning-fidelity|Cloning Fidelity (Theorem 1)]]
+- [[results/cloning-fidelity|Cloning Accuracy (Article Theorem 2)]]
 - [[results/achievability|Achievability (State Compression)]]
 
 ## External References

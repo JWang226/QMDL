@@ -1,32 +1,31 @@
-# Davis-Kahan Theorem (Lemma 6)
+# Davis–Kahan Perturbation Theory — Historical Background
 
-**Label:** `lem:davis_kahan`
-**Source:** Article line ~1209; Notes line ~654
+**Status:** Background for an older fidelity proof route. The historical wiki used `lem:davis_kahan`; this label is absent from the current root `article.tex`. It is not a current Article lemma number or a separately certified theorem in this development.
 
-## Statement
+## Idea
 
-Let $H_0$ and $H = H_0 + V$ be Hermitian on a finite-dimensional Hilbert space. Let $S_0, S_1$ partition $\mathrm{spec}(H_0)$ with spectral gap $\Delta = \min_{\lambda \in S_0, \lambda' \in S_1} |\lambda - \lambda'|$. Let $P_0$ project onto the eigenspace of $H_0$ for $S_0$. If $\|V\| < \Delta$, then the eigenvalues of $H$ split into corresponding sets $\sigma_0(H), \sigma_1(H)$ with gap $\geq \Delta - \|V\|$, and the spectral projector $P$ of $H$ onto $\sigma_0(H)$ satisfies:
+Spectral separation limits how far an eigenspace can move under a Hermitian perturbation. Davis–Kahan estimates make this principle quantitative, with hypotheses specifying the spectral clusters being compared. A gap in the unperturbed spectrum alone does not justify every proposed sharp denominator or cluster-identification rule.
 
-$$\sin(\theta_{\max}) \equiv \|P - P_0\| \leq \frac{\|V P_0\|}{\Delta - \|V\|}$$
+A simple residual estimate illustrates the mechanism. Let $H$ be Hermitian, $v$ a unit vector, and $P$ a spectral projector of $H$. If every eigenvalue of $H$ on the orthogonal complement of $P$ is at distance at least $\eta>0$ from a real number $\lambda$, then
 
-where $\theta_{\max}$ is the largest principal angle between $\mathrm{Im}(P)$ and $\mathrm{Im}(P_0)$.
+$$\|(I-P)v\|\le\frac{\|(H-\lambda I)v\|}{\eta}.$$
 
-## Intuition
+Expanding $v$ in an eigenbasis proves this by bounding each unwanted component. General subspace perturbation theorems extend this idea; the one-vector formula is not a complete statement of every Davis–Kahan variant.
 
-When you perturb a Hermitian operator by a small $V$, its eigenspaces rotate. The Davis-Kahan theorem quantifies this rotation: the projector moves by at most $\|VP_0\|/(\Delta - \|V\|)$, where $\Delta$ is the spectral gap protecting the eigenspace. The key feature is the use of $\|VP_0\|$ (the "restricted perturbation") rather than $\|V\|$, which can be much tighter.
+## Current proof route
 
-## Proof Sketch
+The present Article avoids the older perturbation expansion $H=H_0+V$ and its cutoff restrictions in the cloning argument. Instead, [[results/lemmas/perturbation-lemma|the current subspace lemma]] derives an exact compressed Casimir identity and a gap **within the relevant total-weight sector**. The formal proof then bounds trace deficits directly and averages them using [[results/lemmas/tail-mass|uniform mean depth]].
 
-The projector $P$ is defined constructively via the resolvent: $P = -\frac{1}{2\pi i} \oint_\Gamma (z - H)^{-1} dz$ where $\Gamma$ encloses $S_0$ but excludes $S_1$. The condition $\|V\| < \Delta$ ensures no eigenvalue of $H$ crosses $\Gamma$, so $P$ has the same rank as $P_0$ and depends continuously on $V$. The bound uses $\|VP_0\|$ rather than $\|V\|$.
+The resulting [[results/cloning-fidelity|Theorem 2]] has error $C_{d,x}D/(b_\mu+1)$ without a freely chosen $n^\varepsilon$ cutoff. [CartanLieCloning.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CartanLieCloning.lean) and [CasimirTrace.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CasimirTrace.lean) contain the checked local gap and trace-deficit route; this page records historical context rather than an additional dependency of that endpoint.
 
 ## Dependencies
 
-- Standard spectral theory (resolvent integral)
+- Finite-dimensional Hermitian spectral theory.
 
 ## Used By
 
-- [[results/lemmas/perturbation-lemma|Perturbation Lemma (Lemma 7)]] -- applied with spectral gap $\Delta = \Theta(n)$ from the [[concepts/casimir-operator|Casimir]] eigenvalue structure and restricted perturbation $\|VP_0\| = O(\sqrt{n|\delta|\|\omega\|})$
+- Historical explanation of eigenspace stability; see [[results/lemmas/perturbation-lemma|the current replacement argument]].
 
-## External References
+## External reference
 
-- [Davis and Kahan, "The rotation of eigenvectors by a perturbation. III" (1970)](https://doi.org/10.1137/0707001)
+- [Davis and Kahan, “The rotation of eigenvectors by a perturbation. III” (1970)](https://doi.org/10.1137/0707001).
