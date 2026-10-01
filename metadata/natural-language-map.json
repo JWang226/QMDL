@@ -1,0 +1,1057 @@
+{
+  "format": "free-entropy-manuscript-map",
+  "version": 1,
+  "path_base": "repository root",
+  "manuscript": {
+    "file": "article.tex",
+    "title": "Quantum minimum description of density matrices",
+    "sha256": "09fc0a6bb205180cd820be94d843a1dc0d4342a543492e30dde54e367ae843a9"
+  },
+  "scope": "Theorems 1 and 2 and the supporting developments identified below; not the whole paper.",
+  "locator_policy": "TeX labels and fully qualified Lean declarations are primary. One-based line numbers are navigation hints for the current source snapshot and can shift after edits.",
+  "review": {
+    "status": "agent-reviewed",
+    "independent_human_review": "not established"
+  },
+  "entries": [
+    {
+      "id": "theorem1-achievability",
+      "title": "Theorem 1: achievability",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "thm:qmdl",
+            "line": 85
+          },
+          {
+            "label": "thm:achievability",
+            "line": 645
+          }
+        ]
+      },
+      "status": "proved",
+      "summary": "Constructed CPTP encoders and decoders have the exact QMDL additive constant and uniform reconstruction error O(log(n)/sqrt(n)).",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.theorem1_achievability",
+          "module": "FreeEntropy.Theorem1Complete",
+          "file": "lean/FreeEntropy/Theorem1Complete.lean",
+          "line": 23
+        }
+      ],
+      "notes": "All dimensions and positive ranks are covered. The dimension and spectrum are fixed in the asymptotic limit.",
+      "comparator_config": "lean/ComparatorChallenges/Theorem1Achievability.json"
+    },
+    {
+      "id": "theorem1-converse-average",
+      "title": "Theorem 1: Haar-average converse",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "thm:qmdl",
+            "line": 85
+          },
+          {
+            "label": "thm:converse",
+            "line": 923
+          }
+        ]
+      },
+      "status": "proved",
+      "summary": "Every physical CPTP code sequence with vanishing normalized-Haar average error satisfies the exact QMDL liminf bound.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.theorem1_converse",
+          "module": "FreeEntropy.Theorem1Complete",
+          "file": "lean/FreeEntropy/Theorem1Complete.lean",
+          "line": 43
+        }
+      ],
+      "notes": "The extended-real liminf handles sequences without a finite real liminf; the memory carrier is Fin(memory n).",
+      "comparator_config": "lean/ComparatorChallenges/Theorem1Converse.json"
+    },
+    {
+      "id": "theorem1-converse-uniform",
+      "title": "Theorem 1: worst-case converse",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "thm:qmdl",
+            "line": 85
+          },
+          {
+            "label": "eq:error",
+            "line": 78
+          }
+        ]
+      },
+      "status": "proved",
+      "summary": "Vanishing worst-case reconstruction error implies the same lower bound.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.theorem1_converse_of_uniform",
+          "module": "FreeEntropy.Theorem1Complete",
+          "file": "lean/FreeEntropy/Theorem1Complete.lean",
+          "line": 60
+        }
+      ],
+      "comparator_config": "lean/ComparatorChallenges/Theorem1Converse.json"
+    },
+    {
+      "id": "theorem2-choi",
+      "title": "Theorem 2: original Choi-projector channels",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "thm:main",
+            "line": 562
+          },
+          {
+            "label": "eq:cloning_trace_bound",
+            "line": 574
+          }
+        ]
+      },
+      "status": "proved",
+      "summary": "Both literal PRV-projector channel errors are bounded by C(d,x) D/(b_mu+1) for every unitary eigenbasis.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.theorem2_cloning_accuracy_choi",
+          "module": "FreeEntropy.Theorem2Choi",
+          "file": "lean/FreeEntropy/Theorem2Choi.lean",
+          "line": 79
+        }
+      ],
+      "notes": "Natural antitone source/target rows have zero tails beyond rank r; their difference is genuinely signed and antitone. Includes rank one and D=0. The theorem assumes d>=2, as does the manuscript.",
+      "comparator_config": "lean/ComparatorChallenges/Theorem2Choi.json"
+    },
+    {
+      "id": "theorem2-cartan",
+      "title": "Theorem 2: equivalent Cartan form",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "thm:main",
+            "line": 562
+          },
+          {
+            "label": "prop:choi",
+            "line": 442
+          }
+        ]
+      },
+      "status": "proved",
+      "summary": "The same finite errors hold for the constructed Cartan maps.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.theorem2_cloning_accuracy",
+          "module": "FreeEntropy.Theorem2Canonical",
+          "file": "lean/FreeEntropy/Theorem2Canonical.lean",
+          "line": 50
+        },
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.theorem2_cartan_cloning_accuracy",
+          "module": "FreeEntropy.Theorem2Canonical",
+          "file": "lean/FreeEntropy/Theorem2Canonical.lean",
+          "line": 72
+        }
+      ]
+    },
+    {
+      "id": "theorem2-petz",
+      "title": "Theorem 2: equivalent Petz form",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "thm:main",
+            "line": 562
+          },
+          {
+            "label": "prop:reverse",
+            "line": 540
+          }
+        ]
+      },
+      "status": "proved",
+      "summary": "The same reverse error bound is expressed with the literal matrix-square-root Petz recovery formula.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.theorem2_cloning_accuracy_petz",
+          "module": "FreeEntropy.Theorem2Petz",
+          "file": "lean/FreeEntropy/Theorem2Petz.lean",
+          "line": 21
+        }
+      ]
+    },
+    {
+      "id": "fixed-spectrum",
+      "title": "Spectrum assumptions",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "thm:qmdl",
+            "line": 85
+          },
+          {
+            "label": "thm:main",
+            "line": 562
+          }
+        ]
+      },
+      "status": "defined",
+      "summary": "Positive rank, normalized strictly decreasing positive eigenvalues and zero padding are bundled in FixedSpectrum.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.FixedSpectrum",
+          "module": "FreeEntropy.Statements",
+          "file": "lean/FreeEntropy/Statements.lean",
+          "line": 25
+        }
+      ],
+      "notes": "Indices are zero-based. Values outside the ambient dimension are irrelevant. A diagonal reference plus all U(d) conjugations parametrizes the known-spectrum orbit."
+    },
+    {
+      "id": "quantum-channel",
+      "title": "Completely positive trace-preserving maps",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "eq:error",
+            "line": 78
+          }
+        ]
+      },
+      "status": "defined",
+      "summary": "MatrixChannel contains a complex-linear finite matrix map, trace preservation and positivity of every finite amplification.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.Channels.MatrixChannel",
+          "module": "FreeEntropy.Channels",
+          "file": "lean/FreeEntropy/Channels.lean",
+          "line": 95
+        }
+      ]
+    },
+    {
+      "id": "physical-source",
+      "title": "Physical tensor source",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "eq:error",
+            "line": 78
+          }
+        ]
+      },
+      "status": "defined",
+      "summary": "The source is the literal n-fold tensor matrix of U diag(x) U-adjoint.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.SchurWeyl.physicalSource",
+          "module": "FreeEntropy.PhysicalCanonicalConverse",
+          "file": "lean/FreeEntropy/PhysicalCanonicalConverse.lean",
+          "line": 31
+        }
+      ]
+    },
+    {
+      "id": "trace-distance",
+      "title": "Half trace norm",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "eq:error",
+            "line": 78
+          },
+          {
+            "label": "eq:cloning_trace_bound",
+            "line": 574
+          }
+        ]
+      },
+      "status": "defined",
+      "summary": "Trace distance is one half the actual finite-matrix trace norm.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.TraceDistance.traceDistance",
+          "module": "FreeEntropy.TraceDistance",
+          "file": "lean/FreeEntropy/TraceDistance.lean",
+          "line": 35
+        }
+      ]
+    },
+    {
+      "id": "reconstruction-errors",
+      "title": "Worst-case and average reconstruction errors",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "eq:error",
+            "line": 78
+          },
+          {
+            "label": "thm:converse",
+            "line": 923
+          }
+        ]
+      },
+      "status": "defined",
+      "summary": "Worst-case error is a real supremum; average error is an integral against actual normalized Haar measure.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.SchurWeyl.mixedWorstError",
+          "module": "FreeEntropy.PhysicalUniformError",
+          "file": "lean/FreeEntropy/PhysicalUniformError.lean",
+          "line": 22
+        },
+        {
+          "declaration": "FreeEntropy.SchurWeyl.mixedAverageError",
+          "module": "FreeEntropy.PhysicalCanonicalConverse",
+          "file": "lean/FreeEntropy/PhysicalCanonicalConverse.lean",
+          "line": 51
+        }
+      ],
+      "notes": "The development proves boundedness and the integrability used by the endpoint; these are not supplied assumptions."
+    },
+    {
+      "id": "qmdl",
+      "title": "Exact QMDL expression",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "eq:result",
+            "line": 90
+          }
+        ]
+      },
+      "status": "defined",
+      "summary": "Base-two leading logarithm, eigenvalue-gap terms and factorial constant.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.Weyl.qmdl",
+          "module": "FreeEntropy.WeylCombinatorics",
+          "file": "lean/FreeEntropy/WeylCombinatorics.lean",
+          "line": 178
+        }
+      ]
+    },
+    {
+      "id": "representation-state",
+      "title": "Normalized representation state",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "thm:main",
+            "line": 562
+          },
+          {
+            "label": "eq:schur_d",
+            "line": 305
+          }
+        ]
+      },
+      "status": "proved",
+      "summary": "The canonical orbit state agrees with the normalized representation monomial state.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.canonicalOrbitState",
+          "module": "FreeEntropy.CanonicalOrbit",
+          "file": "lean/FreeEntropy/CanonicalOrbit.lean",
+          "line": 41
+        },
+        {
+          "declaration": "FreeEntropy.SchurWeyl.canonicalMonomialState_eq_relativeState",
+          "module": "FreeEntropy.CanonicalMonomialState",
+          "file": "lean/FreeEntropy/CanonicalMonomialState.lean",
+          "line": 169
+        }
+      ],
+      "notes": "The canonical carrier is constructed from exterior-power representations; representation existence is not a premise of the final theorem."
+    },
+    {
+      "id": "finite-bound-parameters",
+      "title": "Exact D and minimum supported row gap",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "thm:main",
+            "line": 562
+          }
+        ]
+      },
+      "status": "proved",
+      "summary": "Integer absolute row difference and the minimum over supported adjacent source-row gaps.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.differenceNorm",
+          "module": "FreeEntropy.CanonicalRowBounds",
+          "file": "lean/FreeEntropy/CanonicalRowBounds.lean",
+          "line": 17
+        },
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.minimumRowGap",
+          "module": "FreeEntropy.CanonicalRowBounds",
+          "file": "lean/FreeEntropy/CanonicalRowBounds.lean",
+          "line": 53
+        },
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.differenceNorm_cast",
+          "module": "FreeEntropy.CanonicalRowBounds",
+          "file": "lean/FreeEntropy/CanonicalRowBounds.lean",
+          "line": 20
+        }
+      ]
+    },
+    {
+      "id": "explicit-cloning-constant",
+      "title": "Explicit admissible cloning constant",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "thm:main",
+            "line": 562
+          },
+          {
+            "label": "lem:tail",
+            "line": 1507
+          }
+        ]
+      },
+      "status": "defined",
+      "summary": "C(d,x)=choose(d,2)+3*N*q/(1-q)^(N+1), N=choose(r,2), q=max adjacent positive-eigenvalue ratio.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.Theorem2.cloningConstant",
+          "module": "FreeEntropy.Theorem2",
+          "file": "lean/FreeEntropy/Theorem2.lean",
+          "line": 28
+        },
+        {
+          "declaration": "FreeEntropy.MeanDepth.meanDepthConstant",
+          "module": "FreeEntropy.MeanDepth",
+          "file": "lean/FreeEntropy/MeanDepth.lean",
+          "line": 26
+        },
+        {
+          "declaration": "FreeEntropy.FixedSpectrum.qx",
+          "module": "FreeEntropy.SpectrumBounds",
+          "file": "lean/FreeEntropy/SpectrumBounds.lean",
+          "line": 33
+        }
+      ],
+      "notes": "The manuscript only requires existence of a dimension/spectrum-dependent constant. The formal endpoint supplies this explicit choice."
+    },
+    {
+      "id": "original-channel-definitions",
+      "title": "Literal normalized Choi contractions",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "eq:gen_cloner",
+            "line": 414
+          }
+        ]
+      },
+      "status": "proved",
+      "summary": "Input partial traces with the normalized PRV projectors and transposed input agree with actual CPTP channels.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.prvForward",
+          "module": "FreeEntropy.Theorem2Choi",
+          "file": "lean/FreeEntropy/Theorem2Choi.lean",
+          "line": 25
+        },
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.prvReverse",
+          "module": "FreeEntropy.Theorem2Choi",
+          "file": "lean/FreeEntropy/Theorem2Choi.lean",
+          "line": 44
+        },
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.prv_maps_are_channels",
+          "module": "FreeEntropy.Theorem2Choi",
+          "file": "lean/FreeEntropy/Theorem2Choi.lean",
+          "line": 62
+        }
+      ],
+      "notes": "Constructed for the supported dominant-difference pairs used by Theorem 2, not a claim that the generalized channel is constructed for every arbitrary pair of dominant integral highest weights."
+    },
+    {
+      "id": "prv-projectors",
+      "title": "Forward and reverse PRV components",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "eq:gen_cloner",
+            "line": 414
+          },
+          {
+            "label": "prop:reverse",
+            "line": 540
+          }
+        ]
+      },
+      "status": "proved",
+      "summary": "Constructed projector supports have actual multiplicity one in their Choi carriers.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.canonicalChoi_multiplicity_one",
+          "module": "FreeEntropy.CanonicalChoi",
+          "file": "lean/FreeEntropy/CanonicalChoi.lean",
+          "line": 79
+        },
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.canonicalReverseChoi_multiplicity_one",
+          "module": "FreeEntropy.ReverseChoiMultiplicity",
+          "file": "lean/FreeEntropy/ReverseChoiMultiplicity.lean",
+          "line": 147
+        },
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.canonicalReverseChoiProjector_eq_flip",
+          "module": "FreeEntropy.CanonicalReverseChoi",
+          "file": "lean/FreeEntropy/CanonicalReverseChoi.lean",
+          "line": 68
+        }
+      ],
+      "notes": "Reverse highest weight is the reversed negative of the auxiliary weight. This entry is restricted to the canonical Cartan pairs of Theorem 2."
+    },
+    {
+      "id": "cartan-choi-identification",
+      "title": "Cartan and original Choi formulas agree",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "prop:choi",
+            "line": 442
+          }
+        ]
+      },
+      "status": "proved",
+      "summary": "The actual constructed channels agree on every input matrix with the normalized Choi-projector formulas and with the Cartan formulas.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.canonicalForward_choiMap",
+          "module": "FreeEntropy.CanonicalChoi",
+          "file": "lean/FreeEntropy/CanonicalChoi.lean",
+          "line": 178
+        },
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.canonicalReverse_choiMap",
+          "module": "FreeEntropy.CanonicalReverseChoi",
+          "file": "lean/FreeEntropy/CanonicalReverseChoi.lean",
+          "line": 98
+        },
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.canonicalForward_eq_cartan_apply",
+          "module": "FreeEntropy.CanonicalCloningSelf",
+          "file": "lean/FreeEntropy/CanonicalCloningSelf.lean",
+          "line": 129
+        },
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.canonicalReverse_eq_cartan_apply",
+          "module": "FreeEntropy.CanonicalCloningSelf",
+          "file": "lean/FreeEntropy/CanonicalCloningSelf.lean",
+          "line": 142
+        }
+      ],
+      "notes": "Canonical natural source/target rows, with possibly signed dominant auxiliary difference. This is the instance needed by Theorem 2 rather than the entire arbitrary-integral formulation of the proposition."
+    },
+    {
+      "id": "petz-identification",
+      "title": "Reverse cloner and Petz recovery",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "prop:reverse",
+            "line": 540
+          }
+        ]
+      },
+      "status": "proved",
+      "summary": "The reverse channel is the normalized Hilbert-Schmidt adjoint and the literal Petz recovery at the maximally mixed input.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.canonicalReverse_eq_normalized_adjoint",
+          "module": "FreeEntropy.CanonicalPetz",
+          "file": "lean/FreeEntropy/CanonicalPetz.lean",
+          "line": 129
+        },
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.canonicalAdjoint_hilbertSchmidt",
+          "module": "FreeEntropy.CanonicalPetz",
+          "file": "lean/FreeEntropy/CanonicalPetz.lean",
+          "line": 99
+        },
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.canonicalForward_maximallyMixed",
+          "module": "FreeEntropy.CanonicalPetz",
+          "file": "lean/FreeEntropy/CanonicalPetz.lean",
+          "line": 148
+        },
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.canonicalPetz_eq_reverse",
+          "module": "FreeEntropy.CanonicalPetz",
+          "file": "lean/FreeEntropy/CanonicalPetz.lean",
+          "line": 164
+        }
+      ],
+      "notes": "Proved for the constructed Cartan pairs, including coincident rows."
+    },
+    {
+      "id": "zero-increment",
+      "title": "Coincident rows",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "thm:main",
+            "line": 562
+          }
+        ]
+      },
+      "status": "proved",
+      "summary": "Both Cartan formulas themselves become the identity when source and target rows coincide.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.canonicalCartan_self_apply",
+          "module": "FreeEntropy.CanonicalCloningSelf",
+          "file": "lean/FreeEntropy/CanonicalCloningSelf.lean",
+          "line": 99
+        }
+      ]
+    },
+    {
+      "id": "weyl-dimension",
+      "title": "Actual representation dimension",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "eq:weyl_dim",
+            "line": 683
+          }
+        ]
+      },
+      "status": "proved",
+      "summary": "The actual canonical irreducible dimension equals the Weyl product.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.canonical_dimension_fullWeyl",
+          "module": "FreeEntropy.CanonicalDimension",
+          "file": "lean/FreeEntropy/CanonicalDimension.lean",
+          "line": 27
+        }
+      ]
+    },
+    {
+      "id": "padded-memory-dimension",
+      "title": "Padded target and exact memory expansion",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "eq:target_rep",
+            "line": 619
+          },
+          {
+            "label": "lem:weyl_asymptotic",
+            "line": 671
+          }
+        ]
+      },
+      "status": "proved",
+      "summary": "The actual padded target dimension has logarithm QMDL+o(1).",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.targetCanonicalDimension",
+          "module": "FreeEntropy.CanonicalDimension",
+          "file": "lean/FreeEntropy/CanonicalDimension.lean",
+          "line": 68
+        },
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.targetCanonicalDimension_log_asymptotic",
+          "module": "FreeEntropy.CanonicalDimension",
+          "file": "lean/FreeEntropy/CanonicalDimension.lean",
+          "line": 86
+        }
+      ],
+      "notes": "This is the padded-target specialization needed for Theorem 1; the entry does not claim every quantitative variant of the manuscript lemma."
+    },
+    {
+      "id": "physical-code",
+      "title": "Actual encoder and decoder",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "eq:optimal_encoder",
+            "line": 719
+          },
+          {
+            "label": "eq:optimal_decoder",
+            "line": 744
+          }
+        ]
+      },
+      "status": "defined",
+      "summary": "Concrete physical source channels combine irreducible sectors, multiplicity registers and typical-row Cartan maps.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.SchurWeyl.mixedEncoder",
+          "module": "FreeEntropy.PhysicalCloningChannels",
+          "file": "lean/FreeEntropy/PhysicalCloningChannels.lean",
+          "line": 64
+        },
+        {
+          "declaration": "FreeEntropy.SchurWeyl.mixedDecoder",
+          "module": "FreeEntropy.PhysicalCloningChannels",
+          "file": "lean/FreeEntropy/PhysicalCloningChannels.lean",
+          "line": 69
+        }
+      ],
+      "notes": "Explicit replacement channels handle atypical sectors. The maps depend on n and the known spectrum, not the unknown unitary."
+    },
+    {
+      "id": "actual-concentration",
+      "title": "Physical atypical mass",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "lem:tail_prob",
+            "line": 788
+          },
+          {
+            "label": "eq:tail_prob_bound",
+            "line": 804
+          }
+        ]
+      },
+      "status": "proved",
+      "summary": "The actual physical sector probabilities satisfy a proved exponential-tail estimate sufficient for the asymptotic protocol.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.SchurWeyl.physicalAtypicalMass_le_tailBound",
+          "module": "FreeEntropy.SchurWeylConcentration",
+          "file": "lean/FreeEntropy/SchurWeylConcentration.lean",
+          "line": 48
+        },
+        {
+          "declaration": "FreeEntropy.SchurWeyl.physicalAtypicalMass_eventually_le_inv",
+          "module": "FreeEntropy.SchurWeylConcentration",
+          "file": "lean/FreeEntropy/SchurWeylConcentration.lean",
+          "line": 62
+        }
+      ],
+      "notes": "Uses an independently derived polynomial prefactor and entropy estimate; no claim that all displayed intermediate Sanov constants in the manuscript are reproduced verbatim."
+    },
+    {
+      "id": "finite-orbit-memory",
+      "title": "Irreducible-orbit memory lower bound",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "prop:compact_orbit_memory",
+            "line": 854
+          },
+          {
+            "label": "eq:compact_orbit_memory",
+            "line": 873
+          }
+        ]
+      },
+      "status": "proved",
+      "summary": "Actual continuous compact-group irreducible unitary orbits obey the finite-dimensional memory bound.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.OrbitTraceDistance.irreducible_orbit_memory_bound",
+          "module": "FreeEntropy.OrbitTraceDistance",
+          "file": "lean/FreeEntropy/OrbitTraceDistance.lean",
+          "line": 180
+        }
+      ],
+      "notes": "This reusable lemma states spectral data explicitly; the canonical theorem constructs that data before applying it."
+    },
+    {
+      "id": "uniform-gap",
+      "title": "Uniform positive spectral gap sufficient for converse",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "lem:sector_gap",
+            "line": 901
+          }
+        ]
+      },
+      "status": "supporting-bound-proved",
+      "summary": "Actual cyclic canonical states have a spectrum-dependent positive gap independent of the highest row.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.CartanLieCloning.CyclicWeightModel.actual_uniform_gap",
+          "module": "FreeEntropy.CyclicWeightOrbit",
+          "file": "lean/FreeEntropy/CyclicWeightOrbit.lean",
+          "line": 53
+        },
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.canonical_orbit_memory_bound",
+          "module": "FreeEntropy.CanonicalOrbit",
+          "file": "lean/FreeEntropy/CanonicalOrbit.lean",
+          "line": 73
+        }
+      ],
+      "notes": "The final canonical converse uses the weaker explicit bound (1-q)^(choose(d,2)+1). This mapping does not claim that this particular endpoint proves the manuscript lemma with its sharper gamma_x constant. RootPartitionFunction and GTOrbit contain separate sharper-gap developments."
+    },
+    {
+      "id": "multiplicity-monotonicity",
+      "title": "Weight multiplicity monotonicity",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "lem:kostka",
+            "line": 1200
+          }
+        ]
+      },
+      "status": "proved",
+      "summary": "An injective highest-weight slice proves source weight multiplicities are no larger than the shifted target multiplicities.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.CartanLieCloning.cartanSlice_injective",
+          "module": "FreeEntropy.CartanMultiplicity",
+          "file": "lean/FreeEntropy/CartanMultiplicity.lean",
+          "line": 58
+        },
+        {
+          "declaration": "FreeEntropy.CartanLieCloning.weight_multiplicity_add_le",
+          "module": "FreeEntropy.CartanMultiplicity",
+          "file": "lean/FreeEntropy/CartanMultiplicity.lean",
+          "line": 105
+        }
+      ],
+      "notes": "A generic cyclic-weight-model theorem is instantiated with actual canonical modules in the final cloning proof."
+    },
+    {
+      "id": "root-coefficient-count",
+      "title": "Rank-supported root coefficient envelope",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "eq:verma_multiplicity_bound",
+            "line": 1195
+          }
+        ]
+      },
+      "status": "proved",
+      "summary": "Actual supported canonical multiplicities at each depth obey the rank-r negative-binomial envelope.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.canonical_offsetMultiplicity_rank_depth_le",
+          "module": "FreeEntropy.RankRootCounting",
+          "file": "lean/FreeEntropy/RankRootCounting.lean",
+          "line": 131
+        }
+      ]
+    },
+    {
+      "id": "shallow-multiplicities",
+      "title": "Shallow multiplicity equality",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "lem:shallow_multiplicities",
+            "line": 1397
+          }
+        ]
+      },
+      "status": "proved",
+      "summary": "Canonical source and target supported offset multiplicities agree below the source row-gap threshold.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.canonical_offsetMultiplicity_shallow_eq",
+          "module": "FreeEntropy.ExteriorSupportedOffsets",
+          "file": "lean/FreeEntropy/ExteriorSupportedOffsets.lean",
+          "line": 88
+        }
+      ]
+    },
+    {
+      "id": "local-casimir-deficit",
+      "title": "Local highest-weight projector estimate",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "lem:perturbation",
+            "line": 1412
+          },
+          {
+            "label": "eq:casimir_deficit_compression",
+            "line": 1478
+          }
+        ]
+      },
+      "status": "proved",
+      "summary": "Highest-weight tensor decomposition and compressed Casimir identities give the local deficit used by the finite channel estimate.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.CartanLieCloning.TensorDecomposition.local_gap",
+          "module": "FreeEntropy.CartanLieCloning",
+          "file": "lean/FreeEntropy/CartanLieCloning.lean",
+          "line": 205
+        },
+        {
+          "declaration": "FreeEntropy.CartanLieCloning.tensor_weight_deficit",
+          "module": "FreeEntropy.CartanLieCloning",
+          "file": "lean/FreeEntropy/CartanLieCloning.lean",
+          "line": 241
+        },
+        {
+          "declaration": "FreeEntropy.CartanLieCloning.ofConstructedCyclicWeights",
+          "module": "FreeEntropy.ConstructedLieCloning",
+          "file": "lean/FreeEntropy/ConstructedLieCloning.lean",
+          "line": 128
+        }
+      ],
+      "notes": "The generic local estimates take representation structures; their actual construction and instantiation occur in the canonical endpoint dependency chain."
+    },
+    {
+      "id": "mean-depth",
+      "title": "Uniform mean-depth estimate",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "lem:tail",
+            "line": 1507
+          },
+          {
+            "label": "eq:uniform_mean_depth",
+            "line": 1516
+          }
+        ]
+      },
+      "status": "proved",
+      "summary": "The exact first-moment generating series and the coefficient envelope yield the uniform finite mean-depth bound.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.MeanDepth.hasSum_first_moment",
+          "module": "FreeEntropy.MeanDepth",
+          "file": "lean/FreeEntropy/MeanDepth.lean",
+          "line": 69
+        },
+        {
+          "declaration": "FreeEntropy.MeanDepth.weight_mean_le",
+          "module": "FreeEntropy.MeanDepth",
+          "file": "lean/FreeEntropy/MeanDepth.lean",
+          "line": 107
+        }
+      ],
+      "notes": "The scalar lemma takes the coefficient bound as input; RankRootCounting proves that input for the actual canonical states used by Theorem 2."
+    },
+    {
+      "id": "eigenvalue-ratio",
+      "title": "Eigenvalue normalization-ratio estimate",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "lem:ratio",
+            "line": 1551
+          }
+        ]
+      },
+      "status": "proved",
+      "summary": "Common coefficient ratios, monotonicity and shallow equality control the normalization deficit by mean depth.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.CartanLieCloning.relativeCoefficient_ratio",
+          "module": "FreeEntropy.SupportedWeightStates",
+          "file": "lean/FreeEntropy/SupportedWeightStates.lean",
+          "line": 57
+        },
+        {
+          "declaration": "FreeEntropy.Cloning.eigenvalue_ratio_deficit",
+          "module": "FreeEntropy.Cloning",
+          "file": "lean/FreeEntropy/Cloning.lean",
+          "line": 128
+        }
+      ],
+      "notes": "These are reusable intermediate scalar statements; all premises are discharged for the final canonical theorem."
+    },
+    {
+      "id": "dimension-ratio",
+      "title": "Actual Weyl dimension-ratio deficit",
+      "manuscript": {
+        "file": "article.tex",
+        "anchors": [
+          {
+            "label": "lem:dim_ratio",
+            "line": 1598
+          }
+        ]
+      },
+      "status": "proved",
+      "summary": "Actual canonical dimensions satisfy the finite row-L1/gap deficit bound.",
+      "lean": [
+        {
+          "declaration": "FreeEntropy.ExteriorRepresentation.canonical_dimensionRatio_deficit",
+          "module": "FreeEntropy.CanonicalDimensionRatio",
+          "file": "lean/FreeEntropy/CanonicalDimensionRatio.lean",
+          "line": 72
+        }
+      ]
+    }
+  ],
+  "not_claimed": [
+    {
+      "labels": [
+        "sec:redundancy",
+        "prop:orbit_redundancy",
+        "lem:block_entropy"
+      ],
+      "reason": "Universal lossless coding, redundancy and entropy conclusions are outside the requested theorem scope."
+    },
+    {
+      "labels": [
+        "app:unknown_spectrum"
+      ],
+      "reason": "Additional cost of an unknown spectrum is outside the fixed-spectrum theorem scope."
+    },
+    {
+      "labels": [
+        "prop:commutativity"
+      ],
+      "reason": "No standalone formalization of this proposition is claimed by this map."
+    },
+    {
+      "labels": [
+        "eq:gen_cloner"
+      ],
+      "reason": "General PRV channel existence for every arbitrary pair is not claimed; the actual pairs needed by Theorem 2 are constructed."
+    }
+  ]
+}

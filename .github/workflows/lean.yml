@@ -1,0 +1,212 @@
+name: Lean reproducibility
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      run_comparator:
+        description: Run strict Comparator on a Linux host with full pinned Landrun support
+        type: boolean
+        default: false
+      comparator_runner:
+        description: x86_64 Linux runner label with Landlock ABI 9 or later
+        type: string
+        default: ubuntu-24.04
+
+permissions:
+  contents: read
+
+jobs:
+  kernel-audit:
+    name: Exported sources / Lean build and axiom audit
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    env:
+      LEAN_NUM_THREADS: "2"
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Export the public source allowlist
+        run: |
+          python3 scripts/prepare_release.py --allow-unverified \
+            --directory "$RUNNER_TEMP/free-entropy-source"
+          # A CI Nanoda success report must come from this job's actual run.
+          rm -f "$RUNNER_TEMP/free-entropy-source/lean/ComparatorConfig/nanoda-status.json"
+
+      - name: Install pinned elan bootstrap
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --proto '=https' --tlsv1.2 --fail --location --retry 3 \
+            https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz \
+            --output "$RUNNER_TEMP/elan.tar.gz"
+          printf '%s  %s\n' \
+            42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63 \
+            "$RUNNER_TEMP/elan.tar.gz" | sha256sum --check
+          mkdir "$RUNNER_TEMP/elan-installer"
+          tar -xzf "$RUNNER_TEMP/elan.tar.gz" -C "$RUNNER_TEMP/elan-installer"
+          "$RUNNER_TEMP/elan-installer/elan-init" -y --default-toolchain none
+          printf '%s\n' "$HOME/.elan/bin" >> "$GITHUB_PATH"
+
+      - name: Fetch locked public dependencies and mathlib cache
+        working-directory: ${{ runner.temp }}/free-entropy-source/lean
+        run: |
+          lake --version
+          lake exe cache get
+
+      - name: Validate source metadata and manuscript mapping
+        working-directory: ${{ runner.temp }}/free-entropy-source
+        run: |
+          python3 -m venv "$RUNNER_TEMP/release-validation"
+          "$RUNNER_TEMP/release-validation/bin/python" -m pip install -r scripts/requirements-release.txt
+          "$RUNNER_TEMP/release-validation/bin/python" scripts/validate_artifacts.py --allow-stale-audit
+
+      - name: Compile proofs and audit actual kernel dependencies
+        working-directory: ${{ runner.temp }}/free-entropy-source/lean
+        run: bash check.sh
+
+      - name: Compile the separate expected-statement templates
+        working-directory: ${{ runner.temp }}/free-entropy-source/lean
+        run: lake build ComparatorChallenges
+
+      - name: Compare statements and replay in Lean (unsandboxed)
+        working-directory: ${{ runner.temp }}/free-entropy-source/lean
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ComparatorConfig/check_local.py 2>&1 | tee verification/comparator-unsandboxed-linux.log
+
+      - name: Build pinned Nanoda with pinned Rust
+        working-directory: ${{ runner.temp }}/free-entropy-source
+        shell: bash
+        run: |
+          set -euo pipefail
+          rustup toolchain install 1.90.0 --profile minimal
+          git clone https://github.com/ammkrn/nanoda_lib.git "$RUNNER_TEMP/nanoda"
+          git -C "$RUNNER_TEMP/nanoda" checkout --detach 3a2407216ee84a75f9e1aead6803d0578be06ae7
+          python3 - "$RUNNER_TEMP/nanoda" <<'PY'
+          import hashlib, json, pathlib, subprocess, sys, tomllib
+          source = pathlib.Path(sys.argv[1])
+          pin = json.loads(pathlib.Path("lean/ComparatorConfig/nanoda-toolchain.json").read_text())
+          commit = subprocess.check_output(["git", "-C", str(source), "rev-parse", "HEAD"], text=True).strip()
+          assert commit == pin["commit"], "Nanoda source revision differs"
+          assert hashlib.sha256((source / "Cargo.lock").read_bytes()).hexdigest() == pin["cargo_lock_sha256"], "Cargo lockfile differs"
+          assert tomllib.loads((source / "Cargo.toml").read_text())["package"]["version"] == pin["package_version"], "Nanoda package version differs"
+          rust = subprocess.check_output(["rustc", "+1.90.0", "--version", "--verbose"], text=True)
+          assert "commit-hash: " + pin["rust_commit"] in rust, "Rust compiler revision differs"
+          PY
+          CARGO_TARGET_DIR="$RUNNER_TEMP/nanoda/target" \
+            cargo +1.90.0 build --release --locked --manifest-path "$RUNNER_TEMP/nanoda/Cargo.toml"
+
+      - name: Replay all solution exports in Nanoda (unsandboxed independent kernel)
+        working-directory: ${{ runner.temp }}/free-entropy-source/lean
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ComparatorConfig/check_nanoda.py \
+            --nanoda-bin "$RUNNER_TEMP/nanoda/target/release/nanoda_bin" \
+            --report ComparatorConfig/nanoda-status.json \
+            2>&1 | tee verification/nanoda-unsandboxed-linux.log
+
+      - name: Validate freshly generated audit and source metadata
+        working-directory: ${{ runner.temp }}/free-entropy-source
+        run: '"$RUNNER_TEMP/release-validation/bin/python" scripts/validate_artifacts.py'
+
+      - name: Produce verified source archive
+        working-directory: ${{ runner.temp }}/free-entropy-source
+        run: |
+          python3 scripts/prepare_release.py \
+            --output "$RUNNER_TEMP/free-entropy-source.tar.gz"
+
+      - name: Upload fresh verification reports
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: lean-verification-reports
+          path: |
+            ${{ runner.temp }}/free-entropy-source/lean/verification/
+            ${{ runner.temp }}/free-entropy-source/lean/ComparatorConfig/nanoda-status.json
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Upload verified source package
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: free-entropy-source
+          path: ${{ runner.temp }}/free-entropy-source.tar.gz
+          if-no-files-found: error
+          retention-days: 30
+
+  comparator:
+    name: Independent statement comparison / Linux Landrun
+    if: github.event_name == 'workflow_dispatch' && inputs.run_comparator
+    needs: kernel-audit
+    runs-on: ${{ inputs.comparator_runner }}
+    timeout-minutes: 120
+    env:
+      LEAN_NUM_THREADS: "2"
+    steps:
+      - name: Download the audited source package
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: free-entropy-source
+          path: ${{ runner.temp }}/comparator-input
+
+      - name: Unpack source package
+        run: tar -xzf "$RUNNER_TEMP/comparator-input/free-entropy-source.tar.gz" -C "$RUNNER_TEMP"
+
+      - name: Install pinned elan bootstrap
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --proto '=https' --tlsv1.2 --fail --location --retry 3 \
+            https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz \
+            --output "$RUNNER_TEMP/elan.tar.gz"
+          printf '%s  %s\n' \
+            42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63 \
+            "$RUNNER_TEMP/elan.tar.gz" | sha256sum --check
+          mkdir "$RUNNER_TEMP/elan-installer"
+          tar -xzf "$RUNNER_TEMP/elan.tar.gz" -C "$RUNNER_TEMP/elan-installer"
+          "$RUNNER_TEMP/elan-installer/elan-init" -y --default-toolchain none
+          printf '%s\n' "$HOME/.elan/bin" >> "$GITHUB_PATH"
+
+      - uses: actions/setup-go@d35c59abb061a4a6fb18e82ac0862c26744d6ab5 # v5.5.0
+        with:
+          go-version: "1.24.0"
+          cache: false
+
+      - name: Build real Landrun at its pinned revision
+        run: |
+          git clone https://github.com/Zouuup/landrun.git "$RUNNER_TEMP/landrun"
+          git -C "$RUNNER_TEMP/landrun" checkout --detach 811cfff51ceaf3d9843708aa6d22e9b84ccac8b4
+          cd "$RUNNER_TEMP/landrun"
+          go build -o landrun cmd/landrun/main.go
+          printf '%s\n' "$RUNNER_TEMP/landrun" >> "$GITHUB_PATH"
+
+      - name: Fetch locked dependencies and public mathlib cache
+        working-directory: ${{ runner.temp }}/free-entropy-formalization/lean
+        run: lake exe cache get
+
+      - name: Run pinned upstream Comparator in Landrun
+        working-directory: ${{ runner.temp }}/free-entropy-formalization/lean
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p verification
+          sudo systemd-run --quiet --pipe --wait --collect --service-type=exec \
+            --uid="$(id -u)" --gid="$(id -g)" \
+            --property='RestrictAddressFamilies=~AF_UNIX' \
+            --property=NoNewPrivileges=yes \
+            --working-directory="$PWD" \
+            --setenv="PATH=$PATH" --setenv="HOME=$HOME" \
+            /usr/bin/bash check_comparator.sh 2>&1 | tee verification/comparator-linux.log
+
+      - name: Upload separate Comparator report
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: comparator-linux-report
+          path: ${{ runner.temp }}/free-entropy-formalization/lean/verification/comparator-linux.log
+          if-no-files-found: warn
+          retention-days: 30

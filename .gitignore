@@ -1,8 +1,49 @@
-site/
-venv/
+# Lean build products and downloaded dependencies
+**/.lake/
+**/.elan/
+**/*.olean
+**/*.ilean
+**/*.c.o
+
+# Local editors, Python tools, and operating-system metadata
+.DS_Store
+.idea/
+.vscode/
 __pycache__/
 *.pyc
+.venv*/
+
+# Existing QMDL wiki build and local notes
+site/
+venv/
 .obsidian/
 .claude/
-.DS_Store
 sources/
+
+# Generated TeX files (the manuscript source is retained)
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*Notes.bib
+
+# Other drafts in the working folder are outside this release
+/letter*
+/notes/
+/prv_channel_optimality.tex
+/compression.pdf
+/JHEP.bst
+
+# Release bundles and local diagnostic output
+/dist/
+/lean/verification/build.txt
+/lean/verification/axioms.txt
+/lean/verification/check-output.txt
+/lean/verification/comparator-*.log
+
+# The supplied PDF is an optional release asset, not part of the proof build
+/article.pdf

@@ -1,0 +1,14 @@
+{
+  "challenge_module": "ComparatorChallenges.Theorem1Converse",
+  "solution_module": "FreeEntropy.Theorem1Complete",
+  "theorem_names": [
+    "FreeEntropy.theorem1_converse",
+    "FreeEntropy.theorem1_converse_of_uniform"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": false
+}

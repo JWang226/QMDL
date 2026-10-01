@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "note": "Official JSON schemas are fetched by immutable commit and checked against SHA-256 before use; no schema is vendored. Network access is required when no verified external schema cache is supplied.",
+  "sources": [
+    {
+      "id": "formalization-v0.3",
+      "repository": "https://github.com/mathlib-initiative/formalization.yaml",
+      "revision": "99c678e569c7c4c0772db297c5ddd5e4c9b6322e",
+      "path": "schema/v0.3.schema.json",
+      "url": "https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/99c678e569c7c4c0772db297c5ddd5e4c9b6322e/schema/v0.3.schema.json",
+      "sha256": "93247a8093ea0bb622650e8f387bcc95c4e4c7941408974d6779341844262b27",
+      "target": "formalization.yaml",
+      "json_schema_draft": "draft-07"
+    },
+    {
+      "id": "citation-file-format-1.2.0",
+      "repository": "https://github.com/citation-file-format/citation-file-format",
+      "revision": "396f738fb025b1d8acdb02a56ffc923f95dc8999",
+      "path": "schema.json",
+      "url": "https://raw.githubusercontent.com/citation-file-format/citation-file-format/396f738fb025b1d8acdb02a56ffc923f95dc8999/schema.json",
+      "sha256": "0b8d22140da702d766df318dcff3a91af2f39521298dcf36d76315fd99cc169b",
+      "target": "CITATION.cff",
+      "json_schema_draft": "draft-07"
+    }
+  ]
+}

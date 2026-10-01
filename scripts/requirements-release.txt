@@ -1,0 +1,10 @@
+# Copyright (c) 2026 Free Entropy formalization contributors.
+# See LICENSE and NOTICE in the repository root for license and attribution.
+# Python 3.11+; versions used by the release metadata validator.
+attrs==26.1.0
+jsonschema==4.25.1
+jsonschema-specifications==2025.9.1
+PyYAML==6.0.2
+referencing==0.37.0
+rpds-py==2026.6.3
+typing_extensions==4.16.0

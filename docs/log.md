@@ -130,3 +130,13 @@ Every definition page now has: concrete examples, expanded intuition, connection
 - Added random matrix / free probability notation to notation.md (5 new symbols)
 - Rebuilt index.md: organized concepts by topic, added all new definitions/results tables, added programming dependency graphs
 - Updated log.md
+
+## 2026-09-30 — Lean proof artifacts and reproduction
+
+- Added the formalization of the bundled manuscript's Theorems 1 and 2, with
+  pinned dependencies, axiom audit, Comparator challenges, and Nanoda reproducer.
+- Added a wiki link to the authoritative repository instructions and status.
+- Kept existing mathematical wiki pages and their source numbering unchanged;
+  manuscript labels identify the formalization's targets.
+- Kept repository-oriented proof documentation out of the generated wiki, where
+  its relative links to Lean files would not resolve.

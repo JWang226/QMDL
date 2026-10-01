@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: >-
+  Cite the mathematical manuscript and identify the version or commit of this
+  Lean formalization used. The repository URL is provided below; a persistent
+  scholarly identifier has not been assigned.
+repository-code: https://github.com/JWang226/QMDL
+url: https://github.com/JWang226/QMDL
+title: Lean formalization of Quantum minimum description of density matrices
+type: software
+version: 0.1.0
+authors:
+  - name: Free Entropy formalization contributors
+abstract: >-
+  Lean 4 and Mathlib certificates for the exact asymptotic quantum memory
+  cost and quantitative generalized cloning bounds in Theorems 1 and 2.
+  Developed with Codex assistance; see the repository provenance and review
+  records for the scope of verification.
+preferred-citation:
+  type: unpublished
+  title: Quantum minimum description of density matrices
+  authors:
+    - family-names: Hayden
+      given-names: Patrick
+    - family-names: Maloney
+      given-names: Alexander
+    - family-names: Wang
+      given-names: Jinzhao
+    - family-names: Yang
+      given-names: Yuxiang
+  notes: Manuscript included as article.tex; publication identifier not recorded.

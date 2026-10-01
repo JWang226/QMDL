@@ -1,0 +1,169 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+# v0.3 conventions: https://github.com/openai/ten-proofs/blob/main/formalization.yaml
+version: v0.3
+project:
+  name: 'Free Entropy: quantum minimum description of density matrices'
+  url: https://github.com/JWang226/QMDL
+  authors:
+  - Free Entropy formalization contributors
+  license: pending
+  note: Collective software-contributor credit; manuscript authorship is listed separately. License selection
+    and individual attribution await maintainer confirmation.
+sources:
+- title: Quantum minimum description of density matrices
+  authors:
+  - Patrick Hayden
+  - Alexander Maloney
+  - Jinzhao Wang
+  - Yuxiang Yang
+  id: article.tex; SHA-256 09fc0a6bb205180cd820be94d843a1dc0d4342a543492e30dde54e367ae843a9
+  type: manuscript
+  license: pending
+  note: Bundled source manuscript. Theorems thm:qmdl and thm:main are the requested scope. Publication
+    date and source-author endorsement are not asserted.
+status:
+  scope: 'Theorems 1 and 2 for actual finite complex matrices and constructed CPTP channels: fixed-spectrum
+    physical tensor-source compression with exact additive memory constant and uniform achievability;
+    Haar-average converse; both finite cloning errors for the original Choi-projector channels, including
+    rank one, signed dominant differences and zero increment. This is not a formalization of the entire
+    paper.'
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+  main_results:
+  - name: 'Theorem 1: achievability'
+    declaration: FreeEntropy.theorem1_achievability
+    file: lean/FreeEntropy/Theorem1Complete.lean
+    sorry_count: 0
+    axioms:
+    - propext
+    - Classical.choice
+    - Quot.sound
+    comparator_config: lean/ComparatorChallenges/Theorem1Achievability.json
+  - name: 'Theorem 1: Haar-average converse'
+    declaration: FreeEntropy.theorem1_converse
+    file: lean/FreeEntropy/Theorem1Complete.lean
+    sorry_count: 0
+    axioms:
+    - propext
+    - Classical.choice
+    - Quot.sound
+    comparator_config: lean/ComparatorChallenges/Theorem1Converse.json
+  - name: 'Theorem 1: worst-case converse'
+    declaration: FreeEntropy.theorem1_converse_of_uniform
+    file: lean/FreeEntropy/Theorem1Complete.lean
+    sorry_count: 0
+    axioms:
+    - propext
+    - Classical.choice
+    - Quot.sound
+    comparator_config: lean/ComparatorChallenges/Theorem1Converse.json
+  - name: 'Theorem 2: original Choi-projector channels'
+    declaration: FreeEntropy.ExteriorRepresentation.theorem2_cloning_accuracy_choi
+    file: lean/FreeEntropy/Theorem2Choi.lean
+    sorry_count: 0
+    axioms:
+    - propext
+    - Classical.choice
+    - Quot.sound
+    comparator_config: lean/ComparatorChallenges/Theorem2Choi.json
+  - name: 'Theorem 2: equivalent Cartan form'
+    declaration: FreeEntropy.ExteriorRepresentation.theorem2_cloning_accuracy
+    file: lean/FreeEntropy/Theorem2Canonical.lean
+    sorry_count: 0
+    axioms:
+    - propext
+    - Classical.choice
+    - Quot.sound
+  - name: 'Theorem 2: equivalent Petz form'
+    declaration: FreeEntropy.ExteriorRepresentation.theorem2_cloning_accuracy_petz
+    file: lean/FreeEntropy/Theorem2Petz.lean
+    sorry_count: 0
+    axioms:
+    - propext
+    - Classical.choice
+    - Quot.sound
+  audit:
+    evidence: lean/verification/summary.json
+    reproducibility_evidence: lean/verification/reproducibility.json
+    comparator_evidence: lean/ComparatorChallenges/verification-status.json
+    nanoda_evidence: lean/ComparatorConfig/nanoda-status.json
+    proof_modules: 270
+    proved_declarations_audited: 1873
+    public_declarations_audited: 2499
+    proof_sources_sha256: f4efe7d88eb576d8ad579c57a2dd1b4ddc3a6b628d5cb023d9f42a326c0dbfee
+    note: A fresh isolated source build, all reader entrypoints and the transitive kernel-axiom audit passed.
+      The generated verification summary identifies the checked source bytes. Comparator specification
+      placeholders are not unresolved development proofs; Comparator execution is recorded separately.
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 family (exact deployed version unknown)
+    framework: Codex
+    tool_setup: Coordinated coding agents using the local Lean/Lake checker and pinned mathlib; repeated
+      semantic reviews and dependency-axiom audits.
+    cost:
+      wall_time: unknown
+      spend_usd: unknown
+      token_count: unknown
+    prompting_notes: The user requested a best-effort Lean formalization of Theorems 1 and 2 and then
+      asked that remaining conditional gaps be closed.
+  notes: Model family/framework are known from the working session. Exact model identifier, reliable elapsed
+    effort and usage costs were not independently recorded. No internal reasoning transcript is supplied.
+fidelity:
+  divergences: The physical orbit uses a diagonal reference and arbitrary U(d) conjugation. Rows are zero-based
+    natural partitions, with a signed dominant difference. Memory cost is log2 of dimension; the liminf
+    is taken in the extended reals. The proof constructs explicit Cartan/Choi/Petz channels and replaces
+    atypical sectors by explicit replacement channels. It supplies an explicit cloning constant. The final
+    converse uses a weaker but uniform positive spectral-gap constant than the sharp intermediate lemma
+    in the manuscript. These changes preserve the requested theorem conclusions. Broader generalized-channel
+    propositions and the later entropy/unknown-spectrum discussion are not claimed in full. Detailed per-statement
+    coverage is in metadata/natural-language-map.json.
+review:
+  status: agent-reviewed
+  reviewers:
+  - Codex agents
+  notes: Lean kernel checking and automated axiom collection passed in a fresh isolated build of the release sources.
+    Agents also checked manuscript alignment and concrete endpoint definitions. All three local Comparator
+    diagnostics passed exact exported statement/definition comparison, allowed-axiom checking and Lean
+    kernel replay. All three solution exports also passed the separately implemented Nanoda kernel with
+    exactly the three permitted standard axioms. These runs were unsandboxed. Independent human peer review,
+    source-author endorsement and Linux-sandboxed Comparator execution are not asserted. Consult the generated
+    Comparator and Nanoda reports for exact inputs and execution status.
+alignment:
+  namespace: FreeEntropy
+  mapping_file: metadata/natural-language-map.json
+  status_document: docs/FORMALIZATION_STATUS.md
+  statements:
+  - source: 'Theorem 1: achievability (thm:qmdl, thm:achievability)'
+    lean: FreeEntropy.theorem1_achievability
+    module: FreeEntropy.Theorem1Complete
+    status: proved
+  - source: 'Theorem 1: Haar-average converse (thm:qmdl, thm:converse)'
+    lean: FreeEntropy.theorem1_converse
+    module: FreeEntropy.Theorem1Complete
+    status: proved
+  - source: 'Theorem 1: worst-case converse (thm:qmdl, eq:error)'
+    lean: FreeEntropy.theorem1_converse_of_uniform
+    module: FreeEntropy.Theorem1Complete
+    status: proved
+  - source: 'Theorem 2: original Choi-projector channels (thm:main, eq:cloning_trace_bound)'
+    lean: FreeEntropy.ExteriorRepresentation.theorem2_cloning_accuracy_choi
+    module: FreeEntropy.Theorem2Choi
+    status: proved
+  - source: 'Theorem 2: equivalent Cartan form (thm:main, prop:choi)'
+    lean: FreeEntropy.ExteriorRepresentation.theorem2_cloning_accuracy; FreeEntropy.ExteriorRepresentation.theorem2_cartan_cloning_accuracy
+    module: FreeEntropy.Theorem2Canonical
+    status: proved
+  - source: 'Theorem 2: equivalent Petz form (thm:main, prop:reverse)'
+    lean: FreeEntropy.ExteriorRepresentation.theorem2_cloning_accuracy_petz
+    module: FreeEntropy.Theorem2Petz
+    status: proved
+acknowledgements: Built with Lean 4 and mathlib. Channels.lean and CartanChannel.lean preserve provenance
+  notes for algebra adapted from the previously available local Cloning formalization; there is no import
+  dependency on that project. See NOTICE for the adaptation record. The earlier source was identified privately;
+  a publicly accessible upstream reference and the licensing record remain incomplete.

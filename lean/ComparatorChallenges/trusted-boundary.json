@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "purpose": "Explicit expected-statement trust inventory; not an upstream Comparator configuration or permission bypass",
+  "upstream_config_schema": {
+    "commit": "a4f696825c583ed8a5b4060d9a0faa5b882d365b",
+    "keys": ["challenge_module", "solution_module", "theorem_names", "permitted_axioms", "enable_nanoda"],
+    "permittedConstants_supported": false,
+    "declaration_mapping": "Identical fully qualified names in separately exported environments",
+    "constant_rule": "Every referenced constant is recursively compared by the pinned upstream Comparator"
+  },
+  "solution_permitted_axioms": ["propext", "Quot.sound", "Classical.choice"],
+  "nanoda_enabled": false,
+  "theorem1": {
+    "configs": ["Theorem1Achievability.json", "Theorem1Converse.json"],
+    "project_imports": ["FreeEntropy.UnitaryHaar"],
+    "independently_redeclared": [
+      "FreeEntropy.FixedSpectrum",
+      "FreeEntropy.Channels.amplify",
+      "FreeEntropy.Channels.MatrixChannel",
+      "FreeEntropy.OrbitMemory.tr",
+      "FreeEntropy.TraceDistance.traceNorm",
+      "FreeEntropy.TraceDistance.traceDistance",
+      "FreeEntropy.TensorPowers.matrix",
+      "FreeEntropy.Weyl.errorScale",
+      "FreeEntropy.Weyl.qmdl",
+      "FreeEntropy.SchurWeyl.physicalSpectrum",
+      "FreeEntropy.SchurWeyl.physicalDensity",
+      "FreeEntropy.SchurWeyl.physicalSource",
+      "FreeEntropy.SchurWeyl.mixedAverageError",
+      "FreeEntropy.SchurWeyl.mixedWorstError"
+    ],
+    "imported_project_interface": ["FreeEntropy.UnitaryHaar.probabilityHaar"],
+    "imported_foundations": "Mathlib and the explicit Haar construction, including their transitive declarations and instances"
+  },
+  "theorem2": {
+    "configs": ["Theorem2Choi.json"],
+    "project_imports": [
+      "FreeEntropy.CanonicalChoi", "FreeEntropy.CanonicalReverseChoi",
+      "FreeEntropy.CanonicalCloningBounds", "FreeEntropy.ChoiContraction"
+    ],
+    "independently_redeclared": [
+      "FreeEntropy.ExteriorRepresentation.prvForward",
+      "FreeEntropy.ExteriorRepresentation.prvReverse"
+    ],
+    "imported_project_interface": [
+      "FreeEntropy.FixedSpectrum",
+      "FreeEntropy.ExteriorRepresentation.IrrepIndex",
+      "FreeEntropy.ExteriorRepresentation.auxiliaryRow",
+      "FreeEntropy.ExteriorRepresentation.canonicalChoiProjector",
+      "FreeEntropy.ExteriorRepresentation.canonicalReverseChoiProjector",
+      "FreeEntropy.ExteriorRepresentation.canonicalOrbitState",
+      "FreeEntropy.ExteriorRepresentation.differenceNorm",
+      "FreeEntropy.ExteriorRepresentation.minimumRowGap",
+      "FreeEntropy.CartanChoi.partialTraceInput",
+      "FreeEntropy.TraceDistance.traceDistance",
+      "FreeEntropy.FixedSpectrum.qx",
+      "FreeEntropy.Theorem2.cloningConstant"
+    ],
+    "imported_foundations": "These exact constructed representation, projector, state and numerical definitions, including all transitive declarations and typeclass instances; not an independent reconstruction of representation theory",
+    "excluded_final_modules": ["FreeEntropy.Theorem2Canonical", "FreeEntropy.Theorem2Choi"]
+  }
+}

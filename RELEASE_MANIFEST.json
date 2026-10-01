@@ -1,0 +1,1358 @@
+{
+  "dependencies": {
+    "Cli": {
+      "revision": "3de531c1135f5e3a01f3ac04830996fda476b28e",
+      "url": "https://github.com/leanprover/lean4-cli"
+    },
+    "Comparator": {
+      "revision": "a4f696825c583ed8a5b4060d9a0faa5b882d365b",
+      "url": "https://github.com/leanprover/comparator.git"
+    },
+    "Lean4Checker": {
+      "revision": "b7398199245524275543dec6113229c9bb4902e5",
+      "url": "https://github.com/leanprover/lean4checker"
+    },
+    "LeanSearchClient": {
+      "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+      "url": "https://github.com/leanprover-community/LeanSearchClient"
+    },
+    "Qq": {
+      "revision": "221e8088e3a066b8676dc471ff10638cf1c10835",
+      "url": "https://github.com/leanprover-community/quote4"
+    },
+    "aesop": {
+      "revision": "c3361708f266893de5d1769192b60d4b1831f2bb",
+      "url": "https://github.com/leanprover-community/aesop"
+    },
+    "batteries": {
+      "revision": "77a5160a74772214ef37caba2847cfe9ab600285",
+      "url": "https://github.com/leanprover-community/batteries"
+    },
+    "importGraph": {
+      "revision": "f207d9fcf0cef00ba79962a33ef156061914d9c7",
+      "url": "https://github.com/leanprover-community/import-graph"
+    },
+    "lean4export": {
+      "revision": "048394e1afeeb52b0fa27bcf3f1ade2ff0f0ab6d",
+      "url": "https://github.com/leanprover/lean4export"
+    },
+    "mathlib": {
+      "revision": "f156f7abd91ac67adb22bf999e5a71ba22e22e41",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    "plausible": {
+      "revision": "e84e3e16aea6b72cc5d311ca1bb25caad417e162",
+      "url": "https://github.com/leanprover-community/plausible"
+    },
+    "proofwidgets": {
+      "revision": "2e58165a9dcdca9837b666528f974299ee1a51cc",
+      "url": "https://github.com/leanprover-community/ProofWidgets4"
+    }
+  },
+  "files": {
+    ".github/workflows/lean.yml": {
+      "bytes": 9513,
+      "sha256": "a9fe923e2663987527565bf8bf0ccf6c233a5d591f78e8b9fdfbdc3ab8b350a3"
+    },
+    ".gitignore": {
+      "bytes": 845,
+      "sha256": "059e1a583518ec8f753793d39eb47df718a48df6f050fab3c10596937bcf8cfc"
+    },
+    "CITATION.cff": {
+      "bytes": 1168,
+      "sha256": "84b1b60d76e9cf21aecc07a943e42e27b2fe340af04e412ada986be0ad02a23e"
+    },
+    "LICENSE": {
+      "bytes": 718,
+      "sha256": "3da7d8274182dccc407bc7de52720d37f6d9e03c81fa973ed80e55046a647ea9"
+    },
+    "NOTICE": {
+      "bytes": 2601,
+      "sha256": "6c1cba42baa0a044f41cffc3fb7fc04f74f0fcc1687cd7b34db43ff4e585fa10"
+    },
+    "README.md": {
+      "bytes": 8830,
+      "sha256": "a14bcfeee3d8406e51f9550ceb26b29fe4e554ed926327842fe370b29dfc94cc"
+    },
+    "article.tex": {
+      "bytes": 98692,
+      "sha256": "09fc0a6bb205180cd820be94d843a1dc0d4342a543492e30dde54e367ae843a9"
+    },
+    "docs/AI_PROVENANCE.md": {
+      "bytes": 4919,
+      "sha256": "93f2654439cf3e91bb939e063ecc87b09efd23d09fec6ce7efa19e143dae08ea"
+    },
+    "docs/FORMALIZATION_STATUS.md": {
+      "bytes": 9606,
+      "sha256": "8560bfd987edfeee97f6b3c6cc299ee8c26121484d14d13d96617fe8b44317c2"
+    },
+    "docs/RELEASE_CHECKLIST.md": {
+      "bytes": 2825,
+      "sha256": "58e51f56265c000291a61727243a6209ec4c1b7530b88b15fbfc5a8c6dad2284"
+    },
+    "docs/REPRODUCIBILITY.md": {
+      "bytes": 10689,
+      "sha256": "9a9e2873d22fa5c2cbb327a1397bf3752b5e24a83206634e433663435fcd8480"
+    },
+    "formalization.yaml": {
+      "bytes": 8270,
+      "sha256": "48557e0cc59d56270383aa3bd6f3a53d4762a441ed3010dde51bf6c08dbb7d29"
+    },
+    "free.bib": {
+      "bytes": 30817,
+      "sha256": "c126c8db7dbb775c603d0bfbb9a17d231ca47cd6343afa9bf3e343123b56cab7"
+    },
+    "lean/.gitignore": {
+      "bytes": 7,
+      "sha256": "fde850d24186b6e99c8c0debd641fb3ab85198b109eb66f71a1fea02bd6ea1b3"
+    },
+    "lean/All.lean": {
+      "bytes": 330,
+      "sha256": "d7428deeef82637d44d2e89467ca6c5728f73455f819703f01abc617bbf9e91f"
+    },
+    "lean/Audit.lean": {
+      "bytes": 142745,
+      "sha256": "8c2f310552cb64171dc583bd4736df6c6ab3b6c2f2947f999ddc495e136f20b6"
+    },
+    "lean/ComparatorChallenges/ChannelInterface.lean": {
+      "bytes": 1538,
+      "sha256": "98cae4065c68e28b5c8fe518783e49209d94cb7c40e367a603abc78405071017"
+    },
+    "lean/ComparatorChallenges/ErrorScale.lean": {
+      "bytes": 476,
+      "sha256": "70524794e3ddaaa41e5db855fc64ac7ad3052d9f438e0ffb6a7b7779b0b65d4e"
+    },
+    "lean/ComparatorChallenges/PhysicalInterface.lean": {
+      "bytes": 3445,
+      "sha256": "493b25b4199cc9466c9d0a3cfa2477959170b73540d6e37ba7f7844fb6440a76"
+    },
+    "lean/ComparatorChallenges/Qmdl.lean": {
+      "bytes": 794,
+      "sha256": "201fbf33f3961cb677fe3786768ef70ebc8fd55ca1c37ef4ed83f17f68dd906a"
+    },
+    "lean/ComparatorChallenges/README.md": {
+      "bytes": 7809,
+      "sha256": "b33edb2dba8c0272501b2c086c4894c9eeb93b2a1be9c03bb19fa999f34f3a05"
+    },
+    "lean/ComparatorChallenges/Theorem1Achievability.json": {
+      "bytes": 302,
+      "sha256": "e376b12236c7530e7a1eb440bbc4afc066cd8622f8a25a87cced2476757f8718"
+    },
+    "lean/ComparatorChallenges/Theorem1Achievability.lean": {
+      "bytes": 1131,
+      "sha256": "beb8fb6f1292edf1f89ef8131af90cc28eeba4bd243b39d4fe6a5648d6c25c64"
+    },
+    "lean/ComparatorChallenges/Theorem1Converse.json": {
+      "bytes": 340,
+      "sha256": "c2aa62b86f623b957c6043722556aac1c0ecf6be310dba3667796d7857dcc4d1"
+    },
+    "lean/ComparatorChallenges/Theorem1Converse.lean": {
+      "bytes": 1480,
+      "sha256": "209f79485a1ffedfa21affdd4b03534247ea6ce24b10b7368e7680c58e3cff18"
+    },
+    "lean/ComparatorChallenges/Theorem2Choi.json": {
+      "bytes": 320,
+      "sha256": "a32afec6d35b4dff942b11987b9f680635589bfc3b8cfdee37ecb6bfcfb4b04e"
+    },
+    "lean/ComparatorChallenges/Theorem2Choi.lean": {
+      "bytes": 2717,
+      "sha256": "a52bb8218ace6d41b63ac6a2842e95f6ba8ae1b26eaf77ee15fbeb82781ac73d"
+    },
+    "lean/ComparatorChallenges/trusted-boundary.json": {
+      "bytes": 3096,
+      "sha256": "7d67c8ac14e90d1f73c9f590723e17b6204abef3e7b557a084b047ea4d4fce25"
+    },
+    "lean/ComparatorChallenges/verification-status.json": {
+      "bytes": 4474,
+      "sha256": "b257ace51ea505a5410817b40bf4715547bf9756ac0d31e76559b2c7682ea18d"
+    },
+    "lean/ComparatorConfig/ReplayExports.lean": {
+      "bytes": 2324,
+      "sha256": "26abec40254d4ce174eaa6b1201611a9e624ad62296e774a6930fc9e1ca4f892"
+    },
+    "lean/ComparatorConfig/check_local.py": {
+      "bytes": 2282,
+      "sha256": "ebf49cdc6967e9d7e31f1d373f6657f3692dcf390fad4bc94747f5668754aa45"
+    },
+    "lean/ComparatorConfig/check_nanoda.py": {
+      "bytes": 5851,
+      "sha256": "3e0e8cfa1ab76843c9a4a46cd826516532ce99fa12fa851b4b0aa4c4dd564aa6"
+    },
+    "lean/ComparatorConfig/nanoda-status.json": {
+      "bytes": 2707,
+      "sha256": "4d8c26e02e9f71d7c912c0ecbc4f26b9356b32948601445e650834c8ff08c6d8"
+    },
+    "lean/ComparatorConfig/nanoda-toolchain.json": {
+      "bytes": 434,
+      "sha256": "21e1be645fa2742ae0ad12aec8052f063a30727d6352b8598360f60eebd427e3"
+    },
+    "lean/FreeEntropy.lean": {
+      "bytes": 10482,
+      "sha256": "0211bce20ad8f25b5bc244b606e86108a83c25369a20b88c3b929d2373b3f9ba"
+    },
+    "lean/FreeEntropy/AtypicalChannels.lean": {
+      "bytes": 6826,
+      "sha256": "148387af3d25ad5f570e90522d781e2fe8f5aa415c32e0ec76ef3a0875bce867"
+    },
+    "lean/FreeEntropy/CanonicalAmbientCloning.lean": {
+      "bytes": 8093,
+      "sha256": "609189d547652b10c8db5b598d8f042ee0adff68839296f254c2f31215b3e24c"
+    },
+    "lean/FreeEntropy/CanonicalCartanCovariance.lean": {
+      "bytes": 13980,
+      "sha256": "8d0df4eafce48a34a3ee28f000ddfda4fef18e33c2f51732a780940e955986ee"
+    },
+    "lean/FreeEntropy/CanonicalCharacter.lean": {
+      "bytes": 3498,
+      "sha256": "656511edf4cce2a915ddc4558f255cf3966a2dc5c9cf2e3acc634a84deb1495e"
+    },
+    "lean/FreeEntropy/CanonicalCharacterEigen.lean": {
+      "bytes": 3886,
+      "sha256": "01d8b860d78477b6ecdebd090c6ef88deda98c938b33f522164b7cfaca747a21"
+    },
+    "lean/FreeEntropy/CanonicalCharacterIdentity.lean": {
+      "bytes": 5811,
+      "sha256": "e8dd1680a3d328e75f9b749a74dc50ecfa08cb5ac8a8a2f1a468070e6fbcafd5"
+    },
+    "lean/FreeEntropy/CanonicalChoi.lean": {
+      "bytes": 10637,
+      "sha256": "93de69b5f92e6efef8913be6ca3d250664adce30b56e662f45e34ddf0ba2cd10"
+    },
+    "lean/FreeEntropy/CanonicalClassification.lean": {
+      "bytes": 3570,
+      "sha256": "7ce6369a1a5fca52520391e2f1ec4959eff0a54073a4863e18e015a1505562d0"
+    },
+    "lean/FreeEntropy/CanonicalCloning.lean": {
+      "bytes": 3074,
+      "sha256": "071d243ec366bbd4506294c78218cba8ee049f87175043b40f631c66d121098e"
+    },
+    "lean/FreeEntropy/CanonicalCloningBounds.lean": {
+      "bytes": 3527,
+      "sha256": "a5464e61b23091744d6fd596dc5d68f810c1e5c227fa4f30c4465b507a164a3e"
+    },
+    "lean/FreeEntropy/CanonicalCloningCore.lean": {
+      "bytes": 8430,
+      "sha256": "59636287fe11fdd7283216edba70f63e403fafaa6554aa6a8fff627e264adaa7"
+    },
+    "lean/FreeEntropy/CanonicalCloningOrbit.lean": {
+      "bytes": 4258,
+      "sha256": "ef38f800e7dfce98ca8a800aa6c770f9fbc830ff9fc99c374e8b5d8a65392c71"
+    },
+    "lean/FreeEntropy/CanonicalCloningSelf.lean": {
+      "bytes": 8140,
+      "sha256": "02948f54e570fb5d8d045d9e723f779c7de1554fe331422c88d75d08b8560845"
+    },
+    "lean/FreeEntropy/CanonicalConverse.lean": {
+      "bytes": 2563,
+      "sha256": "161c5e73e2baffd4bc3cb0030c64cc0a257b8d3e22d8b5d4e461b2f4f59c0045"
+    },
+    "lean/FreeEntropy/CanonicalDimension.lean": {
+      "bytes": 4339,
+      "sha256": "34118ad838d77bcb74fca943003a14ecaa411a190e0202e14a4ada93562e0402"
+    },
+    "lean/FreeEntropy/CanonicalDimensionRatio.lean": {
+      "bytes": 5302,
+      "sha256": "977ea9e4dbe1f3b65eea8650e8d328818fb76dbbad69d71abd6212dce8ef58b2"
+    },
+    "lean/FreeEntropy/CanonicalDualCyclicHighest.lean": {
+      "bytes": 1516,
+      "sha256": "4324c9858c51ca87e2c55bd7689303273625facb08a82879518e59043b4ed503"
+    },
+    "lean/FreeEntropy/CanonicalDualHighest.lean": {
+      "bytes": 6595,
+      "sha256": "33b714b2b116ddfcd79a0d2be1c2ad473d7be9808d37b0356c68111f21ab01d6"
+    },
+    "lean/FreeEntropy/CanonicalFullCloning.lean": {
+      "bytes": 6219,
+      "sha256": "aa9eeb553f09977578b97423816a5022f7b65ba3e3e9261105252f43518132c7"
+    },
+    "lean/FreeEntropy/CanonicalMonomialState.lean": {
+      "bytes": 8679,
+      "sha256": "26a018a1c4f702e6b292b0c368c95881ea8b74242a1c6de457c7e41a3f672407"
+    },
+    "lean/FreeEntropy/CanonicalOrbit.lean": {
+      "bytes": 4961,
+      "sha256": "42900e19bd005a29055cfce5c4851ff89d7b62fd7dd8e26f67b8e6fae2de69aa"
+    },
+    "lean/FreeEntropy/CanonicalPetz.lean": {
+      "bytes": 9577,
+      "sha256": "b230cf18691b5718ebe0eebf3d61801712b0f7b5a6c08d26683583cf1088a60d"
+    },
+    "lean/FreeEntropy/CanonicalPhysicalOrbit.lean": {
+      "bytes": 6049,
+      "sha256": "3034c93efca86889b5956e1d5edd49288c38500438ab925afdfbb20a04d8310e"
+    },
+    "lean/FreeEntropy/CanonicalReverseChoi.lean": {
+      "bytes": 5851,
+      "sha256": "19df8f456d6710b89b27097c766ae6ee88046374c03e7b855ba55f83ad1dbbf0"
+    },
+    "lean/FreeEntropy/CanonicalRowBounds.lean": {
+      "bytes": 3747,
+      "sha256": "0ee47cdcd1fc5351cf744e6f1106969757900510987f669a0543aef59ef6f8dc"
+    },
+    "lean/FreeEntropy/CartanBalance.lean": {
+      "bytes": 5416,
+      "sha256": "9bb8e0baba7c5232d5602f2c4b25f15f6dd54d0a2ccd82807cade0690c894eb2"
+    },
+    "lean/FreeEntropy/CartanChannel.lean": {
+      "bytes": 22264,
+      "sha256": "c5392af20170b13b4e5995d2c7b5e1a6685e841c10bf877f2319d2f0ce6fa33a"
+    },
+    "lean/FreeEntropy/CartanChoi.lean": {
+      "bytes": 9959,
+      "sha256": "8daeb5378f58413d3b54d398cc36ef2201b947fa45d0ce1cdbc9dcaf48ae9276"
+    },
+    "lean/FreeEntropy/CartanChoiMultiplicity.lean": {
+      "bytes": 7341,
+      "sha256": "79eaf429142fe9bda48842cd027e7a6fbc7d86a7d71bd8b53bf0d858da7d7cf8"
+    },
+    "lean/FreeEntropy/CartanCloning.lean": {
+      "bytes": 11451,
+      "sha256": "a3c95ce61b6124adaff7c0826af64d44f526b4eb30c885ce33773c55facfb0f1"
+    },
+    "lean/FreeEntropy/CartanGroupCovariance.lean": {
+      "bytes": 5146,
+      "sha256": "601ed0192dd4ef076ef4d48f31559608d32a8c2c13c2533e90ecea650ddc4c4d"
+    },
+    "lean/FreeEntropy/CartanHomMultiplicity.lean": {
+      "bytes": 7910,
+      "sha256": "02207ef1459d6aa493321eefb7a1c8a862fd7dd7164a39a198ea6ed8d714616f"
+    },
+    "lean/FreeEntropy/CartanLieCloning.lean": {
+      "bytes": 17660,
+      "sha256": "cb59714b4aab386357c113dd257f6e79f14e440624a885ab354087288e62d64b"
+    },
+    "lean/FreeEntropy/CartanMultiplicity.lean": {
+      "bytes": 7443,
+      "sha256": "7879a659e5b131b697f9cecd962b24129802dcb31fea1686ee78170ab9910c17"
+    },
+    "lean/FreeEntropy/CartanReshuffle.lean": {
+      "bytes": 3432,
+      "sha256": "90600b4316c7aab02c68bc8ce42a6f428db961eba611de531d50f732bd0ae908"
+    },
+    "lean/FreeEntropy/CartanTraceCloning.lean": {
+      "bytes": 20368,
+      "sha256": "e80e55505bb25916eee732a63643f1023bdae7c47f1b55e152e290d98753401e"
+    },
+    "lean/FreeEntropy/CartanTraceCloningBalance.lean": {
+      "bytes": 4770,
+      "sha256": "f9b9b5e0aaf3fd6def51f507a5879136e9eac0484fbcfaab203627168d894d7b"
+    },
+    "lean/FreeEntropy/CasimirCentral.lean": {
+      "bytes": 5054,
+      "sha256": "faafd7f5c26b4cc86f2300823c7bb57d4b8fded6a356af247edd85b30e08482d"
+    },
+    "lean/FreeEntropy/CasimirDecomposition.lean": {
+      "bytes": 11352,
+      "sha256": "ea5c37b60410b7fb36ccfb8801077267d10ebe8d5278292e2896736e5e31146f"
+    },
+    "lean/FreeEntropy/CasimirTrace.lean": {
+      "bytes": 16882,
+      "sha256": "19f1bdeabebd90536af73590c29aea2ee9eac7bfc95b04c83798b1343834e640"
+    },
+    "lean/FreeEntropy/CasimirWeights.lean": {
+      "bytes": 7208,
+      "sha256": "02ffd10ad247a1e6c622a7f968a92640f8d55bf2fcc34515a4eb451b5741e1a9"
+    },
+    "lean/FreeEntropy/Channels.lean": {
+      "bytes": 7920,
+      "sha256": "c974858f41263dd2dbb79079de675ab2a0fa4b510b32a6b61d96101b5f6a6c12"
+    },
+    "lean/FreeEntropy/ChoiContraction.lean": {
+      "bytes": 1313,
+      "sha256": "910f027286549e546ef6d1831f947ef4998da59ec9f32b315ce09ce6f2bc1b55"
+    },
+    "lean/FreeEntropy/Cloning.lean": {
+      "bytes": 16134,
+      "sha256": "4465334f0a3096fba7fff47ea2a6c954f1ecc172653e05227e1da3fbd5b290d0"
+    },
+    "lean/FreeEntropy/CloningFromRows.lean": {
+      "bytes": 5318,
+      "sha256": "c12f4f049a592021a0c050937a9f571529055d435d581e88473a5a9ec4db2995"
+    },
+    "lean/FreeEntropy/CloningMatrices.lean": {
+      "bytes": 14705,
+      "sha256": "c5a82fed0998b6ffaff7c571d4a41ef1d3158eeb5876ad1b4b013c199ef29fb1"
+    },
+    "lean/FreeEntropy/Concentration.lean": {
+      "bytes": 3744,
+      "sha256": "9aed7714b683d90ef20f028b3e8f9bebd6f9c697e7cdbaca5967c5ea077aed62"
+    },
+    "lean/FreeEntropy/ConstantWeightPhase.lean": {
+      "bytes": 4367,
+      "sha256": "78889c0357ba14da6eace44b9fcb910a37fe92a394166874718cae9c8f381c62"
+    },
+    "lean/FreeEntropy/ConstructedLieCloning.lean": {
+      "bytes": 8155,
+      "sha256": "53c22161372cea1556f3427bedce618f082f7062ea60f126d177d0d4af8d3184"
+    },
+    "lean/FreeEntropy/ConstructedTensorDecomposition.lean": {
+      "bytes": 2930,
+      "sha256": "9e5cd671c2a2897acb5bd5e4c7aff96afff3edce9f9d6e7ce0ca2857e2373325"
+    },
+    "lean/FreeEntropy/CoordinateWeightSpace.lean": {
+      "bytes": 1499,
+      "sha256": "f2ee814dfd8de9463814f08045a44318b4ac26532e4eb28e35b3e04612bb78e5"
+    },
+    "lean/FreeEntropy/CyclicHighestRepresentation.lean": {
+      "bytes": 5356,
+      "sha256": "313c7525e369508fec95b5664ed71dcc940fa2bcd269b22830a9d902b30e3d21"
+    },
+    "lean/FreeEntropy/CyclicWeightHighest.lean": {
+      "bytes": 6673,
+      "sha256": "15adfe837374785b08fad3cbb4a80b1efdfae148bee2df64ff021d258b8c3326"
+    },
+    "lean/FreeEntropy/CyclicWeightOrbit.lean": {
+      "bytes": 4310,
+      "sha256": "542f0e0f3c01210ff8d89bc58c922b2f1da0df1948f083c9d2026f609bf7ec76"
+    },
+    "lean/FreeEntropy/CyclicWeightShift.lean": {
+      "bytes": 3495,
+      "sha256": "2a74c297daf52d4214d9571c983e1f0828c469d5493e7d00faa49b7bee19faa4"
+    },
+    "lean/FreeEntropy/CyclicWeightStateBlocks.lean": {
+      "bytes": 8052,
+      "sha256": "36dee186da65fecac96916990692557ddd9680920bc90959aa4b9f8e8527df9e"
+    },
+    "lean/FreeEntropy/CyclicWeightStates.lean": {
+      "bytes": 5120,
+      "sha256": "ab5626d12a23446180d60f8e4f8e7229110fff21c2a4d0bdf29225e7240eeb91"
+    },
+    "lean/FreeEntropy/ExteriorCanonicalCyclicity.lean": {
+      "bytes": 3536,
+      "sha256": "487b5e4d656de25c56a83ddaedee06b36f9e7804c1c357d5287e66d58d3b29a2"
+    },
+    "lean/FreeEntropy/ExteriorCanonicalHighest.lean": {
+      "bytes": 6612,
+      "sha256": "f487722293a9d4bcb501e485ae7b276b80e85f17f4ce99993933c42cc527300e"
+    },
+    "lean/FreeEntropy/ExteriorCartan.lean": {
+      "bytes": 3558,
+      "sha256": "dcdc4293738080eb20207e117cf3be26e7194f18391fe2c942e9468e366ca979"
+    },
+    "lean/FreeEntropy/ExteriorCartanChannels.lean": {
+      "bytes": 3127,
+      "sha256": "0c4c0e0d1c92677fb71e01b65f84f56ccc5a618592c43c5e80cecb27ac710004"
+    },
+    "lean/FreeEntropy/ExteriorCartanEmbedding.lean": {
+      "bytes": 12489,
+      "sha256": "7b31621b4d6966f80f5e49dabbd1fb43247c4af61313ceea0c9f2b7f27d00074"
+    },
+    "lean/FreeEntropy/ExteriorColumnEquiv.lean": {
+      "bytes": 5779,
+      "sha256": "738cb8d15a1110e6fc1447d3f5bcd22e758ed9ee822c4862f151ab9f478deaa9"
+    },
+    "lean/FreeEntropy/ExteriorCommutant.lean": {
+      "bytes": 9098,
+      "sha256": "22b57730ceb622491ba65867564c5039965a0488cddb91470703cb26703da533"
+    },
+    "lean/FreeEntropy/ExteriorDominant.lean": {
+      "bytes": 6131,
+      "sha256": "8f5e36cbf3565dee034d9c9e2f1d6033dc76a4ca2a38934fe744b478975a3430"
+    },
+    "lean/FreeEntropy/ExteriorHighestRepresentation.lean": {
+      "bytes": 2902,
+      "sha256": "d1c2f0c9536defaac68c1f463626494fac83d0be8098bd5e01c3bdc884910dc9"
+    },
+    "lean/FreeEntropy/ExteriorLowerMinors.lean": {
+      "bytes": 3322,
+      "sha256": "ddfe78a76fca7846352b87223c37b41b032f2d20db7751abde5db42f6d0a20f8"
+    },
+    "lean/FreeEntropy/ExteriorMatrixIrreducible.lean": {
+      "bytes": 2232,
+      "sha256": "d4f1f141323efbce4cd98b6f8a168b1f445cd662b96cafb8388f3b62917918b9"
+    },
+    "lean/FreeEntropy/ExteriorMonomialColumns.lean": {
+      "bytes": 10700,
+      "sha256": "31fb0173d52a07f6c187f72f808ff9a596245087283a0b8d04aba501532ed700"
+    },
+    "lean/FreeEntropy/ExteriorMonomialWeights.lean": {
+      "bytes": 5713,
+      "sha256": "9640e52dbca9595cb9d28f52c1c74e6673bcaf196d241572fd9134078f21499e"
+    },
+    "lean/FreeEntropy/ExteriorMultiplicity.lean": {
+      "bytes": 11383,
+      "sha256": "1acedff8e192c4166773d2ac1ea2973e8130f50d73d5d9c7e10bfdb632b46f76"
+    },
+    "lean/FreeEntropy/ExteriorPhysicalIrrep.lean": {
+      "bytes": 3801,
+      "sha256": "90425dc5e344943a1b653d2b059962a6503804f571d803509c0844b32280bf53"
+    },
+    "lean/FreeEntropy/ExteriorRepresentation.lean": {
+      "bytes": 5389,
+      "sha256": "d450b2e5c6f77571e302c19d82f4002ed3a0a70909bff4c7ed454d7963e137ca"
+    },
+    "lean/FreeEntropy/ExteriorRootCounting.lean": {
+      "bytes": 2954,
+      "sha256": "2f576ab9762e36c61cf9b8ff55813f8467baa3983db11e98347ca2565dfb1e98"
+    },
+    "lean/FreeEntropy/ExteriorRootSupport.lean": {
+      "bytes": 2864,
+      "sha256": "b6d8d2dc4150323b4820a1353fd5839baf27a10eb167391510abda3361b7c11c"
+    },
+    "lean/FreeEntropy/ExteriorSimpleOffsets.lean": {
+      "bytes": 4136,
+      "sha256": "90f25f6998dacdb4dae708cf33f86e763c77ab0d3015a3aa59a5f99cf1b8b4a3"
+    },
+    "lean/FreeEntropy/ExteriorSupportedMonomials.lean": {
+      "bytes": 5147,
+      "sha256": "14c5edd5b6ad9e872143b55307e2a698d7c81ee18f94028f90a0d5fd1f1c27b4"
+    },
+    "lean/FreeEntropy/ExteriorSupportedOffsets.lean": {
+      "bytes": 4693,
+      "sha256": "44a61ac3b95ffaf141c1bf26971626e1837113654b9d6f6165275291bcc3651c"
+    },
+    "lean/FreeEntropy/ExteriorTensor.lean": {
+      "bytes": 5424,
+      "sha256": "5739a19d2ae6c888de3f355bb89a27367856b312e138536f1da6460abd9af639"
+    },
+    "lean/FreeEntropy/ExteriorTensorEmbedding.lean": {
+      "bytes": 7974,
+      "sha256": "6de5b6d4a8e89e148ce0e4b1c07e383121919592c498156bb025b97263ffd5b0"
+    },
+    "lean/FreeEntropy/ExteriorTensorEmbeddingProduct.lean": {
+      "bytes": 5729,
+      "sha256": "3a80764f61b5b71669f98858a59a9fc7a7119cb51dd0f0427a6172bdab7b3b56"
+    },
+    "lean/FreeEntropy/ExteriorTensorPermutation.lean": {
+      "bytes": 6179,
+      "sha256": "55180d277398f6a6e9c2d38ea36b2be3d194f8645ac37cce8d4fda7cbd8640fd"
+    },
+    "lean/FreeEntropy/ExteriorTensorSum.lean": {
+      "bytes": 2995,
+      "sha256": "ed12f559191f312b92393552fb99cd970cce2a778b68b13e5b057cd41a92ffa7"
+    },
+    "lean/FreeEntropy/ExteriorWeightCoordinates.lean": {
+      "bytes": 6747,
+      "sha256": "5148d3c1a5d105a234fe4ac65d16f85fc6a1dfa4655d37c0f2dead11ac610cfa"
+    },
+    "lean/FreeEntropy/ExteriorWeightDimension.lean": {
+      "bytes": 8875,
+      "sha256": "557ef68eea24a076a25bda651bfad918ed769bc3e4eef19603f0c6ca47a42c93"
+    },
+    "lean/FreeEntropy/ExteriorWeightMultiplicity.lean": {
+      "bytes": 5888,
+      "sha256": "a6963002e2614376baa6297ce905946ae8e61ddd50e4aabe44a69fbb9449327e"
+    },
+    "lean/FreeEntropy/ExteriorWeights.lean": {
+      "bytes": 8676,
+      "sha256": "b6af62eb0830bcdf44ba6fed558afcd18e1bbd44d03a1bb8086a8b905f572143"
+    },
+    "lean/FreeEntropy/FiniteConcentration.lean": {
+      "bytes": 15404,
+      "sha256": "3c1c5f3d77001dc80664ec995e51ed8506d27cf49dd25842b048c25c5a4e731a"
+    },
+    "lean/FreeEntropy/GTCardinality.lean": {
+      "bytes": 3536,
+      "sha256": "ef3811fb3b58f2133cc868ae14dd3d76312a798d83412c3a0982e1cdf495c62f"
+    },
+    "lean/FreeEntropy/GTCharacterEndpoints.lean": {
+      "bytes": 2516,
+      "sha256": "0c22cc88eedcde60ce42768d0d86138b1cfeabcf4a15d40a889c63641b5cc8e3"
+    },
+    "lean/FreeEntropy/GTDeterminant.lean": {
+      "bytes": 5578,
+      "sha256": "6af9a884d352729a6ffc7d186d8c1cd43a8ace8afe233db8096039f41fa06e55"
+    },
+    "lean/FreeEntropy/GTDimension.lean": {
+      "bytes": 7380,
+      "sha256": "bf109ee0fb8898b1d066960c2767a723736e590fafdd8f6be2e366423e8e9b61"
+    },
+    "lean/FreeEntropy/GTDimensionEndpoints.lean": {
+      "bytes": 5880,
+      "sha256": "668e9a5e95b7e0941ebdfa3f7bea54b5eb3357950d38ea04a0db723bcefd4c4e"
+    },
+    "lean/FreeEntropy/GTDimensionFormula.lean": {
+      "bytes": 5355,
+      "sha256": "b8fb4de44e1a539c95b34af0f94fd61af482cd8c76b2d72d4c62d91c3d49544e"
+    },
+    "lean/FreeEntropy/GTFiniteSupport.lean": {
+      "bytes": 6326,
+      "sha256": "5f8aa272140103b0b5722c16a47bf006cb4e3b0d86b6ca6d15cb3686d8cfb70d"
+    },
+    "lean/FreeEntropy/GTOrbit.lean": {
+      "bytes": 6727,
+      "sha256": "9d26b555e2c1d525e2536e81453e11c1ee0815652ebdff33219f229d3e2b40bb"
+    },
+    "lean/FreeEntropy/GTPartitions.lean": {
+      "bytes": 19506,
+      "sha256": "2af68f480405e984f5e7704b8efbfce0fcde96c59c6eebefe1fe57d542682dc0"
+    },
+    "lean/FreeEntropy/GTRankSupport.lean": {
+      "bytes": 13688,
+      "sha256": "53be758f864709ed0e5a864bbc6e24ed84e6eab67ad4b669aacbb2b4fe2c5b5a"
+    },
+    "lean/FreeEntropy/GTWeylProduct.lean": {
+      "bytes": 4738,
+      "sha256": "ed2af9a95a4d3525dd80f7346ff5c91bc66065c55d610b32ef2745aeedae0e00"
+    },
+    "lean/FreeEntropy/GelfandTsetlin.lean": {
+      "bytes": 7852,
+      "sha256": "2018e6333019084ab4f05927125f5b391edd781277e6727f34d407f12bc4377b"
+    },
+    "lean/FreeEntropy/GeometricOrbit.lean": {
+      "bytes": 9865,
+      "sha256": "7f986397cd0425cdcfa92f157954b6b823047a0b80b22c78bdfa8413b42cd7d4"
+    },
+    "lean/FreeEntropy/HighestWeightDominance.lean": {
+      "bytes": 2643,
+      "sha256": "e28091987d8908a0a25ec05d0442cef6f7386532046f4b9553371d16b0fb871e"
+    },
+    "lean/FreeEntropy/IdentityCloning.lean": {
+      "bytes": 2686,
+      "sha256": "a42a1c5c3189c17d26b44556190adf7c3fb94450d34b8622cd66efb8142fcf7a"
+    },
+    "lean/FreeEntropy/IsometricCompression.lean": {
+      "bytes": 4513,
+      "sha256": "f11387a8b4d75a2f60be22af93a9ba779524a6db73648104ba69c3b2e5477ac2"
+    },
+    "lean/FreeEntropy/KostantCounting.lean": {
+      "bytes": 17143,
+      "sha256": "5d184e63317dc6714092ee91dec205f138bbcb2ec21673dc95014e4b0300ea56"
+    },
+    "lean/FreeEntropy/KostantWeightData.lean": {
+      "bytes": 3661,
+      "sha256": "e520209d2ae9aa88b0ab4f6ee27c3a63199478ffc8ce902a4186dee5bb0423dc"
+    },
+    "lean/FreeEntropy/LieCartanBalance.lean": {
+      "bytes": 5150,
+      "sha256": "379ce524979b173ecea2379e103a611b3ab38d33d4d3b302d7a2ad4beb4c4d09"
+    },
+    "lean/FreeEntropy/LieCharacterCanonical.lean": {
+      "bytes": 4168,
+      "sha256": "d2733f869e47fa70103e1137689e6388e7771ff7d2ef14d51f67442a74197028"
+    },
+    "lean/FreeEntropy/LieCharacterFinite.lean": {
+      "bytes": 4841,
+      "sha256": "d5f12668b7701b194aeb2f64401d0a2e53763858e7cab0f970b54d83e35d95c6"
+    },
+    "lean/FreeEntropy/LieCharacterRadial.lean": {
+      "bytes": 14410,
+      "sha256": "5fd7baaec00b8ab616369e946128606a7e3d08d0346c345c70074e5aeac6bd87"
+    },
+    "lean/FreeEntropy/LieCharacterSymmetry.lean": {
+      "bytes": 9408,
+      "sha256": "ac85bc3b3b79e453b2a5309e0399fe392f6bc2f0e582ece1e9dfcb7f6ad2397f"
+    },
+    "lean/FreeEntropy/LieCyclicIrreducible.lean": {
+      "bytes": 5900,
+      "sha256": "fbfe9a7495bf7d713111460ff1651eef5ad0af0aa5a1a8828f148e223235b2ea"
+    },
+    "lean/FreeEntropy/LieCyclicMaps.lean": {
+      "bytes": 3543,
+      "sha256": "b3772889f470fa0a0f5518ce51d48c83e95a9e4836947a0343afaff7de52ad9a"
+    },
+    "lean/FreeEntropy/LieDecomposition.lean": {
+      "bytes": 8804,
+      "sha256": "41d38cd8b479957c294a120976c6d5be1170c97653dadd1bb33dc6184a587e9a"
+    },
+    "lean/FreeEntropy/LieDepthMultiplicity.lean": {
+      "bytes": 8735,
+      "sha256": "561e089a1019412e4c020a114e39255046645af6ab56f74972bf82cbf1f877d2"
+    },
+    "lean/FreeEntropy/LieDeterminantTwist.lean": {
+      "bytes": 6454,
+      "sha256": "bcf545648198d762e28cb3b965fa05f26e6be6585f7354c2f7ac9189e1d2f40e"
+    },
+    "lean/FreeEntropy/LieDirectSum.lean": {
+      "bytes": 3607,
+      "sha256": "63cda1c911bd7d68416dc14d6bf6239fd9c80f2c61c15443ef0d999e87adb2b3"
+    },
+    "lean/FreeEntropy/LieDual.lean": {
+      "bytes": 1060,
+      "sha256": "fc4f78632c803b22e58a37c62cb4a0c5efcf5b19fe688b0bf3a4073412807f2f"
+    },
+    "lean/FreeEntropy/LieDualCyclicity.lean": {
+      "bytes": 2559,
+      "sha256": "d014750ca76bcf1048d8d37a4d417dec2d4855ed4d396d309e24c00bf01f1c8f"
+    },
+    "lean/FreeEntropy/LieDualTensor.lean": {
+      "bytes": 2421,
+      "sha256": "fd5feeee9dcd82f01135c53ea98c8361ff19d9dc084c6f1d593bb0f355070aa4"
+    },
+    "lean/FreeEntropy/LieHighestEquivalence.lean": {
+      "bytes": 4217,
+      "sha256": "776f9857e22cb46b8b71c81bd3924315115ac4ce6cabd850804fe687898e3889"
+    },
+    "lean/FreeEntropy/LieHighestExistence.lean": {
+      "bytes": 4584,
+      "sha256": "f3d3133ad4659dc0e54d21e8381f3a9c00c71dde36ca7c948e30d200d9d25ab5"
+    },
+    "lean/FreeEntropy/LieHighestUnitary.lean": {
+      "bytes": 5142,
+      "sha256": "f42b6e9a42072c57d5610b0806ee66468ab24a2e8083596790d1b117e87f0c15"
+    },
+    "lean/FreeEntropy/LieMatrixCasimir.lean": {
+      "bytes": 13638,
+      "sha256": "4ca4286dd4d9b0226dde1db4d571052edc6206504e04663b84cdd37ae5aa4859"
+    },
+    "lean/FreeEntropy/LiePBW.lean": {
+      "bytes": 5232,
+      "sha256": "2b307997c094295c00ecfdd40b0cf04b4a5acb4d93bffcd928505f2a8bae6d7f"
+    },
+    "lean/FreeEntropy/LiePBWDimension.lean": {
+      "bytes": 7144,
+      "sha256": "583eb0b3df541b5557697fed332ba453c6b957f5edfae22bd458c7f5ec8f8e1a"
+    },
+    "lean/FreeEntropy/LiePBWHighest.lean": {
+      "bytes": 5377,
+      "sha256": "e48c1e95aac81e55d9473434b89101bf0eb519bf46ccdd7e0a3f16776a068274"
+    },
+    "lean/FreeEntropy/LiePBWMultiplicity.lean": {
+      "bytes": 11587,
+      "sha256": "54ffed476be9300c691f777ec4b7a7c0d2f47a7b320d90c7b6900400e121d413"
+    },
+    "lean/FreeEntropy/LiePBWOrderedLowering.lean": {
+      "bytes": 6246,
+      "sha256": "e20a26387ffc7ab441f078fa165cb9a90e0a6d06ea94516181736ef575c9354f"
+    },
+    "lean/FreeEntropy/LiePBWUnique.lean": {
+      "bytes": 3462,
+      "sha256": "26ee2fb59a94626f159fa2bb4eeeefa0a983e1e368ed4aefac0a17abd98d3ccc"
+    },
+    "lean/FreeEntropy/LiePBWWeights.lean": {
+      "bytes": 6314,
+      "sha256": "ca8490272aa498fd24da4712f8a0e7ee55b1bea93a87d6369ceed496d855b514"
+    },
+    "lean/FreeEntropy/LieWeightModel.lean": {
+      "bytes": 4043,
+      "sha256": "d15b3262e70b61342686056efaac7e2372285aaf860f799d2c0e76408a978eee"
+    },
+    "lean/FreeEntropy/MeanDepth.lean": {
+      "bytes": 6771,
+      "sha256": "7eccedab1ab9a75ccc1c28f7dbec6bded472cb5f32f42b30b9869a7e708b74e1"
+    },
+    "lean/FreeEntropy/MultiplicityChannels.lean": {
+      "bytes": 5591,
+      "sha256": "47266693831cf860a145704ae2ce4df6e020d54413731c8e67cfbe08f4f983ee"
+    },
+    "lean/FreeEntropy/Occupation.lean": {
+      "bytes": 6540,
+      "sha256": "e35c23315f6ce6d602403637c5e51e7bb278aad2f85e470955026b993e9bbd96"
+    },
+    "lean/FreeEntropy/OccupationCloning.lean": {
+      "bytes": 2627,
+      "sha256": "7bf9c3bf9e4a71df18b65faa3b092259b7f48ac08382cd24405a7c137953119c"
+    },
+    "lean/FreeEntropy/OccupationCloningExact.lean": {
+      "bytes": 3202,
+      "sha256": "1a29d658b05a0f7bae19e1b18e3ca2d2ef3ccb95f922aa9bcba39fd74c1adffe"
+    },
+    "lean/FreeEntropy/OccupationCommutant.lean": {
+      "bytes": 3966,
+      "sha256": "98e43df0cf7f6ffaa852d589698615bf892f9c7dfd83c865d46f5a089048c900"
+    },
+    "lean/FreeEntropy/OccupationCounting.lean": {
+      "bytes": 4537,
+      "sha256": "e8a9e8a50aac5afdf95bf6aaebdfc3d63f8ca48432733c8270a537f1bdbe9ace"
+    },
+    "lean/FreeEntropy/OccupationDimension.lean": {
+      "bytes": 2175,
+      "sha256": "2874140f882074d35a2ca02273c5c361ce3918746396f7b945f8a26ea413b3a9"
+    },
+    "lean/FreeEntropy/OccupationForward.lean": {
+      "bytes": 4178,
+      "sha256": "fbd7f06642170a487620eb545a52e1a147c5a5f1e2e0f335630350c53a2e4d40"
+    },
+    "lean/FreeEntropy/OccupationIrreducible.lean": {
+      "bytes": 2099,
+      "sha256": "1f1bd78bdc8a23c83e91d24b2de82d000836890cbb15a77db7eef6fce42b9d02"
+    },
+    "lean/FreeEntropy/OccupationRatio.lean": {
+      "bytes": 1675,
+      "sha256": "83bed2ddf7731366eec203432811db7bf8b3538219ecd2fbfd7bb9ad1977eeb2"
+    },
+    "lean/FreeEntropy/OccupationRepresentation.lean": {
+      "bytes": 6520,
+      "sha256": "6cacab26ee8f15a8e16a136e64991d95c079259eae5366e0ecf7d5c133ab291c"
+    },
+    "lean/FreeEntropy/OccupationSplit.lean": {
+      "bytes": 7507,
+      "sha256": "66d9b9bfa1102df6d0547c9fe64799751d6e5f271f8720d33c587b0fbb4bf305"
+    },
+    "lean/FreeEntropy/OccupationSplitRepresentation.lean": {
+      "bytes": 2980,
+      "sha256": "b9001c55a2ea10a69266d10083201fb5700f27e8731b11b7368aa551ca130395"
+    },
+    "lean/FreeEntropy/OccupationTheorem2.lean": {
+      "bytes": 4921,
+      "sha256": "0661681b55286fa4f898682022a68bda862dff4f3a8239be9d7749e7ca342bb9"
+    },
+    "lean/FreeEntropy/OccupationTorus.lean": {
+      "bytes": 4889,
+      "sha256": "0818d94381ce2d796d74ac404f0d4ff3036786811dd517fe6f692d85ef672ae5"
+    },
+    "lean/FreeEntropy/OccupationWerner.lean": {
+      "bytes": 2663,
+      "sha256": "f099a3353c20f111d9aec8b4effdee1cd67737ff6cd82e389263939e946f49cf"
+    },
+    "lean/FreeEntropy/OneDimensionalSource.lean": {
+      "bytes": 4119,
+      "sha256": "cb065a42fb5ac045f66203d85c068af229a214ca11993a42b693fa79e53a7be1"
+    },
+    "lean/FreeEntropy/OptimalMemory.lean": {
+      "bytes": 9742,
+      "sha256": "ab3e1e665084d67e885f4bedc3f1d32544319bc9a7477c2aa796139851579685"
+    },
+    "lean/FreeEntropy/OrbitEigenvalues.lean": {
+      "bytes": 5601,
+      "sha256": "62335d3b4e90b302a8b46822beb3d4b2b7ca4f1cf3a324216b8cc394d9d683d2"
+    },
+    "lean/FreeEntropy/OrbitMemory.lean": {
+      "bytes": 13916,
+      "sha256": "7b75ac0a82f4fbd273f52c3b0a0ae8bd36f3b8d808931b523d13b45b0cbb47be"
+    },
+    "lean/FreeEntropy/OrbitTraceDistance.lean": {
+      "bytes": 16943,
+      "sha256": "2181c488da90a880edb05dd26fa24963467e627a279053c853bfcc371a907c18"
+    },
+    "lean/FreeEntropy/PhysicalCanonicalChannels.lean": {
+      "bytes": 5868,
+      "sha256": "775d2d0b7e8151cb11cd4f7bc67e3735fde8b5b29759309d9861a02752576af8"
+    },
+    "lean/FreeEntropy/PhysicalCanonicalConverse.lean": {
+      "bytes": 6963,
+      "sha256": "8dca63a3ac70e865d8ffb2c12c85e086e9402340be0d974ae34232595093c034"
+    },
+    "lean/FreeEntropy/PhysicalCanonicalSector.lean": {
+      "bytes": 11545,
+      "sha256": "f7f9ae0e2fb1927cac880c617a9a7c86cf1e2fc256c6f0979e2a574f82aa1b7c"
+    },
+    "lean/FreeEntropy/PhysicalCloningAccuracy.lean": {
+      "bytes": 4144,
+      "sha256": "06009e3387d1b6832989bdbe30ad1288062beab248d026a3c473a14b59d49a9c"
+    },
+    "lean/FreeEntropy/PhysicalCloningChannels.lean": {
+      "bytes": 8198,
+      "sha256": "72ebd4b805bdd7ea09e8ef5c6f2d860f6adaad345fe6f8c8c1aaf0f916c78332"
+    },
+    "lean/FreeEntropy/PhysicalOrbitChannels.lean": {
+      "bytes": 7813,
+      "sha256": "e1c735062919c6e197a1e990294bf57b49e9045c0b39bd898781b6a643e50ed1"
+    },
+    "lean/FreeEntropy/PhysicalSchurApproximation.lean": {
+      "bytes": 5046,
+      "sha256": "8af7bf7bdf1f3322275522ea31cbf4adf1a02379439c82f4eb903089519fd952"
+    },
+    "lean/FreeEntropy/PhysicalSchurProtocol.lean": {
+      "bytes": 7451,
+      "sha256": "f6bd6566b6c48d70aa51484b2b1e0dbab01f3a932f70648146ebcd68869e132f"
+    },
+    "lean/FreeEntropy/PhysicalUniformError.lean": {
+      "bytes": 6815,
+      "sha256": "a1cae1a84d27882cc9e621a856e7d8d1cc731410f96e92d74d764c4fd1a85370"
+    },
+    "lean/FreeEntropy/PolynomialOrbitDimension.lean": {
+      "bytes": 2530,
+      "sha256": "787ecddd38c037f9317dedd45e1b1f4aa15992f9258363d450b6381ef98cff0f"
+    },
+    "lean/FreeEntropy/ProjectorGeometry.lean": {
+      "bytes": 5097,
+      "sha256": "5e6369dbc1ae0ab0cd9ac0f1afe7a11e8dce67112588583a1ca36fd4e157f26e"
+    },
+    "lean/FreeEntropy/Proofs.lean": {
+      "bytes": 6180,
+      "sha256": "a9d46bb3451d99f65d30ee0ac0fff0db4c26339e7748ea61cbb6e3fad4bd6179"
+    },
+    "lean/FreeEntropy/Protocol.lean": {
+      "bytes": 3212,
+      "sha256": "b2d74b1eb16f5a9257bcf3728552e01370e00fcf4157c533e70bf290ee75eb5e"
+    },
+    "lean/FreeEntropy/PureAchievability.lean": {
+      "bytes": 2038,
+      "sha256": "04230012ac89336e8e2bc9d5f6adb151ae346ed6dcdd52142337ebd5bdf20318"
+    },
+    "lean/FreeEntropy/PureConverse.lean": {
+      "bytes": 9258,
+      "sha256": "d6093183233e8500de53e883835d54c976ae1bc97bfc0df9566b8ab1fee518ff"
+    },
+    "lean/FreeEntropy/PureTensorCompression.lean": {
+      "bytes": 2898,
+      "sha256": "658805e56912c9fda66dbff7bae491ad966452dddfba089969543af51a121e60"
+    },
+    "lean/FreeEntropy/QuantumProtocol.lean": {
+      "bytes": 6684,
+      "sha256": "30294d43ff78a2300d82988be3df86f2c23547b34276269a8e4dc6349a293396"
+    },
+    "lean/FreeEntropy/QuantumTransfer.lean": {
+      "bytes": 11821,
+      "sha256": "a062ba725fa382603d7a4ec19d3419f0c31a534f60b7c397df5f8154b71cc2eb"
+    },
+    "lean/FreeEntropy/RaisingKernel.lean": {
+      "bytes": 5155,
+      "sha256": "2f38cb3126de005019fe8ffa2626fbc79e9ee65600b0a4dd2dec65f729742a35"
+    },
+    "lean/FreeEntropy/RankOneEndpoints.lean": {
+      "bytes": 7709,
+      "sha256": "bce3695c7c502913d5ae4aaeeb5c55bdd6421e149b1b9da4b71b523cf19a4e71"
+    },
+    "lean/FreeEntropy/RankOneStates.lean": {
+      "bytes": 2793,
+      "sha256": "b844d18ecbd1847977f47eba514554aa4a1d9d92db0b3d8f12f53409eec25a15"
+    },
+    "lean/FreeEntropy/RankRootCounting.lean": {
+      "bytes": 7017,
+      "sha256": "ff734b581fff5d017a3e9f6f2a9b5fe48bae7c681a019e3177520a38a1c7a142"
+    },
+    "lean/FreeEntropy/ReverseChoi.lean": {
+      "bytes": 6118,
+      "sha256": "cc5183bcb0823f7808659fe72be139d76414f3064f27313b854529f7b19b74b0"
+    },
+    "lean/FreeEntropy/ReverseChoiMultiplicity.lean": {
+      "bytes": 10042,
+      "sha256": "30a247eee5544eb6a80eb9398e4cda4989d7ec0a18eacf7092c6bcdad4feb1ac"
+    },
+    "lean/FreeEntropy/ReverseChoiRepresentation.lean": {
+      "bytes": 5844,
+      "sha256": "92d55762c34b29156fdf9845ee89e306d7a923a16e514ce4ebf1949135551940"
+    },
+    "lean/FreeEntropy/RootPartitionFunction.lean": {
+      "bytes": 14203,
+      "sha256": "110e798a5eb7376480f72272882c515c855784671fa09278233ae09b7348645f"
+    },
+    "lean/FreeEntropy/ScalarCommutantIrreducible.lean": {
+      "bytes": 3811,
+      "sha256": "5de95ac2417e7b83d5fa2fdcee48fa6b934acf5519295662513c0c74018fe7fe"
+    },
+    "lean/FreeEntropy/SchurAchievability.lean": {
+      "bytes": 12567,
+      "sha256": "cba4c2a3cd2a9f35d7f310f1e2fa06923496aa549d29010ba1495f0c74c2cb86"
+    },
+    "lean/FreeEntropy/SchurProbability.lean": {
+      "bytes": 6729,
+      "sha256": "0713e08c5f61db885e8e4d01902b27b4deda3533b1c81ee2fcfb94514318be86"
+    },
+    "lean/FreeEntropy/SchurProbabilityCharacter.lean": {
+      "bytes": 7440,
+      "sha256": "91ef31a9fb0f18a9244e722afe632d7d075184b9a9dee8c03fa981d19af84aa4"
+    },
+    "lean/FreeEntropy/SchurProbabilityConcentration.lean": {
+      "bytes": 4741,
+      "sha256": "d52b555722a78667b95b36fcf2b6473545eb8586c2401ab8ccdf954c5b06b6f4"
+    },
+    "lean/FreeEntropy/SchurProbabilityTableaux.lean": {
+      "bytes": 4837,
+      "sha256": "4d0eb872b23898bda7453075b3931c4f54f16c557077cba21e708cb73d92bbb9"
+    },
+    "lean/FreeEntropy/SchurProtocol.lean": {
+      "bytes": 9197,
+      "sha256": "45e86bb6d425df036d1d347365eb34d4ca3547f7aa4e4df7e9162e1b80077d16"
+    },
+    "lean/FreeEntropy/SchurWeylBlocks.lean": {
+      "bytes": 7201,
+      "sha256": "4c1242a7f306d756d88aa3740fca3dd17a117d0b7f318548998677e5e08d93ad"
+    },
+    "lean/FreeEntropy/SchurWeylConcentration.lean": {
+      "bytes": 5874,
+      "sha256": "93d10d09c1517fed0ea9e9f560aa87f85623f47611f6db6259da426e97588cbb"
+    },
+    "lean/FreeEntropy/SchurWeylConcentrationGrouping.lean": {
+      "bytes": 3220,
+      "sha256": "8c48dc5dc8fb74756ff42098a45d12f8ded2fff37fda632771b4b1bcd243656b"
+    },
+    "lean/FreeEntropy/SchurWeylConcentrationMonomial.lean": {
+      "bytes": 4717,
+      "sha256": "6f6a19e43b1b793d27af3ac420793113b682c338cf8ea3e22dbf2b70c19c284e"
+    },
+    "lean/FreeEntropy/SchurWeylConcentrationProbability.lean": {
+      "bytes": 3720,
+      "sha256": "7196602ab8d52757f15ccb94eba23d210a47b5183e0d9899433bdc27cf3a96f5"
+    },
+    "lean/FreeEntropy/SchurWeylConcentrationSupport.lean": {
+      "bytes": 3376,
+      "sha256": "3cb364e7a025fccb9478a1f4c60c11ed75d3b3b978f792f234ce6cdedbfac2be"
+    },
+    "lean/FreeEntropy/SchurWeylConcentrationTail.lean": {
+      "bytes": 9222,
+      "sha256": "87d8703f4220d9ca5686641de6af1b09f5518010546e289f54bf38eea34a29a5"
+    },
+    "lean/FreeEntropy/SchurWeylMultiplicity.lean": {
+      "bytes": 3330,
+      "sha256": "691e9843600f85e5a8f6e6b7df4eb91d5543fd2b1a69262769c8444bf068b0e2"
+    },
+    "lean/FreeEntropy/SchurWeylNormalization.lean": {
+      "bytes": 4378,
+      "sha256": "88a3b4ba2d490ce90783243a33c8300767fcbb8b78a534e4a3d61b456190839e"
+    },
+    "lean/FreeEntropy/SchurWeylPhysical.lean": {
+      "bytes": 7432,
+      "sha256": "4f46fde9c8ba64de09fc1d8c58aae17d94ee395e49bff0a4aa6753abe304ff73"
+    },
+    "lean/FreeEntropy/SchurWeylSource.lean": {
+      "bytes": 4699,
+      "sha256": "8520114a04ec767de8f6164357aad3af46df5c498901a41c5addb9174973576e"
+    },
+    "lean/FreeEntropy/SchurWeylWeightExistence.lean": {
+      "bytes": 5658,
+      "sha256": "d70a0f09dd6ac452d1e4687370e6c73323ef9e90bb66a645164182a8a63237f4"
+    },
+    "lean/FreeEntropy/SchurWeylWeightMultiplicity.lean": {
+      "bytes": 7406,
+      "sha256": "7313132a4c0435df6b5ea7374100afc800de0c20fe85ee1e72e7c04fc4282498"
+    },
+    "lean/FreeEntropy/SectorChannels.lean": {
+      "bytes": 13127,
+      "sha256": "6895806633e0742d352fff23821fb26c2fb830a325387ed00167aa120067332d"
+    },
+    "lean/FreeEntropy/SectorProtocol.lean": {
+      "bytes": 6361,
+      "sha256": "623d42bbee2ae192b7ef9d15ae2feabe956dd0bb046a461e45d425e4caac07ed"
+    },
+    "lean/FreeEntropy/SignedAuxiliaryModel.lean": {
+      "bytes": 3256,
+      "sha256": "b38e18e74455cae29c1db10f7c2e7f4f6cb5ee5d48644df658afa6d5d13c6015"
+    },
+    "lean/FreeEntropy/SignedCartan.lean": {
+      "bytes": 5530,
+      "sha256": "c6a24a8f5d4aa36e9a992e3bcbaf1ee2289650b488bb246362bb7bf6a4cecb79"
+    },
+    "lean/FreeEntropy/SpecifiedCloningChannels.lean": {
+      "bytes": 1554,
+      "sha256": "29d64a8af3f2a45734664bc01f0d59f138bed80d2d3d4c3388bbda410e3c3cf4"
+    },
+    "lean/FreeEntropy/SpecifiedLieCloning.lean": {
+      "bytes": 10608,
+      "sha256": "e987e1b56294587714f8283965e1b455b301c042e914c677cca65ad1afb5579f"
+    },
+    "lean/FreeEntropy/SpectralProjector.lean": {
+      "bytes": 5747,
+      "sha256": "ec62f6ad5af70714bc7007c6022aee5c01e3e0d2e89c964297649305933c0af8"
+    },
+    "lean/FreeEntropy/SpectrumBounds.lean": {
+      "bytes": 6237,
+      "sha256": "188f25c440accaf2f791a168a8d917c23498d49d89058470e180cf40ab0a72c8"
+    },
+    "lean/FreeEntropy/Statements.lean": {
+      "bytes": 4379,
+      "sha256": "6860bf1a70fce03cdc557de953bb240794e89cbb8c9d09c6d9cdcfbd247dea63"
+    },
+    "lean/FreeEntropy/SupportedWeightStates.lean": {
+      "bytes": 4745,
+      "sha256": "9f29b24745e438870962aefc4a058cf15edfa8b02fff6b3207e7403f1dc275d8"
+    },
+    "lean/FreeEntropy/TensorConstituentDecomposition.lean": {
+      "bytes": 5384,
+      "sha256": "9565f48d7a010b13060b905e572b853f32db1696caf9803b49c620a90518cfef"
+    },
+    "lean/FreeEntropy/TensorConstituentWeights.lean": {
+      "bytes": 5134,
+      "sha256": "b1c29c291cd082553d90541a119f8421005a0a330ebcd91fd56675a61d484e85"
+    },
+    "lean/FreeEntropy/TensorHighestWeight.lean": {
+      "bytes": 8528,
+      "sha256": "3e9fc05208f4ee480ef91c9c716fafb38c008e44fe6965836ebeb917bb7d0728"
+    },
+    "lean/FreeEntropy/TensorInfinitesimal.lean": {
+      "bytes": 5364,
+      "sha256": "b93e57129465698ed4a0bdd777a131e368072b9e3b7ddb6baef0d87b590c1160"
+    },
+    "lean/FreeEntropy/TensorLieCyclicity.lean": {
+      "bytes": 7864,
+      "sha256": "0a6942c585d34f40c83d50fb87a95f295412029560d0aefb39e982443eee896f"
+    },
+    "lean/FreeEntropy/TensorLieCyclicityPhysical.lean": {
+      "bytes": 4700,
+      "sha256": "ed8d75da8b0a296edc13e3a18b4a45d4e3f2c96008aa77303996c7fce0188f11"
+    },
+    "lean/FreeEntropy/TensorLieCyclicitySubspace.lean": {
+      "bytes": 7352,
+      "sha256": "f08904238fda49c770e79ecb3901ff70c49fbdad678cd2cbe178faa383b84b8e"
+    },
+    "lean/FreeEntropy/TensorLieIntertwiners.lean": {
+      "bytes": 2609,
+      "sha256": "bc3f27b0b94075bbfd5c585ea562843b5dec9b81d4e91992d4c1ffcb412b30f6"
+    },
+    "lean/FreeEntropy/TensorLieRestriction.lean": {
+      "bytes": 2919,
+      "sha256": "ebe3459b13894fafeba272843afaea7726bb06be371922bc0ca0114f4d4de993"
+    },
+    "lean/FreeEntropy/TensorPowers.lean": {
+      "bytes": 3920,
+      "sha256": "17e730dbf674706356c4bd4c07358b624f7dc4beb5b8010e37ffcb58e5e070c6"
+    },
+    "lean/FreeEntropy/TensorPowersPair.lean": {
+      "bytes": 5273,
+      "sha256": "ae44be6dc56b228958ce567177f713ad8b83ccb65f092009575e7c066d45402c"
+    },
+    "lean/FreeEntropy/TensorSectorCasimir.lean": {
+      "bytes": 3034,
+      "sha256": "0d7afa4e5591ec8c23e8ebff013aa2e0087543bbace3e80e321fed794805c003"
+    },
+    "lean/FreeEntropy/TensorSectorDimension.lean": {
+      "bytes": 1695,
+      "sha256": "f6c5a9e622214d0ba0a1d04d09454c0aed505158914931417dd257c2d42cfe17"
+    },
+    "lean/FreeEntropy/TensorSites.lean": {
+      "bytes": 5581,
+      "sha256": "4b3d4e21e7180c918856ad0fdcf4370cd41a28ce9743e0299569921fe76058e9"
+    },
+    "lean/FreeEntropy/TensorTopExistence.lean": {
+      "bytes": 4467,
+      "sha256": "4369b05899de9d019d28740376890df49d5e761cd0397cbf20cf7009edc40dee"
+    },
+    "lean/FreeEntropy/TensorTorusIntertwiner.lean": {
+      "bytes": 2322,
+      "sha256": "efcc253607acf552562b9ca76e631871efbde0015a3efa5358d685418f47955d"
+    },
+    "lean/FreeEntropy/TensorWeightBasis.lean": {
+      "bytes": 8468,
+      "sha256": "24444623220befe2af5679a985ff6cb4b2dc714fd88de1c04d60be0b2402a33b"
+    },
+    "lean/FreeEntropy/TensorWeightCoordinates.lean": {
+      "bytes": 6492,
+      "sha256": "4d57ef53b15bdf9458bc67d0bf41125469fa088122fc9997c4f66ebbe334c500"
+    },
+    "lean/FreeEntropy/TensorWeightModel.lean": {
+      "bytes": 4553,
+      "sha256": "5e935e9345d9825dc4dc60570af71e0412e8df498436b1a9d82a31b1c403d302"
+    },
+    "lean/FreeEntropy/TensorWeightSource.lean": {
+      "bytes": 4347,
+      "sha256": "5e2d254c8917102719477604a00f7d05146ed6641491361efb8f5d196ce16cd9"
+    },
+    "lean/FreeEntropy/Theorem1Complete.lean": {
+      "bytes": 3720,
+      "sha256": "86c004e3c43ce9dd6e9e6442edc86a05a73218068814ee69e5d08006b502f01a"
+    },
+    "lean/FreeEntropy/Theorem2.lean": {
+      "bytes": 5088,
+      "sha256": "b99beec42b8dd9a808282cc06cf705d7f5cd9afad4bce0d1c79d7981b410bc3a"
+    },
+    "lean/FreeEntropy/Theorem2Canonical.lean": {
+      "bytes": 5162,
+      "sha256": "7436d118e83b95430cfc95d6779d9a160c1c8c98ae343681919e2c4f915e04b4"
+    },
+    "lean/FreeEntropy/Theorem2Choi.lean": {
+      "bytes": 4981,
+      "sha256": "894396b1e8d1dda636cb94e847fc5ca64bc9b044955d9650f38fcbdb5ae4718a"
+    },
+    "lean/FreeEntropy/Theorem2GT.lean": {
+      "bytes": 12208,
+      "sha256": "90a90381e267f1c009da77bca0cb38ec4d0c3b215d0b4dada16bd350be14fe09"
+    },
+    "lean/FreeEntropy/Theorem2Petz.lean": {
+      "bytes": 1956,
+      "sha256": "0d86a0941e0c67f52d6351f82d7469e96e9280bfa0ed85c30c4b9736506409e4"
+    },
+    "lean/FreeEntropy/Theorem2RankOneGT.lean": {
+      "bytes": 5906,
+      "sha256": "54a9a7e206295eb48ecac689b7823e0a04078eb2a9cae2aefdd0736e68896509"
+    },
+    "lean/FreeEntropy/TorusWeightEigenline.lean": {
+      "bytes": 5324,
+      "sha256": "d61c41b53fad216e71dc7c1758031f6c4889be27e2d986b6862ff7b2c74d3da0"
+    },
+    "lean/FreeEntropy/TorusWeightProjection.lean": {
+      "bytes": 4660,
+      "sha256": "7a87f4ec05440ff0473291e98b4df78c2a21d0d3976d6768d522ef1a075b61bc"
+    },
+    "lean/FreeEntropy/TraceCloning.lean": {
+      "bytes": 10266,
+      "sha256": "6155866fe128ebb5b75dad329dbcf61cb460ac6f6b2b9fd80c0acb0f4af6977d"
+    },
+    "lean/FreeEntropy/TraceDistance.lean": {
+      "bytes": 14815,
+      "sha256": "89c2ce22cc4647cee32b7cfd3ec0d54c80e8fb4a9af72c258c43be0a2fbdbe74"
+    },
+    "lean/FreeEntropy/TraceMetric.lean": {
+      "bytes": 4953,
+      "sha256": "09de97a67aa30cc6214383dbc3c8b5808ebe8e6e05129ef38ae068d649f45c14"
+    },
+    "lean/FreeEntropy/Twirling.lean": {
+      "bytes": 10006,
+      "sha256": "c0168225c6648e646b6298180e861b9b6fec38355180a105b5e0b6cb1e0ab361"
+    },
+    "lean/FreeEntropy/TypicalCanonicalRows.lean": {
+      "bytes": 8209,
+      "sha256": "af527d15cbee161a7ae4c057b76419ea388c59476917f8b793b760fa1f7e4208"
+    },
+    "lean/FreeEntropy/TypicalRows.lean": {
+      "bytes": 10370,
+      "sha256": "a703313615143e7f3e8358ca68e88be69a6fb914ddfc4dfa9a2addef03a1b707"
+    },
+    "lean/FreeEntropy/UnitaryColumn.lean": {
+      "bytes": 2985,
+      "sha256": "e63f9bdea3bb51de025b7c557f502161d1dfb1285725b07f0909bdcb3d7dba49"
+    },
+    "lean/FreeEntropy/UnitaryCoordinates.lean": {
+      "bytes": 3545,
+      "sha256": "c1a910b342cfb3a03706ee999d8ca6d55c56aae3a48cc7ea74d3150afd5bf085"
+    },
+    "lean/FreeEntropy/UnitaryDecomposition.lean": {
+      "bytes": 3294,
+      "sha256": "831f058897532c4853856082039ba05e3a4c85dd934fcc20f7561b3737b3290c"
+    },
+    "lean/FreeEntropy/UnitaryDecompositionBasic.lean": {
+      "bytes": 6319,
+      "sha256": "d316dfb089bf03a96528ac2219bf6967d34a4438365d46c56d8c092b75766744"
+    },
+    "lean/FreeEntropy/UnitaryDecompositionMatrices.lean": {
+      "bytes": 9477,
+      "sha256": "43709dc26ee178d9da8862c391e0bbf93e25f24909d279cd2c0fb9b52176a064"
+    },
+    "lean/FreeEntropy/UnitaryDecompositionOrthogonal.lean": {
+      "bytes": 4470,
+      "sha256": "ed7f43c0351f0901a53a303e7f6ee4137274eb698e3c0f72df73f5896ad94772"
+    },
+    "lean/FreeEntropy/UnitaryHaar.lean": {
+      "bytes": 2159,
+      "sha256": "315fac479db7991a4118845102e39145ae3dd4fa752cecf82859635c802f3327"
+    },
+    "lean/FreeEntropy/WeightNormalization.lean": {
+      "bytes": 7423,
+      "sha256": "61d32628cd2af43bfb32966587a87ca6bf1d91c76a94e117e2ead78e40d61b42"
+    },
+    "lean/FreeEntropy/WeightSectors.lean": {
+      "bytes": 9564,
+      "sha256": "dc09be71b04b660ed4423c1b5b5e02c0119cdc7451677615db32f6ebef5bea7e"
+    },
+    "lean/FreeEntropy/Weyl.lean": {
+      "bytes": 5270,
+      "sha256": "3715149620474b273a671b1b082696bb0ba5178ec36178b05143def219c02474"
+    },
+    "lean/FreeEntropy/WeylAlternantCoefficients.lean": {
+      "bytes": 3900,
+      "sha256": "df1b56924b6244afedea5988632d8b8423615ce6fc4ab4af9d6d8065d84c18a3"
+    },
+    "lean/FreeEntropy/WeylAlternating.lean": {
+      "bytes": 6002,
+      "sha256": "5a2029832798a4fa71e5680044563813c4095fc91f19d34ae64cb650b2e2f60d"
+    },
+    "lean/FreeEntropy/WeylCharacterAlgebra.lean": {
+      "bytes": 4987,
+      "sha256": "70c017e060bd9920d6eabc453447dbf6e0646aba309fe649f2a1ab8e577498a3"
+    },
+    "lean/FreeEntropy/WeylCharacterCone.lean": {
+      "bytes": 6641,
+      "sha256": "b9c973f5801db7fb507c6963c4b33cdef5bcdd8d5e18dbf63d0812bc8ec49c25"
+    },
+    "lean/FreeEntropy/WeylCharacterSupport.lean": {
+      "bytes": 3574,
+      "sha256": "6bf64bc85c2e61a0f45f3354736db18d52d3d01b257cdb65173a543e3f5368a3"
+    },
+    "lean/FreeEntropy/WeylCoefficient.lean": {
+      "bytes": 3534,
+      "sha256": "d0f0c64b616b7a5a702b957ae5f1421c1e8b970e45992ca3285d5a6b73fe6947"
+    },
+    "lean/FreeEntropy/WeylCombinatorics.lean": {
+      "bytes": 9745,
+      "sha256": "05536ccea34028c279c84a7619972fd8f2dc68de1262d8aef458c0f98027baf5"
+    },
+    "lean/FreeEntropy/WeylDenominator.lean": {
+      "bytes": 3479,
+      "sha256": "14d412b931931dcfd3fae3884bbf8fc2a3f3e27448fa6b004181ed27588d303b"
+    },
+    "lean/FreeEntropy/WeylDifferentialProduct.lean": {
+      "bytes": 6136,
+      "sha256": "0e1024e94be26cc04b2c50b5214e37bb9ff81043c7d64154e0924d82205d130e"
+    },
+    "lean/FreeEntropy/WeylDimensionExtraction.lean": {
+      "bytes": 3262,
+      "sha256": "05a792591e4bece2d929033cf6b85931983200ac727f3e09390d4522bd927567"
+    },
+    "lean/FreeEntropy/WeylFinite.lean": {
+      "bytes": 4337,
+      "sha256": "39c7e768cf94660c6222437844414249111da4799b3bbaed38b9738dc93751f4"
+    },
+    "lean/FreeEntropy/WeylFiniteSupplement.lean": {
+      "bytes": 6261,
+      "sha256": "9e6312a8512ac70737f0a96141aaaa970b93bc5e88c291cd85b542a9a118b682"
+    },
+    "lean/FreeEntropy/WeylTranslation.lean": {
+      "bytes": 3783,
+      "sha256": "5751a3311ae8977eca1e4ea2d32fc20c09ab13e7b173f90ba35a89d714da06e3"
+    },
+    "lean/FreeEntropy/WordPermutations.lean": {
+      "bytes": 3889,
+      "sha256": "7029205b96c638b364b0bd4bb7390055027fdfba801628e449ba614213db4381"
+    },
+    "lean/FreeEntropy/WordTypes.lean": {
+      "bytes": 5193,
+      "sha256": "38c3371f2c872ef7e51aef6817f16b4653322f400fa41a4906cfa91bc2c29d0c"
+    },
+    "lean/README.md": {
+      "bytes": 7650,
+      "sha256": "e72fd6ac7568a7ddfaec1171c5a404feb3bf9c405f16536565baf6d6b77c0d60"
+    },
+    "lean/Theorem1.lean": {
+      "bytes": 322,
+      "sha256": "115342a4b05d5f4bdfdc72904042bbec95eff6837fdcbfce0ac4daef1ee368f0"
+    },
+    "lean/Theorem2.lean": {
+      "bytes": 354,
+      "sha256": "e91c45c5ef87249c5c3692dc39d34f3a0c0df89e77a3c56b523b8c08d486382c"
+    },
+    "lean/audit.py": {
+      "bytes": 6332,
+      "sha256": "d3fd79cb607c9b6e2c2f83d9569c7a52e3e934be1ea3faa5e208978f3421b240"
+    },
+    "lean/check.sh": {
+      "bytes": 464,
+      "sha256": "92bd75452b8535f45f90edeee260d2559ef2c887c32eae520cd300ed2c7f8534"
+    },
+    "lean/check_comparator.sh": {
+      "bytes": 2694,
+      "sha256": "87e0c6e1b5def60282be219e81ee894c7250f45a3e9e49c1d9caf8957d0dd5e7"
+    },
+    "lean/lake-manifest.json": {
+      "bytes": 4690,
+      "sha256": "4707e55825935027ab3c626f6042d11d9279aa19bc7e423a06113266025074eb"
+    },
+    "lean/lakefile.toml": {
+      "bytes": 841,
+      "sha256": "47a977e779ea66902563addddda68c232ed1cf38d9e08edf3fb5ea8c9731902e"
+    },
+    "lean/lean-toolchain": {
+      "bytes": 29,
+      "sha256": "dc6d65016fad3123d44bf17b5bf0598286284ab16ba75d5c17eb22ed11f47361"
+    },
+    "lean/verification/reproducibility.json": {
+      "bytes": 5263,
+      "sha256": "d22a42bdb7b76e82a8fbc80e817107ea69b6863f63b648d887d8bf68b25703e0"
+    },
+    "lean/verification/summary.json": {
+      "bytes": 993,
+      "sha256": "01351ed1d7d2ec092dc236cf53dfb793a57f027bdc39546abc25cbf550187afc"
+    },
+    "metadata/natural-language-map.json": {
+      "bytes": 35390,
+      "sha256": "f4baf4a3d2fe1627bc879dd0ae51872bca82a6cc46dc042acea960537cf3e507"
+    },
+    "metadata/schema-sources.json": {
+      "bytes": 1319,
+      "sha256": "bfe53301ae00870ebeb7570d5fdda55f157a71d8dc60a89ab7d91fa99eca15e0"
+    },
+    "quantumarticle.cls": {
+      "bytes": 57925,
+      "sha256": "12074f60b9a196e67c3e27fae46b0d8fb05630794a90977269c954f31c680307"
+    },
+    "scripts/prepare_release.py": {
+      "bytes": 12249,
+      "sha256": "a6e3b83981c8fe491cd7ec23b3d47065292d9c7f505ac4be2e3dda990e07d117"
+    },
+    "scripts/requirements-release.txt": {
+      "bytes": 351,
+      "sha256": "c1e3b4565987b760f417ed485bed8feed4c7fa7ea80c0c989536e2bd386e64d2"
+    },
+    "scripts/validate_artifacts.py": {
+      "bytes": 33276,
+      "sha256": "8a5119f6dd1e65657298e075ec77711462377dfda1f1f9790612b72c28b44990"
+    },
+    "utphys.bst": {
+      "bytes": 26044,
+      "sha256": "2f8246efc63ead56b31cab6b6251bc00e41fcb339813ca6908f4affb7cc8901d"
+    }
+  },
+  "format_version": 1,
+  "historical_reproducibility": {
+    "file": "lean/verification/reproducibility.json",
+    "recorded_at_utc": "2026-10-01T05:45:52+00:00",
+    "role": "Historical source-matching evidence, not a result of this export or a new CI run",
+    "status": "included matching record"
+  },
+  "lean_toolchain": "leanprover/lean4:v4.29.0-rc6",
+  "manuscript_sha256": "09fc0a6bb205180cd820be94d843a1dc0d4342a543492e30dde54e367ae843a9",
+  "missing_publication_metadata": [],
+  "proof_sources_sha256": "f4efe7d88eb576d8ad579c57a2dd1b4ddc3a6b628d5cb023d9f42a326c0dbfee",
+  "verification": "current successful kernel audit summary bundled"
+}

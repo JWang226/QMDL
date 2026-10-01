@@ -1,0 +1,13 @@
+{
+  "challenge_module": "ComparatorChallenges.Theorem2Choi",
+  "solution_module": "FreeEntropy.Theorem2Choi",
+  "theorem_names": [
+    "FreeEntropy.ExteriorRepresentation.theorem2_cloning_accuracy_choi"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": false
+}

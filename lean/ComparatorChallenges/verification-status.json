@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "lean_toolchain": "leanprover/lean4:v4.29.0-rc6",
+  "comparator_commit": "a4f696825c583ed8a5b4060d9a0faa5b882d365b",
+  "challenge_elaboration": "passed_clean_isolated_build",
+  "comparator_and_exporter_build": "passed",
+  "sandboxed_comparator": "not_run",
+  "sandboxed_reason": "Development host is macOS; real Landrun requires Linux",
+  "unsandboxed_local_diagnostic": "passed",
+  "nanoda": "disabled_in_recorded_baseline_comparator_run",
+  "proof_sources_sha256": "f4efe7d88eb576d8ad579c57a2dd1b4ddc3a6b628d5cb023d9f42a326c0dbfee",
+  "artifact_sha256": {
+    "ComparatorChallenges/ChannelInterface.lean": "98cae4065c68e28b5c8fe518783e49209d94cb7c40e367a603abc78405071017",
+    "ComparatorChallenges/ErrorScale.lean": "70524794e3ddaaa41e5db855fc64ac7ad3052d9f438e0ffb6a7b7779b0b65d4e",
+    "ComparatorChallenges/PhysicalInterface.lean": "493b25b4199cc9466c9d0a3cfa2477959170b73540d6e37ba7f7844fb6440a76",
+    "ComparatorChallenges/Qmdl.lean": "201fbf33f3961cb677fe3786768ef70ebc8fd55ca1c37ef4ed83f17f68dd906a",
+    "ComparatorChallenges/Theorem1Achievability.json": "e376b12236c7530e7a1eb440bbc4afc066cd8622f8a25a87cced2476757f8718",
+    "ComparatorChallenges/Theorem1Achievability.lean": "beb8fb6f1292edf1f89ef8131af90cc28eeba4bd243b39d4fe6a5648d6c25c64",
+    "ComparatorChallenges/Theorem1Converse.json": "c2aa62b86f623b957c6043722556aac1c0ecf6be310dba3667796d7857dcc4d1",
+    "ComparatorChallenges/Theorem1Converse.lean": "209f79485a1ffedfa21affdd4b03534247ea6ce24b10b7368e7680c58e3cff18",
+    "ComparatorChallenges/Theorem2Choi.json": "a32afec6d35b4dff942b11987b9f680635589bfc3b8cfdee37ecb6bfcfb4b04e",
+    "ComparatorChallenges/Theorem2Choi.lean": "a52bb8218ace6d41b63ac6a2842e95f6ba8ae1b26eaf77ee15fbeb82781ac73d",
+    "ComparatorChallenges/trusted-boundary.json": "7d67c8ac14e90d1f73c9f590723e17b6204abef3e7b557a084b047ea4d4fce25",
+    "ComparatorConfig/ReplayExports.lean": "26abec40254d4ce174eaa6b1201611a9e624ad62296e774a6930fc9e1ca4f892",
+    "ComparatorConfig/check_local.py": "ebf49cdc6967e9d7e31f1d373f6657f3692dcf390fad4bc94747f5668754aa45",
+    "lake-manifest.json": "4707e55825935027ab3c626f6042d11d9279aa19bc7e423a06113266025074eb",
+    "lakefile.toml": "47a977e779ea66902563addddda68c232ed1cf38d9e08edf3fb5ea8c9731902e",
+    "lean-toolchain": "dc6d65016fad3123d44bf17b5bf0598286284ab16ba75d5c17eb22ed11f47361"
+  },
+  "strict_linux_preflight": "configured_not_run",
+  "strict_linux_requirement": "Full Landlock ABI 9 support for pinned Landrun; Linux 7.1 or newer",
+  "independent_theorem1_interface_constant_info": "passed; 38587 transitive constants exactly equal",
+  "cases": {
+    "ComparatorChallenges/Theorem1Achievability.json": {
+      "statement_and_constants": "passed",
+      "solution_axiom_closure": "passed",
+      "lean_kernel_replay": "passed",
+      "mode": "unsandboxed",
+      "theorem_names": [
+        "FreeEntropy.theorem1_achievability"
+      ]
+    },
+    "ComparatorChallenges/Theorem1Converse.json": {
+      "statement_and_constants": "passed",
+      "solution_axiom_closure": "passed",
+      "lean_kernel_replay": "passed",
+      "mode": "unsandboxed",
+      "theorem_names": [
+        "FreeEntropy.theorem1_converse",
+        "FreeEntropy.theorem1_converse_of_uniform"
+      ]
+    },
+    "ComparatorChallenges/Theorem2Choi.json": {
+      "statement_and_constants": "passed",
+      "solution_axiom_closure": "passed",
+      "lean_kernel_replay": "passed",
+      "mode": "unsandboxed",
+      "theorem_names": [
+        "FreeEntropy.ExteriorRepresentation.theorem2_cloning_accuracy_choi"
+      ]
+    }
+  },
+  "execution_context": "Fresh isolated source build with public dependencies at the locked revisions; no pre-existing project compilation artifacts were copied from the working tree. The diagnostic used that freshly compiled tree.",
+  "completed_at_utc": "2026-10-01T06:11:32.316454+00:00",
+  "checks": [
+    "Pinned Comparator.compareAt",
+    "Pinned Comparator.checkAxioms",
+    "Lean4Checker Environment.replay' in an empty Lean environment"
+  ],
+  "evidence_binding_scope": "Bindings cover the inputs to the recorded unsandboxed comparison and kernel replay. Documentation and the unrun Linux wrapper are not treated as executed checker inputs; subsequent edits to them do not establish a new run.",
+  "additional_independent_kernel": {
+    "checker": "Nanoda",
+    "evidence": "ComparatorConfig/nanoda-status.json",
+    "mode": "unsandboxed_independent_kernel",
+    "status": "passed"
+  }
+}

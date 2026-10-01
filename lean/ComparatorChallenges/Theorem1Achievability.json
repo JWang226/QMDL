@@ -1,0 +1,13 @@
+{
+  "challenge_module": "ComparatorChallenges.Theorem1Achievability",
+  "solution_module": "FreeEntropy.Theorem1Complete",
+  "theorem_names": [
+    "FreeEntropy.theorem1_achievability"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": false
+}

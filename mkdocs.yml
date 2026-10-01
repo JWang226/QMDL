@@ -5,6 +5,14 @@ site_url: ""
 docs_dir: docs
 site_dir: site
 
+# These documents link to proof/source files outside docs/ and are read on GitHub.
+# The wiki's formalization page links to their repository versions.
+exclude_docs: |
+  /AI_PROVENANCE.md
+  /FORMALIZATION_STATUS.md
+  /RELEASE_CHECKLIST.md
+  /REPRODUCIBILITY.md
+
 theme:
   name: material
   palette:
@@ -63,6 +71,7 @@ nav:
   - Home: index.md
   - Introduction: intro.md
   - Notation: notation.md
+  - Lean Formalization: formalization.md
   - Source Papers:
       - Letter: Letter.md
       - Article: Article.md
@@ -138,4 +147,3 @@ nav:
       - Error Scaling: open-questions/error-scaling.md
       - Free Entropy Conjecture & Programming: open-questions/free-entropy-conjecture.md
   - References: references/key-references.md
-

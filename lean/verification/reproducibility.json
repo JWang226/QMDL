@@ -1,0 +1,121 @@
+{
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "checked_at_utc": "2026-10-01T05:45:52+00:00",
+  "completed_checks": [
+    {
+      "command": "lake exe cache get",
+      "scope": "Locked public dependencies and mathlib compiled cache",
+      "status": "passed"
+    },
+    {
+      "command": "bash check.sh",
+      "executed_main_build_command": "lake build (default target FreeEntropy)",
+      "scope": "Fresh FreeEntropy build, regenerated Audit.lean, actual Lean kernel dependency audit, summary validation",
+      "script_snapshot_note": "The script used at launch built the default target. check.sh was subsequently updated to lake build All; the separate All command recorded next verified those final entrypoints. No claim is made that the final check.sh bytes ran in one invocation.",
+      "status": "passed"
+    },
+    {
+      "command": "lake build All",
+      "scope": "All production modules and the Theorem1/Theorem2 reader entrypoints",
+      "status": "passed"
+    },
+    {
+      "checks": 8,
+      "command": "python scripts/validate_artifacts.py --root <isolated-source-copy>",
+      "scope": "Current audit required; official schemas, declaration/manuscript mappings, import boundary, headers, dependency pins and Comparator configuration",
+      "status": "passed"
+    }
+  ],
+  "dependencies": {
+    "Cli": {
+      "revision": "3de531c1135f5e3a01f3ac04830996fda476b28e",
+      "url": "https://github.com/leanprover/lean4-cli"
+    },
+    "Comparator": {
+      "revision": "a4f696825c583ed8a5b4060d9a0faa5b882d365b",
+      "url": "https://github.com/leanprover/comparator.git"
+    },
+    "Lean4Checker": {
+      "revision": "b7398199245524275543dec6113229c9bb4902e5",
+      "url": "https://github.com/leanprover/lean4checker"
+    },
+    "LeanSearchClient": {
+      "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+      "url": "https://github.com/leanprover-community/LeanSearchClient"
+    },
+    "Qq": {
+      "revision": "221e8088e3a066b8676dc471ff10638cf1c10835",
+      "url": "https://github.com/leanprover-community/quote4"
+    },
+    "aesop": {
+      "revision": "c3361708f266893de5d1769192b60d4b1831f2bb",
+      "url": "https://github.com/leanprover-community/aesop"
+    },
+    "batteries": {
+      "revision": "77a5160a74772214ef37caba2847cfe9ab600285",
+      "url": "https://github.com/leanprover-community/batteries"
+    },
+    "importGraph": {
+      "revision": "f207d9fcf0cef00ba79962a33ef156061914d9c7",
+      "url": "https://github.com/leanprover-community/import-graph"
+    },
+    "lean4export": {
+      "revision": "048394e1afeeb52b0fa27bcf3f1ade2ff0f0ab6d",
+      "url": "https://github.com/leanprover/lean4export"
+    },
+    "mathlib": {
+      "revision": "f156f7abd91ac67adb22bf999e5a71ba22e22e41",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    "plausible": {
+      "revision": "e84e3e16aea6b72cc5d311ca1bb25caad417e162",
+      "url": "https://github.com/leanprover-community/plausible"
+    },
+    "proofwidgets": {
+      "revision": "2e58165a9dcdca9837b666528f974299ee1a51cc",
+      "url": "https://github.com/leanprover-community/ProofWidgets4"
+    }
+  },
+  "format_version": 1,
+  "initial_state": {
+    "dependency_checkout_origin": "New public Git checkouts; all twelve HEAD revisions matched the lockfile",
+    "dependency_directory_symlinks_present": false,
+    "mathlib_cache": "Official public mathlib cache, using reusable downloaded cache entries and extracting into the new checkout",
+    "private_or_sibling_project_dependencies_used": false,
+    "project_proof_oleans_present": false,
+    "source_selection": "Explicit source-only exporter allowlist"
+  },
+  "lean_modules": 270,
+  "lean_toolchain": "leanprover/lean4:v4.29.0-rc6",
+  "lean_version_output": "Lean (version 4.29.0-rc6, arm64-apple-darwin24.6.0, commit 00659f8e6071d7e46131ed643bf8003b99b044e9, Release)",
+  "manuscript_sha256": "09fc0a6bb205180cd820be94d843a1dc0d4342a543492e30dde54e367ae843a9",
+  "mathlib_revision": "f156f7abd91ac67adb22bf999e5a71ba22e22e41",
+  "platform": {
+    "architecture": "arm64",
+    "operating_system": "macOS",
+    "version": "27.0.1"
+  },
+  "proof_sources_sha256": "f4efe7d88eb576d8ad579c57a2dd1b4ddc3a6b628d5cb023d9f42a326c0dbfee",
+  "proved_declarations_audited": 1873,
+  "publication_status": "Local reproduction does not grant a license or approve publication; pending decisions remain in LICENSE and docs/RELEASE_CHECKLIST.md",
+  "separate_checks": {
+    "hosted_ci": "Not run; workflow is prepared for a future repository",
+    "sandboxed_comparator": "Not run on this macOS host; strict Linux requirements apply",
+    "unsandboxed_comparator_diagnostic": "Recorded separately in ComparatorChallenges/verification-status.json"
+  },
+  "status": "passed",
+  "subsequent_checks": [
+    {
+      "check_script_sha256": "92bd75452b8535f45f90edeee260d2559ef2c887c32eae520cd300ed2c7f8534",
+      "checked_at_utc": "2026-10-01T06:55:20.355027+00:00",
+      "command": "bash check.sh",
+      "scope": "Final script executed in the same isolated source checkout, using its previously built proof artifacts; build All and regenerated actual kernel audit both passed.",
+      "status": "passed"
+    }
+  ],
+  "total_public_declarations_audited": 2499
+}

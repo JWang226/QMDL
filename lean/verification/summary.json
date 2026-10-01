@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "scope": "Complete Theorem 1 for actual known-spectrum physical tensor sources, all dimensions and positive ranks, with uniform achievability and Haar-average converse; complete Theorem 2 for the original Choi-projector channels, with proved Cartan and Petz identifications, signed dominant differences, rank one, and zero difference.",
+  "lean_modules": 270,
+  "proof_sources_sha256": "f4efe7d88eb576d8ad579c57a2dd1b4ddc3a6b628d5cb023d9f42a326c0dbfee",
+  "proved_declarations_audited": 1873,
+  "total_public_declarations_audited": 2499,
+  "axiom_collection": "Lean.CollectAxioms.collect with a shared dependency traversal; final endpoints also checked with #print axioms",
+  "lean_toolchain": "leanprover/lean4:v4.29.0-rc6",
+  "mathlib_revision": "f156f7abd91ac67adb22bf999e5a71ba22e22e41",
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "manuscript_sha256": "09fc0a6bb205180cd820be94d843a1dc0d4342a543492e30dde54e367ae843a9"
+}

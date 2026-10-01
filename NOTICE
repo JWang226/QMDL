@@ -1,0 +1,53 @@
+Free Entropy formalization
+==========================
+
+Copyright (c) 2026 Free Entropy formalization contributors.
+Final copyright-holder names and the public-release license are pending.
+
+Mathematical source
+-------------------
+Quantum minimum description of density matrices, by Patrick Hayden,
+Alexander Maloney, Jinzhao Wang, and Yuxiang Yang; manuscript article.tex
+as supplied with this project. Bibliographic authorship does not imply that
+all manuscript authors reviewed or endorsed the generated Lean code.
+
+AI assistance
+-------------
+The Lean development and release organization were prepared with Codex
+assistance. See docs/AI_PROVENANCE.md. No endorsement by OpenAI is asserted.
+
+Prior formalization
+-------------------
+The existing source comments record these adaptations:
+* lean/FreeEntropy/Channels.lean: Kraus/amplification proofs adapted from
+  Cloning-github/formalization/Cloning/Channels.lean.
+* lean/FreeEntropy/CartanChannel.lean: forward slice/Kraus and partial-trace
+  algebra adapted from Cloning/CartanChannel.lean, Cloning/Compression.lean,
+  and Cloning/MatrixPartialTraceCovariance.lean in that earlier project.
+
+Those modules are source-level adaptations, not hidden build dependencies.
+The earlier source was identified in a maintainer-controlled private
+repository and the four source files were matched against that record.
+No repository-wide license or copyright notice covering those modules was
+found. A publicly accessible upstream reference and the licensing record
+remain incomplete; do not infer Apache-2.0 coverage for those portions from
+the proposed license. No additional code from that repository was added
+during release preparation.
+
+Third-party TeX support
+-----------------------
+quantumarticle.cls retains its original copyright notice for Verein zur
+Foerderung des Open Access Publizierens in den Quantenwissenschaften and
+its LaTeX Project Public License 1.3c-or-later terms.
+utphys.bst retains its original UT Physics/IEEE-derived style attribution,
+including the modification history credited to Jacques Distler. This
+repository does not assert a replacement license for that file.
+
+External dependencies and reference layout
+-----------------------------------------
+Lean, Mathlib, Comparator, and their dependencies retain their respective
+licenses. They are fetched from the pinned upstream repositories and are
+not vendored into the source release.
+The repository layout and metadata approach were informed by
+https://github.com/openai/ten-proofs and https://agmai.org/general-sep29/.
+No mathematical proof code was copied from ten-proofs.

@@ -6,6 +6,9 @@
 
 **[[intro|Start here]]** -- overview of the project, main result, and how to navigate.
 
+**[[formalization|Lean formalization and reproduction]]** -- checked proof sources,
+manuscript mapping, and README commands for Lean, Comparator, and Nanoda.
+
 ---
 
 ## Source Papers

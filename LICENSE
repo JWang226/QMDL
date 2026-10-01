@@ -1,0 +1,15 @@
+License decision pending
+========================
+
+Copyright (c) 2026 Free Entropy formalization contributors.
+
+The public-release license and final copyright-holder names have not yet
+been confirmed. This file does not grant an open-source license. The
+proposed license is Apache-2.0, matching the reference repository ten-proofs.
+Public availability of this source does not resolve the pending license
+selection or grant the proposed license.
+
+Existing third-party material retains its own copyright and licensing
+terms. In particular, the manuscript, quantumarticle.cls, utphys.bst, and
+the prior-formalization adaptations described in NOTICE are not relicensed
+by this notice. Their attribution must be preserved.
