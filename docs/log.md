@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-01 — Clickable proof dependency map
+
+- Linked every dependency-map node to its proof-stage explanation or checked
+  Lean statement in the explorer.
+
 ## 2026-10-01 — Proof explorer and verification entrypoint
 
 - Added a searchable catalog of compiled Lean types and direct constant

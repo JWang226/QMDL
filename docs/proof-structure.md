@@ -10,6 +10,9 @@ references and module imports.
 
 ## The dependency map
 
+Click a stage to read its explanation. The theorem nodes open their checked
+Lean statements in the explorer.
+
 ```mermaid
 flowchart TD
     A["Actual matrix channels and canonical representations"] --> B["Physical sector identification, weights and dimensions"]
@@ -24,6 +27,16 @@ flowchart TD
     G --> H
     F --> T1["Theorem 1: optimal memory through its constant"]
     H --> T1
+    click A href "#1-build-the-representations-and-their-dimensions" "Representations and matrix channels" _self
+    click B href "#1-build-the-representations-and-their-dimensions" "Sector identification, weights and dimensions" _self
+    click C href "#2-prove-the-finite-cloning-bound-directly-in-trace-distance" "Finite cloning bounds" _self
+    click D href "#3-recover-the-manuscripts-channel-definitions" "Choi and Petz channel identities" _self
+    click T2 href "../proof-explorer/#declaration=FreeEntropy.ExteriorRepresentation.theorem2_cloning_accuracy_choi" "Checked Theorem 2 statement" _self
+    click E href "#4-transfer-the-bound-to-physical-tensor-sources" "Typical sectors and the target orbit" _self
+    click F href "../proof-explorer/#declaration=FreeEntropy.theorem1_achievability" "Checked achievability statement" _self
+    click G href "#5-prove-the-converse-for-arbitrary-physical-codes" "Spectral gap and orbit-memory bound" _self
+    click H href "#5-prove-the-converse-for-arbitrary-physical-codes" "Transfer and converse for arbitrary codes" _self
+    click T1 href "../proof-explorer/#module=FreeEntropy.Theorem1Complete" "Checked Theorem 1 statements" _self
 ```
 
 The compression argument uses the constructed Cartan channels and their
