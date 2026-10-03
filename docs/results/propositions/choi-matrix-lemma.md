@@ -1,7 +1,7 @@
 # Cartan Intertwiner and Choi Projector (Article Proposition 1)
 
 **Label:** `prop:choi`; original channel definition `eq:gen_cloner`.
-**Source:** [current Article](https://github.com/JWang226/QMDL/blob/main/article.tex#L442). The Notes used the label `lem:choi_prv`; that is a separate version's reference.
+**Source:** [current Article](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/article.tex#L442). The Notes used the label `lem:choi_prv`; that is a separate version's reference.
 
 ## Statement
 
@@ -40,9 +40,9 @@ Covariance alone only puts a Choi operator in the representation's commutant; it
 
 The actual canonical representations needed for Theorem 2 are constructed for natural dominant $\mu,\nu$ with dominant **signed** difference. No Cartan isometry, PRV projector, dimension identity or multiplicity-one assertion is supplied to the final theorem as an assumption.
 
-- [CanonicalChoi.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CanonicalChoi.lean): `FreeEntropy.ExteriorRepresentation.canonicalForward_choi`, `canonicalChoi_highest`, `canonicalChoi_cyclic_range`, and `canonicalChoi_multiplicity_one` in the same namespace.
-- [ChoiContraction.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/ChoiContraction.lean): `FreeEntropy.CartanChoi.choiMap_eq_partialTraceInput`.
-- [Theorem2Choi.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/Theorem2Choi.lean): `FreeEntropy.ExteriorRepresentation.prvForward_eq` and `prv_maps_are_channels` identify the literal formula with a CPTP map.
+- [CanonicalChoi.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CanonicalChoi.lean): `FreeEntropy.ExteriorRepresentation.canonicalForward_choi`, `canonicalChoi_highest`, `canonicalChoi_cyclic_range`, and `canonicalChoi_multiplicity_one` in the same namespace.
+- [ChoiContraction.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/ChoiContraction.lean): `FreeEntropy.CartanChoi.choiMap_eq_partialTraceInput`.
+- [Theorem2Choi.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/Theorem2Choi.lean): `FreeEntropy.ExteriorRepresentation.prvForward_eq` and `prv_maps_are_channels` identify the literal formula with a CPTP map.
 
 This is the Cartan family used by the main result. It is not a certificate of the Article's broader PRV existence statement for every arbitrary pair of irreducibles.
 

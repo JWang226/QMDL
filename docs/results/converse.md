@@ -1,8 +1,8 @@
 # Converse (Theorem 1, lower bound)
 
 **Labels:** `thm:qmdl`, `thm:converse` in the current [[Article]].
-**Source:** [main statement](https://github.com/JWang226/QMDL/blob/main/article.tex#L85), [converse proof](https://github.com/JWang226/QMDL/blob/main/article.tex#L923).
-**Lean endpoints:** [FreeEntropy.theorem1_converse](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/Theorem1Complete.lean#L43) and [FreeEntropy.theorem1_converse_of_uniform](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/Theorem1Complete.lean#L60).
+**Source:** [main statement](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/article.tex#L85), [converse proof](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/article.tex#L923).
+**Lean endpoints:** [FreeEntropy.theorem1_converse](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/Theorem1Complete.lean#L43) and [FreeEntropy.theorem1_converse_of_uniform](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/Theorem1Complete.lean#L60).
 
 The current [[Letter]] states the full-rank liminf converse immediately after `eq:result_qmdl` and refers to the companion Article for its proof. The Article supplies the rank-$r$ and Haar-average formulations stated here. The Letter's entropy equality describes an attaining sequence; arbitrary reliable codes satisfy a lower bound, not the same equality.
 
@@ -50,7 +50,7 @@ $$
 \le\overline\delta_n+e_n.
 $$
 
-The literal physical-source statement is [FreeEntropy.SchurWeyl.actual_transferred_average_error_le](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/PhysicalCanonicalConverse.lean#L59).
+The literal physical-source statement is [FreeEntropy.SchurWeyl.actual_transferred_average_error_le](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/PhysicalCanonicalConverse.lean#L59).
 
 ### Use a uniform positive spectral gap
 
@@ -69,7 +69,7 @@ q_x=\max_{1\le i<r}\frac{x_{i+1}}{x_i}<1,
 \gamma_*=(1-q_x)^{\binom d2+1}>0,
 $$
 
-with $q_x=0$ for $r=1$. The eigenvalue and counting estimates establishing this gap are proved for the actual canonical states. [FreeEntropy.SchurWeyl.physical_memory_bound_of_comparison](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/PhysicalCanonicalConverse.lean#L79) combines them with the transfer bound.
+with $q_x=0$ for $r=1$. The eigenvalue and counting estimates establishing this gap are proved for the actual canonical states. [FreeEntropy.SchurWeyl.physical_memory_bound_of_comparison](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/PhysicalCanonicalConverse.lean#L79) combines them with the transfer bound.
 
 The Article's `lem:sector_gap` states the sharper bound $\gamma_x=(1-q_x)\prod_{i<j\le r}(1-x_j/x_i)$. The endpoint above uses the weaker $\gamma_*$; its positivity and independence of $n$ suffice for the exact asymptotic conclusion. This page does not identify the two constants.
 

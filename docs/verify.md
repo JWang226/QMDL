@@ -1,7 +1,7 @@
 # Check the proof yourself
 
 The supplied proof can be checked on macOS or Linux. Run the commands below from
-a fresh clone of [JWang226/QMDL](https://github.com/JWang226/QMDL). The wrapper
+a fresh clone of [JWang226/Quantum-Minimum-Description-Length](https://github.com/JWang226/Quantum-Minimum-Description-Length). The wrapper
 fetches the locked dependencies, checks the Lean proof, compares its final
 statements with the expected statements, and replays the proofs in a separate
 Rust kernel. It does not compile or change the manuscripts.
@@ -22,8 +22,8 @@ Rustup is needed for the default Nanoda source build, but not for `lean` or
 ## Run every check
 
 ```bash
-git clone https://github.com/JWang226/QMDL.git
-cd QMDL
+git clone https://github.com/JWang226/Quantum-Minimum-Description-Length.git
+cd Quantum-Minimum-Description-Length
 bash scripts/verify.sh
 ```
 
@@ -82,7 +82,7 @@ provenance; the wrapper does not infer that it came from the pinned source.
 The fresh Nanoda report records its SHA-256. The standard build uses source
 commit `3a2407216ee84a75f9e1aead6803d0578be06ae7`, package version 0.4.19, and
 the compiler and lockfile recorded in
-[nanoda-toolchain.json](https://github.com/JWang226/QMDL/blob/main/lean/ComparatorConfig/nanoda-toolchain.json).
+[nanoda-toolchain.json](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/ComparatorConfig/nanoda-toolchain.json).
 
 ## Read the verdict
 
@@ -104,11 +104,11 @@ The Comparator and Nanoda steps above are **unsandboxed** and are intended for
 trusted local sources. No mode automatically invokes the Linux sandbox.
 
 The separate
-[Linux/Landrun procedure](https://github.com/JWang226/QMDL/blob/main/lean/ComparatorChallenges/README.md#sandboxed-reproduction-on-linux)
+[Linux/Landrun procedure](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/ComparatorChallenges/README.md#sandboxed-reproduction-on-linux)
 requires an unprivileged Linux account and the full features of the pinned
 Landrun. Missing sandbox support is a failure, not a successful verification.
 Local macOS checks do not establish a sandboxed Comparator result.
 
 For individual helper commands, evidence history, metadata validation,
 source-only archives and CI details, see
-[Reproducibility](https://github.com/JWang226/QMDL/blob/main/docs/REPRODUCIBILITY.md).
+[Reproducibility](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/docs/REPRODUCIBILITY.md).

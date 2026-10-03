@@ -24,7 +24,7 @@ endorsement. Run the checks on the exact source revision being released.
 ## Publication record and remaining metadata
 
 The maintainer explicitly requested publication to
-[JWang226/QMDL](https://github.com/JWang226/QMDL), including the reproduction
+[JWang226/Quantum-Minimum-Description-Length](https://github.com/JWang226/Quantum-Minimum-Description-Length), including the reproduction
 commands. The repository URL is recorded in `CITATION.cff` and
 `formalization.yaml`. Its existing wiki and deployment workflow are retained.
 Publishing the source does not turn pending review or licensing decisions

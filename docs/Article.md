@@ -2,10 +2,10 @@
 
 **Authors:** Patrick Hayden, Alexander Maloney, Jinzhao Wang, Yuxiang Yang
 
-**Current source:** [repository-root `article.tex`](https://github.com/JWang226/QMDL/blob/main/article.tex)
+**Current source:** [repository-root `article.tex`](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/article.tex)
 
 **Source identity:** the manuscript hash and exact statement labels are recorded in
-[the manuscript-to-Lean map](https://github.com/JWang226/QMDL/blob/main/metadata/natural-language-map.json).
+[the manuscript-to-Lean map](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/metadata/natural-language-map.json).
 
 The Article proves the optimal quantum memory cost for a known spectrum and
 unknown eigenbasis through its additive constant. Its main technical tool
@@ -75,6 +75,6 @@ Some supporting estimates are implemented differently. In particular,
 the final formalized converse uses a proved positive uniform spectral-gap
 constant sufficient for the limiting lower bound, rather than requiring the
 Article's sharper intermediate estimate. See the
-[detailed coverage record](https://github.com/JWang226/QMDL/blob/main/docs/FORMALIZATION_STATUS.md)
+[detailed coverage record](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/docs/FORMALIZATION_STATUS.md)
 for these distinctions. No claim is made that every proposition or the later
 entropy discussion has been formalized.

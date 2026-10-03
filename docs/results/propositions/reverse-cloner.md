@@ -1,7 +1,7 @@
 # Reverse Cloner and Petz Recovery (Article Proposition 2)
 
 **Label:** `prop:reverse`.
-**Source:** [current Article](https://github.com/JWang226/QMDL/blob/main/article.tex#L540).
+**Source:** [current Article](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/article.tex#L540).
 
 ## Statement
 
@@ -49,14 +49,14 @@ For the canonical dominant-difference pairs of Theorem 2, all identities above h
 
 | Fact | Declaration | File |
 | --- | --- | --- |
-| Genuine adjoint | `FreeEntropy.ExteriorRepresentation.canonicalAdjoint_hilbertSchmidt` | [CanonicalPetz.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CanonicalPetz.lean) |
-| Normalized adjoint | `FreeEntropy.ExteriorRepresentation.canonicalReverse_eq_normalized_adjoint` | [CanonicalPetz.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CanonicalPetz.lean) |
-| Literal Petz equality | `FreeEntropy.ExteriorRepresentation.canonicalPetz_eq_reverse` | [CanonicalPetz.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CanonicalPetz.lean) |
-| Reverse Choi matrix | `FreeEntropy.ExteriorRepresentation.canonicalReverse_choi` | [CanonicalReverseChoi.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CanonicalReverseChoi.lean) |
-| Dual highest-weight range | `FreeEntropy.ExteriorRepresentation.canonicalReverseChoi_highest_cyclic` | [ReverseChoiRepresentation.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/ReverseChoiRepresentation.lean) |
-| Unique reverse component | `FreeEntropy.ExteriorRepresentation.canonicalReverseChoi_multiplicity_one` | [ReverseChoiMultiplicity.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/ReverseChoiMultiplicity.lean) |
+| Genuine adjoint | `FreeEntropy.ExteriorRepresentation.canonicalAdjoint_hilbertSchmidt` | [CanonicalPetz.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CanonicalPetz.lean) |
+| Normalized adjoint | `FreeEntropy.ExteriorRepresentation.canonicalReverse_eq_normalized_adjoint` | [CanonicalPetz.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CanonicalPetz.lean) |
+| Literal Petz equality | `FreeEntropy.ExteriorRepresentation.canonicalPetz_eq_reverse` | [CanonicalPetz.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CanonicalPetz.lean) |
+| Reverse Choi matrix | `FreeEntropy.ExteriorRepresentation.canonicalReverse_choi` | [CanonicalReverseChoi.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CanonicalReverseChoi.lean) |
+| Dual highest-weight range | `FreeEntropy.ExteriorRepresentation.canonicalReverseChoi_highest_cyclic` | [ReverseChoiRepresentation.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/ReverseChoiRepresentation.lean) |
+| Unique reverse component | `FreeEntropy.ExteriorRepresentation.canonicalReverseChoi_multiplicity_one` | [ReverseChoiMultiplicity.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/ReverseChoiMultiplicity.lean) |
 
-The final `FreeEntropy.ExteriorRepresentation.theorem2_cloning_accuracy_petz` in [Theorem2Petz.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/Theorem2Petz.lean) gives the same finite error bound with the reverse map written as `FreeEntropy.Petz.recovery`, using matrix square roots and inverses. The broader Article proposition is stated for general PRV pairs; the audited endpoint covers the constructed Cartan pairs needed for the two main theorems.
+The final `FreeEntropy.ExteriorRepresentation.theorem2_cloning_accuracy_petz` in [Theorem2Petz.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/Theorem2Petz.lean) gives the same finite error bound with the reverse map written as `FreeEntropy.Petz.recovery`, using matrix square roots and inverses. The broader Article proposition is stated for general PRV pairs; the audited endpoint covers the constructed Cartan pairs needed for the two main theorems.
 
 ## Dependencies
 

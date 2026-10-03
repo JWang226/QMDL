@@ -1,6 +1,6 @@
 # Free Entropy Dimension for a Finite Spectrum
 
-**Source:** current [[Letter]], discussion following `eq:reg_free_ent` and End Matter on degenerate spectra in [letter.tex](https://github.com/JWang226/QMDL/blob/main/letter.tex). General perturbative definitions belong to the broader free-probability background and the earlier [[Notes]].
+**Source:** current [[Letter]], discussion following `eq:reg_free_ent` and End Matter on degenerate spectra in [letter.tex](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex). General perturbative definitions belong to the broader free-probability background and the earlier [[Notes]].
 
 ## Atomic Spectral Formula
 

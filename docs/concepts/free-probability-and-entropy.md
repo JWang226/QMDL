@@ -1,7 +1,7 @@
 # Free Probability and the Entropy Constructions
 
 **Appears in:** the current [[Letter|Letter]], introduction and discussion.
-**Source:** [letter.tex](https://github.com/JWang226/QMDL/blob/main/letter.tex).
+**Source:** [letter.tex](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex).
 
 ## Intuition
 
@@ -37,16 +37,16 @@ This notion governs mixed moments and differs from tensor-product independence. 
 | Von Neumann entropy | Subspaces capturing almost all mass of $\rho^{\otimes N}$ | Typical-subspace dimension per copy |
 | Microstate free entropy | Hermitian matrices matching all moments through order $m$ | Renormalized large-matrix Lebesgue volume |
 
-In [eq:shannon](https://github.com/JWang226/QMDL/blob/main/letter.tex#L86), the Letter writes
+In [eq:shannon](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L86), the Letter writes
 
 $$
 H(p)=\inf_{\varepsilon>0}\lim_{N\to\infty}\frac1N
 \log_2\#\{x^N:\|p_{x^N}-p\|_1\le\varepsilon\}.
 $$
 
-The [von Neumann counterpart](https://github.com/JWang226/QMDL/blob/main/letter.tex#L94) minimizes $\log_2\dim V$ over subspaces whose projector captures at least $1-\varepsilon$ of the source. At finite $N$, the smallest such subspace need not equal a frequency-window typical subspace, although their asymptotic rates agree.
+The [von Neumann counterpart](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L94) minimizes $\log_2\dim V$ over subspaces whose projector captures at least $1-\varepsilon$ of the source. At finite $N$, the smallest such subspace need not equal a frequency-window typical subspace, although their asymptotic rates agree.
 
-For one bounded self-adjoint $a$, fix an operator-norm cutoff $R>\|a\|$. The [matrix microstate definition](https://github.com/JWang226/QMDL/blob/main/letter.tex#L106) is
+For one bounded self-adjoint $a$, fix an operator-norm cutoff $R>\|a\|$. The [matrix microstate definition](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L106) is
 
 $$
 \chi(a)=\inf_m\inf_{\varepsilon>0}\limsup_{N\to\infty}
@@ -121,7 +121,7 @@ for an attaining sequence. Every reliable sequence obeys the matching lower boun
 
 The factor $1/2$ is consistent with the squared spectral-gap product in Hilbert–Schmidt volume and the first-power gap product in the Weyl dimension formula. The comparison resolution $n^{-1}$ is distinct from the statistical angular scale $n^{-1/2}$.
 
-The End Matter's [double-scaling remark](https://github.com/JWang226/QMDL/blob/main/letter.tex#L314) relates physical free entropy back to $\chi$ only under explicit regularity, discrete-energy convergence, and resolution assumptions. It is not an unrestricted interchange of large-dimension and small-resolution limits.
+The End Matter's [double-scaling remark](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L314) relates physical free entropy back to $\chi$ only under explicit regularity, discrete-energy convergence, and resolution assumptions. It is not an unrestricted interchange of large-dimension and small-resolution limits.
 
 ## Role in the Project
 

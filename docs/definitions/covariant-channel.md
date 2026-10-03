@@ -1,6 +1,6 @@
 # $U(d)$-Covariant Channel
 
-**Source:** current [[Article]], `eq:covariance` and `eq:covChoi`, in [the PRV-channel section](https://github.com/JWang226/QMDL/blob/main/article.tex#L340); historical [[Notes]] background.
+**Source:** current [[Article]], `eq:covariance` and `eq:covChoi`, in [the PRV-channel section](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/article.tex#L340); historical [[Notes]] background.
 
 ## Statement
 

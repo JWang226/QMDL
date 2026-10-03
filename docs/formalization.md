@@ -25,7 +25,7 @@ The final statements do not take representation existence, dimensions,
 weight bounds, covariance, concentration or source-transfer estimates as
 unproved premises. The library supplies these inputs. The precise statements
 and their source labels are connected by
-[the manuscript-to-Lean map](https://github.com/JWang226/QMDL/blob/main/metadata/natural-language-map.json).
+[the manuscript-to-Lean map](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/metadata/natural-language-map.json).
 
 ## Verification evidence
 
@@ -44,16 +44,16 @@ axioms are Lean's `propext`, `Classical.choice` and `Quot.sound`.
 The three configurations cover achievability, both converse variants, and
 Choi cloning. Comparator challenge files intentionally contain expected-statement
 proof holes; these fixtures are separate from the proved library. The
-[challenge guide](https://github.com/JWang226/QMDL/blob/main/lean/ComparatorChallenges/README.md)
+[challenge guide](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/ComparatorChallenges/README.md)
 records which definitions are independently restated and which are reused.
 
 The local evidence is tied to source fingerprints, rather than to whichever
 files happen to be present later. Consult the
-[audit summary](https://github.com/JWang226/QMDL/blob/main/lean/verification/summary.json),
-[Comparator record](https://github.com/JWang226/QMDL/blob/main/lean/ComparatorChallenges/verification-status.json)
-and [Nanoda record](https://github.com/JWang226/QMDL/blob/main/lean/ComparatorConfig/nanoda-status.json).
+[audit summary](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/verification/summary.json),
+[Comparator record](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/ComparatorChallenges/verification-status.json)
+and [Nanoda record](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/ComparatorConfig/nanoda-status.json).
 Live hosted results are available from
-[GitHub Actions](https://github.com/JWang226/QMDL/actions/workflows/lean.yml);
+[GitHub Actions](https://github.com/JWang226/Quantum-Minimum-Description-Length/actions/workflows/lean.yml);
 this page does not infer a completed hosted run from workflow configuration.
 
 ## Reproduce the checks
@@ -72,11 +72,11 @@ Comparator and Nanoda execution is local and unsandboxed.
 
 ## Limits of the claim
 
-The current author-supplied [Article](https://github.com/JWang226/QMDL/blob/main/article.tex)
-and [Letter](https://github.com/JWang226/QMDL/blob/main/letter.tex) are included
+The current author-supplied [Article](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/article.tex)
+and [Letter](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex) are included
 at the repository root, with their shared bibliography and the Letter's figure.
 The Article source is unchanged from the independent proof check. The
-[Letter source map](https://github.com/JWang226/QMDL/blob/main/metadata/letter-source-map.json)
+[Letter source map](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/metadata/letter-source-map.json)
 binds both source snapshots and records equation-level coverage.
 
 The Letter's full-rank and rank-deficient QMDL formulas follow the checked
@@ -93,8 +93,8 @@ not all established in their full paper-level generality. The proof also
 uses some sufficient supporting bounds rather than the sharpest constants
 in intermediate paper lemmas.
 
-See the [formalization status](https://github.com/JWang226/QMDL/blob/main/docs/FORMALIZATION_STATUS.md)
-for precise scope, [formalization.yaml](https://github.com/JWang226/QMDL/blob/main/formalization.yaml)
+See the [formalization status](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/docs/FORMALIZATION_STATUS.md)
+for precise scope, [formalization.yaml](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/formalization.yaml)
 for machine-readable provenance, and
-[the release checklist](https://github.com/JWang226/QMDL/blob/main/docs/RELEASE_CHECKLIST.md)
+[the release checklist](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/docs/RELEASE_CHECKLIST.md)
 for outstanding review and licensing metadata.

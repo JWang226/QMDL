@@ -6,7 +6,7 @@
   if (window.__qmdlProofExplorer) return;
   window.__qmdlProofExplorer = true;
 
-  const SOURCE_BASE = "https://github.com/JWang226/QMDL/blob/main/";
+  const SOURCE_BASE = "https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/";
   const FALLBACK_CATALOG = new URL("../assets/lean-catalog.json", document.currentScript.src).href;
   const PAGE_SIZE = 80;
   const requests = new Map();

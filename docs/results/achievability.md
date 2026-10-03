@@ -1,8 +1,8 @@
 # Achievability (Theorem 1, upper bound)
 
 **Labels:** `thm:qmdl`, `thm:achievability`, `eq:result` in the current [[Article]].
-**Source:** [main statement](https://github.com/JWang226/QMDL/blob/main/article.tex#L85), [achievability section](https://github.com/JWang226/QMDL/blob/main/article.tex#L607).
-**Lean endpoint:** [FreeEntropy.theorem1_achievability](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/Theorem1Complete.lean#L23).
+**Source:** [main statement](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/article.tex#L85), [achievability section](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/article.tex#L607).
+**Lean endpoint:** [FreeEntropy.theorem1_achievability](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/Theorem1Complete.lean#L23).
 
 The current [[Letter]] restates this attaining memory formula in `eq:result_qmdl` for full rank and `eq:rank_def_qmdl` for lower rank. Its separate volume calculation yields $|M_n|=\tfrac12\chi_{\mathrm{phy}}(\rho;n^{-1})+C_{d,r}+o(1)$. That entropy identification is additional Letter material, not an extra conclusion of the Lean endpoint below.
 
@@ -57,7 +57,7 @@ $$
 \end{cases}
 $$
 
-For every typical $\lambda$, $\Lambda-\lambda$ is dominant and nonnegative. Its row distance is $D=O(\sqrt n\log n)$, while the supported adjacent gap of $\lambda$ is $\Omega(n)$. The crossing gap $\lambda_r-\lambda_{r+1}=\lambda_r$ is included when $r<d$. These facts are proved uniformly over typical rows in [FreeEntropy.TypicalRows.target_difference_dominant](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/TypicalRows.lean#L117) and [FreeEntropy.TypicalRows.cloning_envelope_le](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/TypicalRows.lean#L197).
+For every typical $\lambda$, $\Lambda-\lambda$ is dominant and nonnegative. Its row distance is $D=O(\sqrt n\log n)$, while the supported adjacent gap of $\lambda$ is $\Omega(n)$. The crossing gap $\lambda_r-\lambda_{r+1}=\lambda_r$ is included when $r<d$. These facts are proved uniformly over typical rows in [FreeEntropy.TypicalRows.target_difference_dominant](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/TypicalRows.lean#L117) and [FreeEntropy.TypicalRows.cloning_envelope_le](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/TypicalRows.lean#L197).
 
 ### Physical channels
 
@@ -65,7 +65,7 @@ The actual tensor source is decomposed into irreducible sectors. The constructio
 
 The encoder measures the sector, discards multiplicity information, and applies the forward [[results/cloning-fidelity|Theorem 2 channel]] into $\mathcal H_\Lambda$. The decoder samples a sector from the known spectrum-dependent distribution, applies its reverse channel, and reconstructs the physical source registers. It does **not** require the encoder to retain the measured label. Explicit replacement channels handle atypical sectors, making the maps CPTP on every input.
 
-These are the definitions [FreeEntropy.SchurWeyl.mixedEncoder](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/PhysicalCloningChannels.lean#L64) and [FreeEntropy.SchurWeyl.mixedDecoder](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/PhysicalCloningChannels.lean#L69).
+These are the definitions [FreeEntropy.SchurWeyl.mixedEncoder](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/PhysicalCloningChannels.lean#L64) and [FreeEntropy.SchurWeyl.mixedDecoder](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/PhysicalCloningChannels.lean#L69).
 
 ### Error and memory
 
@@ -77,13 +77,13 @@ T\bigl(\mathcal D_n\mathcal E_n(\rho_U^{\otimes n}),\rho_U^{\otimes n}\bigr)
 +T\bigl(\mathcal D_n(\tau_{U,n}),\rho_U^{\otimes n}\bigr),
 $$
 
-where $T(A,B)=\frac12\|A-B\|_1$. Each term is bounded by the largest typical channel error plus the atypical mass. Theorem 2 gives the trace-distance estimate directly: $C_{d,x}D/(b_\lambda+1)=O(\log n/\sqrt n)$. [[results/lemmas/sanov-theorem|Physical concentration]] makes the tail negligible. Covariance makes these comparison estimates uniform in $U$; [FreeEntropy.SchurWeyl.mixed_comparison_error_eventually](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/PhysicalCloningAccuracy.lean#L41) proves the actual estimates.
+where $T(A,B)=\frac12\|A-B\|_1$. Each term is bounded by the largest typical channel error plus the atypical mass. Theorem 2 gives the trace-distance estimate directly: $C_{d,x}D/(b_\lambda+1)=O(\log n/\sqrt n)$. [[results/lemmas/sanov-theorem|Physical concentration]] makes the tail negligible. Covariance makes these comparison estimates uniform in $U$; [FreeEntropy.SchurWeyl.mixed_comparison_error_eventually](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/PhysicalCloningAccuracy.lean#L41) proves the actual estimates.
 
 The memory dimension is the actual dimension of $\mathcal H_\Lambda$. The checked [[results/lemmas/weyl-dimension-asymptotic|Weyl dimension and padded-target limit]] give $\log_2\dim\mathcal H_\Lambda-L_{d,r}(n,x)\to0$. For pure states the expression simplifies to $(d-1)\log_2 n-\log_2((d-1)!)+o(1)$.
 
 ## Formalization Scope
 
-The final theorem takes only `FixedSpectrum d r`. Representation existence, physical decomposition, dimensions, concentration, channel construction, and the error estimates are proved dependencies, not supplied hypotheses. The [[formalization|verification guide]] and [natural-language map](https://github.com/JWang226/QMDL/blob/main/metadata/natural-language-map.json) link the complete chain.
+The final theorem takes only `FixedSpectrum d r`. Representation existence, physical decomposition, dimensions, concentration, channel construction, and the error estimates are proved dependencies, not supplied hypotheses. The [[formalization|verification guide]] and [natural-language map](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/metadata/natural-language-map.json) link the complete chain.
 
 Earlier wiki versions called achievability “Theorem 2” and used $O(n^{-1/4+\varepsilon})$ from a fidelity-to-trace-distance conversion. Those describe an older proof route in the project sources. The current Article's main Theorem 1 and Lean endpoint use the direct $O(\log n/\sqrt n)$ estimate.
 

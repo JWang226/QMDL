@@ -36,7 +36,7 @@ $$
 
 whenever $a_j\in\mathcal A_{i_j}$, $\tau(a_j)=0$, and $i_j\ne i_{j+1}$ for every adjacent pair. The indices need not all be different.
 
-The [Letter's discussion](https://github.com/JWang226/QMDL/blob/main/letter.tex#L260) uses this definition to distinguish free independence from tensor-product independence. It mentions temporal asymptotic freeness only in suitable large-system or large-$N$ chaotic limits.
+The [Letter's discussion](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L260) uses this definition to distinguish free independence from tensor-product independence. It mentions temporal asymptotic freeness only in suitable large-system or large-$N$ chaotic limits.
 
 A Haar rotation of a finite matrix does not by itself establish freeness of its “eigenvalues and eigenvectors.” Freeness concerns joint moments of specified algebras or operator families. A single unitary conjugation preserves the matrix's spectral distribution.
 

@@ -3,7 +3,7 @@
 **Title:** “Free entropy and quantum minimum description length”
 **Authors:** Patrick Hayden, Alexander Maloney, Jinzhao Wang, Yuxiang Yang
 **Format:** PRL-style Letter with End Matter
-**Current source:** [letter.tex](https://github.com/JWang226/QMDL/blob/main/letter.tex)
+**Current source:** [letter.tex](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex)
 
 ## Summary
 
@@ -31,7 +31,7 @@ $$
 
 It depends only on dimension and rank, not on the distinct positive eigenvalues. The memory cost includes all retained quantum and classical registers. The channels may depend on the spectrum and $n$, but not on the unknown unitary, and must recover the whole $n$-copy state with vanishing global trace-distance error.
 
-The main text states the full-rank case in [eq:result](https://github.com/JWang226/QMDL/blob/main/letter.tex#L208) and [eq:result_const](https://github.com/JWang226/QMDL/blob/main/letter.tex#L212). The End Matter extends it to rank-deficient states after [eq:rank_def_qmdl](https://github.com/JWang226/QMDL/blob/main/letter.tex#L404).
+The main text states the full-rank case in [eq:result](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L208) and [eq:result_const](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L212). The End Matter extends it to rank-deficient states after [eq:rank_def_qmdl](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L404).
 
 The resolution $n^{-1}$ belongs to this volume comparison. It is **not** the angular statistical distinguishability scale $n^{-1/2}$. Replacing one by the other in the displayed formula would change its leading coefficient.
 
@@ -53,16 +53,16 @@ The [[concepts/physical-free-entropy|physical free entropy page]] gives the cons
 
 | Topic | Source label | Wiki guide |
 | --- | --- | --- |
-| Shannon typical-string count | [eq:shannon](https://github.com/JWang226/QMDL/blob/main/letter.tex#L86) | [[concepts/free-probability-and-entropy|Introduction to the entropy constructions]] |
-| Schumacher typical-subspace expression | [eq:vN](https://github.com/JWang226/QMDL/blob/main/letter.tex#L94) | [[concepts/schumacher-compression|Schumacher compression]] |
-| Matrix microstates and logarithmic energy | [eq:free_ent](https://github.com/JWang226/QMDL/blob/main/letter.tex#L106), [eq:free_ent_formula](https://github.com/JWang226/QMDL/blob/main/letter.tex#L125) | [[concepts/free-entropy|Voiculescu's free entropy]] |
-| Exact physical entropy definition | [eq:free_phys_def](https://github.com/JWang226/QMDL/blob/main/letter.tex#L146) | [[concepts/physical-free-entropy|Physical free entropy]] |
-| Orbit dimension and regularized spectral term | [eq:free_phys](https://github.com/JWang226/QMDL/blob/main/letter.tex#L156), [eq:reg_free_ent](https://github.com/JWang226/QMDL/blob/main/letter.tex#L161) | [[concepts/free-entropy-dimension|Free entropy dimension]] |
-| Full-rank optimal memory | [eq:result_qmdl](https://github.com/JWang226/QMDL/blob/main/letter.tex#L201) | [[results/achievability|Achievability]] and [[results/converse|converse]] |
-| Weyl product and geometric interpretation | [eq:weyl_geometry](https://github.com/JWang226/QMDL/blob/main/letter.tex#L228) | [[concepts/weyl-dimension-formula|Weyl dimension formula]] |
-| Exact Hilbert–Schmidt constants | [eq:hs_volume_element](https://github.com/JWang226/QMDL/blob/main/letter.tex#L285), [eq:free_phys1_app](https://github.com/JWang226/QMDL/blob/main/letter.tex#L298) | [[concepts/physical-free-entropy|Volume derivation]] |
-| Qualified double-scaling bridge | [rem:bridge](https://github.com/JWang226/QMDL/blob/main/letter.tex#L314), [eq:bridge](https://github.com/JWang226/QMDL/blob/main/letter.tex#L316) | [[concepts/physical-free-entropy|Relation to the large-dimension entropy]] |
-| General spectral multiplicities | [eq:degenerate_volume](https://github.com/JWang226/QMDL/blob/main/letter.tex#L367), [eq:degenerate_free_ent](https://github.com/JWang226/QMDL/blob/main/letter.tex#L380) | [[open-questions/degenerate-spectrum|Geometry versus the remaining operational question]] |
+| Shannon typical-string count | [eq:shannon](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L86) | [[concepts/free-probability-and-entropy|Introduction to the entropy constructions]] |
+| Schumacher typical-subspace expression | [eq:vN](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L94) | [[concepts/schumacher-compression|Schumacher compression]] |
+| Matrix microstates and logarithmic energy | [eq:free_ent](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L106), [eq:free_ent_formula](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L125) | [[concepts/free-entropy|Voiculescu's free entropy]] |
+| Exact physical entropy definition | [eq:free_phys_def](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L146) | [[concepts/physical-free-entropy|Physical free entropy]] |
+| Orbit dimension and regularized spectral term | [eq:free_phys](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L156), [eq:reg_free_ent](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L161) | [[concepts/free-entropy-dimension|Free entropy dimension]] |
+| Full-rank optimal memory | [eq:result_qmdl](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L201) | [[results/achievability|Achievability]] and [[results/converse|converse]] |
+| Weyl product and geometric interpretation | [eq:weyl_geometry](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L228) | [[concepts/weyl-dimension-formula|Weyl dimension formula]] |
+| Exact Hilbert–Schmidt constants | [eq:hs_volume_element](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L285), [eq:free_phys1_app](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L298) | [[concepts/physical-free-entropy|Volume derivation]] |
+| Qualified double-scaling bridge | [rem:bridge](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L314), [eq:bridge](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L316) | [[concepts/physical-free-entropy|Relation to the large-dimension entropy]] |
+| General spectral multiplicities | [eq:degenerate_volume](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L367), [eq:degenerate_free_ent](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L380) | [[open-questions/degenerate-spectrum|Geometry versus the remaining operational question]] |
 
 ## Scope and Open Directions
 

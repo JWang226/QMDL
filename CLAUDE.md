@@ -20,7 +20,7 @@ For the current Article, Theorem 1 is optimal known-spectrum memory (`thm:qmdl`)
 
 ## Working Directory
 
-Use the current checkout of `JWang226/QMDL`. This git repository auto-deploys to GitHub Pages via `.github/workflows/deploy.yml`. **After making authorized wiki edits, commit and push to update the live site.**
+Use the current checkout of `JWang226/Quantum-Minimum-Description-Length`. This git repository auto-deploys to GitHub Pages via `.github/workflows/deploy.yml`. **After making authorized wiki edits, commit and push to update the live site.**
 
 The Obsidian vault root is `docs/` inside this directory.
 
@@ -115,7 +115,7 @@ What the authors have tried or conjectured.
 ## Maintenance Workflow
 
 ### After Any Wiki Edits
-When the user asks to commit, commit all changes and push to `origin main`. The GitHub Actions workflow will automatically rebuild and deploy the live site at https://jwang226.github.io/QMDL/.
+When the user asks to commit, commit all changes and push to `origin main`. The GitHub Actions workflow will automatically rebuild and deploy the live site at https://jwang226.github.io/Quantum-Minimum-Description-Length/.
 
 ### On Ingest (new/updated source)
 1. Diff against the previous repository-root manuscript snapshot (or a historical copy in `sources/`)

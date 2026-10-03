@@ -1,7 +1,7 @@
 # Vandermonde Determinant
 
 **Appears in:** the current [[Letter|Letter]], main text and End Matter, and the [[Article|Article]].
-**Source labels:** [eq:hs_volume_element](https://github.com/JWang226/QMDL/blob/main/letter.tex#L285), [eq:weyl_geometry](https://github.com/JWang226/QMDL/blob/main/letter.tex#L228).
+**Source labels:** [eq:hs_volume_element](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L285), [eq:weyl_geometry](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L228).
 
 ## Definition and Sign Convention
 

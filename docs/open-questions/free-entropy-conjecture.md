@@ -1,6 +1,6 @@
 # Beyond the Proved State-Compression Relation
 
-**Source:** current [[Letter]], discussion after `eq:result`, `rem:bridge`, and the final paragraph of the End Matter in [letter.tex](https://github.com/JWang226/QMDL/blob/main/letter.tex). The earlier [[Notes]] contain additional programming proposals.
+**Source:** current [[Letter]], discussion after `eq:result`, `rem:bridge`, and the final paragraph of the End Matter in [letter.tex](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex). The earlier [[Notes]] contain additional programming proposals.
 **Status:** State compression with distinct positive eigenvalues is established; broader programming and repeated-positive-spectrum extensions remain conjectural.
 
 ## What the Current Letter Establishes

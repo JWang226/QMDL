@@ -1,9 +1,9 @@
 # Proof explorer: data generation and scope
 
-The [wiki proof explorer](https://jwang226.github.io/QMDL/proof-explorer/) presents
+The [wiki proof explorer](https://jwang226.github.io/Quantum-Minimum-Description-Length/proof-explorer/) presents
 the actual compiled Lean declarations behind the Article's formalization. Its
 catalog is generated from the checked project, rather than from an inferred
-English proof outline. The separate [verification documentation](https://github.com/JWang226/QMDL/blob/main/docs/REPRODUCIBILITY.md)
+English proof outline. The separate [verification documentation](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/docs/REPRODUCIBILITY.md)
 describes the proof checks; generating or viewing the catalog is not another
 proof check.
 

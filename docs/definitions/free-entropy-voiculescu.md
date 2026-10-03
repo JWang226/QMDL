@@ -1,6 +1,6 @@
 # Free Entropy (Voiculescu's Definition)
 
-**Source:** current [[Letter]], `eq:free_ent` and `eq:free_ent_formula` in [letter.tex](https://github.com/JWang226/QMDL/blob/main/letter.tex). The formulas below follow its binary-logarithm and Hilbert–Schmidt Lebesgue-volume conventions.
+**Source:** current [[Letter]], `eq:free_ent` and `eq:free_ent_formula` in [letter.tex](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex). The formulas below follow its binary-logarithm and Hilbert–Schmidt Lebesgue-volume conventions.
 
 ## Statement
 

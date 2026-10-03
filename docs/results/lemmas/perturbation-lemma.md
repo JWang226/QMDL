@@ -1,7 +1,7 @@
 # Highest-Weight Subspace Perturbation and Trace Deficits
 
 **Label:** `lem:perturbation`; equations `eq:projector_casimir_bound`, `eq:casimir_slice_gap`, `eq:casimir_deficit_compression`.
-**Source:** [current Article](https://github.com/JWang226/QMDL/blob/main/article.tex#L1412).
+**Source:** [current Article](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/article.tex#L1412).
 
 ## Statement
 
@@ -50,7 +50,7 @@ T(Q_\delta,P_\delta)\le e_\delta\operatorname{Tr}Q_\delta,$$
 
 where $e_\delta=\min\{1,2|\delta|D/(g_\mu+2)\}$. Equal ranks transfer one trace deficit to the other by cyclicity of trace. For integral $D\ge1$, deeper offsets satisfy $e_\delta=1$, and the trivial trace bound applies regardless of unequal ranks. Averaging these estimates preserves the linear $D/(b_\mu+1)$ error rate.
 
-`FreeEntropy.CasimirTrace.traceDeficits_le_min_of_local_gap` in [CasimirTrace.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CasimirTrace.lean) is the matrix bridge. Actual Lie-generator identities and tensor decomposition discharge its gap and compression inputs in [LieMatrixCasimir.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/LieMatrixCasimir.lean), [CartanLieCloning.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CartanLieCloning.lean) and the canonical cloning construction. In particular, `FreeEntropy.CartanLieCloning.TensorDecomposition.local_gap` and `FreeEntropy.CartanLieCloning.tensor_weight_deficit` provide the local operator statements.
+`FreeEntropy.CasimirTrace.traceDeficits_le_min_of_local_gap` in [CasimirTrace.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CasimirTrace.lean) is the matrix bridge. Actual Lie-generator identities and tensor decomposition discharge its gap and compression inputs in [LieMatrixCasimir.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/LieMatrixCasimir.lean), [CartanLieCloning.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CartanLieCloning.lean) and the canonical cloning construction. In particular, `FreeEntropy.CartanLieCloning.TensorDecomposition.local_gap` and `FreeEntropy.CartanLieCloning.tensor_weight_deficit` provide the local operator statements.
 
 The final theorem certifies the resulting trace-distance bound. It does not rely on a standalone formalization of the historical Davis–Kahan/principal-angle fidelity argument.
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-03 — Website links after the repository rename
+
+- Updated the website address, explorer source links, repository references
+  and clone instructions for `Quantum-Minimum-Description-Length`.
+- Made the human-readable manuscript-to-Lean correspondence and scope link
+  prominent in the README.
+
 ## 2026-10-01 — Clickable proof dependency map
 
 - Linked every dependency-map node to its proof-stage explanation or checked

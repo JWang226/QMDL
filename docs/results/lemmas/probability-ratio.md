@@ -1,7 +1,7 @@
 # Eigenvalue Ratio
 
 **Label:** `lem:ratio`.
-**Source:** [current Article](https://github.com/JWang226/QMDL/blob/main/article.tex#L1551).
+**Source:** [current Article](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/article.tex#L1551).
 
 ## Statement
 
@@ -40,7 +40,7 @@ This is a finite normalization-and-tail argument. The earlier determinant-domina
 
 ## Lean route
 
-`FreeEntropy.Cloning.eigenvalue_ratio_deficit` in [Cloning.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/Cloning.lean) proves the finite reduction. The actual normalizers, multiplicities and shallow equality are supplied in the canonical construction, culminating in `FreeEntropy.ExteriorRepresentation.theorem2_cloning_accuracy` in [Theorem2Canonical.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/Theorem2Canonical.lean). The endpoint does not assume this ratio bound.
+`FreeEntropy.Cloning.eigenvalue_ratio_deficit` in [Cloning.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/Cloning.lean) proves the finite reduction. The actual normalizers, multiplicities and shallow equality are supplied in the canonical construction, culminating in `FreeEntropy.ExteriorRepresentation.theorem2_cloning_accuracy` in [Theorem2Canonical.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/Theorem2Canonical.lean). The endpoint does not assume this ratio bound.
 
 ## Dependencies
 

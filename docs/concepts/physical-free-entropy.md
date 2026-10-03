@@ -1,7 +1,7 @@
 # Physical Free Entropy
 
 **Appears in:** the current [[Letter|Letter]], with the compression theorem supplied by the [[Article|Article]].
-**Source labels:** [eq:free_phys_def](https://github.com/JWang226/QMDL/blob/main/letter.tex#L146), [eq:free_phys1_app](https://github.com/JWang226/QMDL/blob/main/letter.tex#L298), [eq:degenerate_free_ent](https://github.com/JWang226/QMDL/blob/main/letter.tex#L380).
+**Source labels:** [eq:free_phys_def](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L146), [eq:free_phys1_app](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L298), [eq:degenerate_free_ent](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L380).
 
 ## Intuition
 
@@ -45,7 +45,7 @@ The small-gap condition $\varepsilon<g/2$ is needed for the expansions below, **
 
 ## Distinct Eigenvalues: the Full Constant
 
-For $p_1>\cdots>p_d$, [eq:free_phys1_app](https://github.com/JWang226/QMDL/blob/main/letter.tex#L298) gives
+For $p_1>\cdots>p_d$, [eq:free_phys1_app](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L298) gives
 
 $$
 \begin{aligned}
@@ -63,7 +63,7 @@ The factor $\log_2 2=1$ is retained to make the volume normalization visible.
 
 ### Derivation
 
-With decreasingly ordered eigenvalues and normalized invariant measure on $\mathrm U(d)/\mathrm U(1)^d$, the exact [Hilbert–Schmidt volume element](https://github.com/JWang226/QMDL/blob/main/letter.tex#L285) is
+With decreasingly ordered eigenvalues and normalized invariant measure on $\mathrm U(d)/\mathrm U(1)^d$, the exact [Hilbert–Schmidt volume element](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L285) is
 
 $$
 dX=\frac{(2\pi)^{d(d-1)/2}}{\prod_{k=1}^{d-1}k!}
@@ -172,7 +172,7 @@ The factor $1/2$ reflects the squared spectral-gap product in Hilbert–Schmidt 
 
 ## Relation to Voiculescu's Entropy
 
-The Letter's [rem:bridge](https://github.com/JWang226/QMDL/blob/main/letter.tex#L314) considers self-adjoint matrices $X_d$ whose eigenvalues are quantiles of a compactly supported measure $\mu_x$ with finite logarithmic energy. It assumes nonzero quantile gaps, convergence of the discrete logarithmic energies, and
+The Letter's [rem:bridge](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L314) considers self-adjoint matrices $X_d$ whose eigenvalues are quantiles of a compactly supported measure $\mu_x$ with finite logarithmic energy. It assumes nonzero quantile gaps, convergence of the discrete logarithmic energies, and
 
 $$
 \varepsilon_d\to0,\qquad

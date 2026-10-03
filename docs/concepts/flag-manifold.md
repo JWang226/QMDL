@@ -1,7 +1,7 @@
 # Flag Manifold
 
 **Appears in:** the current [[Letter|Letter]] and [[Article|Article]].
-**Source labels:** [eq:degenerate_free_ent](https://github.com/JWang226/QMDL/blob/main/letter.tex#L380), [eq:weyl_geometry](https://github.com/JWang226/QMDL/blob/main/letter.tex#L228), [eq:rank_def_qmdl](https://github.com/JWang226/QMDL/blob/main/letter.tex#L404).
+**Source labels:** [eq:degenerate_free_ent](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L380), [eq:weyl_geometry](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L228), [eq:rank_def_qmdl](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L404).
 
 ## Definition
 

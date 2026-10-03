@@ -1,8 +1,8 @@
 # Memory Bound for Irreducible Compact-Group Orbits
 
 **Label:** `prop:compact_orbit_memory`, `eq:compact_orbit_memory` in the current [[Article]].
-**Source:** [Article proposition and proof](https://github.com/JWang226/QMDL/blob/main/article.tex#L854).
-**Lean theorem:** [FreeEntropy.OrbitTraceDistance.irreducible_orbit_memory_bound](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/OrbitTraceDistance.lean#L180).
+**Source:** [Article proposition and proof](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/article.tex#L854).
+**Lean theorem:** [FreeEntropy.OrbitTraceDistance.irreducible_orbit_memory_bound](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/OrbitTraceDistance.lean#L180).
 
 ## Statement
 
@@ -71,15 +71,15 @@ q_x=\max_{i<r}\frac{x_{i+1}}{x_i}<1,\qquad
 \gamma\ge\gamma_*=(1-q_x)^{\binom d2+1}>0,
 $$
 
-where $q_x=0$ for rank one. This follows from the simple highest line and the proved weight-counting envelope, uniformly in the highest row. The theorem [FreeEntropy.ExteriorRepresentation.canonical_orbit_memory_bound](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CanonicalOrbit.lean#L73) supplies the resulting bound without assuming a gap or a counting estimate.
+where $q_x=0$ for rank one. This follows from the simple highest line and the proved weight-counting envelope, uniformly in the highest row. The theorem [FreeEntropy.ExteriorRepresentation.canonical_orbit_memory_bound](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CanonicalOrbit.lean#L73) supplies the resulting bound without assuming a gap or a counting estimate.
 
-The Article's [uniform-gap lemma](https://github.com/JWang226/QMDL/blob/main/article.tex#L901) states the sharper constant $(1-q_x)\prod_{i<j\le r}(1-x_j/x_i)$. The final canonical endpoint above uses $\gamma_*$, which suffices for the main converse. Distinct eigenvalues of the original spectrum imply the required simple **largest** eigenvalue; they do not require every eigenvalue of the representation state to be distinct.
+The Article's [uniform-gap lemma](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/article.tex#L901) states the sharper constant $(1-q_x)\prod_{i<j\le r}(1-x_j/x_i)$. The final canonical endpoint above uses $\gamma_*$, which suffices for the main converse. Distinct eigenvalues of the original spectrum imply the required simple **largest** eigenvalue; they do not require every eigenvalue of the representation state to be distinct.
 
 ## Lean Map
 
-- [FreeEntropy.Twirling.compact_trace_one_unitary_twirl](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/Twirling.lean#L190): Haar averaging from actual continuity, unitarity, and irreducibility.
-- [FreeEntropy.OrbitEigenvalues.irreducible_orbit_memory_bound_of_eigenvalues](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/OrbitEigenvalues.lean#L34): constructs the projector from Hermitian eigenvalue data.
-- [FreeEntropy.CartanLieCloning.CyclicWeightModel.actual_uniform_gap](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CyclicWeightOrbit.lean#L53): the uniform positive gap used by the canonical specialization.
+- [FreeEntropy.Twirling.compact_trace_one_unitary_twirl](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/Twirling.lean#L190): Haar averaging from actual continuity, unitarity, and irreducibility.
+- [FreeEntropy.OrbitEigenvalues.irreducible_orbit_memory_bound_of_eigenvalues](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/OrbitEigenvalues.lean#L34): constructs the projector from Hermitian eigenvalue data.
+- [FreeEntropy.CartanLieCloning.CyclicWeightModel.actual_uniform_gap](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CyclicWeightOrbit.lean#L53): the uniform positive gap used by the canonical specialization.
 
 The generic theorem explicitly states its representation and spectral assumptions. The final Theorem 1 constructs and verifies these inputs. The old wiki's argument through exact [[concepts/koashi-imoto|Koashi–Imoto]] structure is historical context, not a substitute for this quantitative approximate-recovery estimate.
 

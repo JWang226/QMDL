@@ -1,7 +1,7 @@
 # Cloning Accuracy (Article Theorem 2)
 
 **Label:** `thm:main`; bound `eq:cloning_trace_bound`.
-**Source:** [current Article, statement](https://github.com/JWang226/QMDL/blob/main/article.tex#L562) and [direct trace-distance proof](https://github.com/JWang226/QMDL/blob/main/article.tex#L1628).
+**Source:** [current Article, statement](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/article.tex#L562) and [direct trace-distance proof](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/article.tex#L1628).
 
 This page retains its historical `cloning-fidelity` address. The current Article proves a finite **trace-distance** estimate. The historical Notes/fidelity argument and its numbering should not be substituted for this statement. The current Letter summarizes the compression construction but does not state a separately numbered cloning theorem. Article Theorem 1 is the optimal-memory result.
 
@@ -58,12 +58,12 @@ The following are final endpoints with only the stated spectrum, row, dominance 
 
 | Form | Fully qualified declaration | File |
 | --- | --- | --- |
-| Constructed channels | `FreeEntropy.ExteriorRepresentation.theorem2_cloning_accuracy` | [Theorem2Canonical.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/Theorem2Canonical.lean) |
-| Literal Cartan formulas | `FreeEntropy.ExteriorRepresentation.theorem2_cartan_cloning_accuracy` | [Theorem2Canonical.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/Theorem2Canonical.lean) |
-| Original Choi contractions | `FreeEntropy.ExteriorRepresentation.theorem2_cloning_accuracy_choi` | [Theorem2Choi.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/Theorem2Choi.lean) |
-| Literal Petz reverse | `FreeEntropy.ExteriorRepresentation.theorem2_cloning_accuracy_petz` | [Theorem2Petz.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/Theorem2Petz.lean) |
+| Constructed channels | `FreeEntropy.ExteriorRepresentation.theorem2_cloning_accuracy` | [Theorem2Canonical.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/Theorem2Canonical.lean) |
+| Literal Cartan formulas | `FreeEntropy.ExteriorRepresentation.theorem2_cartan_cloning_accuracy` | [Theorem2Canonical.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/Theorem2Canonical.lean) |
+| Original Choi contractions | `FreeEntropy.ExteriorRepresentation.theorem2_cloning_accuracy_choi` | [Theorem2Choi.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/Theorem2Choi.lean) |
+| Literal Petz reverse | `FreeEntropy.ExteriorRepresentation.theorem2_cloning_accuracy_petz` | [Theorem2Petz.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/Theorem2Petz.lean) |
 
-`FreeEntropy.Theorem2.cloningConstant` and `FreeEntropy.MeanDepth.meanDepthConstant` implement the displayed constants in [Theorem2.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/Theorem2.lean) and [MeanDepth.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/MeanDepth.lean). The states are genuine normalized representation states; [CanonicalMonomialState.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CanonicalMonomialState.lean) connects their weight-coordinate description to physical tensor blocks.
+`FreeEntropy.Theorem2.cloningConstant` and `FreeEntropy.MeanDepth.meanDepthConstant` implement the displayed constants in [Theorem2.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/Theorem2.lean) and [MeanDepth.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/MeanDepth.lean). The states are genuine normalized representation states; [CanonicalMonomialState.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CanonicalMonomialState.lean) connects their weight-coordinate description to physical tensor blocks.
 
 ## Dependencies
 

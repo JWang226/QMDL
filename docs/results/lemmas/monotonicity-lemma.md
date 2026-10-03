@@ -1,8 +1,8 @@
 # Positive-Order and Retained-Branch Bounds
 
 **Labels:** `eq:forward_monotonicity`, `eq:branch_trace_comparison`, `eq:positive_deficit_trace` in the current [[Article]].
-**Source:** [retaining the highest-weight branch](https://github.com/JWang226/QMDL/blob/main/article.tex#L1364), [positive remainder bound](https://github.com/JWang226/QMDL/blob/main/article.tex#L1686).
-**Lean theorem:** [FreeEntropy.TraceDistance.retained_branch_error_bound](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/TraceDistance.lean#L172).
+**Source:** [retaining the highest-weight branch](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/article.tex#L1364), [positive remainder bound](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/article.tex#L1686).
+**Lean theorem:** [FreeEntropy.TraceDistance.retained_branch_error_bound](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/TraceDistance.lean#L172).
 
 ## Statement
 
@@ -42,11 +42,11 @@ In the forward cloning proof, the auxiliary identity dominates its highest-weigh
 
 ## Lean Map
 
-- [FreeEntropy.TraceDistance.positive_remainder_bound](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/TraceDistance.lean#L160): the general trace-norm inequality from positive order.
-- [FreeEntropy.TraceDistance.retained_branch_error_bound](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/TraceDistance.lean#L172): normalized target plus the missing-trace term.
-- [FreeEntropy.TraceDistance.traceDistance_le_remainder](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/TraceDistance.lean#L182): equal-trace specialization.
-- [FreeEntropy.CloningMatrices.traceDistance_le_block_loss](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CloningMatrices.lean#L56): sums an explicit positive remainder over weight blocks.
-- [FreeEntropy.CloningMatrices.forward_traceDistance_le](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CloningMatrices.lean#L97): allows the retained source coefficients to dominate the target coefficients.
+- [FreeEntropy.TraceDistance.positive_remainder_bound](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/TraceDistance.lean#L160): the general trace-norm inequality from positive order.
+- [FreeEntropy.TraceDistance.retained_branch_error_bound](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/TraceDistance.lean#L172): normalized target plus the missing-trace term.
+- [FreeEntropy.TraceDistance.traceDistance_le_remainder](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/TraceDistance.lean#L182): equal-trace specialization.
+- [FreeEntropy.CloningMatrices.traceDistance_le_block_loss](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CloningMatrices.lean#L56): sums an explicit positive remainder over weight blocks.
+- [FreeEntropy.CloningMatrices.forward_traceDistance_le](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CloningMatrices.lean#L97): allows the retained source coefficients to dominate the target coefficients.
 
 These are reusable intermediate statements with explicit operator premises. The final canonical channel construction proves those premises.
 

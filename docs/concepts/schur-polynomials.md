@@ -43,9 +43,9 @@ The character formula also yields the exact representation dimension, $s_\lambda
 
 ## Lean route
 
-`FreeEntropy.ExteriorRepresentation.canonicalCharacter_identity_all` in [CanonicalCharacterIdentity.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CanonicalCharacterIdentity.lean) proves the polynomial numerator identity for the constructed canonical representation. [WeylDimensionExtraction.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/WeylDimensionExtraction.lean) and [CanonicalDimension.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CanonicalDimension.lean) extract its actual dimension.
+`FreeEntropy.ExteriorRepresentation.canonicalCharacter_identity_all` in [CanonicalCharacterIdentity.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CanonicalCharacterIdentity.lean) proves the polynomial numerator identity for the constructed canonical representation. [WeylDimensionExtraction.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/WeylDimensionExtraction.lean) and [CanonicalDimension.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CanonicalDimension.lean) extract its actual dimension.
 
-`FreeEntropy.SchurWeyl.canonicalMonomialState_eq_relativeState` in [CanonicalMonomialState.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CanonicalMonomialState.lean) connects normalized monomials with the weight-coordinate state used in cloning. These are proved connections to concrete representations, not assumed Schur-character inputs to the final endpoint.
+`FreeEntropy.SchurWeyl.canonicalMonomialState_eq_relativeState` in [CanonicalMonomialState.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CanonicalMonomialState.lean) connects normalized monomials with the weight-coordinate state used in cloning. These are proved connections to concrete representations, not assumed Schur-character inputs to the final endpoint.
 
 ## Related
 

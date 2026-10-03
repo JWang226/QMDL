@@ -1,8 +1,8 @@
 # Schur Concentration and Atypical Mass
 
 **Labels:** `lem:tail_prob`, `eq:tail_prob_bound` in the current [[Article]].
-**Source:** [Article concentration lemma and tail estimate](https://github.com/JWang226/QMDL/blob/main/article.tex#L788).
-**Lean endpoint used by Theorem 1:** [FreeEntropy.SchurWeyl.physicalAtypicalMass_le_tailBound](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/SchurWeylConcentration.lean#L48).
+**Source:** [Article concentration lemma and tail estimate](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/article.tex#L788).
+**Lean endpoint used by Theorem 1:** [FreeEntropy.SchurWeyl.physicalAtypicalMass_le_tailBound](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/SchurWeylConcentration.lean#L48).
 
 ## Statement
 
@@ -41,7 +41,7 @@ K_d=(d-1)\binom d2+d,
 \quad n\ge2.
 $$
 
-Consequently the actual atypical mass is eventually at most $1/n$. This is exactly [FreeEntropy.SchurWeyl.physicalAtypicalMass_eventually_le_inv](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/SchurWeylConcentration.lean#L62). The prefactor and the intermediate entropy inequality should not be conflated with the Article's sharper event bound.
+Consequently the actual atypical mass is eventually at most $1/n$. This is exactly [FreeEntropy.SchurWeyl.physicalAtypicalMass_eventually_le_inv](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/SchurWeylConcentration.lean#L62). The prefactor and the intermediate entropy inequality should not be conflated with the Article's sharper event bound.
 
 ## Intuition
 
@@ -69,15 +69,15 @@ The physical proof begins with the actual constructed irreducible decomposition,
    $\|p-x\|_1\ge\log_2 n/\sqrt n$.
 5. There are at most $(n+1)^d$ occupation rows. Sum the pointwise estimate and use the preceding separation to obtain the displayed physical tail bound.
 
-The probabilities are constant along the unknown-unitary orbit. [FreeEntropy.SchurWeyl.physical_orbit_atypical_tail_le](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/SchurWeylConcentration.lean#L97) records the same estimate for every $U$.
+The probabilities are constant along the unknown-unitary orbit. [FreeEntropy.SchurWeyl.physical_orbit_atypical_tail_le](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/SchurWeylConcentration.lean#L97) records the same estimate for every $U$.
 
 ## Lean Map
 
-- [FreeEntropy.SchurWeyl.sectorsAt_card_le_words](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/SchurWeylConcentrationGrouping.lean#L65): actual copy-count bound.
-- [FreeEntropy.SchurWeyl.highestSectorMass_le_exp_neg_kl](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/SchurWeylConcentrationProbability.lean#L55): actual pointwise physical probability bound.
-- [FreeEntropy.FiniteConcentration.weak_pinsker](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/FiniteConcentration.lean#L108): the entropy inequality, with its precise constant.
-- [FreeEntropy.SchurWeyl.physical_atypical_grouped_tail_le](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/SchurWeylConcentrationTail.lean#L169): typical-window tail.
-- [FreeEntropy.Concentration.tailBound_eventually_le_inv](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/Concentration.lean#L62): fixed polynomial prefactors are asymptotically absorbed.
+- [FreeEntropy.SchurWeyl.sectorsAt_card_le_words](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/SchurWeylConcentrationGrouping.lean#L65): actual copy-count bound.
+- [FreeEntropy.SchurWeyl.highestSectorMass_le_exp_neg_kl](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/SchurWeylConcentrationProbability.lean#L55): actual pointwise physical probability bound.
+- [FreeEntropy.FiniteConcentration.weak_pinsker](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/FiniteConcentration.lean#L108): the entropy inequality, with its precise constant.
+- [FreeEntropy.SchurWeyl.physical_atypical_grouped_tail_le](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/SchurWeylConcentrationTail.lean#L169): typical-window tail.
+- [FreeEntropy.Concentration.tailBound_eventually_le_inv](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/Concentration.lean#L62): fixed polynomial prefactors are asymptotically absorbed.
 
 Earlier reusable lemmas accept a pointwise probability bound as a premise. The final physical endpoint above proves that input for the actual source; no concentration premise remains in Theorem 1.
 

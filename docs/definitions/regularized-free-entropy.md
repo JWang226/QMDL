@@ -1,6 +1,6 @@
 # Regularized Free Entropy
 
-**Source:** current [[Letter]], `eq:reg_free_ent` and `eq:degenerate_free_ent` in [letter.tex](https://github.com/JWang226/QMDL/blob/main/letter.tex).
+**Source:** current [[Letter]], `eq:reg_free_ent` and `eq:degenerate_free_ent` in [letter.tex](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex).
 
 ## Statement
 

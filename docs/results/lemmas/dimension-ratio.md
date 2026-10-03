@@ -1,8 +1,8 @@
 # Weyl Dimension-Ratio Bound
 
 **Label:** `lem:dim_ratio` in the current [[Article]].
-**Source:** [Article finite dimension-ratio lemma](https://github.com/JWang226/QMDL/blob/main/article.tex#L1598).
-**Lean theorem:** [FreeEntropy.ExteriorRepresentation.canonical_dimensionRatio_deficit](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CanonicalDimensionRatio.lean#L72).
+**Source:** [Article finite dimension-ratio lemma](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/article.tex#L1598).
+**Lean theorem:** [FreeEntropy.ExteriorRepresentation.canonical_dimensionRatio_deficit](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CanonicalDimensionRatio.lean#L72).
 
 ## Statement
 
@@ -24,7 +24,7 @@ $$
 \le\binom d2\frac{D}{b_\mu+1}.
 $$
 
-This is a finite bound, with no asymptotic scaling assumption. The Lean endpoint proves the last bound for the actual canonical dimensions, and [FreeEntropy.ExteriorRepresentation.canonical_dimensionRatio_pos_le_one](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CanonicalDimensionRatio.lean#L54) proves $0<d_\mu/d_\nu\le1$.
+This is a finite bound, with no asymptotic scaling assumption. The Lean endpoint proves the last bound for the actual canonical dimensions, and [FreeEntropy.ExteriorRepresentation.canonical_dimensionRatio_pos_le_one](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CanonicalDimensionRatio.lean#L54) proves $0<d_\mu/d_\nu\le1$.
 
 The generic formal lemma is slightly more flexible: $b\ge0$ can be any lower bound on the relevant adjacent gaps, $D$ any upper bound on the row L1 difference, and the rows need only agree beyond the specified rank. Theorem 2 instantiates these parameters with the computed $b_\mu$ and exact $D$.
 

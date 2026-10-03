@@ -39,6 +39,9 @@ and the September 29, 2026 AGMAI guideline, in preparation for a future
 GitHub repository. A subsequent instruction explicitly requested publication
 to `https://github.com/JWang226/QMDL`, preserving that repository's existing
 wiki, with README reproduction instructions for Lean, Comparator, and Nanoda.
+The repository was subsequently renamed to
+[Quantum-Minimum-Description-Length](https://github.com/JWang226/Quantum-Minimum-Description-Length);
+the historical publication request above retains its original destination.
 
 ## Tools and automation
 

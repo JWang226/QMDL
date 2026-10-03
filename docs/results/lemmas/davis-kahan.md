@@ -16,7 +16,7 @@ Expanding $v$ in an eigenbasis proves this by bounding each unwanted component. 
 
 The present Article avoids the older perturbation expansion $H=H_0+V$ and its cutoff restrictions in the cloning argument. Instead, [[results/lemmas/perturbation-lemma|the current subspace lemma]] derives an exact compressed Casimir identity and a gap **within the relevant total-weight sector**. The formal proof then bounds trace deficits directly and averages them using [[results/lemmas/tail-mass|uniform mean depth]].
 
-The resulting [[results/cloning-fidelity|Theorem 2]] has error $C_{d,x}D/(b_\mu+1)$ without a freely chosen $n^\varepsilon$ cutoff. [CartanLieCloning.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CartanLieCloning.lean) and [CasimirTrace.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CasimirTrace.lean) contain the checked local gap and trace-deficit route; this page records historical context rather than an additional dependency of that endpoint.
+The resulting [[results/cloning-fidelity|Theorem 2]] has error $C_{d,x}D/(b_\mu+1)$ without a freely chosen $n^\varepsilon$ cutoff. [CartanLieCloning.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CartanLieCloning.lean) and [CasimirTrace.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CasimirTrace.lean) contain the checked local gap and trace-deficit route; this page records historical context rather than an additional dependency of that endpoint.
 
 ## Dependencies
 

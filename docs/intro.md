@@ -6,11 +6,11 @@
 
 This wiki explains the mathematical project and the current Lean proof of
 Theorems 1 and 2 in the bundled
-[Article source](https://github.com/JWang226/QMDL/blob/main/article.tex).
+[Article source](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/article.tex).
 Start with the results below, then follow [[proof-structure|the proof map]]
 for their dependencies or [[formalization|the verification guide]] to check
 this formalization yourself. The current
-[Letter source](https://github.com/JWang226/QMDL/blob/main/letter.tex)
+[Letter source](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex)
 develops the entropy interpretation below. [[Notes]] retains historical
 programming material. These broader claims are not all covered by the Lean proof.
 

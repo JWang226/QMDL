@@ -26,8 +26,8 @@ mathlib's public compiled cache. Project proof artifacts are rebuilt locally.
 Clone the public repository first:
 
 ```sh
-git clone https://github.com/JWang226/QMDL.git
-cd QMDL
+git clone https://github.com/JWang226/Quantum-Minimum-Description-Length.git
+cd Quantum-Minimum-Description-Length
 export PATH="$HOME/.elan/bin:$PATH"
 ```
 

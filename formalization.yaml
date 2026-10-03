@@ -3,7 +3,7 @@
 version: v0.3
 project:
   name: 'Free Entropy: quantum minimum description of density matrices'
-  url: https://github.com/JWang226/QMDL
+  url: https://github.com/JWang226/Quantum-Minimum-Description-Length
   authors:
   - Free Entropy formalization contributors
   license: pending

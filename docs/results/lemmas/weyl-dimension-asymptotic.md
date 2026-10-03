@@ -1,8 +1,8 @@
 # Exact Weyl Dimension and the Memory Expansion
 
 **Labels:** `eq:weyl_dim`, `lem:weyl_asymptotic` in the current [[Article]].
-**Source:** [Article dimension lemma](https://github.com/JWang226/QMDL/blob/main/article.tex#L671).
-**Lean endpoint for memory:** [FreeEntropy.ExteriorRepresentation.targetCanonicalDimension_log_asymptotic](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CanonicalDimension.lean#L86).
+**Source:** [Article dimension lemma](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/article.tex#L671).
+**Lean endpoint for memory:** [FreeEntropy.ExteriorRepresentation.targetCanonicalDimension_log_asymptotic](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CanonicalDimension.lean#L86).
 
 ## Statement
 
@@ -84,12 +84,12 @@ The Lean dependency chain also justifies the exact representation dimension, rat
 
 ## Lean Map
 
-- [FreeEntropy.ExteriorRepresentation.canonicalCharacter_identity](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CanonicalCharacterIdentity.lean#L91): actual Weyl character identity.
-- [FreeEntropy.WeylCharacter.dimension_eq_GT_of_character_identity](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/WeylDimensionExtraction.lean#L55): finite coefficient extraction.
-- [FreeEntropy.GTDimension.card_eq_binomialDet](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/GTCardinality.lean#L75): combinatorial cardinality formula.
-- [FreeEntropy.ExteriorRepresentation.canonical_dimension_fullWeyl](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CanonicalDimension.lean#L27): actual full Weyl dimension.
-- [FreeEntropy.ExteriorRepresentation.canonical_dimension_activeWeyl](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CanonicalDimension.lean#L37): the zero-padded rank-supported product.
-- [FreeEntropy.ExteriorRepresentation.targetCanonicalDimension_weyl](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CanonicalDimension.lean#L81) and the asymptotic endpoint above: actual memory dimension.
+- [FreeEntropy.ExteriorRepresentation.canonicalCharacter_identity](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CanonicalCharacterIdentity.lean#L91): actual Weyl character identity.
+- [FreeEntropy.WeylCharacter.dimension_eq_GT_of_character_identity](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/WeylDimensionExtraction.lean#L55): finite coefficient extraction.
+- [FreeEntropy.GTDimension.card_eq_binomialDet](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/GTCardinality.lean#L75): combinatorial cardinality formula.
+- [FreeEntropy.ExteriorRepresentation.canonical_dimension_fullWeyl](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CanonicalDimension.lean#L27): actual full Weyl dimension.
+- [FreeEntropy.ExteriorRepresentation.canonical_dimension_activeWeyl](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CanonicalDimension.lean#L37): the zero-padded rank-supported product.
+- [FreeEntropy.ExteriorRepresentation.targetCanonicalDimension_weyl](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CanonicalDimension.lean#L81) and the asymptotic endpoint above: actual memory dimension.
 
 ## Dependencies
 

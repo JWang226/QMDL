@@ -18,7 +18,7 @@ $$\operatorname{Tr}[P(I-Q)P]=\operatorname{Tr}P-\operatorname{Tr}(PQ),$$
 
 a local Casimir gap, and a uniform mean-depth estimate. It does not pass through the sum of principal-angle cosines or claim the older $1-O(D/n^{1-\varepsilon})$ fidelity estimate as its main certificate.
 
-See `FreeEntropy.CasimirTrace.traceDeficit_eq` and `FreeEntropy.CasimirTrace.traceDeficits_le_min_of_local_gap` in [CasimirTrace.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CasimirTrace.lean) for the checked quantities actually used.
+See `FreeEntropy.CasimirTrace.traceDeficit_eq` and `FreeEntropy.CasimirTrace.traceDeficits_le_min_of_local_gap` in [CasimirTrace.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CasimirTrace.lean) for the checked quantities actually used.
 
 ## Dependencies
 

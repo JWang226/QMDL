@@ -24,7 +24,7 @@ for Lean, Comparator and Nanoda.
 
 The repository-root Article and Letter match the author-supplied sources.
 They share `free.bib`; the Letter also includes `compression.pdf`.
-The [companion source map](https://github.com/JWang226/QMDL/blob/main/metadata/letter-source-map.json)
+The [companion source map](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/metadata/letter-source-map.json)
 records file hashes, Letter equation labels and the boundary of Lean coverage.
 
 ---

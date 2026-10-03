@@ -21,7 +21,7 @@ verification to the Letter's geometric entropy calculations.
   <p class="pe-loading" role="status">Loading the Lean declaration catalog…</p>
 </div>
 
-<noscript>This explorer needs JavaScript. Read the <a href="../proof-structure/">proof structure guide</a> or browse the <a href="https://github.com/JWang226/QMDL/tree/main/lean/FreeEntropy">Lean sources on GitHub</a>.</noscript>
+<noscript>This explorer needs JavaScript. Read the <a href="../proof-structure/">proof structure guide</a> or browse the <a href="https://github.com/JWang226/Quantum-Minimum-Description-Length/tree/main/lean/FreeEntropy">Lean sources on GitHub</a>.</noscript>
 
 ## What the links mean
 

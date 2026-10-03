@@ -1,6 +1,6 @@
 site_name: "Quantum Minimum Description — Lean Proofs"
 site_description: "Statements, proof route and reproducible Lean, Comparator and Nanoda checks for quantum minimum description length"
-site_url: "https://jwang226.github.io/QMDL/"
+site_url: "https://jwang226.github.io/Quantum-Minimum-Description-Length/"
 
 docs_dir: docs
 site_dir: site

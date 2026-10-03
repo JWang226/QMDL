@@ -2,9 +2,9 @@
 
 Lean 4 proofs of Article Theorems 1 and 2, by **Patrick Hayden, Alexander Maloney,
 Jinzhao Wang and Yuxiang Yang**. The formalization was developed with assistance
-from Codex. The current [Article](https://github.com/JWang226/QMDL/blob/main/article.tex)
-and [Letter](https://github.com/JWang226/QMDL/blob/main/letter.tex) are included in
-the [repository](https://github.com/JWang226/QMDL).
+from Codex. The current [Article](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/article.tex)
+and [Letter](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex) are included in
+the [repository](https://github.com/JWang226/Quantum-Minimum-Description-Length).
 
 <div class="qmdl-reading-links">
 <a href="proof-structure/"><strong>Read the proof route</strong><span>From representations to optimal memory</span></a>
@@ -62,8 +62,8 @@ page identifies the actual records; [[verify|fresh verification]] checks your ch
 With the prerequisites listed in the verification guide installed:
 
 ```sh
-git clone https://github.com/JWang226/QMDL.git
-cd QMDL
+git clone https://github.com/JWang226/Quantum-Minimum-Description-Length.git
+cd Quantum-Minimum-Description-Length
 bash scripts/verify.sh all
 ```
 
@@ -82,7 +82,7 @@ Repeated **positive** eigenvalues and broader programming extensions are
 outside these endpoints; repeated zeros are already covered.
 
 See [[Letter|the Letter]], [[formalization|the full scope]], and the
-[manuscript-to-Lean map](https://github.com/JWang226/QMDL/blob/main/metadata/natural-language-map.json).
+[manuscript-to-Lean map](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/metadata/natural-language-map.json).
 The [[wiki-index|mathematical wiki index]] collects the background definitions,
 lemmas, references and open questions. English explanations are reading aids;
 the exact Lean statements are what the checkers prove.

@@ -1,7 +1,7 @@
 # Uniform Mean Depth and Tail Control
 
 **Label:** `lem:tail`; first-moment bound `eq:uniform_mean_depth`.
-**Source:** [current Article](https://github.com/JWang226/QMDL/blob/main/article.tex#L1507).
+**Source:** [current Article](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/article.tex#L1507).
 
 The historical page name is retained. The current lemma supplies a uniform first moment; the main proof does not choose a growing depth cutoff.
 
@@ -39,10 +39,10 @@ The displayed tail estimate follows from $|\delta|\ge T+1$ on the tail. Rank one
 
 ## Lean route
 
-- `FreeEntropy.KostantCounting.card_positiveRootAssignments_le` in [KostantCounting.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/KostantCounting.lean) proves the finite combinatorial bound.
-- `FreeEntropy.ExteriorRepresentation.canonical_offsetMultiplicity_rank_depth_le` in [RankRootCounting.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/RankRootCounting.lean) applies it to actual representation multiplicities using only roots within the rank support.
-- `FreeEntropy.MeanDepth.hasSum_first_moment` and `FreeEntropy.MeanDepth.weight_mean_le` in [MeanDepth.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/MeanDepth.lean) supply the analytic summation.
-- `FreeEntropy.Cloning.tail_mass_le_mean_div` in [Cloning.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/Cloning.lean) is the finite tail estimate.
+- `FreeEntropy.KostantCounting.card_positiveRootAssignments_le` in [KostantCounting.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/KostantCounting.lean) proves the finite combinatorial bound.
+- `FreeEntropy.ExteriorRepresentation.canonical_offsetMultiplicity_rank_depth_le` in [RankRootCounting.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/RankRootCounting.lean) applies it to actual representation multiplicities using only roots within the rank support.
+- `FreeEntropy.MeanDepth.hasSum_first_moment` and `FreeEntropy.MeanDepth.weight_mean_le` in [MeanDepth.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/MeanDepth.lean) supply the analytic summation.
+- `FreeEntropy.Cloning.tail_mass_le_mean_div` in [Cloning.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/Cloning.lean) is the finite tail estimate.
 
 An exponential tail bound belongs to the older fidelity/cutoff discussion. It is not needed, or asserted as a separate sharp endpoint, by this first-moment route.
 

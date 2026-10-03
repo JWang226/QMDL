@@ -1,7 +1,7 @@
 # Free Entropy
 
 **Appears in:** the current [[Letter|Letter]], with the compression result supplied by the [[Article|Article]].
-**Source labels:** [eq:free_ent](https://github.com/JWang226/QMDL/blob/main/letter.tex#L106), [eq:free_ent_formula](https://github.com/JWang226/QMDL/blob/main/letter.tex#L125).
+**Source labels:** [eq:free_ent](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L106), [eq:free_ent_formula](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L125).
 
 ## Intuition
 

@@ -60,9 +60,9 @@ are proved and connected to this same representation.
 
 Read [[concepts/schur-weyl-duality|Physical sector decomposition]], [[concepts/weyl-dimension-formula|Weyl dimension formula]] and
 [[results/lemmas/weyl-dimension-asymptotic|Dimension asymptotics]]. The key source files are
-[CanonicalCharacterIdentity.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CanonicalCharacterIdentity.lean),
-[WeylDimensionExtraction.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/WeylDimensionExtraction.lean)
-and [CanonicalDimension.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CanonicalDimension.lean).
+[CanonicalCharacterIdentity.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CanonicalCharacterIdentity.lean),
+[WeylDimensionExtraction.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/WeylDimensionExtraction.lean)
+and [CanonicalDimension.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CanonicalDimension.lean).
 
 ## 2. Prove the finite cloning bound directly in trace distance
 
@@ -82,9 +82,9 @@ $n$-dependent fidelity truncation followed by a square-root conversion.
 Read [[results/cloning-fidelity|Cloning accuracy]], [[results/lemmas/perturbation-lemma|Highest-weight projector deficit]],
 [[results/lemmas/tail-mass|Uniform mean depth]], [[results/lemmas/probability-ratio|Eigenvalue ratio]] and
 [[results/lemmas/dimension-ratio|Dimension ratio]]. Representative source files are
-[SignedAuxiliaryModel.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/SignedAuxiliaryModel.lean),
-[CanonicalCloningBounds.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CanonicalCloningBounds.lean)
-and [Theorem2Canonical.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/Theorem2Canonical.lean).
+[SignedAuxiliaryModel.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/SignedAuxiliaryModel.lean),
+[CanonicalCloningBounds.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CanonicalCloningBounds.lean)
+and [Theorem2Canonical.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/Theorem2Canonical.lean).
 
 ## 3. Recover the manuscript's channel definitions
 
@@ -100,10 +100,10 @@ multiplicity one and recovery identities are not assumed at the final endpoint.
 
 | Description | Main source | Endpoint or role |
 | --- | --- | --- |
-| Cartan channels | [Theorem2Canonical.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/Theorem2Canonical.lean) | `theorem2_cloning_accuracy` |
-| Original Choi-projector contractions | [Theorem2Choi.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/Theorem2Choi.lean) | `theorem2_cloning_accuracy_choi` |
-| Literal reverse Petz map | [Theorem2Petz.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/Theorem2Petz.lean) | `theorem2_cloning_accuracy_petz` |
-| Equal source and target rows | [CanonicalCloningSelf.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CanonicalCloningSelf.lean) | The Cartan channels reduce to identity channels. |
+| Cartan channels | [Theorem2Canonical.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/Theorem2Canonical.lean) | `theorem2_cloning_accuracy` |
+| Original Choi-projector contractions | [Theorem2Choi.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/Theorem2Choi.lean) | `theorem2_cloning_accuracy_choi` |
+| Literal reverse Petz map | [Theorem2Petz.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/Theorem2Petz.lean) | `theorem2_cloning_accuracy_petz` |
+| Equal source and target rows | [CanonicalCloningSelf.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CanonicalCloningSelf.lean) | The Cartan channels reduce to identity channels. |
 
 The three theorem names above belong to `FreeEntropy.ExteriorRepresentation`.
 See [[results/propositions/choi-matrix-lemma|Cartan and Choi formulas]] and
@@ -124,9 +124,9 @@ on atypical sectors. The sector label is not retained as an uncharged register.
 
 Read [[results/achievability|Achievability]], [[definitions/typical-set|Typical sectors]] and
 [[results/lemmas/sanov-theorem|Physical concentration]]. The construction and estimates culminate in
-[PhysicalCloningChannels.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/PhysicalCloningChannels.lean),
-[PhysicalCloningAccuracy.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/PhysicalCloningAccuracy.lean)
-and [PhysicalUniformError.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/PhysicalUniformError.lean).
+[PhysicalCloningChannels.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/PhysicalCloningChannels.lean),
+[PhysicalCloningAccuracy.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/PhysicalCloningAccuracy.lean)
+and [PhysicalUniformError.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/PhysicalUniformError.lean).
 
 ## 5. Prove the converse for arbitrary physical codes
 
@@ -149,17 +149,17 @@ It does not require the sharper intermediate constant in the Article.
 
 Read [[results/converse|Converse]] and [[results/propositions/orbit-sector-compression|Haar-orbit memory bound]].
 The main transfer is in
-[PhysicalCanonicalConverse.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/PhysicalCanonicalConverse.lean),
+[PhysicalCanonicalConverse.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/PhysicalCanonicalConverse.lean),
 and the final endpoint file is
-[Theorem1Complete.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/Theorem1Complete.lean).
+[Theorem1Complete.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/Theorem1Complete.lean).
 
 ## Scope and reading order
 
 Start with [[intro|Introduction]], then read [[results/cloning-fidelity|Cloning accuracy]],
 [[results/achievability|Achievability]] and [[results/converse|Converse]]. Return to the supporting
 lemmas when you need the finite estimates. The repository's
-[Lean library guide](https://github.com/JWang226/QMDL/blob/main/lean/README.md)
-and [machine-readable source map](https://github.com/JWang226/QMDL/blob/main/metadata/natural-language-map.json)
+[Lean library guide](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/README.md)
+and [machine-readable source map](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/metadata/natural-language-map.json)
 give more detailed source references.
 
 The final endpoints cover all positive ranks, signed dominant differences
@@ -173,7 +173,7 @@ and [[formalization|formalization scope]].
 
 ## Relation to the current Letter
 
-The [current Letter](https://github.com/JWang226/QMDL/blob/main/letter.tex)
+The [current Letter](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex)
 states the full-rank memory formula at `eq:result_qmdl` and its distinct-positive,
 rank-deficient extension at `eq:rank_def_qmdl`. These follow the Article's
 checked achievability and converse above. Its entropy identity compares that
@@ -181,5 +181,5 @@ memory with one half of the ambient tube-volume entropy at resolution
 $n^{-1}$ and includes an explicit spectrum-independent offset. The geometric
 volume derivation and the conditional large-dimension bridge do not appear
 in this Lean dependency graph. See the
-[companion source map](https://github.com/JWang226/QMDL/blob/main/metadata/letter-source-map.json)
+[companion source map](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/metadata/letter-source-map.json)
 and [[Letter|Letter overview]] for that boundary.

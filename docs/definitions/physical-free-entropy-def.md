@@ -1,6 +1,6 @@
 # Physical Free Entropy (Formal Definition)
 
-**Source:** current [[Letter]], `eq:free_phys_def`, `eq:free_phys`, and `eq:degenerate_free_ent` in [letter.tex](https://github.com/JWang226/QMDL/blob/main/letter.tex). All logarithms are base two.
+**Source:** current [[Letter]], `eq:free_phys_def`, `eq:free_phys`, and `eq:degenerate_free_ent` in [letter.tex](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex). All logarithms are base two.
 
 ## Statement
 

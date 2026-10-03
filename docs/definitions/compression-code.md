@@ -1,7 +1,7 @@
 # Compression Code
 
 **Label:** `eq:error` in both the current [[Letter]] and [[Article]].
-**Source:** [Letter compression task](https://github.com/JWang226/QMDL/blob/main/letter.tex#L183) and [Article introduction](https://github.com/JWang226/QMDL/blob/main/article.tex#L76). The earlier [[Notes]] use their own version.
+**Source:** [Letter compression task](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/letter.tex#L183) and [Article introduction](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/article.tex#L76). The earlier [[Notes]] use their own version.
 
 ## Statement
 

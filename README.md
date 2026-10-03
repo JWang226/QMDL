@@ -5,18 +5,22 @@ Alexander Maloney, Jinzhao Wang and Yuxiang Yang. Developed with assistance from
 Codex. The current [Article](article.tex), [Letter](letter.tex), shared bibliography
 and Letter figure are included unchanged.
 
-[Proof website](https://jwang226.github.io/QMDL/) ·
-[Proof route](https://jwang226.github.io/QMDL/proof-structure/) ·
-[Lean explorer](https://jwang226.github.io/QMDL/proof-explorer/) ·
-[Verification guide](https://jwang226.github.io/QMDL/verify/)
+[Proof website](https://jwang226.github.io/Quantum-Minimum-Description-Length/) ·
+[Proof route](https://jwang226.github.io/Quantum-Minimum-Description-Length/proof-structure/) ·
+[Lean explorer](https://jwang226.github.io/Quantum-Minimum-Description-Length/proof-explorer/) ·
+[Verification guide](https://jwang226.github.io/Quantum-Minimum-Description-Length/verify/)
+
+The [human-readable correspondence and scope](docs/FORMALIZATION_STATUS.md)
+maps manuscript statements to Lean declarations and explains their assumptions
+and coverage boundaries.
 
 ## The statements
 
 | Result | Checked declaration | Conclusion |
 | --- | --- | --- |
-| Article Theorem 1: achievability | [theorem1_achievability](https://jwang226.github.io/QMDL/proof-explorer/#declaration=FreeEntropy.theorem1_achievability) | Constructed CPTP codes attain the exact additive memory constant and worst-case error $O(\log n/\sqrt n)$. |
-| Article Theorem 1: converse | [theorem1_converse](https://jwang226.github.io/QMDL/proof-explorer/#declaration=FreeEntropy.theorem1_converse) | Matching lower bound for arbitrary physical codes with vanishing Haar-average error; also covers vanishing worst-case error. |
-| Article Theorem 2: cloning | [theorem2_cloning_accuracy_choi](https://jwang226.github.io/QMDL/proof-explorer/#declaration=FreeEntropy.ExteriorRepresentation.theorem2_cloning_accuracy_choi) | Both original Choi-projector channel bounds, including signed dominant differences, rank one and equal rows. |
+| Article Theorem 1: achievability | [theorem1_achievability](https://jwang226.github.io/Quantum-Minimum-Description-Length/proof-explorer/#declaration=FreeEntropy.theorem1_achievability) | Constructed CPTP codes attain the exact additive memory constant and worst-case error $O(\log n/\sqrt n)$. |
+| Article Theorem 1: converse | [theorem1_converse](https://jwang226.github.io/Quantum-Minimum-Description-Length/proof-explorer/#declaration=FreeEntropy.theorem1_converse) | Matching lower bound for arbitrary physical codes with vanishing Haar-average error; also covers vanishing worst-case error. |
+| Article Theorem 2: cloning | [theorem2_cloning_accuracy_choi](https://jwang226.github.io/Quantum-Minimum-Description-Length/proof-explorer/#declaration=FreeEntropy.ExteriorRepresentation.theorem2_cloning_accuracy_choi) | Both original Choi-projector channel bounds, including signed dominant differences, rank one and equal rows. |
 
 The dimension and spectrum are fixed, with distinct positive eigenvalues and
 possible zeros. Theorem 1 covers all positive ranks, including `d=1`. The cloning
@@ -30,7 +34,7 @@ The explorer shows the exact elaborated Lean types and declaration references.
 [statement map](metadata/natural-language-map.json) locate the certificates.
 The Letter's tube-volume geometry, entropy offsets and double-scaling bridge,
 and broader repeated-positive-spectrum/programming claims, are outside these
-certificates. See [precise scope](docs/FORMALIZATION_STATUS.md).
+certificates.
 
 ## How it was verified
 
@@ -59,8 +63,8 @@ Nanoda. Initial setup needs internet access and space for the dependencies.
 The wrapper prepares the pinned checker tools and saves fresh logs per run.
 
 ```sh
-git clone https://github.com/JWang226/QMDL.git
-cd QMDL
+git clone https://github.com/JWang226/Quantum-Minimum-Description-Length.git
+cd Quantum-Minimum-Description-Length
 bash scripts/verify.sh all
 ```
 
@@ -88,10 +92,10 @@ Metadata validation checks evidence bindings; it does not execute the checkers.
 
 ## Read the proof
 
-Start with [the proof route](https://jwang226.github.io/QMDL/proof-structure/),
-then use [the explorer](https://jwang226.github.io/QMDL/proof-explorer/) to search
+Start with [the proof route](https://jwang226.github.io/Quantum-Minimum-Description-Length/proof-structure/),
+then use [the explorer](https://jwang226.github.io/Quantum-Minimum-Description-Length/proof-explorer/) to search
 public declarations, inspect their exact types and follow dependencies in both
-directions. [The mathematical wiki](https://jwang226.github.io/QMDL/wiki-index/)
+directions. [The mathematical wiki](https://jwang226.github.io/Quantum-Minimum-Description-Length/wiki-index/)
 explains the concepts and paper-level arguments.
 
 To browse a local Git checkout:

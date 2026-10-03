@@ -1,7 +1,7 @@
 # Commutativity (Article Proposition 3)
 
 **Label:** `prop:commutativity` in the current Article; the Notes used `lem:commutativity`.
-**Source:** [current Article](https://github.com/JWang226/QMDL/blob/main/article.tex#L589).
+**Source:** [current Article](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/article.tex#L589).
 
 ## Statement
 
@@ -21,7 +21,7 @@ Weight spaces may have multiplicity greater than one. The output need not alread
 
 The audited main endpoint is [[results/cloning-fidelity|Article Theorem 2]], whose direct trace-distance proof uses actual weight projectors, retained positive Kraus branches and positive remainders. It does not require a separately supplied general commutativity proposition or a classical fidelity calculation.
 
-Relevant constructed ingredients include [TorusWeightProjection.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/TorusWeightProjection.lean), [CanonicalOrbit.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CanonicalOrbit.lean), and the proved channel covariance in [CanonicalCloningOrbit.lean](https://github.com/JWang226/QMDL/blob/main/lean/FreeEntropy/CanonicalCloningOrbit.lean). For example, `FreeEntropy.ExteriorRepresentation.canonicalForward_covariant` treats the actual forward channel.
+Relevant constructed ingredients include [TorusWeightProjection.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/TorusWeightProjection.lean), [CanonicalOrbit.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CanonicalOrbit.lean), and the proved channel covariance in [CanonicalCloningOrbit.lean](https://github.com/JWang226/Quantum-Minimum-Description-Length/blob/main/lean/FreeEntropy/CanonicalCloningOrbit.lean). For example, `FreeEntropy.ExteriorRepresentation.canonicalForward_covariant` treats the actual forward channel.
 
 There is no separately indexed Lean endpoint here certifying Proposition 3 for **every** covariant channel. Its short mathematical proof is recorded above; the existence of the supporting torus and covariance modules should not be read as a claim that the whole proposition was packaged and audited as a standalone theorem.
 

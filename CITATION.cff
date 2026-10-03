@@ -3,8 +3,8 @@ message: >-
   Cite the mathematical manuscript and identify the version or commit of this
   Lean formalization used. The repository URL is provided below; a persistent
   scholarly identifier has not been assigned.
-repository-code: https://github.com/JWang226/QMDL
-url: https://github.com/JWang226/QMDL
+repository-code: https://github.com/JWang226/Quantum-Minimum-Description-Length
+url: https://github.com/JWang226/Quantum-Minimum-Description-Length
 title: Lean formalization of Quantum minimum description of density matrices
 type: software
 version: 0.1.0
