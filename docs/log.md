@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-03 — Readable correspondence link
+
+- Pointed the README's human-readable correspondence and scope link directly
+  to the rendered table in [[formalization|Formalization and Evidence]].
+
 ## 2026-10-03 — Website links after the repository rename
 
 - Updated the website address, explorer source links, repository references
